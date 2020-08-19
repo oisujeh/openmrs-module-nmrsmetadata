@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+	
+	<!-- Base Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>org.openmrs.module.nmrsmetadata</package>
+	<author>MGIC</author>
+	<description>
+			${project.parent.description}
+	</description>
+
+	<activator>org.openmrs.module.nmrsmetadata.NMRSMetatadatModuleActivator</activator>
+	
+	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
+	<!-- /Base Module Properties -->
+	
+	<require_version>1.11.6</require_version>
+	
+	<!-- Extensions -->
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>org.openmrs.module.nmrsmetadata.extension.html.AdminList</class>
+	</extension>
+
+	<aware_of_modules>
+		<aware_of_module>org.openmrs.module.legacyui</aware_of_module>
+	</aware_of_modules>
+	
+	
+	<!-- AOP
+	<advice>
+		<point>org.openmrs.api.FormService</point>
+		<class>@MODULE_PACKAGE@.advice.DuplicateFormAdvisor</class>
+	</advice>
+	 /AOP -->
+	
+	
+	<!-- Required Privileges 
+	<privilege>
+		<name>Form Entry</name>
+		<description>Allows user to access Form Entry pages/functions</description>
+	</privilege>
+	 /Required Privileges -->
+
+
+	<!-- Required Global Properties  -->
+	<globalProperty>
+		<property>ndr_last_run_date</property>
+		<defaultValue>2020-01-01</defaultValue>
+		<description>
+			NDR last run date
+		</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>facility_datim_code</property>
+		<defaultValue/>
+		<description/>
+	</globalProperty>
+	<globalProperty>
+		<property>facility_local_id</property>
+		<defaultValue/>
+		<description>
+			local facility id implemented by partner
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>Facility_Name</property>
+		<defaultValue/>
+		<description>
+			Facility name. This should correspond to the name on DATIM
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>nigeria_qual_id</property>
+		<defaultValue/>
+		<description>Nigeria qual facility Id
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>partner_full_name</property>
+		<defaultValue/>
+		<description>
+			Partners full name
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>partner_short_name</property>
+		<defaultValue/>
+		<description>
+			Partners standard short name
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>patient_id_limit</property>
+		<defaultValue/>
+		<description>
+			This property is used to control the number of patient to be export by the nmrs-ndr extraction tool
+		</description>
+	</globalProperty>
+	
+	<!--
+	<dwr>
+		<allow>
+			<create creator="new" javascript="DWRFormEntryService">
+				<param name="class" value="org.openmrs.module.@MODULE_ID@.web.DWRFormEntryService"/>
+				<include method="enterForm"/>
+			</create>
+		</allow>
+
+		<signatures>
+			<![CDATA[
+			import @MODULE_PACKAGE@.web.DWRFormEntryService;
+			DWRFormEntryService.enterForm(Integer patientId, Integer formId, boolean useEncounter, List<String> fields);
+			]]>
+		</signatures>	
+	</dwr>
+	-->
+	
+	<!-- Servlets -->
+	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> 
+	<servlet>
+		<servlet-name>formDownload</servlet-name>
+		<servlet-class>@MODULE_PACKAGE@.web.FormDownloadServlet</servlet-class>
+	</servlet>
+	-->
+	<!-- /Servlets -->
+	
+	
+	<!-- Internationalization -->
+	<!-- All message codes should start with @MODULE_ID@.* -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+	
+</module>
+
