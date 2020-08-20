@@ -1,6 +1,5 @@
---liquibase formatted sql
---changeset wande:nmrs_patientflags_tag_role splitStatements:true endDelimiter:;
-INSERT IGNORE INTO `patientflags_tag_role` VALUES
+SET FOREIGN_KEY_CHECKS=0/0xd
+REPLACE INTO `patientflags_tag_role` VALUES
 (1,'Adherence'),
 (1,'Anonymous'),
 (1,'Application: Administers System'),
@@ -35,4 +34,5 @@ INSERT IGNORE INTO `patientflags_tag_role` VALUES
 (1,'Pharmacist'),
 (1,'Privilege Level: Full'),
 (1,'Privilege Level: High'),
-(1,'Provider');
+(1,'Provider')/0xd
+SET FOREIGN_KEY_CHECKS=1/0xd

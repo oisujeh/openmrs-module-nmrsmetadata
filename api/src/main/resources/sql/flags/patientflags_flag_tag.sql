@@ -1,6 +1,4 @@
---liquibase formatted sql
---changeset wande:nmrs_patientflags_flag_tag splitStatements:true endDelimiter:;
-INSERT IGNORE INTO `patientflags_flag_tag` VALUES
+REPLACE INTO `patientflags_flag_tag` VALUES
 (3,1),
 (4,1),
 (9,1),
@@ -14,4 +12,4 @@ INSERT IGNORE INTO `patientflags_flag_tag` VALUES
 (10,1),
 (12,1),
 (11,1),
-(6,1);
+(6,1)/0xd
