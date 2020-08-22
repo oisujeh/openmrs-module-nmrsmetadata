@@ -6,4 +6,5 @@
 
     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
 
+
 </databaseChangeLog>
