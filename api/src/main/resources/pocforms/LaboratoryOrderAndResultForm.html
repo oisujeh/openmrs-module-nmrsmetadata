@@ -1,0 +1,620 @@
+<htmlform>
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: #2f1c55;
+        color: white;
+        /* display: block; */
+        padding: 2px;
+        font-weight: bold;
+        }
+        table tr:nth-child(even) {
+        background: #ffffff;
+        }
+        .alnleft_s{
+        text-align: left;
+        color:#000000;
+        width: 13%;
+        }
+        .alnright_s{
+        text-align: right;
+        color:#000000;
+        width: 13%;
+        }
+        .alnright{
+        text-align: right;
+        color:#000000;
+        width: 25%;
+        }
+        .alnright_i{
+        text-align: right;
+        color:#000000;
+        width: 40%;
+        }
+        .alnleft{
+        text-align: left;
+        color:#000000;
+        width: 25%;
+        }
+        .error{
+      color:red;
+        }
+        td {
+        border: none;
+        }
+        table th, table td {
+        padding: 5px 10px;
+        border: None;
+        }
+        .legend_style {
+        max-width: 35%;
+        background: #FAFAFA;
+        <!--padding: 5px;-->
+        margin: 0px left;
+        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+        border-radius: 2px;
+        border: 1px solid #305a72;
+        border-bottom-left-radius: 2px;
+        text-transform:initial;
+
+        }
+        form fieldset, .form fieldset {
+        min-width: 98%;
+        border: none;
+        border-top: 1px solid #305a72;
+
+        }
+        table th, table td {
+        padding: 5px 10px;
+        /* border: 1px solid #DDD; */
+        }
+        table tr {
+        border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form select, .form select {
+        max-width: 200px;
+        }
+        body {
+        font-family: "OpenSans", Arial, sans-serif;
+        color: #363463;
+        font-size: 14px;
+        }
+    </style>
+<script type="text/javascript">
+
+	var $ = jQuery;
+	$(document).ready(function ()
+	{
+	   $('.hasDatepicker').attr('readonly', true)
+	});
+</script>
+    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
+        <fieldset>
+            <legend class="legend_style">When?</legend>
+            <label>When?</label>
+            <encounterDate default="now" showTime="false" allowFutureDates="false"/>
+        </fieldset>
+        <fieldset>
+            <legend>Who?</legend>
+            <label>Who?</label>
+            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Where?</legend>
+            <label>Where?</label>
+            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
+        </fieldset>
+    </div>
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+            <tr><th colspan='5' style="text-align: center">Laboratory Order &amp; Result Form</th></tr>
+        </thead>
+    </table>
+
+    <table class="table" width="100%">
+        <tbody>
+            <tr>
+                <td class="alnright">Visit Date</td>
+                <div class="enable_disable_control2" style="pointer-events: none">
+                <td class="alnleft"><encounterDate default="now" showTime="false" allowFutureDates="false" required="true" /></td>
+                </div>
+                <td class="alnright"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <fieldset>
+        <table>
+            <tr>                
+                <th class="alnleft"><label>Order</label></th>
+                <th><label>Results</label></th>
+                <th class="alnleft"><label>Order</label></th>
+                <th><label>Results</label></th>
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft">
+                        <div id="clin1" style="pointer-events: none">
+                        <obs conceptId="165731" style="checkbox" value="false" />CD4+ cell count (cells/mm3)
+                        </div>
+                    </td>   
+                    <td>
+                        <div id="lab1" style="pointer-events: none">
+                            <obs conceptId="5497"/>
+                        </div>
+                    </td>
+                    <td class="alnleft">
+                        <div id="clin2" style="pointer-events: none">
+                            <obs conceptId="165748" style="checkbox" value="false" />CD4 (%)
+                        </div>
+                    </td>      
+                    <td>
+                        <div id="lab2" style="pointer-events: none">
+                            <obs conceptId="730"/>
+                        </div>
+                    </td>
+                    
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft">
+                        <div id="clin3" style="pointer-events: none"><obs conceptId="165732" style="checkbox" value="false" />WBC (x10<sup>9</sup> c/L)</div></td>
+                    
+                    
+                    <td><div id="lab3" style="pointer-events: none"><obs conceptId="678"/></div></td>
+                                     
+                    <td colspan="2"> </td>
+            </tr>
+            <tr>
+                    
+                     <td class="alnleft"><div id="clin4" style="pointer-events: none"><obs conceptId="165749" style="checkbox" value="false" />Polymorphs (/mm<sup>3</sup>) </div></td>
+                    
+                     
+                    <td><div id="lab4" style="pointer-events: none"><obs conceptId="1022"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin5" style="pointer-events: none"><obs conceptId="165918" style="checkbox" value="false" />Polymorphs (%)</div></td>
+                   
+                    <td><div id="lab5" style="pointer-events: none"><obs conceptId="165919"/></div></td>
+                    
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin6" style="pointer-events: none"><obs conceptId="165733" style="checkbox" value="false" />Lymphocytes (/mm<sup>3</sup>)</div></td>
+                    
+                    
+                    <td><div id="lab6" style="pointer-events: none"><obs conceptId="1319"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin7" style="pointer-events: none"><obs conceptId="165750" style="checkbox" value="false" />Lymphocytes (%)</div></td>
+                    
+                    <td><div id="lab7" style="pointer-events: none"><obs conceptId="1338"/></div></td>
+                       
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin8" style="pointer-events: none"><obs conceptId="165734" style="checkbox" value="false" />Monocytes (/mm<sup>3</sup>)</div></td>
+                    
+                    
+                    <td><div id="lab8" style="pointer-events: none"><obs conceptId="1023" /></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin9" style="pointer-events: none"><obs conceptId="165751" style="checkbox" value="false" />Monocytes (%)</div></td>
+                    
+                    
+                    <td><div id="lab9" style="pointer-events: none"><obs conceptId="1339" /></div></td>
+               
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin10" style="pointer-events: none"><obs conceptId="165735" style="checkbox" value="false" />Eosinophils (/mm<sup>3</sup>)</div></td>
+                    
+                    
+                    <td><div id="lab10" style="pointer-events: none"><obs conceptId="1024" /></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin11" style="pointer-events: none"><obs conceptId="165752" style="checkbox" value="false" />Eosinophil (%)</div></td>
+                    
+                    
+                    <td><div id="lab11" style="pointer-events: none"><obs conceptId="1340" /></div></td>
+                             
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin12" style="pointer-events: none"><obs conceptId="165736" style="checkbox" value="false" />Basophils (/mm<sup>3</sup>)</div></td>
+                    
+                    
+                    <td><div id="lab12" style="pointer-events: none"><obs conceptId="1025" /></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin13" style="pointer-events: none"><obs conceptId="165753" style="checkbox" value="false" />Basophils (%)</div></td>
+                    
+                    
+                    <td><div id="lab13" style="pointer-events: none"><obs conceptId="1341" /></div></td>
+                                 
+            </tr>
+
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin14" style="pointer-events: none"><obs conceptId="165737" style="checkbox" value="false" />PCV/Hb (%)</div></td>
+                    
+                    
+                    <td><div id="lab14" style="pointer-events: none"><obs conceptId="165395" /></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin15" style="pointer-events: none"><obs conceptId="165921" style="checkbox" value="false" />PCV/Hb (g/dl)</div></td>
+                    
+                    <td><div id="lab15" style="pointer-events: none"><obs conceptId="165920" /></div></td>
+                    
+            </tr>
+
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin16" style="pointer-events: none"><obs conceptId="165754" style="checkbox" value="false" />Platelets (x 10<sup>9</sup> c/L)</div></td>
+                    
+                    
+                    <td><div id="lab16" style="pointer-events: none"><obs conceptId="729" /></div></td>
+                    
+                    <td colspan="2"> </td>               
+            </tr>
+
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin17" style="pointer-events: none"><obs conceptId="165738" style="checkbox" value="false" />HCV antibody</div> </td>
+                    
+                    
+                    <td><div id="lab17" style="pointer-events: none"><obs conceptId="1325" answerConceptIds="703,664" answerLabels="Positive,Negative"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin18" style="pointer-events: none"><obs conceptId="165755" style="checkbox" value="false" />HBsAG </div></td>
+                    
+                    
+                    <td><div id="lab18" style="pointer-events: none"><obs conceptId="159430" answerConceptIds="703,664" answerLabels="Positive,Negative"/></div></td>
+               
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin19" style="pointer-events: none"><obs conceptId="165739" style="checkbox" value="false" />VDRL </div></td>
+                    
+                    
+                    <td><div id="lab19" style="pointer-events: none"><obs conceptId="299" answerConceptIds="1228,1229" answerLabels="Reactive,Non-Reactive"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin20" style="pointer-events: none"><obs conceptId="165756" style="checkbox" value="false" />Creatinine (µmol/l)</div></td>
+                
+                    
+                    <td><div id="lab20" style="pointer-events: none"><obs conceptId="164364"/></div></td>
+                    
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin21" style="pointer-events: none"><obs conceptId="165740" style="checkbox" value="false" />ALT/SGPT (U/I)</div></td>
+                    
+                    
+                    <td><div id="lab21" style="pointer-events: none"><obs conceptId="654"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin22" style="pointer-events: none"><obs conceptId="165922" style="checkbox" value="false" />ALT/SGPT (mmol/L)</div></td>
+                    
+                    
+                    <td><div id="lab22" style="pointer-events: none"><obs conceptId="165923"/></div></td>
+                    
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin23" style="pointer-events: none"><obs conceptId="165757" style="checkbox" value="false" />AST/SGOT (µ/L)</div></td>
+                    
+                    
+                    <td><div id="lab23" style="pointer-events: none"><obs conceptId="653"/></div></td>
+                    
+                    <td colspan="2"> </td>
+              
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin24" style="pointer-events: none"><obs conceptId="165741" style="checkbox" value="false" />Alk. Phosphate (U/l)</div></td>
+                    
+                    
+                    <td><div id="lab24" style="pointer-events: none"><obs conceptId="785"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin25" style="pointer-events: none"><obs conceptId="165758" style="checkbox" value="false" />Total Bilirubin (µmol/l)</div></td>
+                    
+                    
+                    <td><div id="lab25" style="pointer-events: none"><obs conceptId="655"/></div></td>
+                        
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin26" style="pointer-events: none"><obs conceptId="165742" style="checkbox" value="false" />Na+ (mmol/L)</div></td>
+                    
+                    
+                    <td><div id="lab26" style="pointer-events: none"><obs conceptId="1132"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin27" style="pointer-events: none"><obs conceptId="165759" style="checkbox" value="false" />K+ (mmol/L)</div></td>
+                    
+                    
+                    <td><div id="lab27" style="pointer-events: none"><obs conceptId="1133"/></div></td>
+                    
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin28" style="pointer-events: none"><obs conceptId="165743" style="checkbox" value="false" />Fasting Glucose (mmol/l)</div></td>
+                    
+                    
+                    <td><div id="lab28" style="pointer-events: none"><obs conceptId="160053"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin29" style="pointer-events: none"><obs conceptId="165760" style="checkbox" value="false" />Total Cholesterol (mmol/l)</div></td>
+                    
+                    <td><div id="lab29" style="pointer-events: none"><obs conceptId="1006"/></div></td>
+                                  
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin30" style="pointer-events: none"><obs conceptId="165744" style="checkbox" value="false" />LDL (mmol/L)</div></td>
+                    
+                    
+                    <td><div id="lab30" style="pointer-events: none"><obs conceptId="1008"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin31" style="pointer-events: none"><obs conceptId="165761" style="checkbox" value="false" />HDL (mmol/L)</div></td>
+                    
+                    
+                    <td><div id="lab31" style="pointer-events: none"><obs conceptId="1007"/></div></td>
+                    
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin32" style="pointer-events: none"><obs conceptId="165745" style="checkbox" value="false" />Glucose</div></td>
+                    
+                    
+                    <td><div id="lab32" style="pointer-events: none"><obs conceptId="160053"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin33" style="pointer-events: none"><obs conceptId="165762" style="checkbox" value="false" />Protein</div></td>
+                    
+                    
+                    <td><div id="lab33" style="pointer-events: none"><obs conceptId="165926"/></div></td>
+                    
+               
+            </tr>
+            <tr>
+                    
+                    <td class="alnleft"><div id="clin34" style="pointer-events: none"><obs conceptId="165746" style="checkbox" value="false" />Cytology/Pap Smear: </div></td>
+                
+                    
+                    <td><div id="lab34" style="pointer-events: none"><obs conceptId="165927"/></div></td>
+                    
+                    
+                    <td class="alnleft"><div id="clin35" style="pointer-events: none"><obs conceptId="165763" style="checkbox" value="false" />Triglyceride</div></td>
+                    
+                    
+                    <td><div id="lab35" style="pointer-events: none"><obs conceptId="1009"/></div></td>
+                    
+            </tr>
+
+            <tr>
+                    <excludeIf velocityTest="$patient.gender == 'M' ">
+                        
+                        <td  class="alnleft"><div id="clin36" style="pointer-events: none"><obs conceptId="165747" style="checkbox" value="false" />Pregnancy</div></td>
+                        
+                        
+                        <td><div id="lab36" style="pointer-events: none"><obs conceptId="45" answerConceptIds="703,664" answerLabels="Positive,Negative"/></div></td>
+                    </excludeIf>
+                    
+                    <td class="alnleft"><div id="clin37" style="pointer-events: none"><obs conceptId="165764" style="checkbox" value="false" />Malaria smear</div></td>
+                    
+                    
+                    <td><div id="lab37" style="pointer-events: none"><obs conceptId="32" answerConceptIds="664,703"
+                            answerLabels="Positive,Negative" /></div></td>
+                
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Viral Load</legend>
+        <table>
+            <tr>
+                    
+                    <td class="alnright">                        
+                        <div id="clin38" style="pointer-events: none"><obs conceptId="165765" style="checkbox" value="false" labelText="Viral Load Test" toggle="viralLoad"/> </div>                      
+                    </td>
+            </tr>
+        </table>
+        <table id="viralLoad">
+            <tr>
+                <td class="alnleft_s">PCR Lab Sample No.</td>
+                <td><div id="lab38" style="pointer-events: none"><obs conceptId="165715"/></div></td>
+                <td class="alnleft_s">Sample Type</td>
+                <td><div id="lab39" style="pointer-events: none"><obs conceptId="162476" answerConceptIds="1000,165568" answerLabels="Whole Blood/Plasma,DBS"/></div></td>
+                <td class="alnleft_s">Indication for Viral Load</td>
+                <td><div id="lab40" style="pointer-events: none"><obs id="viral_load" conceptId="164980" answerConceptIds="162080,161236,162082,162081,163523,160566, 165978" answerLabels="Baseline (6 months after ART initiation), Routine (every 12 months), Confirmation (3-6 months after intense adherence counselling), Repeat test, Clinical failure, Immunological failure, PMTCT 32-36 weeks gestation">
+                    <controls>
+                        <when value="162081" thenDisplay="#repeat_id"/>
+                    </controls>
+                </obs>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" id="repeat_id">
+                    <table>
+                        <tr>
+                            <td class="alnleft_s">Reason for Repeat</td>
+                            <td><div id="lab41" style="pointer-events: none"><obs conceptId="165831"/></div></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="alnleft_s">Sample collection date</td>
+                <td><div id="lab42" style="pointer-events: none"><obs conceptId="159951"/></div></td>               
+                <td class="alnleft_s">Date sample sent to PCR Lab</td>
+                 <td><div id="lab43" style="pointer-events: none"><obs conceptId="165988" /></div></td>
+                <td class="alnleft_s">Date sample received at PCR Lab</td>
+                <td><div id="lab44" style="pointer-events: none"><obs conceptId="165716"/></div></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Viral Load test result</td>
+                <td><div id="lab45" style="pointer-events: none"><obs conceptId="856" labelText=""/>copies/ml</div></td>
+
+                 <td class="alnleft_s">Date result was sent from PCR Lab</td>
+                 <td><div id="lab46" style="pointer-events: none"><obs conceptId="165989" /></div></td>
+
+                 <td class="alnleft_s">Date result was received at the facility</td>
+                 <td><div id="lab47" style="pointer-events: none"><obs conceptId="165987" /></div></td>
+
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style">Signatures</legend>
+        <table>
+            <tr>
+                <td class="alnleft_s">Name of Clinician</td>
+                <td><encounterProvider role="Provider" default="currentUser" /></td>
+                <td class="alnleft_s">Date Ordered</td>
+                <td><obs conceptId="164989" required="true" allowFutureDates="false"/></td>
+			
+                <td class="alnleft_s"></td>
+                <td class="alnleft_s"></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Reported By</td>
+                <td><obs conceptId="164982" style="person" /></td>
+                <td class="alnleft_s">Date Reported</td>
+                <td><obs conceptId="165414" allowFutureDates="false"/></td>
+				
+		
+                <td class="alnleft_s"></td>
+                <td class="alnleft_s"></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Checked By</td>
+                <td><obs conceptId="164983" labelText="" style="person" /></td>
+                <td class="alnleft_s">Date checked</td>
+                <td><obs conceptId="164984" allowFutureDates="false"/></td>
+				
+                <td class="alnleft_s"></td>
+                <td class="alnleft_s"></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Facility</td>
+                <td><encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
+
+    <includeIf velocityTest="$user.hasRole('Clinician')">
+        <script>
+            console.log("Am a Clinician");
+            document.getElementById("clin1").style.pointerEvents = "unset";
+            document.getElementById("clin2").style.pointerEvents = "unset";
+            document.getElementById("clin3").style.pointerEvents = "unset";
+            document.getElementById("clin4").style.pointerEvents = "unset";
+            document.getElementById("clin5").style.pointerEvents = "unset";
+            document.getElementById("clin6").style.pointerEvents = "unset";
+            document.getElementById("clin7").style.pointerEvents = "unset";
+            document.getElementById("clin8").style.pointerEvents = "unset";
+            document.getElementById("clin9").style.pointerEvents = "unset";
+            document.getElementById("clin10").style.pointerEvents = "unset";
+            document.getElementById("clin11").style.pointerEvents = "unset";
+            document.getElementById("clin12").style.pointerEvents = "unset";
+            document.getElementById("clin13").style.pointerEvents = "unset";
+            document.getElementById("clin14").style.pointerEvents = "unset";
+            document.getElementById("clin15").style.pointerEvents = "unset";
+            document.getElementById("clin16").style.pointerEvents = "unset";
+            document.getElementById("clin17").style.pointerEvents = "unset";
+            document.getElementById("clin18").style.pointerEvents = "unset";
+            document.getElementById("clin19").style.pointerEvents = "unset";
+            document.getElementById("clin20").style.pointerEvents = "unset";
+            document.getElementById("clin21").style.pointerEvents = "unset";
+            document.getElementById("clin22").style.pointerEvents = "unset";
+            document.getElementById("clin23").style.pointerEvents = "unset";
+            document.getElementById("clin24").style.pointerEvents = "unset";
+            document.getElementById("clin25").style.pointerEvents = "unset";
+            document.getElementById("clin26").style.pointerEvents = "unset";
+            document.getElementById("clin27").style.pointerEvents = "unset";
+            document.getElementById("clin28").style.pointerEvents = "unset";
+            document.getElementById("clin29").style.pointerEvents = "unset";
+            document.getElementById("clin30").style.pointerEvents = "unset";
+            document.getElementById("clin31").style.pointerEvents = "unset";
+            document.getElementById("clin32").style.pointerEvents = "unset";
+            document.getElementById("clin33").style.pointerEvents = "unset";
+            document.getElementById("clin34").style.pointerEvents = "unset";
+            document.getElementById("clin35").style.pointerEvents = "unset";
+            document.getElementById("clin36").style.pointerEvents = "unset";
+            document.getElementById("clin37").style.pointerEvents = "unset";
+            document.getElementById("clin38").style.pointerEvents = "unset";      
+        </script>
+    </includeIf>
+    <includeIf velocityTest="$user.hasRole('Lab')">
+        <script>
+            console.log("Am a Lab");
+            document.getElementById("lab1").style.pointerEvents = "unset";
+            document.getElementById("lab2").style.pointerEvents = "unset";
+            document.getElementById("lab3").style.pointerEvents = "unset";
+            document.getElementById("lab4").style.pointerEvents = "unset";
+            document.getElementById("lab5").style.pointerEvents = "unset";
+            document.getElementById("lab6").style.pointerEvents = "unset";
+            document.getElementById("lab7").style.pointerEvents = "unset";
+            document.getElementById("lab8").style.pointerEvents = "unset";
+            document.getElementById("lab9").style.pointerEvents = "unset";
+            document.getElementById("lab10").style.pointerEvents = "unset";
+            document.getElementById("lab11").style.pointerEvents = "unset";
+            document.getElementById("lab12").style.pointerEvents = "unset";
+            document.getElementById("lab13").style.pointerEvents = "unset";
+            document.getElementById("lab14").style.pointerEvents = "unset";
+            document.getElementById("lab15").style.pointerEvents = "unset";
+            document.getElementById("lab16").style.pointerEvents = "unset";
+            document.getElementById("lab17").style.pointerEvents = "unset";
+            document.getElementById("lab18").style.pointerEvents = "unset";
+            document.getElementById("lab19").style.pointerEvents = "unset";
+            document.getElementById("lab20").style.pointerEvents = "unset";
+            document.getElementById("lab21").style.pointerEvents = "unset";
+            document.getElementById("lab22").style.pointerEvents = "unset";
+            document.getElementById("lab23").style.pointerEvents = "unset";
+            document.getElementById("lab24").style.pointerEvents = "unset";
+            document.getElementById("lab25").style.pointerEvents = "unset";
+            document.getElementById("lab26").style.pointerEvents = "unset";
+            document.getElementById("lab27").style.pointerEvents = "unset";
+            document.getElementById("lab28").style.pointerEvents = "unset";
+            document.getElementById("lab29").style.pointerEvents = "unset";
+            document.getElementById("lab30").style.pointerEvents = "unset";
+            document.getElementById("lab31").style.pointerEvents = "unset";
+            document.getElementById("lab32").style.pointerEvents = "unset";
+            document.getElementById("lab33").style.pointerEvents = "unset";              
+            document.getElementById("lab34").style.pointerEvents = "unset";
+            document.getElementById("lab35").style.pointerEvents = "unset";
+            document.getElementById("lab36").style.pointerEvents = "unset";              
+            document.getElementById("lab37").style.pointerEvents = "unset";
+            document.getElementById("lab38").style.pointerEvents = "unset";
+            document.getElementById("lab39").style.pointerEvents = "unset";              
+            document.getElementById("lab40").style.pointerEvents = "unset";
+            document.getElementById("lab41").style.pointerEvents = "unset";
+            document.getElementById("lab42").style.pointerEvents = "unset";  
+            document.getElementById("lab43").style.pointerEvents = "unset";
+            document.getElementById("lab44").style.pointerEvents = "unset";
+            document.getElementById("lab45").style.pointerEvents = "unset";  
+            document.getElementById("lab46").style.pointerEvents = "unset";
+            document.getElementById("lab47").style.pointerEvents = "unset";
+
+        </script>
+    </includeIf>
+
+</htmlform>
