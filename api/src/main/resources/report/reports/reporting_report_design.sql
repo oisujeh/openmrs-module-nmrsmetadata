@@ -1,25 +1,3 @@
-/*
- Navicat MySQL Data Transfer
-
- Source Server         : nmrs
- Source Server Type    : MySQL
- Source Server Version : 50509
- Source Host           : localhost:3316
- Source Schema         : openmrs
-
- Target Server Type    : MySQL
- Target Server Version : 50509
- File Encoding         : 65001
-
- Date: 07/09/2020 10:39:00
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Records of reporting_report_design
--- ----------------------------
 REPLACE INTO `reporting_report_design` VALUES (1, 'dba7cde5-32de-463a-8647-acc917fe5484', 'Excel', NULL, 'org.openmrs.module.reporting.report.renderer.XlsReportRenderer', '#Wed Apr 04 12:50:44 WAT 2018\r\nincludeDataSetNameAndParameters=true\r\n', 2, '2018-04-04 12:50:44', NULL, NULL, 0, NULL, NULL, NULL, '9667a78e-4881-11e7-a919-92ebcb67fe33');
 REPLACE INTO `reporting_report_design` VALUES (3, '15b5f44e-70a3-4eaf-b916-3bb6d9ef591c', 'Excel', NULL, 'org.openmrs.module.reporting.report.renderer.XlsReportRenderer', '#Wed Apr 04 12:50:44 WAT 2018\r\nincludeDataSetNameAndParameters=true\r\n', 2, '2018-04-04 12:50:44', NULL, NULL, 0, NULL, NULL, NULL, 'd3950ea8-4881-11e7-a919-92ebcb67fe33');
 REPLACE INTO `reporting_report_design` VALUES (4, 'ca5a731f-eee2-4fa5-b394-a6ec9fc41194', 'Excel', NULL, 'org.openmrs.module.reporting.report.renderer.XlsReportRenderer', '#Wed Apr 04 12:50:44 WAT 2018\r\nincludeDataSetNameAndParameters=true\r\n', 2, '2018-04-04 12:50:44', NULL, NULL, 0, NULL, NULL, NULL, 'b39c4c4c-4881-11e7-a919-92ebcb67fe33');
@@ -95,5 +73,3 @@ REPLACE INTO `reporting_report_design` VALUES (86, '79ed61c8-65d9-4297-a20b-5bc5
 REPLACE INTO `reporting_report_design` VALUES (87, '6a2f7eb5-3f41-4127-8720-63a296e84c20', 'Excel', NULL, 'org.openmrs.module.reporting.report.renderer.XlsReportRenderer', '#Thu Aug 27 13:22:08 WAT 2020\n', 1, '2020-08-27 13:22:08', NULL, NULL, 0, NULL, NULL, NULL, '9d363fa4-e132-4a39-962f-c9872e285172');
 REPLACE INTO `reporting_report_design` VALUES (88, '4f9334b9-20b0-4ac5-81f6-23a2e62cc8a8', 'CSV', NULL, 'org.openmrs.module.reporting.report.renderer.CsvReportRenderer', '#Thu Aug 27 13:22:26 WAT 2020\n', 1, '2020-08-27 13:22:26', NULL, NULL, 0, NULL, NULL, NULL, '9d363fa4-e132-4a39-962f-c9872e285172');
 REPLACE INTO `reporting_report_design` VALUES (89, '37bc0836-61d1-46cd-8f78-3466ec3d3751', 'Web', NULL, 'org.openmrs.module.reporting.report.renderer.SimpleHtmlReportRenderer', '#Thu Aug 27 13:22:37 WAT 2020\n', 1, '2020-08-27 13:22:37', NULL, NULL, 0, NULL, NULL, NULL, '9d363fa4-e132-4a39-962f-c9872e285172');
-
-SET FOREIGN_KEY_CHECKS = 1;

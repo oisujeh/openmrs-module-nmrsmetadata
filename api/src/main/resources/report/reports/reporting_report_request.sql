@@ -1,25 +1,3 @@
-/*
- Navicat MySQL Data Transfer
-
- Source Server         : nmrs
- Source Server Type    : MySQL
- Source Server Version : 50509
- Source Host           : localhost:3316
- Source Schema         : openmrs
-
- Target Server Type    : MySQL
- Target Server Version : 50509
- File Encoding         : 65001
-
- Date: 07/09/2020 10:39:20
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Records of reporting_report_request
--- ----------------------------
 REPLACE INTO `reporting_report_request` VALUES (2, '95cd1d0c-b5b2-43f1-a170-dd2359c9143b', NULL, NULL, 'd3950d7c-4881-11e7-a919-92ebcb67fe33', '<linked-hash-map id=\"1\">\n  <entry>\n    <string>retired</string>\n    <boolean>true</boolean>\n  </entry>\n</linked-hash-map>', 'org.openmrs.module.reporting.web.renderers.DefaultWebRenderer', NULL, 1, '2018-06-06 16:22:04', 'HIGHEST', 'SAVED', '2018-06-06 16:22:04', '2018-06-06 16:22:04', NULL, NULL, NULL, 0, NULL);
 REPLACE INTO `reporting_report_request` VALUES (5, '197f3900-391c-4488-ac2d-a3acbbaed9c3', NULL, NULL, 'd3950ea8-4881-11e7-a919-92ebcb67fe33', '<linked-hash-map id=\"1\">\n  <entry>\n    <string>retired</string>\n    <boolean>true</boolean>\n  </entry>\n</linked-hash-map>', 'org.openmrs.module.reporting.web.renderers.DefaultWebRenderer', NULL, 1, '2018-06-07 08:44:08', 'HIGHEST', 'SAVED', '2018-06-07 08:44:08', '2018-06-07 08:44:08', NULL, NULL, NULL, 0, NULL);
 REPLACE INTO `reporting_report_request` VALUES (6, 'd40544e7-ef2a-461f-bf9b-a19d3d7cae55', NULL, NULL, 'd06dd823-919e-403a-b200-383829fe389f', '<map id=\"1\">\n  <entry>\n    <string>endDate</string>\n    <date id=\"2\">2018-06-05 23:00:00 UTC</date>\n  </entry>\n  <entry>\n    <string>startDate</string>\n    <date id=\"3\">2011-06-06 23:00:00 UTC</date>\n  </entry>\n</map>', 'org.openmrs.module.reporting.report.renderer.TextTemplateRenderer', 'a7813fee-a4d0-475c-9eef-bc588f213ec5', 1, '2018-06-07 09:54:02', 'HIGHEST', 'SAVED', '2018-06-07 09:54:02', '2018-06-07 09:54:02', '2018-06-07 09:54:02', NULL, NULL, 0, NULL);
@@ -35,5 +13,3 @@ REPLACE INTO `reporting_report_request` VALUES (122, '497ae0b0-4500-40ac-881b-df
 REPLACE INTO `reporting_report_request` VALUES (127, '99a54794-34de-4280-bcca-9cf48aaa239e', NULL, NULL, 'f6bcb228-c786-4a9d-95f4-e2e868149d70', '<map id=\"1\">\n  <entry>\n    <string>endDate</string>\n    <date id=\"2\">2019-09-22 23:00:00 UTC</date>\n  </entry>\n  <entry>\n    <string>location</string>\n    <location id=\"3\" uuid=\"aff27d58-a15c-49a6-9beb-d30dcfc0c66e\"/>\n  </entry>\n  <entry>\n    <string>startDate</string>\n    <date id=\"4\">2018-09-30 23:00:00 UTC</date>\n  </entry>\n</map>', 'org.openmrs.module.reporting.report.renderer.CsvReportRenderer', '3565f286-73d0-4a4a-bd9b-ba6cb492ba9e', 1, '2019-09-23 09:01:01', 'HIGHEST', 'SAVED', '2019-09-23 09:01:02', '2019-09-23 09:01:03', '2019-09-23 09:01:03', NULL, NULL, 0, NULL);
 REPLACE INTO `reporting_report_request` VALUES (272, 'd10da21e-9fbc-4b83-a811-43387913bc16', NULL, NULL, '458495e2-d0ab-4019-aabb-428fa6bd332f', '<linked-hash-map id=\"1\">\n  <entry>\n    <string>startDate</string>\n    <date id=\"2\">2019-08-31 23:00:00 UTC</date>\n  </entry>\n  <entry>\n    <string>endDate</string>\n    <date id=\"3\">2019-09-29 23:00:00 UTC</date>\n  </entry>\n  <entry>\n    <string>location</string>\n    <location id=\"4\" uuid=\"aff27d58-a15c-49a6-9beb-d30dcfc0c66e\"/>\n  </entry>\n</linked-hash-map>', 'org.openmrs.module.reporting.web.renderers.DefaultWebRenderer', NULL, 1, '2019-09-27 15:50:27', 'HIGHEST', 'SAVED', '2019-09-27 15:50:28', '2019-09-27 15:50:31', NULL, NULL, NULL, 0, NULL);
 REPLACE INTO `reporting_report_request` VALUES (281, '90ec7bac-1697-4301-90df-d49086bbc9dd', NULL, NULL, '45af899b-f6d2-4a46-b89a-e6b5696dd7de', '<map id=\"1\">\n  <entry>\n    <string>endDate</string>\n    <date id=\"2\">2019-10-23 23:00:00 UTC</date>\n  </entry>\n  <entry>\n    <string>startDate</string>\n    <date id=\"3\">2019-06-30 23:00:00 UTC</date>\n  </entry>\n</map>', 'org.openmrs.module.reporting.report.renderer.XlsReportRenderer', 'c6257208-823a-4edc-9a78-74f4c393d686', 1, '2019-10-24 03:10:09', 'HIGHEST', 'SAVED', '2019-10-24 03:10:10', '2019-10-24 03:10:10', '2019-10-24 03:10:10', NULL, NULL, 0, NULL);
-
-SET FOREIGN_KEY_CHECKS = 1;

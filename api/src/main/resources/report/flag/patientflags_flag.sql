@@ -1,25 +1,5 @@
-/*
- Navicat MySQL Data Transfer
 
- Source Server         : nmrs
- Source Server Type    : MySQL
- Source Server Version : 50509
- Source Host           : localhost:3316
- Source Schema         : openmrs
 
- Target Server Type    : MySQL
- Target Server Version : 50509
- File Encoding         : 65001
-
- Date: 07/09/2020 10:33:51
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Records of patientflags_flag
--- ----------------------------
 REPLACE INTO `patientflags_flag` VALUES (1, 'No HIV Diagnosis Date', 'select distinct p.patient_id\r\nfrom patient p\r\nwhere  p.patient_id not in\r\n(select  person_id\r\n        from obs where concept_id = 160554 \r\n        and obs.voided = 0) \r\nand p.voided = 0', 'Patient has no HIV Diagnosis date recorded', 1, 'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator', NULL, 1, '2019-09-27 09:32:37', 1, '2020-07-15 14:55:20', 0, NULL, NULL, NULL, '19208809-c2e2-46f8-96a3-0b853988417d', 1);
 REPLACE INTO `patientflags_flag` VALUES (2, 'No HIV Enrollment Date', 'select distinct p.patient_id from patient p\r\nwhere p.patient_id not in \r\n   (select patient_id from encounter \r\n            where encounter_type = 14) \r\n			and p.voided = 0', 'Patient has no HIV Enrollment Date Recorded', 1, 'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator', NULL, 1, '2019-09-27 09:34:24', 1, '2020-07-15 14:55:29', 0, NULL, NULL, NULL, 'bde08bc9-e0da-41c3-aed2-d8948c5c3147', 1);
 REPLACE INTO `patientflags_flag` VALUES (3, 'No Address/LGA Documented', 'Select p.patient_id, address1, city_village  \r\nfrom patient p\r\ninner join person_address pd on (p.patient_id = pd.person_id)\r\n       where (address1 is null or address1 = \' )\r\n       and (city_village is null  or city_village = \')\r\n       and p.voided = 0', 'No Address/LGA Documented', 1, 'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator', NULL, 1, '2019-09-27 09:43:08', 1, '2019-10-11 09:59:06', 0, NULL, NULL, NULL, '32d00137-fe52-4596-ab79-e8c9c9e54515', 1);
@@ -34,5 +14,3 @@ REPLACE INTO `patientflags_flag` VALUES (11, 'Patient without documented VL in l
 REPLACE INTO `patientflags_flag` VALUES (12, 'Patient with viral load without test date', 'SELECT p.patient_id\r\n\r\nFROM patient p\r\n\r\nWHERE p.patient_id IN\r\n\r\n    (SELECT person_id AS patient_id\r\n\r\n     FROM obs\r\n\r\n     WHERE person_id = p.patient_id\r\n\r\n       AND concept_id IN (856)\r\n\r\n     GROUP BY patient_id\r\n\r\n     ORDER BY obs_datetime DESC)\r\n\r\n  AND p.patient_id NOT IN\r\n\r\n    (SELECT person_id AS patient_id\r\n\r\n     FROM obs\r\n\r\n     WHERE concept_id = 159951\r\n\r\n     GROUP BY patient_id\r\n\r\n     ORDER BY obs_datetime DESC)', 'Have Viral Load Without a Result Test Date', 1, 'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator', NULL, 1, '2019-09-28 08:43:06', 1, '2020-07-15 14:56:09', 0, NULL, NULL, NULL, 'e4188c1d-56d8-4eb0-92a9-15d224a94ce2', 1);
 REPLACE INTO `patientflags_flag` VALUES (13, 'Patient with CD4 Ordered without Result', 'SELECT p.patient_id\r\n\r\nFROM patient p\r\n\r\nWHERE (((p.patient_id IN\r\n\r\n           (SELECT person_id patient_id\r\n\r\n            FROM obs\r\n\r\n            WHERE person_id = p.patient_id\r\n\r\n              AND concept_id =165731\r\n\r\n            GROUP BY person_id\r\n\r\n            HAVING max(obs_datetime)))\r\n\r\n        AND (p.patient_id NOT IN\r\n\r\n               (SELECT person_id patient_id\r\n\r\n                FROM obs\r\n\r\n                WHERE person_id = p.patient_id\r\n\r\n                  AND concept_id = 5497\r\n\r\n                GROUP BY person_id\r\n\r\n                HAVING max(obs_datetime))))\r\n\r\n       OR ((p.patient_id IN\r\n\r\n              (SELECT person_id patient_id\r\n\r\n               FROM obs\r\n\r\n               WHERE person_id = p.patient_id\r\n\r\n                 AND concept_id = 165748\r\n\r\n               GROUP BY person_id\r\n\r\n               HAVING max(obs_datetime)))\r\n\r\n           AND (p.patient_id NOT IN\r\n\r\n                  (SELECT person_id patient_id\r\n\r\n                   FROM obs\r\n\r\n                   WHERE person_id = p.patient_id\r\n\r\n                     AND concept_id = 730\r\n\r\n                   GROUP BY person_id\r\n\r\n                   HAVING max(obs_datetime)))))\r\n\r\n  AND p.patient_id IN\r\n\r\n    (SELECT e.patient_id\r\n\r\n     FROM encounter e\r\n\r\n     WHERE p.patient_id = e.patient_id\r\n\r\n       AND e.encounter_type = 11)', 'Have CD4 Ordered Without CD4 Result', 1, 'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator', NULL, 1, '2019-09-28 09:01:46', 1, '2020-07-15 14:55:38', 0, NULL, NULL, NULL, '5c1fc5fe-7b19-4937-a893-bcbba4202b9d', 1);
 REPLACE INTO `patientflags_flag` VALUES (14, 'Inactive Patient with no documented exit reason', 'SELECT p.patient_id\r\n\r\nFROM patient p\r\n\r\nWHERE (\r\n\r\n         (SELECT (TIMESTAMPDIFF(DAY, value_datetime, curdate()))\r\n\r\n          FROM obs\r\n\r\n          WHERE person_id = p.patient_id\r\n\r\n            AND concept_id IN (164506,\r\n\r\n                               164513,\r\n\r\n                               165702,\r\n\r\n                               164507,\r\n\r\n                               164514,\r\n\r\n                               165703)\r\n\r\n          HAVING max(obs_datetime)) +\r\n\r\n         (SELECT value_numeric\r\n\r\n          FROM obs\r\n\r\n          WHERE person_id = p.patient_id\r\n\r\n            AND concept_id = 159368\r\n\r\n          HAVING max(obs_datetime))) > 28\r\n\r\n  AND\r\n\r\n    (SELECT value_coded\r\n\r\n     FROM obs\r\n\r\n     WHERE person_id = p.patient_id\r\n\r\n       AND concept_id = 165470\r\n\r\n     HAVING max(obs_datetime)) IS NULL\r\n\r\n  AND p.patient_id IN\r\n\r\n    (SELECT e.patient_id\r\n\r\n     FROM encounter e\r\n\r\n     WHERE p.patient_id = e.patient_id\r\n\r\n       AND e.encounter_type IN (14,\r\n\r\n                                15))', 'Inactive Patient With No Documented Exit Reason', 1, 'org.openmrs.module.patientflags.evaluator.SQLFlagEvaluator', NULL, 1, '2019-09-28 09:24:01', 1, '2020-07-15 14:55:01', 0, NULL, NULL, NULL, '847b79b2-3448-4950-81d4-328b0af2044d', 1);
-
-SET FOREIGN_KEY_CHECKS = 1;
