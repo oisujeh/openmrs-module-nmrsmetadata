@@ -1,9 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+ 
+     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
 
-    <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
-
+                  <changeSet id="inslude_ABC-3TC-LPV/r_2020-09-15-14:16" author="tega" runOnChange="true">
+                    <insert tableName="concept_answer">
+                        <column name="concept_id" valueNumeric="164507"/>
+                        <column name="answer_concept" valueNumeric="162200"/>
+                        <column name="creator" valueNumeric="1"/>
+                        <column name="date_created" valueDate="now()"/>
+                        <column name="uuid" value="7huveyx5-d050-4e99-4826-ccddc456b8rf"/>
+                        <column name="sort_weight" valueNumeric="15"/>
+                    </insert>
+                 </changeSet>
+ 
 </databaseChangeLog>
