@@ -24,7 +24,7 @@
         <sqlFile path="report/flag/patientflags_flag.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_patientflags_flag_tag" author="Orji" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -33,7 +33,7 @@
         <sqlFile path="report/flag/patientflags_flag_tag.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_patientflags_priority" author="Orji" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -42,7 +42,7 @@
         <sqlFile path="report/flag/patientflags_priority.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_patientflags_tag" author="Orji" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -51,7 +51,7 @@
         <sqlFile path="report/flag/patientflags_tag.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_patientflags_tag_role" author="Orji" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -60,7 +60,7 @@
         <sqlFile path="report/flag/patientflags_tag_role.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  
  <!-- Reporting module -->
@@ -71,7 +71,7 @@
         <sqlFile path="report/reports/report_object.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_report_schema_xml" author="Bright" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -80,7 +80,7 @@
         <sqlFile path="report/reports/report_schema_xml.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_reporting_report_design" author="Bright" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -89,7 +89,7 @@
         <sqlFile path="report/reports/reporting_report_design.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_reporting_report_design_resource" author="Bright" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -98,7 +98,7 @@
         <sqlFile path="report/reports/reporting_report_design_resource.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  
  <changeSet id="report_reporting_report_processor" author="Bright" runOnChange="true">
@@ -108,7 +108,7 @@
         <sqlFile path="report/reports/reporting_report_processor.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_reporting_report_request" author="Bright" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -117,7 +117,7 @@
         <sqlFile path="report/reports/reporting_report_request.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
  <changeSet id="report_serialized_object" author="Bright" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
@@ -126,7 +126,7 @@
         <sqlFile path="report/reports/serialized_object.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter="/0xd"/>
+                 endDelimiter=";"/>
  </changeSet>
 
 
