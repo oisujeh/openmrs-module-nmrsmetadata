@@ -30,36 +30,36 @@ import static org.junit.Assert.*;
  */
 public class NMRSMetatadatModuleServiceTest {
 	
-	@InjectMocks
-	NMRSMetatadatModuleServiceImpl basicModuleService;
-	
-	@Mock
-	NMRSMetatadatModuleDao dao;
-	
-	@Mock
-	UserService userService;
-	
-	@Before
-	public void setupMocks() {
-		MockitoAnnotations.initMocks(this);
-	}
-	
-	@Test
-	@Ignore
-	public void saveItem_shouldSetOwnerIfNotSet() {
-		//Given
-		Item item = new Item();
-		item.setDescription("some description");
-		
-		when(dao.saveItem(item)).thenReturn(item);
-		
-		User user = new User();
-		when(userService.getUser(1)).thenReturn(user);
-		
-		//When
-		basicModuleService.saveItem(item);
-		
-		//Then
-		assertThat(item, hasProperty("owner", is(user)));
-	}
+//	@InjectMocks
+//	NMRSMetatadatModuleServiceImpl basicModuleService;
+//
+//	@Mock
+//	NMRSMetatadatModuleDao dao;
+//
+//	@Mock
+//	UserService userService;
+//
+//	@Before
+//	public void setupMocks() {
+//		MockitoAnnotations.initMocks(this);
+//	}
+//
+//	@Test
+//	@Ignore
+//	public void saveItem_shouldSetOwnerIfNotSet() {
+//		//Given
+//		Item item = new Item();
+//		item.setDescription("some description");
+//
+//		when(dao.saveItem(item)).thenReturn(item);
+//
+//		User user = new User();
+//		when(userService.getUser(1)).thenReturn(user);
+//
+//		//When
+//		basicModuleService.saveItem(item);
+//
+//		//Then
+//		assertThat(item, hasProperty("owner", is(user)));
+//	}
 }
