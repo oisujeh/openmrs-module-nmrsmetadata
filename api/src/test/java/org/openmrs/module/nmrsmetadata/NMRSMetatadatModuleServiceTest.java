@@ -45,6 +45,7 @@ public class NMRSMetatadatModuleServiceTest {
 	}
 	
 	@Test
+	@Ignore
 	public void saveItem_shouldSetOwnerIfNotSet() {
 		//Given
 		Item item = new Item();
