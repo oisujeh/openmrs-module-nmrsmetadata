@@ -5,7 +5,7 @@
 		fontOnHeaderColor = white
 	</macros>
 	<!-- UPDATED -->
-	<style>   
+	<style>
 		.section {
 		border: 1px solid $headerColor;
 		padding: 2px;
@@ -79,7 +79,7 @@
 	</style>
 
 
-<!-- UPDATED -->	
+<!-- UPDATED -->
     <script >
       jQuery(function() {
          getField('arvdosage.value').change(function() {
@@ -90,7 +90,7 @@
 			}
 			else if(arvdos &gt; "10"){
 				 // window.alert('ARV Dosage-: ' + getValue('arvdosage.value')+' Out of Range')
-				 
+
 				   if( confirm('ARV Dosage-: ' +getValue('arvdosage.value')+' Out of Range? Are you sure you want to submit?') ) {
 						return true;
 					}
@@ -102,7 +102,7 @@
 		});
 		});
     </script>
-	
+
 
 <!-- UPDATED (ADDED) -->
 <script type="text/javascript">
@@ -117,8 +117,8 @@ beforeSubmit.push(function() {
 			return true;
 		}else {
 			return false;
-		}	
-	}else {	
+		}
+	}else {
 			var error = false;
 		<!-- Clear the previous errors -->
 			setValue('TreatmentAgeCategory.error', '');
@@ -128,9 +128,9 @@ beforeSubmit.push(function() {
 			setValue('Ped1stLine.error', '');
 			setValue('Ped2ndLine.error', '');
 			setValue('duration_s.error', '');
-				
-		// ARV		
-			var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');	
+
+		// ARV
+			var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');
 			var RegimenLine = getValue('RegimenLine.value');
 			var Adult1stLine = getValue('Adult1stLine.value');
 			var Adult2ndLine = getValue('Adult2ndLine.value');
@@ -144,38 +144,38 @@ beforeSubmit.push(function() {
 				getField('TreatmentAgeCategory.error').html('This field cannot be empty').show();
 				error=true;
 				break;
-			
+
 			<!-- RegimenLine -->
 			case (RegimenLine == ""):
 				getField('RegimenLine.error').html('This field cannot be empty').show();
 				error=true;
 				break;
-				
+
 			<!-- duration_s -->
 			case (duration_s == ""):
 				getField('duration_s.error').html('This field cannot be empty').show();
 				error=true;
 				break;
 
-				
-			<!-- Adult1stLine -->	
+
+			<!-- Adult1stLine -->
 			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "")):
-				return true;				
-				
+				return true;
+
 			case (error == true):
 				return false;
 				break;
-				
+
 			default:
-				window.alert('Patients Regimen Line MUST be entered and can not be empty') 
+				window.alert('Patients Regimen Line MUST be entered and can not be empty')
 				break;
-		}		
-	}		
+		}
+	}
 });
 
 </script>
 
-	
+
 <script type="text/javascript">
 
 	var $ = jQuery;
@@ -193,13 +193,11 @@ beforeSubmit.push(function() {
 			<label>When?</label>
 			<encounterDate default="now" showTime="false" allowFutureDates="false"/>
 		</fieldset>
-
 		<fieldset>
 			<legend>Who?</legend>
 			<label>Who?</label>
 			<encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>
 		</fieldset>
-
 		<fieldset>
 			<legend>Where?</legend>
 			<label>Where?</label>
@@ -214,8 +212,8 @@ beforeSubmit.push(function() {
 		</thead>
 	</table>
 
-	
-<!-- UPDATED -->	
+
+<!-- UPDATED -->
 	<fieldset style="border: 1px solid #305a72; min-width: 90%; margin-left:5%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
         <legend class="legend_style">Last Clinical Parameters</legend>
         <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
@@ -226,8 +224,8 @@ beforeSubmit.push(function() {
 			<tr>
 				<td><b>Current Line:</b><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('165708').valueCoded.name"/> </font></td>
 				<td><b>Current Regimen:</b><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('164506').valueCoded.name"/> </font></td>
-			</tr>	
-			
+			</tr>
+
         </table>
     </fieldset>
 
@@ -241,7 +239,7 @@ beforeSubmit.push(function() {
 			</td>
 		</tr>
 	</table>
-	
+
 	<fieldset>
 		<table>
 			<tr>
@@ -300,18 +298,18 @@ beforeSubmit.push(function() {
 <!-- UPDATED -->
 	<fieldset>
 	<legend class="legend_style">ARV Medication</legend>
-	<table class="table" width="100%">  
+	<table class="table" width="100%">
 		<tr>
 			<td class="alnleft">
 				<b>Treatment Age category</b>
 				<obs id="TreatmentAgeCategory" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult"> </obs>
 			</td>
-	
-			<td>			
+
+			<td>
 				<table class="table" width="100%">
 					<tr>
 						<td><label>Regimen Line</label></td>
-					</tr>		
+					</tr>
 					<tr>
 						<td>
 							<obs id="RegimenLine" conceptId="165708" answerConceptIds="164507, 164514, 165703, 164506, 164513, 165702" answerLabels="Child First Line, Child Second Line, Child Salvage, Adult First Line, Adult Second Line, Adult Salvage">
@@ -325,14 +323,14 @@ beforeSubmit.push(function() {
 											</controls>
 							</obs>
 						</td>
-						
+
 					</tr>
 				</table>
 			</td>
 
 			<td>
-						<table id="adult_first_line" class="table" width="100%"> 
-							<tr>	
+						<table id="adult_first_line" class="table" width="100%">
+							<tr>
 								<td>
 									<label>Adult 1st Line Regimens</label>
 									<obs conceptId="164506" id="Adult1stLine"/>
@@ -340,9 +338,9 @@ beforeSubmit.push(function() {
 							</tr>
 						</table>
 			</td>
-	 
-			<td>  
-				<table id="adult_second_line" class="table" width="100%"> 
+
+			<td>
+				<table id="adult_second_line" class="table" width="100%">
 						<tr>
 								<td>
 									<label>Adult 2nd Line Regimens</label>
@@ -352,8 +350,8 @@ beforeSubmit.push(function() {
 				</table>
 			</td>
 
-			<td>       
-				<table id="adult_salvage" class="table" width="100%"> 
+			<td>
+				<table id="adult_salvage" class="table" width="100%">
 					<tr>
 								<td>
 									<label>Adult 3rd Line Regimens</label>
@@ -363,8 +361,8 @@ beforeSubmit.push(function() {
 				</table>
 			</td>
 
-			<td>           
-				<table id="ped_first_line" class="table" width="100%"> 
+			<td>
+				<table id="ped_first_line" class="table" width="100%">
 					<tr>
 							<td>
 									<label>Pediatric 1st Line Regimens</label>
@@ -374,9 +372,9 @@ beforeSubmit.push(function() {
 				</table>
 			</td>
 
-			<td>	
-				<table id="ped_second_line" class="table" width="100%"> 
-					<tr>					
+			<td>
+				<table id="ped_second_line" class="table" width="100%">
+					<tr>
 								<td>
 									<label>Pediatric 2nd Line Regimens</label>
 									<obs conceptId="164514" id="Ped2ndLine"/>
@@ -384,10 +382,10 @@ beforeSubmit.push(function() {
 					</tr>
 				</table>
 			</td>
-                                        
-			<td>	
-				<table  id="ped_salvage" class="table" width="100%"> 
-							<tr>					
+
+			<td>
+				<table  id="ped_salvage" class="table" width="100%">
+							<tr>
 								<td>
 									<label>Pediatric 3rd Line Regimens</label>
 									<obs conceptId="165703" id="Ped3rdLine"/>
@@ -396,7 +394,7 @@ beforeSubmit.push(function() {
 				</table>
 			</td>
 		</tr>
-    </table>	
+    </table>
 </fieldset>
 
 <fieldset>
@@ -560,7 +558,7 @@ beforeSubmit.push(function() {
 					<td>
 						<obs class='gridmenu' conceptId="165725" answerConceptIds="165062, 165060,165075,166095,165068,165992,165074,165076,166145,166146,166147,166050,166137,165617,165635,5622"/>
 					</td>
-                                       
+
 					<td>
 						<obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
 					</td>
@@ -588,7 +586,7 @@ beforeSubmit.push(function() {
 					<td>
 						<obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,165074,165076,166145,166146,166147,166137,5622"/>
 					</td>
-       
+
 					<td>
 						<obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
 					</td>
@@ -733,9 +731,9 @@ beforeSubmit.push(function() {
 		</table>
 	</fieldset>
         <fieldset>
-       
+
               <legend class="legend_style">Other Drugs</legend>
-              
+
                     <table class="baseline-aligned">
 			<tr>
 				<td>
@@ -760,20 +758,20 @@ beforeSubmit.push(function() {
 			<tr>
 				<obsgroup groupingConceptId="166060">
 					<td>
-						<obs conceptId="163101" /> 
+						<obs conceptId="163101" />
 					</td>
 					<td>
 						<obs conceptId="165641" />
                                                <!--<obs conceptId="165725" answerConceptIds="162401"/>-->
 					</td>
 					<td>
-						 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/> 
+						 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
 					</td>
 					<td>
 						 <obs conceptId="159368" id="duration"/>
 					</td>
 					<td>
-						<obs conceptId="160856" id="qtyPrescribed"/> 
+						<obs conceptId="160856" id="qtyPrescribed"/>
 					</td>
 					<td>
 						<obs conceptId="1443" id="qtyDispensed"/>
@@ -783,20 +781,20 @@ beforeSubmit.push(function() {
                         <tr>
 				<obsgroup groupingConceptId="166060">
 					<td>
-						<obs conceptId="163101" /> 
+						<obs conceptId="163101" />
 					</td>
 					<td>
 						<obs conceptId="165641" />
                                                <!--<obs conceptId="165725" answerConceptIds="162401"/>-->
 					</td>
 					<td>
-						 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/> 
+						 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
 					</td>
 					<td>
 						 <obs conceptId="159368" id="duration"/>
 					</td>
 					<td>
-						<obs conceptId="160856" id="qtyPrescribed"/> 
+						<obs conceptId="160856" id="qtyPrescribed"/>
 					</td>
 					<td>
 						<obs conceptId="1443" id="qtyDispensed"/>
@@ -806,20 +804,20 @@ beforeSubmit.push(function() {
                     <tr>
 						<obsgroup groupingConceptId="166060">
 					<td>
-						<obs conceptId="163101" /> 
+						<obs conceptId="163101" />
 					</td>
 					<td>
 						<obs conceptId="165641" />
                                                <!--<obs conceptId="165725" answerConceptIds="162401"/>-->
 					</td>
 					<td>
-						 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/> 
+						 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
 					</td>
 					<td>
 						 <obs conceptId="159368" id="duration"/>
 					</td>
 					<td>
-						<obs conceptId="160856" id="qtyPrescribed"/> 
+						<obs conceptId="160856" id="qtyPrescribed"/>
 					</td>
 					<td>
 						<obs conceptId="1443" id="qtyDispensed"/>
@@ -918,7 +916,7 @@ beforeSubmit.push(function() {
 				</td>
 				<td></td>
 			</tr>
-				
+
 		</table>
 	</fieldset>
 
