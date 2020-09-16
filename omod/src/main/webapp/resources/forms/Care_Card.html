@@ -236,11 +236,12 @@ $('#height').hide(200);
         					<td width="13%" >Pregnancy / Breastfeeding status:</td>
         					<td >
         						<p>
-        							<obs id="cur_pregnant" style="yes_no_dropdown" conceptId="1434">
+        							<obs id="woman_pregnant" conceptId="165050" answerConceptIds="165048,165049,165047"
+        							answerLabels="Pregnant, Breastfeeding, Not Pregnant">
         								<controls>
-        									<when value="true" thenDisplay="#cur_pregnant_result"/>
-        									<when value="false" thenDisplay="#cur_breastfeeding"/>
-        								</controls>
+                                           <when value="165048" thenDisplay="#cur_pregnant_result" />
+                                           <when value="165049" thenDisplay="#cur_breastfeeding" />
+                                        </controls>
         							</obs>
         						</p>
         					</td>
@@ -259,13 +260,7 @@ $('#height').hide(200);
         			</tr>
         			<tr id="cur_breastfeeding">
         				<excludeIf velocityTest="$patient.gender == 'M' ">
-        					<td width="13%">Currently breastfeeding:</td>
-        					<td width="37%"><obs id="cur_bf" conceptId="5632" style="yes_no_dropdown">
-        						<controls>
-        							<when value="1065" thenDisplay="#child_prophylaxis_q,#child_prophylaxis_a"/>
-        						</controls></obs>
-        					</td>
-        					<td id="child_prophylaxis_q" width="13%">Did child recieve prophylaxis?</td>
+        					<td id="child_prophylaxis_q" width="13%">Did child receive prophylaxis?</td>
         					<td id="child_prophylaxis_a" width="37%"><obs conceptId="165977"/></td>
         				</excludeIf>
         			</tr>
