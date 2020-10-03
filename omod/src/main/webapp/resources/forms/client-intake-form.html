@@ -1177,26 +1177,82 @@ const myrecency_number_verif_value = document.getElementById('recency_number_ver
 
   <script >
     jQuery(function() {
-		//getField('recency_number_verif_value.value').change(function() {
 		document.getElementById("recency_number_value").addEventListener("change", function(){
 			var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
-			//window.alert('Recency ID:- ' +patientIdentifier_recency+' Recency ID')
-			if(patientIdentifier_recency != ""){
-				if( confirm('Please confirm that ' +patientIdentifier_recency+' is the right Recency ID') ) {
-					setValue('recency_number_verif_value.value', patientIdentifier_recency)
-					return true;
-				}else {
-					window.alert('Please the "Verify Participant ID" field for Recency can not be empty')
-					return false;
-				}
-			}
-			else{
-				window.alert('Please Recency ID can not be empty')
+			if(patientIdentifier_recency == ""){				
+				window.alert('Please Participant ID can not be empty')
+				success.textContent = ""
+				outrange.textContent = "" 
+				setValue('recency_number_verif_value.value', "")
 				return false;
 			}
+			else{
+				getField('recency_number_verif_value.error').html('This field must be same as Participant ID').show();
+				success.textContent = ""
+				outrange.textContent = "" 
+				setValue('recency_number_verif_value.value', "")
+				return false;
+			}
+			
+			var userKeyRegExp = /^[A-Z][0-9]{8}$/;
+			if(patientIdentifier_recency.match(userKeyRegExp)){
+				window.alert('Please Participant ID shuold only contain alphanumeric inputs with no special character')
+				success.textContent = ""
+				outrange.textContent = "" 
+				setValue('recency_number_verif_value.value', "")
+				return false;
+			}
+				
+			var recentID_verify = getValue('recency_number_verif_value.value');
+            if(recentID_verify != ""){
+				getField('recency_number_verif_value.error').html('Please confirm the Participant ID again here').show();
+				setValue('recency_number_verif_value.value', "")
+				success.textContent = ""
+				outrange.textContent = "" 
+				return false;
+			}
+			
 		});
 	});
-     
+ 
+
+
+		jQuery(function() {
+			 getField('recency_number_verif_value.value').change(function() {
+			 
+				var recentID_verify2 = getValue('recency_number_verif_value.value');
+				var rec_num = getValue('recency_number_verif_value.value').length;
+					 // window.alert('rec_num1:- ' +rec_num+' Out of Range');
+				var outrange = document.getElementById("outrange")
+				if(rec_num > 10) {
+				outrange.textContent = "#Participant ID must not be more than 10 characters" 
+					getField('recency_number_verif_value.error').html('Participant ID must not be more than 10 characters').show();
+					success.textContent = "";
+					setValue('recency_number_verif_value.value', "");
+					return false;
+				}
+				 
+				var patientIdentifier_recency2 = $('input:text', '#recency_number_value').eq(0).val();
+				var success = document.getElementById("success") 
+					if(recentID_verify2 == patientIdentifier_recency2){
+						getField('recency_number_verif_value.error').html('Please enter the correct Participant ID again').hide();
+							success.textContent = "#Participant ID is OK" 
+							outrange.textContent = "" 
+						return true;
+					}else {
+						window.alert('Please the "Verify Participant ID" does not match the initial Participant ID entered')
+						success.textContent = ""
+						outrange.textContent = "" 
+						getField('recency_number_verif_value.error').html('Please enter the correct Participant ID again').show();
+						setValue('recency_number_verif_value.value', "")
+						return false;
+					}
+			});		
+					
+		});
+		
+
+ 
   </script>
 	
 	
@@ -1252,7 +1308,7 @@ const myrecency_number_verif_value = document.getElementById('recency_number_ver
 			      
 			<td id="setting_name_pitc" class="alnleft_s">Setting</td>
             <td id="setting_pitc" class="alnleft_s">
-                <obs conceptId="165839" id="setting"   answerConceptIds="160539,160529,160546,5271,160542,161629,165788,165838,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Others">
+                <obs conceptId="165839" id="setting"   answerConceptIds="160539,160529,160546,5271,160542,161629,165788,165838,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Others" required="true">
                     <controls>
                         <when value="5622" thenDisplay="#setting_other"/>
                     </controls>
@@ -1580,12 +1636,15 @@ const myrecency_number_verif_value = document.getElementById('recency_number_ver
                     <input type="hidden" name="pref_type_recency" id="pref_type_recency" value="10" />
 
                 </td>
+				
+				<td colspan="2"> <span id="outrange" style="width:100%; color:red; font-weight:bold;"></span> </td>
          </tr>          
 
          <tr>
                  <td id="recency_number_verif_label">Verify Participant ID</td>
               
-                <td class="alnleft_s"><obs id="recency_number_verif_value" conceptId="166210"  required="true"/></td>
+                 <td class="alnleft_s"><obs id="recency_number_verif_value" conceptId="166210"  required="true"/></td>
+				 <td colspan="2"> <span id="success" style="width:100%; color:green; font-weight:bold;"></span> </td>
 
          </tr>
 
@@ -1709,9 +1768,6 @@ beforeSubmit.push(function() {
  var recency_test_date= getValue('recency_test_date.value');
  var test_name_dropdown= getValue('test_name_dropdown.value');
 
- var patientIdentifier_recencys = $('input:text', '#recency_number_value').eq(0).val();
- var recency_number_verif_values = getValue('recency_number_verif_value.value');
-
              if(tb_optout == "1066"){
 
     //var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
@@ -1722,18 +1778,6 @@ beforeSubmit.push(function() {
 
  var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
 			var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
-
-
-		//window.alert('Recency ID1:- ' +patientIdentifier_recencys+' Recency ID')
-		//window.alert('Recency ID2:- ' +recency_number_verif_values+' Recency ID')
-					// Recency ID check
-					if( patientIdentifier_recencys == recency_number_verif_values ) {
-						return true;
-					}
-					else {
-						window.alert('Recency ID MUST match the verified Recency ID')
-						return false;
-					}
 
 
   if( confirm("Have you verified the correctness of all fields from the paper form? Are you sure you want to submit?") ) {
