@@ -1308,7 +1308,7 @@ const myrecency_number_verif_value = document.getElementById('recency_number_ver
 			      
 			<td id="setting_name_pitc" class="alnleft_s">Setting</td>
             <td id="setting_pitc" class="alnleft_s">
-                <obs conceptId="165839" id="setting"   answerConceptIds="160539,160529,160546,5271,160542,161629,165788,165838,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Others" required="true">
+                <obs conceptId="165839" id="setting" answerConceptIds="160539,160529,160546,5271,160542,161629,165788,165838,166135,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Community ART, Others" required="true">
                     <controls>
                         <when value="5622" thenDisplay="#setting_other"/>
                     </controls>
@@ -2063,9 +2063,22 @@ getField('tb_vl_request.value').change(function() {
 
         </table>
     </fieldset><br/>
+	
     <fieldset id="pns_details">
         <legend class="legend_style">Index Notification Services - Elicitation</legend>
-        <table class="table" width="100%">
+
+	            <tr>
+                    <td><b>Consent given for index elicitation and contact</b></td>
+	                <td>
+						<obs id="consent_asked" style="yes_no_dropdown" conceptId="164800" answerConceptIds="1065,1066">
+							<controls>
+								<when value="1065" thenDisplay="#pns_details_display"/>
+							</controls>
+						</obs>
+					</td>
+				</tr>
+<br/>
+        <table id="pns_details_display" class="table" width="100%">
             <tr>
                 <td class="alnleft" colspan="3"><b>Partner Name:</b></td>
                 <td class="alnleft"><b>Partner Gender</b></td>
