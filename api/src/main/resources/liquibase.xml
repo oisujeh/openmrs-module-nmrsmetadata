@@ -6,6 +6,93 @@
  
      <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
 
+    <changeSet id="concept_update_201010071131" author="wande">
+        <insert tableName="concept">
+            <column name="concept_id" value="166253"/>
+            <column name="retired" value="0"/>
+            <column name="datatype_id" value="2"/>
+            <column name="class_id" value="11"/>
+            <column name="is_set" value="0"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_changed" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="df90bdce-5566-46d7-a8b4-aa8371e4e08b"/>
+        </insert>
+        <insert tableName="concept">
+            <column name="concept_id" value="166252"/>
+            <column name="retired" value="0"/>
+            <column name="datatype_id" value="6"/>
+            <column name="class_id" value="11"/>
+            <column name="is_set" value="0"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_changed" valueDate="2020-10-06 16:59:54"/>
+            <column name="uuid" value="b7ddf181-40eb-4f5f-93c7-0527db87bcbb"/>
+        </insert>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8906"/>
+            <column name="concept_id" value="166253"/>
+            <column name="answer_concept" value="1065"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="4904221f-5faa-4225-a00a-b6ae931144fe"/>
+            <column name="sort_weight" value="1"/>
+        </insert>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8907"/>
+            <column name="concept_id" value="166253"/>
+            <column name="answer_concept" value="1066"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="80dd7a31-1fa0-42a9-b762-e79697f86f89"/>
+            <column name="sort_weight" value="2"/>
+        </insert>
+        <insert tableName="concept_description">
+            <column name="concept_description_id" value="18644"/>
+            <column name="concept_id" value="166252"/>
+            <column name="description" value="Date of Antenatal registration"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="uuid" value="de590347-df80-45ad-9616-e58d02c3a43c"/>
+        </insert>
+        <insert tableName="concept_description">
+            <column name="concept_description_id" value="18645"/>
+            <column name="concept_id" value="166253"/>
+            <column name="description" value="Consent given for index elicitation and contact"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="7bd3bd0d-b1d5-45aa-93b0-8ed6e4432442"/>
+        </insert>
+        <insert tableName="concept_name">
+            <column name="concept_id" value="166252"/>
+            <column name="name" value="Antenatal registration date"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="concept_name_id" value="143020"/>
+            <column name="voided" value="0"/>
+            <column name="uuid" value="9c7eedc1-25c8-48d4-ae09-888f6bd431e9"/>
+            <column name="concept_name_type" value="FULLY_SPECIFIED"/>
+            <column name="locale_preferred" value="1"/>
+        </insert>
+        <insert tableName="concept_name">
+            <column name="concept_id" value="166253"/>
+            <column name="name" value="Index elicitation consent"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="concept_name_id" value="143021"/>
+            <column name="voided" value="0"/>
+            <column name="uuid" value="17d24ba6-08e7-458f-b7fd-eff4fc8474d2"/>
+            <column name="concept_name_type" value="FULLY_SPECIFIED"/>
+            <column name="locale_preferred" value="1"/>
+        </insert>
+    </changeSet>
+  
     <changeSet id="inslude_ABC-3TC-LPV/r_2020-09-15-14:16" author="tega" runOnChange="true">
         <insert tableName="concept_answer">
             <column name="concept_id" valueNumeric="164507"/>
@@ -16,5 +103,4 @@
             <column name="sort_weight" valueNumeric="15"/>
         </insert>
     </changeSet>
- 
 </databaseChangeLog>
