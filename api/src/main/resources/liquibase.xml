@@ -4,6 +4,15 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
+    <changeSet id="update081020201055" author="wande">
+        <insert tableName="global_property">
+            <column name="property" value="isNmrsDistribution"/>
+            <column name="property_value" value="true"/>
+            <column name="description" value="to tell its an NMRS Distribution"/>
+            <column name="uuid" value="9affb488-a32b-4db0-90c4-c7f89b2ab66a"/>
+        </insert>
+    </changeSet>
+
     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
 
 
