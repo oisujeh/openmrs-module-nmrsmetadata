@@ -11,7 +11,11 @@ package org.openmrs.module.nmrsmetadata;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.GlobalProperty;
+import org.openmrs.api.AdministrationService;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.BaseModuleActivator;
+import org.openmrs.scheduler.SchedulerService;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
@@ -25,6 +29,11 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		new HtmlFormsInitializer().started();
+		// set visit handler
+		GlobalProperty globalProperty = Context.getAdministrationService().getGlobalPropertyObject("visits.assignmentHandler");
+		globalProperty.setPropertyValue("org.openmrs.api.handler.ExistingOrNewVisitAssignmentHandler");
+		Context.getAdministrationService().saveGlobalProperty(globalProperty);
+
 		log.info("Started NMRS Metatadat Module ");
 	}
 	

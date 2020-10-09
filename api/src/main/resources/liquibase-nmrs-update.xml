@@ -1093,5 +1093,15 @@
                  endDelimiter=";"/>
     </changeSet>
 
+    <changeSet id="scheduler" author="wande" runOnChange="true">
+        <preConditions onFail="MARK_RAN" onError="MARK_RAN">
+            <sqlCheck  expectedResult="true">SELECT property_value FROM global_property WHERE property = 'isNmrsDistribution'</sqlCheck>
+        </preConditions>
+        <sqlFile path="sql/schedule/schedule.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter=";"/>
+    </changeSet>
+
 
 </databaseChangeLog>
