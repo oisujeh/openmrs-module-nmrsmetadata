@@ -307,13 +307,13 @@
                         </controls>
                     </obs>
                 </td>
+                <td class="alnleft_s">ART Start Date</td>
+                <td class="alnleft_s"><obs id="art_start_date" conceptId="159599" /></td>
             </tr>
             <tr id="art_prev_result">
 
                 <td class="alnleft_s">Prior ART</td>
-                <td class="alnleft_s"><obs conceptId="165242" /></td>
-                <td class="alnleft_s">ART Start Date</td>
-                <td class="alnleft_s"><obs id="art_start_date" conceptId="159599" /></td>
+                <td class="alnleft_s"><obs conceptId="165242" /></td>               
             </tr>
         </table>
     </fieldset>
@@ -329,7 +329,7 @@
                 <td class="alnleft_s"><obs conceptId="1712" answerLabels="No education,Primary Education,Secondary Education,Tertiary Education" answerConceptIds="1107,1713,1714,160292,5622" /></td>
 
             </tr>
-            <includeIf velocityTest="$patient.gender == 'F' ">
+            <includeIf velocityTest="$patient.gender == 'F' &amp;&amp; $patient.age &gt; 14">
                 <tr>
                     <td class="alnleft_s">Breast Feeding Status</td>
                     <td>

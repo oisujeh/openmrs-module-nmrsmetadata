@@ -29,6 +29,7 @@ REPLACE INTO `role` VALUES
   ('Dataclerk','Enters data into the system','69fa98c1-e439-4258-be96-11b4c87393ca'),
   ('HTS','NULL','49d6420a-80d3-46f6-a1b9-98603055fa30'),
   ('Lab','Lab Technician','024310b3-6301-422f-8ad7-4073005d1aaa'),
+  ('Nurse','Triage Nurse','8ac6f647-9b83-48ce-8ead-c1236aa21591'),
   ('MandE','NULL','9792c62d-f649-420d-bfb8-d201d5efa8cb'),
   ('Organizational: Doctor','Doctor','2a40b0af-2026-43d4-9584-b2046bd659dd'),
   ('Organizational: Hospital Administrator','Hospital Administrator','2fa4b3ab-532d-4a5c-a6f2-297f8fd18724'),

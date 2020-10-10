@@ -29,6 +29,8 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		new HtmlFormsInitializer().started();
+		new PatientQueuingClinicianLocationUUIDUpdate().started();
+
 		// set visit handler
 		GlobalProperty globalProperty = Context.getAdministrationService().getGlobalPropertyObject("visits.assignmentHandler");
 		globalProperty.setPropertyValue("org.openmrs.api.handler.ExistingOrNewVisitAssignmentHandler");

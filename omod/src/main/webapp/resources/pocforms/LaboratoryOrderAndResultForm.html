@@ -293,7 +293,7 @@
                     <td><div id="lab19" style="pointer-events: none"><obs conceptId="299" answerConceptIds="1228,1229" answerLabels="Reactive,Non-Reactive"/></div></td>
                     
                     
-                    <td class="alnleft"><div id="clin20" style="pointer-events: none"><obs conceptId="165756" style="checkbox" value="false" />Creatinine (µmol/l)</div></td>
+                    <td class="alnleft"><div id="clin20" style="pointer-events: none"><obs conceptId="165756" style="checkbox" value="false" />Creatinine (mmol/l)</div></td>
                 
                     
                     <td><div id="lab20" style="pointer-events: none"><obs conceptId="164364"/></div></td>
@@ -315,7 +315,7 @@
             </tr>
             <tr>
                     
-                    <td class="alnleft"><div id="clin23" style="pointer-events: none"><obs conceptId="165757" style="checkbox" value="false" />AST/SGOT (µ/L)</div></td>
+                    <td class="alnleft"><div id="clin23" style="pointer-events: none"><obs conceptId="165757" style="checkbox" value="false" />AST/SGOT (U/L)</div></td>
                     
                     
                     <td><div id="lab23" style="pointer-events: none"><obs conceptId="653"/></div></td>
@@ -331,7 +331,7 @@
                     <td><div id="lab24" style="pointer-events: none"><obs conceptId="785"/></div></td>
                     
                     
-                    <td class="alnleft"><div id="clin25" style="pointer-events: none"><obs conceptId="165758" style="checkbox" value="false" />Total Bilirubin (µmol/l)</div></td>
+                    <td class="alnleft"><div id="clin25" style="pointer-events: none"><obs conceptId="165758" style="checkbox" value="false" />Total Bilirubin (mmol/l)</div></td>
                     
                     
                     <td><div id="lab25" style="pointer-events: none"><obs conceptId="655"/></div></td>
@@ -438,6 +438,7 @@
             </tr>
         </table>
         <table id="viralLoad">
+            <includeIf velocityTest="$user.hasRole('Lab')">
             <tr>
                 <td class="alnleft_s">PCR Lab Sample No.</td>
                 <td><div id="lab38" style="pointer-events: none"><obs conceptId="165715"/></div></td>
@@ -462,7 +463,7 @@
                     </table>
                 </td>
                 <td class="alnleft_s">Sample collection date</td>
-                <td><div id="lab42" style="pointer-events: none"><obs conceptId="159951"/></div></td>               
+                <td><div id="lab42"  style="pointer-events: none"><obs required="true" conceptId="159951"/></div></td>               
                 <td class="alnleft_s">Date sample sent to PCR Lab</td>
                  <td><div id="lab43" style="pointer-events: none"><obs conceptId="165988" /></div></td>
                 <td class="alnleft_s">Date sample received at PCR Lab</td>
@@ -470,7 +471,7 @@
             </tr>
             <tr>
                 <td class="alnleft_s">Viral Load test result</td>
-                <td><div id="lab45" style="pointer-events: none"><obs conceptId="856" labelText=""/>copies/ml</div></td>
+                <td><div id="lab45" style="pointer-events: none"><obs required="true" conceptId="856" labelText=""/>copies/ml</div></td>
 
                  <td class="alnleft_s">Date result was sent from PCR Lab</td>
                  <td><div id="lab46" style="pointer-events: none"><obs conceptId="165989" /></div></td>
@@ -479,6 +480,7 @@
                  <td><div id="lab47" style="pointer-events: none"><obs conceptId="165987" /></div></td>
 
             </tr>
+        </includeIf>
         </table>
     </fieldset>
     <fieldset>
@@ -493,16 +495,18 @@
                 <td class="alnleft_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
+<includeIf velocityTest="$user.hasRole('Lab')">
             <tr>
                 <td class="alnleft_s">Reported By</td>
                 <td><obs conceptId="164982" style="person" /></td>
                 <td class="alnleft_s">Date Reported</td>
-                <td><obs conceptId="165414" allowFutureDates="false"/></td>
+                <td><obs required="true" conceptId="165414" allowFutureDates="false"/></td>
 				
 		
                 <td class="alnleft_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
+ </includeIf>
             <tr>
                 <td class="alnleft_s">Checked By</td>
                 <td><obs conceptId="164983" labelText="" style="person" /></td>
@@ -523,6 +527,8 @@
     <includeIf velocityTest="$user.hasRole('Clinician')">
         <script>
             console.log("Am a Clinician");
+            document.getElementById("clin37").style.pointerEvents = "unset";
+            document.getElementById("clin38").style.pointerEvents = "unset";  
             document.getElementById("clin1").style.pointerEvents = "unset";
             document.getElementById("clin2").style.pointerEvents = "unset";
             document.getElementById("clin3").style.pointerEvents = "unset";
@@ -558,9 +564,7 @@
             document.getElementById("clin33").style.pointerEvents = "unset";
             document.getElementById("clin34").style.pointerEvents = "unset";
             document.getElementById("clin35").style.pointerEvents = "unset";
-            document.getElementById("clin36").style.pointerEvents = "unset";
-            document.getElementById("clin37").style.pointerEvents = "unset";
-            document.getElementById("clin38").style.pointerEvents = "unset";      
+            document.getElementById("clin36").style.pointerEvents = "unset";         
         </script>
     </includeIf>
     <includeIf velocityTest="$user.hasRole('Lab')">
