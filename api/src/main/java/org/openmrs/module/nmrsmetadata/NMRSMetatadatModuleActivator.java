@@ -35,8 +35,7 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 		GlobalProperty globalProperty = Context.getAdministrationService().getGlobalPropertyObject("visits.assignmentHandler");
 		globalProperty.setPropertyValue("org.openmrs.api.handler.ExistingOrNewVisitAssignmentHandler");
 		Context.getAdministrationService().saveGlobalProperty(globalProperty);
-		// set visit handler
-	
+
 		log.info("Started NMRS Metatadat Module ");
 	}
 	
