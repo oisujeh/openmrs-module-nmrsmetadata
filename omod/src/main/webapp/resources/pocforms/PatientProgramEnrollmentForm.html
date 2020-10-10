@@ -81,7 +81,7 @@ var domain = getUrl.pathname.split('/')[1];
                         </a>
 </includeIf>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('MandE') || $user.hasRole('Clinician') || $user.hasRole('Pharmacist') || $user.hasRole('ANC')">
+<includeIf velocityTest="$user.hasRole('MandE') || $user.hasRole('Pharmacist') || $user.hasRole('ANC')">
                         <a id="art"
                            href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=c2df5a7d-05ac-4ae3-bcd0-39969f17dbab&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
                            class="button app big ">
@@ -92,7 +92,7 @@ var domain = getUrl.pathname.split('/')[1];
                             ART
                         </a>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('HTS') || $user.hasRole('MandE') || $user.hasRole('Clinician') || $user.hasRole('ANC')">
+<includeIf velocityTest="$user.hasRole('HTS') || $user.hasRole('MandE') || $user.hasRole('ANC')">
 
                         <a id="htc"
                            href="/baseUrl/registrationapp/registerPatient.page?appId=referenceapplication.registrationapp.myRegisterPat"

@@ -12,6 +12,7 @@ INSERT IGNORE INTO `location_tag_map` VALUES
 (16,1),
 (17,1),
 (18,1),
+(19,1),
 (2,2),
 (3,2),
 (8,2),
@@ -25,6 +26,7 @@ INSERT IGNORE INTO `location_tag_map` VALUES
 (16,2),
 (17,2),
 (18,2),
+(19,2),
 (2,3),
 (3,3),
 (8,3),
@@ -38,6 +40,7 @@ INSERT IGNORE INTO `location_tag_map` VALUES
 (16,3),
 (17,3),
 (18,3),
+(19,3),
 (2,4),
 (3,4),
 (8,4),
@@ -50,4 +53,5 @@ INSERT IGNORE INTO `location_tag_map` VALUES
 (15,4),
 (16,4),
 (17,4),
-(18,4);
+(18,4),
+(19,4);

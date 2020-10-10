@@ -82,6 +82,13 @@
 
             href_otz = baseUrl + "/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=" + $.urlParam('patientId') + "&amp;visitId=" + $.urlParam('visitId') + "&amp;formUuid=5dfc3ea6-9783-44a3-a3fd-7249f4e313bc&amp;returnUrl=%2F" + domain + "%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D" + $.urlParam('patientId') + "%26"
 
+            href_medadherence = baseUrl + "/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=" + $.urlParam('patientId') + "&amp;visitId=" + $.urlParam('visitId') + "&amp;formUuid=f826d129-dea8-4b6b-86bc-1f448076615b&amp;returnUrl=%2F" + domain + "%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D" + $.urlParam('patientId') + "%26"
+
+            href_vitals = baseUrl + "/htmlformentryui/htmlform/enterHtmlFormWithSimpleUi.page?patientId=" + $.urlParam('patientId') + "&amp;visitId=" + $.urlParam('visitId') + "&amp;formUuid=a000cb34-9ec1-4344-a1c8-f692232f6edd&amp;returnUrl=%2F" + domain + "%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D" + $.urlParam('patientId') + "%26"
+
+            var src = $('#vitals')
+            src.attr("href", href_vitals)
+
             var src = $('#enrollment')
             src.attr("href", href_enrollment)
 
@@ -126,6 +133,10 @@
 
             var otz_form = $('#otz_form')
             otz_form.attr("href", href_otz)
+
+            var medadhrform = $('#medadherence')
+            medadhrform.attr("href", href_medadherence)
+            
         });
 
 
@@ -149,6 +160,12 @@
         class="button app big">
         <i class="icon-calendar"></i>
         Hiv enrollment
+    </a>
+</includeIf>
+<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Nurse')">
+    <a id="vitals" class="button app big art">
+        <i class="icon-vitals"></i>
+       Capture Vitals
     </a>
 </includeIf>
 <includeIf velocityTest="$user.hasRole('MandE') || $user.hasRole('Clinician') || $user.hasRole('Adherence')">
@@ -199,7 +216,7 @@
         Pharmacy Order
     </a>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Adherence') || $user.hasRole('Pharmacist') || ">
+<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Adherence')">
     <a id="eacform"
         href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=d42c5cf6-8722-4f32-8767-ec8df0a40094&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
         class="button app big art">
@@ -207,7 +224,7 @@
         Enhanced Adherence Counselling
     </a>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Adherence')">
+<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Adherence') || $user.hasRole('Nurse')">
     <a id="carecard" class="button app big art">
         <i class="icon-truck"></i>
         Care Card
@@ -243,6 +260,14 @@
         class="button app big art">
         <i class="icon-legal"></i>
         ART Commencement
+    </a>       
+</includeIf>
+<includeIf velocityTest="$user.hasRole('Adherence')">
+    <a id="medadherence"
+        href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=f826d129-dea8-4b6b-86bc-1f448076615b&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+        class="button app big art">
+        <i class="icon-user"></i>
+        Medication Adherence
     </a>       
 </includeIf>
                     </div>
