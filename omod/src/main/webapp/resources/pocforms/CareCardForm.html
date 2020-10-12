@@ -130,10 +130,27 @@
     </script>
     <script type="text/javascript">
 
+        var jq = jQuery;
         var $ = jQuery;
         $(document).ready(function () {
             $('.hasDatepicker').attr('readonly', true);
         });
+
+        jq(document).ready(function () {
+            var w = "" +<lookup expression="fn.latestObs('5089').valueNumeric" /> + "";
+            var h = "" +<lookup expression="fn.latestObs('5090').valueNumeric" /> + "";
+            var bp1 = "" +<lookup expression="fn.latestObs('5085').valueNumeric" /> + "";
+            var bp2 = "" +<lookup expression="fn.latestObs('5086').valueNumeric" /> + "";
+            var c = (h / 100);
+            var bm = w / (c * c);
+            setValue('weight.value', w);
+            setValue('height.value', h);
+            setValue('bp1.value', bp1);
+            setValue('bp2.value', bp2);
+            setValue('bmi.value', bm.toFixed(2));
+        });
+
+
 $(document).ready(function ()
 	{
 	   $('#height').keyup(calBMI);
@@ -189,18 +206,13 @@ $('#height').hide(200);
 }
 }
     </script>
-   
-    <script type="text/javascript">
-        <!--jQuery(function() {-->
-        <!--&lt;!&ndash;Hide the following questions when the form loads&ndash;&gt;-->
-        <!--htmlForm.simpleUi.hideField('familyr'); htmlForm.simpleUi.hideField('familyro');-->
-        <!--});-->
-    </script>
+
+
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr>
-                <th style="text-align: center">HIV Treatment Follow up form (Care Card - Center Spread)</th>
-            </tr>
+        <tr>
+            <th style="text-align: center">HIV Treatment Follow up form (Care Card - Center Spread)</th>
+        </tr>
         </thead>
     </table>
 
@@ -213,8 +225,6 @@ $('#height').hide(200);
             <tr><td><b>Viral Load:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font>copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td><td><b>Regimen:</b></td><td><b>ART Start Date:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(159599).getValueDatetime()" /></font></td></tr>
         </table>
     </fieldset>
-    
-
 
     <table>
         <tr>
@@ -269,12 +279,12 @@ $('#height').hide(200);
         </table>
         <table>
             <tr>
-                
+
                 <td class="alnright_s">Weight (kg)</td>
                 <td>
                     <obs conceptId="5089" id="weight" />
                 </td>
-                           
+
 
                 <td class="alnright_s">Height (cm)</td>
                 <td>
@@ -289,11 +299,11 @@ $('#height').hide(200);
                     <table>
                         <tr>
                             <td>
-                                <obs conceptId="5085" />
+                                <obs conceptId="5085" id="bp1" />
                             </td>
                             <td>/</td>
                             <td>
-                                <obs conceptId="5086" />
+                                <obs conceptId="5086" id="bp2" />
                             </td>
                         </tr>
                     </table>
@@ -759,6 +769,8 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
             </tr>
 
         </table>
+        <label id="mul"></label>
     </fieldset>
     <submit />
 </htmlform>
+
