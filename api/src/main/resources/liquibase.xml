@@ -14,5 +14,17 @@
     </changeSet>
 
     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="update141020200830" author="wande">
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8908"/>
+            <column name="concept_id" value="165725"/>
+            <column name="answer_concept" value="166044"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-13 10:55:05"/>
+            <column name="uuid" value="555d447e-d18e-4a2e-832b-4b790dc03b27"/>
+            <column name="sort_weight" value="31"/>
+        </insert>
+    </changeSet>
     
 </databaseChangeLog>
