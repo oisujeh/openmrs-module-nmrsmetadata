@@ -6,7 +6,7 @@
 
     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
     <changeSet author="toyeeb" id="update15102020540">
-        <delete tableName="concept_answer" schemaName="public">
+        <delete tableName="concept_answer">
             <where>concept_answer_id='8908'</where>
         </delete>
     </changeSet>
