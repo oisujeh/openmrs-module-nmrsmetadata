@@ -362,4 +362,6 @@ REPLACE INTO `privilege` VALUES
 ('View Users','Able to view users in OpenMRS','129aac63-440a-11e6-a65c-00e04c680037'),
 ('View Visit Attribute Types','Able to view visit attribute types','6ed39527-c5e0-4267-afb2-263dcd2c300b'),
 ('View Visit Types','Able to view visit types','f82294e8-57d5-4f05-9b3e-05671ad5da20'),
-('View Visits','Able to view visits','0b67ced8-a59c-4476-af36-25498b096c8f')/0xd
+('View Visits','Able to view visits','0b67ced8-a59c-4476-af36-25498b096c8f'),
+('Nigeriaemr Privilege','To enable NMRS Export appear on homepage link','7ca2f557-076b-4d25-945f-ef965d30453e'),
+('App: reportingui.reports','To enable NigeriaMRS Reporting Module App on the Homepage for other users based on their roles.','2933ae86-6f17-4eb5-8c37-40f82fb0281d')/0xd
