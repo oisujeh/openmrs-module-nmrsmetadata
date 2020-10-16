@@ -5,9 +5,9 @@
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
-    <changeSet  author="toyeeb"  id="update15102020540">
-        <delete  tableName="concept_answer">
-            <where>concept_answer_id=8908</where>
+    <changeSet author="toyeeb" id="update15102020540">
+        <delete tableName="concept_answer">
+            <where>concept_answer_id='8908'</where>
         </delete>
     </changeSet>
     <changeSet id="update141020200830" author="wande">
