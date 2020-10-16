@@ -23,16 +23,7 @@
     </changeSet>
     <changeSet author="toyeeb" id="delete161020201157">
         <delete tableName="location_tag_map">
-            <where>location_id='4'</where>
-        </delete>
-        <delete tableName="location_tag_map">
-            <where>location_id='5'</where>
-        </delete>
-        <delete tableName="location_tag_map">
-            <where>location_id='6'</where>
-        </delete>
-        <delete tableName="location_tag_map">
-            <where>location_id='7'</where>
-        </delete>
+            <where>location_id='4' AND location_id='5' AND location_id='6' AND location_id='7'</where>
+        </delete>             
     </changeSet>
 </databaseChangeLog>
