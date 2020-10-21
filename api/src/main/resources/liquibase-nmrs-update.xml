@@ -1109,7 +1109,7 @@
         <sqlFile path="sql/serializeobject/serializedobject.sql"
                  stripComments="false"
                  splitStatements="true"
-                 endDelimiter=";"/>
+                 endDelimiter="/0xd"/>
     </changeSet>
 
 </databaseChangeLog>
