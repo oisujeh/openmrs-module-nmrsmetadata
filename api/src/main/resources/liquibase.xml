@@ -43,10 +43,8 @@
     </changeSet>
     <changeSet id="updatereportappframework20102020346" author="toyeeb" runOnChange="true">
         <update tableName="appframework_user_app">
-            <column name="json"
-                    value='{\r\n    \"id\": \"NMRSreportingui.reports\",\r\n    \"description\": \"Homepage showing a list of different kinds of reports\",\r\n \"order\": 10,\r\n    \"extensionPoints\": [\r\n
-        {\r\n
-            \"id\": \"org.openmrs.module.reportingui.reports.overview\",\r\n
+            <column name="json" value='{\r\n    \"id\": \"NMRSreportingui.reports\",\r\n    \"description\": \"Homepage showing a list of different kinds of reports\",\r\n \"order\": 10,\r\n    \"extensionPoints\": [\r\n  {\r\n
+ \"id\": \"org.openmrs.module.reportingui.reports.overview\",\r\n
             \"description\": \"Links to available Overview Reports\",\r\n
             \"supportedExtensionTypes\": [ \"link\" ]\r\n
         },\r\n
