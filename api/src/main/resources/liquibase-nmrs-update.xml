@@ -1107,7 +1107,7 @@
             <sqlCheck  expectedResult="true">SELECT property_value FROM global_property WHERE property = 'isNmrsDistribution'</sqlCheck>
         </preConditions>
         <sqlFile path="sql/serializeobject/serializedobject.sql"
-                 stripComments="true"
+                 stripComments="false"
                  splitStatements="true"
                  endDelimiter=";"/>
     </changeSet>
