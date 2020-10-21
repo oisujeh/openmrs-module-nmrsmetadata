@@ -21,5 +21,155 @@
             <column name="sort_weight" value="31"/>
         </insert>
     </changeSet>
+    <changeSet author="toyeeb" id="delete161020201157" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='4'</where>
+        </delete>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201158" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='5'</where>
+        </delete>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201159" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='6'</where>
+        </delete>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201160" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='7'</where>
+        </delete>
+    </changeSet>
+    <changeSet id="updatereportappframework20102020346" author="toyeeb" runOnChange="true">
+        <update tableName="appframework_user_app">
+            <column name="json" value='{\r\n    \"id\": \"NMRSreportingui.reports\",\r\n    \"description\": \"Homepage showing a list of different kinds of reports\",\r\n \"order\": 10,\r\n    \"extensionPoints\": [\r\n  {\r\n
+ \"id\": \"org.openmrs.module.reportingui.reports.overview\",\r\n
+            \"description\": \"Links to available Overview Reports\",\r\n
+            \"supportedExtensionTypes\": [ \"link\" ]\r\n
+        },\r\n
+        {\r\n
+            \"id\": \"org.openmrs.module.reportingui.reports.dataquality\",\r\n
+            \"description\": \"Links to available Data Quality Reports\",\r\n
+            \"supportedExtensionTypes\": [ \"link\" ]\r\n
+        },\r\n
+        {\r\n
+            \"id\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"description\": \"Links to available Data Exports\",\r\n
+            \"supportedExtensionTypes\": [ \"link\" ]\r\n
+        }\r\n
+    ],\r\n
+    \"extensions\": [\r\n
+        {\r\n
+            \"id\": \"reportingui.reports.homepagelink\",\r\n
+            \"extensionPointId\": \"org.openmrs.referenceapplication.homepageLink\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"NigeriaMRS Reporting Module\",\r\n
+            \"url\": \"reportingui/reportsapp/home.page\",\r\n
+            \"icon\": \"icon-umbrella\",\r\n
+            \"order\": 2,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+       {\r\n
+            \"id\": \"HTS\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"HIV Testing Services HTS_TST\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=d8a1ce95-477d-481c-9893-7fa7d1c3b35b\",\r\n
+            \"order\": 1,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
 
+{\r\n
+            \"id\": \"Tx_CURR\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"Tx_CURR\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=3a342cb1-8446-4815-8e9e-50ba432179a0\",\r\n
+            \"order\": 2,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{\r\n
+            \"id\": \"Tx_NEW\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"Tx_NEW\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=a8fb8071-79c0-4bfc-982d-2a2a1b6b8db1\",\r\n
+            \"order\": 1,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+
+        {\r\n
+            \"id\": \"Viral Load\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"Viral Load Eligibility\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=9d363fa4-e132-4a39-962f-c9872e285172\",\r\n
+
+            \"order\": 1,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{\r\n
+            \"id\": \"PVLS Report\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"PVLS Report\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=d43b478c-3c7c-4e4d-8fb5-2e7fa9c290eb\",\r\n
+
+            \"order\": 1,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{
+            \"id\": \"SI-RADET\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"RADET\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=45af899b-f6d2-4a46-b89a-e6b5696dd7de\",\r\n
+
+            \"order\": 1,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{\r\n
+            \"id\": \"MissedAppointments\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.dataexport\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"Missed Appointments\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=121017a4-bc6e-47ad-95bb-62f44d11bee3\",\r\n
+            \"order": 5,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{\r\n
+            \"id\": \"PMTCT Indicators\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.overview\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"3. PMTCT Indicators\",\r\n
+            \"url\": \"module/reporting/run/runReport.form?reportId=62c4ee5b-2eb6-42d1-8218-7ab9f16d7b60\",\r\n
+            \"order\": 3,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{
+            \"id\": \"HTS Indicators\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.overview\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"2. HTS Indicators\",\r\n
+            \"url\": \"reportingui/runReport.page?reportDefinition=f6bcb228-c786-4a9d-95f4-e2e868149d70\",\r\n
+            \"order\": 2,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        },\r\n
+{
+            \"id\": \"ART Indicators\",\r\n
+            \"extensionPointId\": \"org.openmrs.module.reportingui.reports.overview\",\r\n
+            \"type\": \"link\",\r\n
+            \"label\": \"1. ART Indicators\",\r\n
+            \"url\": \"module/reporting/run/runReport.form?reportId=458495e2-d0ab-4019-aabb-428fa6bd332f\",\r\n
+            \"order\": 1,\r\n
+            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+        }\r\n
+
+    ],\r\n
+    \"requiredPrivilege\": \"App: reportingui.reports\"\r\n
+}'/>
+            <where>app_id='NMRSreportingui.reports'</where>
+        </update>
+    </changeSet>
 </databaseChangeLog>

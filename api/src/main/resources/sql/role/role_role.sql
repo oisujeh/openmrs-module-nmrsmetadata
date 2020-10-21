@@ -5,7 +5,7 @@ REPLACE INTO `role_role` VALUES
   ('Privilege Level: Full','ANC'),
   ('Provider','ANC'),
   ('ANC','Application: Enters Vitals'),
-('ANC','Application: Uses Capture Vitals App'),
+  ('ANC','Application: Uses Capture Vitals App'),
   ('Privilege Level: Full','Application: Administers System'),
   ('Privilege Level: Full','Application: Configures Appointment Scheduling'),
   ('Privilege Level: Full','Application: Configures Forms'),
