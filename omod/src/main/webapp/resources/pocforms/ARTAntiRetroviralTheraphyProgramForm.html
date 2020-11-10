@@ -162,7 +162,7 @@
         Hiv enrollment
     </a>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Nurse')">
+<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Nurse') || $user.hasRole('ANC')">
     <a id="vitals" class="button app big art">
         <i class="icon-vitals"></i>
        Capture Vitals
