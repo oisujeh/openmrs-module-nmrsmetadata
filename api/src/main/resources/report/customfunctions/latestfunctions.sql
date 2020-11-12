@@ -1,10 +1,11 @@
-drop function if exists getconceptval/0xd
-drop function if exists getoutcome/0xd
-drop procedure if exists drugduration/0xd
-drop function if exists daysofarvrefil/0xd
-drop function if exists getdaysofarvrefil/0xd
+drop function if exists getconceptval;
+drop function if exists getoutcome;
+drop procedure if exists drugduration;
+drop function if exists daysofarvrefil;
+drop function if exists getdaysofarvrefil;
 
 
+DELIMITER ;;
 CREATE FUNCTION `getconceptval`(`obsid` int,`cid` int, pid int) RETURNS decimal(10,0)
 BEGIN
 
@@ -16,8 +17,10 @@ BEGIN
 
 	RETURN value_num;
 
-END /0xd
+END ;;
+DELIMITER ;
 
+DELIMITER ;;
 CREATE FUNCTION `getdaysofarvrefil`(`obsid` numeric,`obsgroupid` numeric,`valuenumeric` numeric) RETURNS decimal(10,0)
 BEGIN
 
@@ -38,8 +41,12 @@ END IF;
 
 RETURN ans;
 
-END/0xd
+END ;;
+DELIMITER ;
 
+
+
+DELIMITER ;;
 CREATE FUNCTION `getoutcome`(`lastpickupdate` date,`daysofarvrefill` numeric,`ltfudays` numeric, `enddate` date) RETURNS text CHARSET utf8
 BEGIN
 
@@ -61,8 +68,10 @@ SELECT IF(daysdiff >=0,"Active","LTFU") into outcome;
 
 RETURN outcome;
 
-END/0xd
+END ;;
+DELIMITER ;
 
+DELIMITER ;;
 CREATE PROCEDURE `drugduration`(IN `enddate` date)
 BEGIN
 
@@ -80,10 +89,12 @@ CREATE  INDEX pid ON arvmedication(person_id);
 
 
 
-END/0xd
+END ;;
+DELIMITER ;
 
-DROP FUNCTION IF EXISTS `getreporteddate`/0xd
 
+DROP FUNCTION IF EXISTS `getreporteddate`;
+DELIMITER ;;
 CREATE FUNCTION `getreporteddate`(`encounter_id` int,`reporteddateconcept_id` int,`patientid` int) RETURNS date
 BEGIN
 	#Routine body goes here...
@@ -97,5 +108,22 @@ obs.person_id=patientid
 and
 voided=0 LIMIT 1;
 RETURN val_date;
-END/0xd
+END
+;;
+DELIMITER ;
+
+DROP FUNCTION IF EXISTS `getcurrentregimen`;
+DELIMITER ;;
+CREATE FUNCTION `getcurrentregimen`(`cid` int,`eid` int) RETURNS text CHARSET utf8
+BEGIN
+ DECLARE regimen text;
+   SELECT cn1.name INTO regimen from 
+   obs INNER JOIN concept_name cn1 on(obs.value_coded=cn1.concept_id and cn1.locale='en' and cn1.locale_preferred=1)  where obs.concept_id=cid AND obs.encounter_id=eid  AND obs.voided=0 LIMIT 1;
+	
+	RETURN regimen;
+END
+;;
+DELIMITER ;
+
+
 
