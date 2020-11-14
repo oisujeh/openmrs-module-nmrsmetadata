@@ -1014,38 +1014,11 @@
     </changeSet>
 
     <!--reports-->
-    <changeSet id="reporting_report_request" author="wande" runOnChange="true">
-        <preConditions onFail="MARK_RAN" onError="MARK_RAN">
-            <sqlCheck  expectedResult="true">SELECT property_value FROM global_property WHERE property = 'isNmrsDistribution'</sqlCheck>
-        </preConditions>
-        <sqlFile path="sql/report/reporting_report_request.sql"
-                 stripComments="false"
-                 splitStatements="true"
-                 endDelimiter="/0xd"/>
-    </changeSet>
     <changeSet id="reporting_report_design" author="wande" runOnChange="true">
         <preConditions onFail="MARK_RAN" onError="MARK_RAN">
             <sqlCheck  expectedResult="true">SELECT property_value FROM global_property WHERE property = 'isNmrsDistribution'</sqlCheck>
         </preConditions>
         <sqlFile path="sql/report/reporting_report_design.sql"
-                 stripComments="false"
-                 splitStatements="true"
-                 endDelimiter="/0xd"/>
-    </changeSet>
-    <changeSet id="reporting_report_design_resource" author="wande" runOnChange="true">
-        <preConditions onFail="MARK_RAN" onError="MARK_RAN">
-            <sqlCheck  expectedResult="true">SELECT property_value FROM global_property WHERE property = 'isNmrsDistribution'</sqlCheck>
-        </preConditions>
-        <sqlFile path="sql/report/reporting_report_design_resource.sql"
-                 stripComments="false"
-                 splitStatements="true"
-                 endDelimiter="/0xd"/>
-    </changeSet>
-    <changeSet id="report_object" author="wande" runOnChange="true">
-        <preConditions onFail="MARK_RAN" onError="MARK_RAN">
-            <sqlCheck  expectedResult="true">SELECT property_value FROM global_property WHERE property = 'isNmrsDistribution'</sqlCheck>
-        </preConditions>
-        <sqlFile path="sql/report/report_object.sql"
                  stripComments="false"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
