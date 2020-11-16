@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
-    <changeSet id="dataquality_report_definition_202011140131" author="wande">
+    <!--<changeSet id="dataquality_report_definition_202011140131" author="wande">
         <insert tableName="reporting_report_design">
             <column name="uuid" value="633cfa97-fd46-4e0f-b061-3877792c5bcb"/>
             <column name="name" value="Excel"/>
@@ -35,8 +35,26 @@
             <column name="date_created" valueDate="now()"/>
             <column name="report_definition_uuid" value="64b6148d-12b9-46df-bdba-896ae7504ae5"/>
         </insert>
-    </changeSet>
+    </changeSet>-->
 
+    <changeSet id="dataquality_report_definition_202011160237" author="Bright" runOnChange="true">
+         <sqlFile path="sql/report/reporting_report_design.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="dataquality_report_definition_202011160238" author="Bright" runOnChange="true">
+         <sqlFile path="sql/report/serialized_object.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="dataquality_report_definition_202011160303" author="Bright" runOnChange="true">
+         <sqlFile path="dataquality/appframework/appframework_user_app.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
     <changeSet id="fn_getconceptval_20201112_1126" author="wande" runOnChange="true">
         <sqlFile path="dataquality/functions/fn_getconceptval.sql"
                  stripComments="true"
@@ -50,25 +68,25 @@
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    <changeSet id="fn_getdaysofarvrefil_20201112_1126" author="wande">
+    <changeSet id="fn_getdaysofarvrefil_20201112_1126" author="wande" runOnChange="true">
         <sqlFile path="dataquality/functions/fn_getdaysofarvrefil.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    <changeSet id="fn_getoutcome_20201112_1126" author="wande">
+    <changeSet id="fn_getoutcome_20201112_1126" author="wande" runOnChange="true">
         <sqlFile path="dataquality/functions/fn_getoutcome.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    <changeSet id="fn_getreporteddate_20201112_1126" author="wande">
+    <changeSet id="fn_getreporteddate_20201112_1126" author="wande" runOnChange="true">
         <sqlFile path="dataquality/functions/fn_getreporteddate.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    <changeSet id="prc_drugduration_20201112_1126" author="wande">
+    <changeSet id="prc_drugduration_20201112_1126" author="wande" runOnChange="true">
         <sqlFile path="dataquality/procedures/prc_drugduration.sql"
                  stripComments="true"
                  splitStatements="true"
