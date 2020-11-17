@@ -1,10 +1,10 @@
-<org.openmrs.module.reporting.report.definition.ReportDefinition id="1" uuid="33ddb8f8-3bfa-4953-b654-21d60966ec72" retired="false">
-  <name>ERROR - INCOMPLETE VIRAL LOAD DATA</name>
-  <description>Viral Load data with missing DateReported or DateOrdered</description>
+<org.openmrs.module.reporting.report.definition.ReportDefinition id="1" uuid="2bcc0d06-8120-4d85-99a7-530675b080e6" retired="false">
+  <name>SCHEDULED APPOINTMENT</name>
+  <description>Patients who have appointment in a particular reporting period</description>
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
-  <dateCreated id="3">2020-03-23 01:22:18 UTC</dateCreated>
+  <dateCreated id="3">2019-10-24 04:23:38 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2020-03-23 01:23:31 UTC</dateChanged>
+  <dateChanged id="4">2019-10-24 04:25:06 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -19,12 +19,12 @@
       <required>true</required>
     </org.openmrs.module.reporting.evaluation.parameter.Parameter>
   </parameters>
-  <id>232</id>
+  <id>220</id>
   <dataSetDefinitions class="linked-hash-map" id="8">
     <entry>
-      <string>IncompleteViralLoadData</string>
+      <string>ScheduledAppointment</string>
       <org.openmrs.module.reporting.evaluation.parameter.Mapped id="9">
-        <parameterizable class="org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition" id="10" uuid="808c3bed-1428-49f6-b4be-af751e76b54c"/>
+        <parameterizable class="org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition" id="10" uuid="0ce4ce9f-0098-43b5-8ead-0fd3baf197f9"/>
         <parameterMappings id="11">
           <entry>
             <string>endDate</string>
