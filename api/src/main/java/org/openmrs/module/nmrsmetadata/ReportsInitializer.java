@@ -2,7 +2,11 @@ package org.openmrs.module.nmrsmetadata;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.appframework.domain.AppDescriptor;
+import org.openmrs.module.appframework.domain.UserApp;
+import org.openmrs.module.appframework.service.AppFrameworkService;
 import org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition;
 import org.openmrs.module.reporting.dataset.definition.service.DataSetDefinitionService;
 import org.openmrs.module.reporting.report.definition.ReportDefinition;
@@ -21,6 +25,8 @@ public class ReportsInitializer implements Initializer {
 	protected static final String providerName = "nmrsmetadata";
 	
 	protected static final String reportsPath = "reports/";
+	
+	protected static final String appsPath = "app/";
 	
 	protected static final Log log = LogFactory.getLog(ReportsInitializer.class);
 	
@@ -86,6 +92,33 @@ public class ReportsInitializer implements Initializer {
 		}
 		catch (Exception e) {
 			log.error(e.getMessage());
+		}
+		
+		//Update Appdescriptor
+		final File appJsonDir = resourceProvider.getResource(appsPath);
+		final List<String> appJsonPaths = new ArrayList<>();
+		// Scanning the forms resources folder
+		if (appJsonDir != null && appJsonDir.listFiles() != null) {
+			for (File file : appJsonDir.listFiles())
+				appJsonPaths.add(appsPath + file.getName());
+		}
+		for (String appJsonPath : appJsonPaths) {
+			try {
+				File file = resourceFactory.getResource(providerName, appJsonPath);
+				String json = resourceFactory.getResourceAsString(providerName, appJsonPath);
+				String fileNameWithOutExt = file.getName().replaceFirst("[.][^.]+$", "");
+				AppFrameworkService appFrameworkService = Context.getService(AppFrameworkService.class);
+				UserApp userApp = appFrameworkService.getUserApp(fileNameWithOutExt);
+				if (userApp == null) {
+					userApp = new UserApp();
+					userApp.setAppId(fileNameWithOutExt);
+				}
+				userApp.setJson(json);
+				appFrameworkService.saveUserApp(userApp);
+			}
+			catch (Exception e) {
+				log.error(e.getMessage());
+			}
 		}
 	}
 	
