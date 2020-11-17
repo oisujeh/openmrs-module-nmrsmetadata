@@ -107,6 +107,8 @@ else if(arvdos &gt; "10"){
         $
 
 	});
+
+
 </script>
 
 
@@ -364,7 +366,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" size="1" id="qtyPrescribed"/>
                         </div>
                     </td>
@@ -405,7 +407,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" size="1" id="qtyPrescribed"/>
                         </div>
                     </td>
@@ -445,7 +447,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" size="1" id="qtyPrescribed"/>
                         </div>
                     </td>
@@ -508,7 +510,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" id="qtyPrescribed" />
                         </div>
                     </td>
@@ -543,7 +545,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" id="qtyPrescribed" />
                         </div>
                     </td>
@@ -578,7 +580,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" id="qtyPrescribed" />
                         </div>
                     </td>
@@ -613,7 +615,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" id="qtyPrescribed" />
                         </div>
                     </td>
@@ -679,7 +681,7 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" id="qtyPrescribed"/>
                         </div>
                     </td>
@@ -714,11 +716,10 @@ else if(arvdos &gt; "10"){
                         </div>
                     </td>
                     <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
+                        <div>
                             <obs conceptId="160856" id="qtyPrescribed"/>
                         </div>
                     </td>
-
                     <includeIf velocityTest="$user.hasRole('Pharmacist')">
                         <td>
                             <obs conceptId="1443" id="qtyDispensed"/>
@@ -735,7 +736,7 @@ else if(arvdos &gt; "10"){
             <tr>
                 <td>
                     <label>Ordered By:</label>
-                    <encounterProvider role="Clinician" default="currentUser" />
+                    <encounterProvider role="Clinician" default="currentUser" required="false" />
                 </td>
                 <td>
                     <label>Date orderd:</label>
@@ -794,7 +795,7 @@ else if(arvdos &gt; "10"){
                     <label>Signature:</label>
                 </td>
                 <td colspan="3">
-                    <encounterProvider role="Provider" />
+                    <encounterProvider role="Provider" default="currentUser" />
                 </td>
                 <td></td>
             </tr>
