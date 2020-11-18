@@ -1,0 +1,131 @@
+{
+  "id": "NMRSreportingui.reports",
+  "description": "Homepage showing a list of different kinds of reports",
+  "order": 10,
+  "extensionPoints": [
+    {
+      "id": "org.openmrs.module.reportingui.reports.overview",
+      "description": "Links to available Overview Reports",
+      "supportedExtensionTypes": [
+        "link"
+      ]
+    },
+    {
+      "id": "org.openmrs.module.reportingui.reports.dataquality",
+      "description": "Links to available Data Quality Reports",
+      "supportedExtensionTypes": [
+        "link"
+      ]
+    },
+    {
+      "id": "org.openmrs.module.reportingui.reports.dataexport",
+      "description": "Links to available Data Exports",
+      "supportedExtensionTypes": [
+        "link"
+      ]
+    }
+  ],
+  "extensions": [
+    {
+      "id": "reportingui.reports.homepagelink",
+      "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+      "type": "link",
+      "label": "NigeriaMRS Reporting Module",
+      "url": "reportingui/reportsapp/home.page",
+      "icon": "icon-umbrella",
+      "order": 2,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "HTS",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "HIV Testing Services HTS_TST",
+      "url": "reportingui/runReport.page?reportDefinition=d8a1ce95-477d-481c-9893-7fa7d1c3b35b",
+      "order": 1,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "Tx_CURR",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "Tx_CURR",
+      "url": "reportingui/runReport.page?reportDefinition=3a342cb1-8446-4815-8e9e-50ba432179a0",
+      "order": 2,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "Tx_NEW",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "Tx_NEW",
+      "url": "reportingui/runReport.page?reportDefinition=a8fb8071-79c0-4bfc-982d-2a2a1b6b8db1",
+      "order": 1,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "Viral Load",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "Viral Load Eligibility",
+      "url": "reportingui/runReport.page?reportDefinition=9d363fa4-e132-4a39-962f-c9872e285172",
+      "order": 1,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "PVLS Report",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "PVLS Report",
+      "url": "reportingui/runReport.page?reportDefinition=d43b478c-3c7c-4e4d-8fb5-2e7fa9c290eb",
+      "order": 1,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "SI-RADET",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "RADET",
+      "url": "reportingui/runReport.page?reportDefinition=45af899b-f6d2-4a46-b89a-e6b5696dd7de",
+      "order": 1,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "MissedAppointments",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+      "type": "link",
+      "label": "Missed Appointments",
+      "url": "reportingui/runReport.page?reportDefinition=121017a4-bc6e-47ad-95bb-62f44d11bee3",
+      "order": 5,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "PMTCT Indicators",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+      "type": "link",
+      "label": "3. PMTCT Indicators",
+      "url": "module/reporting/run/runReport.form?reportId=62c4ee5b-2eb6-42d1-8218-7ab9f16d7b60",
+      "order": 3,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "HTS Indicators",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+      "type": "link",
+      "label": "2. HTS Indicators",
+      "url": "reportingui/runReport.page?reportDefinition=f6bcb228-c786-4a9d-95f4-e2e868149d70",
+      "order": 2,
+      "requiredPrivilege": "App: reportingui.reports"
+    },
+    {
+      "id": "ART Indicators",
+      "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+      "type": "link",
+      "label": "1. ART Indicators",
+      "url": "module/reporting/run/runReport.form?reportId=458495e2-d0ab-4019-aabb-428fa6bd332f",
+      "order": 1,
+      "requiredPrivilege": "App: reportingui.reports"
+    }
+  ],
+  "requiredPrivilege": "App: reportingui.reports"
+}
