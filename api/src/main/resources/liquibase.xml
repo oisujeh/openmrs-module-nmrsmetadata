@@ -90,4 +90,10 @@
             <column name="locale_preferred" value="1"/>
         </insert>
     </changeSet>
+    <changeSet id="update_form_resource_table_longtext_202012080400" author="wande">
+        <sql>
+            ALTER TABLE form_resource
+            CHANGE COLUMN value_reference value_reference LONGTEXT NULL DEFAULT NULL ;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
