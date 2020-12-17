@@ -139,14 +139,75 @@ $(document).ready(function ()
 	   $('#height').keyup(calBMI);
            $('#weight').keyup(calBMI);
            $('#length').keyup(calBMI);
+
+        $('#lmp').change(function(e) {
+            calEDD();
+        });
+
+        $('#ge').keyup(function(e) {
+            calEDDwithGe();
+        });
 	});
 
-    $('#lmp').keyup(function(e) {
-      //$('#edd').val(new Date(e.target.value + 280))
-      var lmp = getValue('lmp.value');
-      var edd = new Date().setDate(new Date(lmp).getDate() + 280);
-      setValue('edd.value' ,edd);
-    });
+        function getCustomDate(date){
+
+
+            console.log("Date:" + date);
+
+
+            var dd = date.getDate();
+            var mm = date.getMonth() + 1;
+
+            var yyyy = date.getFullYear();
+
+            console.log("Day: " + dd);
+            console.log(mm);
+            console.log(yyyy);
+            var d= dd;
+            var m = mm;
+            if(!isNaN(dd)){
+                if (10 > dd) {
+                    d = "0" + dd;
+                }
+
+                if(!isNaN(mm)){
+                    if (10 > mm) {
+                        m = "0" + mm;
+                    }
+                }
+                return yyyy + "-" + m + "-" + d;
+            }
+        }
+
+        function calEDDwithGe(){
+            setValue("edd.value", "");
+            if(!isNaN(getValue("ge.value"))) {
+                var rWeeks = 40 - getValue("ge.value");
+                var edd = new Date();
+                var lmp = new Date();
+                edd = edd.setDate(edd.getDate() + (rWeeks * 7));
+                lmp = lmp.setDate(lmp.getDate() - (getValue("ge.value") * 7));
+                setValue('edd.value', getCustomDate(new Date(edd)));
+                setValue('lmp.value', getCustomDate(new Date(lmp)));
+            }else{
+                setValue("ge.value", "");
+            }
+        }
+
+        function calEDD() {
+            var lmp = new Date(getValue('lmp.value'));
+            if (lmp != null) {
+                lmp = lmp.setDate(lmp.getDate() + 280);
+                var Difference_In_Time = new Date().getTime() - new Date(getValue('lmp.value')).getTime();
+
+                var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                setValue("ge.value", Math.round(Difference_In_Days / 7));
+                console.log(lmp);
+
+                //setValue('edd.value', null);
+                setValue('edd.value', getCustomDate(new Date(lmp)));
+            }
+        }
 
 function calBMI(){
     var height_val = getValue('height.value');
@@ -259,7 +320,7 @@ $('#height').hide(200);
         					<td width="13%">Last menstrual period:</td>
         					<td><obs id="lmp" conceptId="1427"/></td>
         					<td width="13%">Gestational age in weeks:</td>
-        					<td><obs conceptId="1438"/></td>
+        					<td><obs id="ge" conceptId="1438"/></td>
                             <td width="13%">Expected date of delivery: </td>
                             <td><obs id="edd" conceptId="5596"/></td>
         				</excludeIf>
