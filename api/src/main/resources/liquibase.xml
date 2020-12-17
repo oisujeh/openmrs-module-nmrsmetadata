@@ -3,9 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
- 
-     <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
-
+    
     <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
 
     <changeSet id="concept_update_201010071131" author="wande">
@@ -104,5 +102,11 @@
             <column name="uuid" value="7huveyx5-d050-4e99-4826-ccddc456b8rf"/>
             <column name="sort_weight" valueNumeric="15"/>
         </insert>
+    </changeSet>
+    <changeSet id="update_form_resource_table_longtext_202012080400" author="wande">
+        <sql>
+            ALTER TABLE form_resource
+            CHANGE COLUMN value_reference value_reference LONGTEXT NULL DEFAULT NULL ;
+        </sql>
     </changeSet>
 </databaseChangeLog>
