@@ -1,1 +1,0 @@
-INSERT IGNORE INTO `concept_complex` VALUES (165781,NULL)/0xd
