@@ -6,6 +6,8 @@
  
      <include file="liquibase-nmrs-update.xml" relativeToChangelogFile="true" />
 
+    <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
+
     <changeSet id="concept_update_201010071131" author="wande">
         <insert tableName="concept">
             <column name="concept_id" value="166253"/>

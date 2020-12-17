@@ -25,6 +25,7 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		new HtmlFormsInitializer().started();
+		new ReportsInitializer().started();
 		log.info("Started NMRS Metatadat Module ");
 	}
 	
