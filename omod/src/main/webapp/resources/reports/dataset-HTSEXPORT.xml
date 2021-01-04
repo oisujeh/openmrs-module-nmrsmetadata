@@ -4,7 +4,7 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2020-09-28 04:46:28 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2020-09-28 04:50:07 UTC</dateChanged>
+  <dateChanged id="4">2021-01-04 14:58:43 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -26,6 +26,9 @@
    pid2.identifier as PepfarID,&#xd;
    pid3.identifier as HospID,&#xd;
    pid4.identifier as RecencyID,&#xd;
+   person.gender as Sex,&#xd;
+   DATE_FORMAT(person.birthdate, &apos;%d-%b-%Y&apos;) as DOB,&#xd;
+   TIMESTAMPDIFF(YEAR,person.birthdate,enc.encounter_datetime) as AgeYearsAtVisit,&#xd;
    DATE_FORMAT(enc.encounter_datetime,&apos;%d-%b-%Y&apos;) as VisitDate,&#xd;
    visit.visit_id as VisitID,&#xd;
    MAX(IF(obs.concept_id=166136,cn1.name, NULL))&#xd;
@@ -120,10 +123,11 @@
    MAX(IF(obs.concept_id=1382,cn1.name, NULL)) as CorrectCondomUseDemonstrated,&#xd;
     MAX(IF(obs.concept_id=159777,cn1.name, NULL)) as CondomsProvidedtoClient,&#xd;
     MAX(IF(obs.concept_id=165045,obs.value_text, NULL)) as AdditionalComments,&#xd;
-	MAX(IF(obs.concept_id=166242,obs.value_datetime, NULL)) as SignatureDate&#xd;
+    MAX(IF(obs.concept_id=166242,obs.value_datetime, NULL)) as SignatureDate&#xd;
   FROM&#xd;
    obs&#xd;
    LEFT JOIN patient ON(patient.patient_id=obs.person_id and obs.voided=0 and patient.voided=0)&#xd;
+   LEFT JOIN person ON(person.person_id=patient.patient_id and person.voided=0)&#xd;
    LEFT join encounter enc on(enc.encounter_id=obs.encounter_id and enc.voided=0 and obs.voided=0 and enc.form_id=10)&#xd;
    LEFT JOIN visit on (enc.visit_id=visit.visit_id and visit.voided=0)&#xd;
    left join concept_name cn1 on(obs.value_coded=cn1.concept_id and cn1.locale=&apos;en&apos; and cn1.locale_preferred=1)&#xd;
