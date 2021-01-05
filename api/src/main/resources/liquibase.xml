@@ -7,6 +7,11 @@
     <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
 
     <changeSet id="concept_update_201010071131" author="wande">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_answer_id='8906';
+            </sqlCheck>
+        </preConditions>
         <insert tableName="concept">
             <column name="concept_id" value="166253"/>
             <column name="retired" value="0"/>
@@ -108,5 +113,16 @@
             ALTER TABLE form_resource
             CHANGE COLUMN value_reference value_reference LONGTEXT NULL DEFAULT NULL ;
         </sql>
+    </changeSet>
+
+    <changeSet id="add_pmtcthts_encounter_type_202101050223" author="wande">
+        <insert tableName="encounter_type">
+            <column name="name" value="PMTCT HIV Testing"/>
+            <column name="description" value="PMTCT HIV Testing"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="136e629b-78b6-4cdb-b76a-01c598d6a173"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>
