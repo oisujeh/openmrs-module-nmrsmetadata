@@ -44,10 +44,14 @@
                     return decodeURI(results[1]) || 0;
                 }
             }
-            href_birth=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=5fc9a1f0-39b7-4e18-a220-4d34dc6b6368&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
-            href_exposed=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=046f8478-7c73-49ca-be4d-dd2e7802c923&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
-            href_referral=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=8191c83b-2bee-4b50-8f15-bac832e0a2c7&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+            let visitId = $.urlParam('visitId');
+            if(visitId != null && visitId !== 0 && visitId.length <= 1) visitId = ""
+
+            href_birth=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+visitId+"&amp;formUuid=5fc9a1f0-39b7-4e18-a220-4d34dc6b6368&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+
+            href_exposed=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+visitId+"&amp;formUuid=046f8478-7c73-49ca-be4d-dd2e7802c923&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+            href_referral=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+visitId+"&amp;formUuid=8191c83b-2bee-4b50-8f15-bac832e0a2c7&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
             var bir = $('#birth')
             bir.attr("href",href_birth)

@@ -45,10 +45,12 @@
                 }
             }
 
+            let visitId = $.urlParam('visitId');
+            if(visitId != null && visitId !== 0 && visitId.length <= 1) visitId = ""
             href_pmtct = baseUrl +
                 "/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=" +
                 $.urlParam('patientId') +
-                "&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=1ae18e30-31c6-4daf-87f2-6075d0a0b2df&amp;returnUrl=%2F" +
+                "&amp;visitId="+visitId+"&amp;formUuid=1ae18e30-31c6-4daf-87f2-6075d0a0b2df&amp;returnUrl=%2F" +
                 domain +
                 "%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D" +
                 $.urlParam('patientId') +
@@ -56,7 +58,7 @@
             var href_lab = baseUrl +
                 "/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=" +
                 $.urlParam('patientId') +
-                "&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=889ce948-f1ee-4656-91af-147a9e760309&amp;returnUrl=%2F" +
+                "&amp;visitId="+visitId+"&amp;formUuid=889ce948-f1ee-4656-91af-147a9e760309&amp;returnUrl=%2F" +
                 domain +
                 "%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D" +
                 $.urlParam('patientId') +
