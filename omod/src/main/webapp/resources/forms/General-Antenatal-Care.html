@@ -238,25 +238,25 @@
         });
 
     </script>
-    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
-        <fieldset>
-            <legend class="legend_style">When?</legend>
-            <label>When?</label>
-            <encounterDate default="now" showTime="false" allowFutureDates="false"/>
-        </fieldset>
+<!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
+<!--        <fieldset>-->
+<!--            <legend class="legend_style">When?</legend>-->
+<!--            <label>When?</label>-->
+<!--            <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
+<!--        </fieldset>-->
 
-        <fieldset>
-            <legend>Who?</legend>
-            <label>Who?</label>
-            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>
-        </fieldset>
+<!--        <fieldset>-->
+<!--            <legend>Who?</legend>-->
+<!--            <label>Who?</label>-->
+<!--            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>-->
+<!--        </fieldset>-->
 
-        <fieldset>
-            <legend>Where?</legend>
-            <label>Where?</label>
-            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
-        </fieldset>
-    </div>
+<!--        <fieldset>-->
+<!--            <legend>Where?</legend>-->
+<!--            <label>Where?</label>-->
+<!--            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+<!--        </fieldset>-->
+<!--    </div>-->
     <table style="margin-bottom: 20px;">
         <thead>
         <tr><th colspan='5' style="text-align: center">General Antenatal Care Form</th></tr>
@@ -269,7 +269,8 @@
 
             <tr>
                 <td class="alnright">ANC No.</td>
-                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>
+<!--                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>-->
+                <td class="alnleft"><obs conceptId="165567" id="identifer-td" required="true"/></td>
                 <td style="vertical-align: top;">
                     <label> <input type="checkbox" name="preferred" id="preferred" />preferred</label>
                     <input type="hidden" name="pref_value" id="pref_value" />
@@ -396,25 +397,25 @@
     </fieldset>
 
 
-    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
-        <section headerLabel="Encounter Details" style="width: 40%; margin-left: 30%;">
-            <fieldset>
-                <legend class="legend_style">ANC Enrollment Date</legend>
-                <label>ANC Enrollment Date</label>
-                <encounterDate default="now" showTime="false" allowFutureDates="false"/>
-            </fieldset>
-            <fieldset>
-                <legend class="legend_style">Facility</legend>
-                <label>Facility</label>
-                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
-            </fieldset>
-            <fieldset>
-                <legend class="legend_style">Service Provider</legend>
-                <label>Service Provider</label>
-                <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>
-            </fieldset>
-        </section>
-    </div>
+<!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
+<!--        <section headerLabel="Encounter Details" style="width: 40%; margin-left: 30%;">-->
+<!--            <fieldset>-->
+<!--                <legend class="legend_style">ANC Enrollment Date</legend>-->
+<!--                <label>ANC Enrollment Date</label>-->
+<!--                <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
+<!--            </fieldset>-->
+<!--            <fieldset>-->
+<!--                <legend class="legend_style">Facility</legend>-->
+<!--                <label>Facility</label>-->
+<!--                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+<!--            </fieldset>-->
+<!--            <fieldset>-->
+<!--                <legend class="legend_style">Service Provider</legend>-->
+<!--                <label>Service Provider</label>-->
+<!--                <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>-->
+<!--            </fieldset>-->
+<!--        </section>-->
+<!--    </div>-->
 
 
     <fieldset>

@@ -65,7 +65,7 @@
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
-            <!-- padding: 5px; -->
+        <!-- padding: 5px; -->
             margin: 0px left;
             box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
             border-radius: 2px;
@@ -118,14 +118,14 @@
     </style>
     <script type="text/javascript">
         beforeSubmit.push(function() {
-        var val_encounterDate = getValue('encounterDate.value');
-        var val_next_appointment = getValue('next_appointment.value');
-        if (val_encounterDate > val_next_appointment) {
-        getField('next_appointment.error').html('Next appointment date has to be later than visit date').show();
-        return false;
-        }
+            var val_encounterDate = getValue('encounterDate.value');
+            var val_next_appointment = getValue('next_appointment.value');
+            if (val_encounterDate > val_next_appointment) {
+                getField('next_appointment.error').html('Next appointment date has to be later than visit date').show();
+                return false;
+            }
 
-        return true;
+            return true;
         });
     </script>
     <script type="text/javascript">
@@ -134,80 +134,130 @@
         $(document).ready(function () {
             $('.hasDatepicker').attr('readonly', true);
         });
-$(document).ready(function ()
-	{
-	   $('#height').keyup(calBMI);
-           $('#weight').keyup(calBMI);
-           $('#length').keyup(calBMI);
-	});
+        $(document).ready(function ()
+        {
+            $('#height').keyup(calBMI);
+            $('#weight').keyup(calBMI);
+            $('#length').keyup(calBMI);
 
-    $('#lmp').keyup(function(e) {
-      //$('#edd').val(new Date(e.target.value + 280))
-      var lmp = getValue('lmp.value');
-      var edd = new Date().setDate(new Date(lmp).getDate() + 280);
-      setValue('edd.value' ,edd);
-    });
+            $('#lmp').change(function(e) {
+                calEDD();
+            });
 
-function calBMI(){
-    var height_val = getValue('height.value');
-    var weight_val = getValue('weight.value');
-    var length_val = getValue('length.value');
-    var height_num = parseFloat(height_val);
-    var weight_num = parseFloat(weight_val);
-    var length_num = parseFloat(length_val);
-    if(!isNaN(height_num)){
-        if(!isNaN(weight_num)){
-            height_num = height_num/100;
-            var bmi_val = weight_num / (height_num * height_num);
-            setValue('bmi.value',bmi_val.toFixed(2));
-        }
-        else{
-            setValue('bmi.value', "");
-        }
-    }
-    else if(!isNaN(length_num)){
-        if(!isNaN(weight_num)){
-            length_num  = length_num/100;
-            var bmi_val = weight_num / (length_num* length_num);
-            setValue('bmi.value',bmi_val.toFixed(2));
-        }
-        else{
-            setValue('bmi.value', "");
-        }
-}
-    else {
-        setValue('bmi.value', "");
-    }
+            $('#ge').keyup(function(e) {
+                calEDDwithGe();
+            });
+        });
 
-    if(height_val.length > 0){
-        setValue('length.value', "");
-       $('#length').hide(200);
-}
-    else{
-        $('#length').show(200);
-}
+        function getCustomDate(date){
+            console.log("Date:" + date);
+            var dd = date.getDate();
+            var mm = date.getMonth() + 1;
+            var yyyy = date.getFullYear();
+            console.log("Day: " + dd);
+            console.log(mm);
+            console.log(yyyy);
+            var d= dd;
+            var m = mm;
+            if(!isNaN(dd)){
+                if (10 > dd) {
+                    d = "0" + dd;
+                }
+                if(!isNaN(mm)){
+                    if (10 > mm) {
+                        m = "0" + mm;
+                    }
+                }
+                return yyyy + "-" + m + "-" + d;
+            }
+        }
+        function calEDDwithGe(){
+            setValue("edd.value", "");
+            if(!isNaN(getValue("ge.value"))) {
+                var rWeeks = 40 - getValue("ge.value");
+                var edd = new Date();
+                var lmp = new Date();
+                edd = edd.setDate(edd.getDate() + (rWeeks * 7));
+                lmp = lmp.setDate(lmp.getDate() - (getValue("ge.value") * 7));
+                setValue('edd.value', getCustomDate(new Date(edd)));
+                setValue('lmp.value', getCustomDate(new Date(lmp)));
+            }else{
+                setValue("ge.value", "");
+            }
+        }
+        function calEDD() {
+            var lmp = new Date(getValue('lmp.value'));
+            if (lmp != null) {
+                lmp = lmp.setDate(lmp.getDate() + 280);
+                var Difference_In_Time = new Date().getTime() - new Date(getValue('lmp.value')).getTime();
+                var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                setValue("ge.value", Math.round(Difference_In_Days / 7));
+                console.log(lmp);
+                //setValue('edd.value', null);
+                setValue('edd.value', getCustomDate(new Date(lmp)));
+            }
+        }
 
-    if(length_val.length > 0){
- setValue('height.value', "");
-$('#height').hide(200);
-}
-    else{
-        $('#height').show(200);
-}
-}
+        function calBMI(){
+            var height_val = getValue('height.value');
+            var weight_val = getValue('weight.value');
+            var length_val = getValue('length.value');
+            var height_num = parseFloat(height_val);
+            var weight_num = parseFloat(weight_val);
+            var length_num = parseFloat(length_val);
+            if(!isNaN(height_num)){
+                if(!isNaN(weight_num)){
+                    height_num = height_num/100;
+                    var bmi_val = weight_num / (height_num * height_num);
+                    setValue('bmi.value',bmi_val.toFixed(2));
+                }
+                else{
+                    setValue('bmi.value', "");
+                }
+            }
+            else if(!isNaN(length_num)){
+                if(!isNaN(weight_num)){
+                    length_num  = length_num/100;
+                    var bmi_val = weight_num / (length_num* length_num);
+                    setValue('bmi.value',bmi_val.toFixed(2));
+                }
+                else{
+                    setValue('bmi.value', "");
+                }
+            }
+            else {
+                setValue('bmi.value', "");
+            }
+
+            if(height_val.length > 0){
+                setValue('length.value', "");
+                $('#length').hide(200);
+            }
+            else{
+                $('#length').show(200);
+            }
+
+            if(length_val.length > 0){
+                setValue('height.value', "");
+                $('#height').hide(200);
+            }
+            else{
+                $('#height').show(200);
+            }
+        }
     </script>
-   
+
     <script type="text/javascript">
         <!--jQuery(function() {-->
-        <!--&lt;!&ndash;Hide the following questions when the form loads&ndash;&gt;-->
-        <!--htmlForm.simpleUi.hideField('familyr'); htmlForm.simpleUi.hideField('familyro');-->
+            <!--&lt;!&ndash;Hide the following questions when the form loads&ndash;&gt;-->
+            <!--htmlForm.simpleUi.hideField('familyr'); htmlForm.simpleUi.hideField('familyro');-->
         <!--});-->
     </script>
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr>
-                <th style="text-align: center">HIV Treatment Follow up form (Care Card - Center Spread)</th>
-            </tr>
+        <tr>
+            <th style="text-align: center">HIV Treatment Follow up form (Care Card - Center Spread)</th>
+        </tr>
         </thead>
     </table>
 
@@ -220,7 +270,7 @@ $('#height').hide(200);
             <tr><td><b>Viral Load:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font>copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td><td><b>Regimen:</b></td><td><b>ART Start Date:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(159599).getValueDatetime()" /></font></td></tr>
         </table>
     </fieldset>
-    
+
 
 
     <table>
@@ -236,51 +286,51 @@ $('#height').hide(200);
     <fieldset>
         <legend class="legend_style">Vital Signs</legend>
         <includeIf velocityTest="$patient.gender == 'F' ">
-        	<fieldset>
-        		<table width="100%" border="0">
-        			<tr>
-        				<excludeIf velocityTest="$patient.gender == 'M' ">
-        					<td width="13%" >Pregnancy / Breastfeeding status:</td>
-        					<td >
-        						<p>
-        							<obs id="woman_pregnant" conceptId="165050" answerConceptIds="165048,165049,165047"
-        							answerLabels="Pregnant, Breastfeeding, Not Pregnant">
-        								<controls>
-                                           <when value="165048" thenDisplay="#cur_pregnant_result" />
-                                           <when value="165049" thenDisplay="#cur_breastfeeding" />
+            <fieldset>
+                <table width="100%" border="0">
+                    <tr>
+                        <excludeIf velocityTest="$patient.gender == 'M' ">
+                            <td width="13%" >Pregnancy / Breastfeeding status:</td>
+                            <td >
+                                <p>
+                                    <obs id="woman_pregnant" conceptId="165050" answerConceptIds="165048,165049,165047"
+                                         answerLabels="Pregnant, Breastfeeding, Not Pregnant" required="true">
+                                        <controls>
+                                            <when value="165048" thenDisplay="#cur_pregnant_result" />
+                                            <when value="165049" thenDisplay="#cur_breastfeeding" />
                                         </controls>
-        							</obs>
-        						</p>
-        					</td>
-        				</excludeIf>
-        			</tr>
-        			<tr id="cur_pregnant_result">
-        				<excludeIf velocityTest="$patient.gender == 'M' ">
-        					<td width="13%">Last menstrual period:</td>
-        					<td><obs id="lmp" conceptId="1427"/></td>
-        					<td width="13%">Gestational age in weeks:</td>
-        					<td><obs conceptId="1438"/></td>
+                                    </obs>
+                                </p>
+                            </td>
+                        </excludeIf>
+                    </tr>
+                    <tr id="cur_pregnant_result">
+                        <excludeIf velocityTest="$patient.gender == 'M' ">
+                            <td width="13%">Last menstrual period:</td>
+                            <td><obs id="lmp" conceptId="1427"/></td>
+                            <td width="13%">Gestational age in weeks:</td>
+                            <td><obs id="ge" conceptId="1438"/></td>
                             <td width="13%">Expected date of delivery: </td>
                             <td><obs id="edd" conceptId="5596"/></td>
-        				</excludeIf>
-        			</tr>
-        			<tr id="cur_breastfeeding">
-        				<excludeIf velocityTest="$patient.gender == 'M' ">
-        					<td id="child_prophylaxis_q" width="13%">Did child receive prophylaxis?</td>
-        					<td id="child_prophylaxis_a" width="37%"><obs conceptId="165977"/></td>
-        				</excludeIf>
-        			</tr>
-        		</table>
-        	</fieldset>
+                        </excludeIf>
+                    </tr>
+                    <tr id="cur_breastfeeding">
+                        <excludeIf velocityTest="$patient.gender == 'M' ">
+                            <td id="child_prophylaxis_q" width="13%">Did child receive prophylaxis?</td>
+                            <td id="child_prophylaxis_a" width="37%"><obs conceptId="165977"/></td>
+                        </excludeIf>
+                    </tr>
+                </table>
+            </fieldset>
         </includeIf>
         <table>
             <tr>
-                
+
                 <td class="alnright_s">Weight (kg)</td>
                 <td>
                     <obs conceptId="5089" id="weight" />
                 </td>
-                           
+
 
                 <td class="alnright_s">Height (cm)</td>
                 <td>
@@ -405,7 +455,7 @@ $('#height').hide(200);
                     <obs conceptId="160170" answerConceptId="119566" answerLabel="" />
                     <br />
                     Thrush, Oral/Virginal
-                    <obs conceptId="160170" answerConceptId="" answerLabel="" />
+                    <obs conceptId="160170" answerConceptId="5334" answerLabel="" />
                     <br />
                     Other OIs<obs conceptId="165613" />
                 </td>
@@ -661,7 +711,8 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
                     <obs conceptId="1271" answerConceptId="657" answerLabel="" />
                     <label style="width: 170px;">CD4</label>
                     <obs conceptId="1271" answerConceptId="856" answerLabel="" />
-                    <label style="width: 170px;">Viral Load</label><br />
+                    <label style="width: 170px;">Viral Load</label>
+                    <obs conceptId="1271" answerConceptId="156176" answerLabel="" /><label style="width: 170px;">Esophageal Thrush</label><br />
                     Indication for Viral Load Test <obs conceptId='164980' answerLabels="Targeted,Routine" answerConceptIds=" 162082,161236" />
 
                 </td>
@@ -671,7 +722,7 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
                     <obs conceptId="1271" answerConceptId="678" answerLabel="" /><label style="width: 170px;">WBC + Diff</label>
                     <obs conceptId="1271" answerConceptId="654" answerLabel="" /><label style="width: 170px;">ALT</label>
                     <obs conceptId="1271" answerConceptId="653" answerLabel="" /><label style="width: 170px;">AST</label>
-
+                    <obs conceptId="1271" answerConceptId="1319" answerLabel="" /><label style="width: 170px;">Differential Lymphocytes count (DLC)</label>
 
 
                 </td>
@@ -680,6 +731,7 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
                     <obs conceptId="1271" answerConceptId="1010" answerLabel="" /><label style="width: 170px;">Lipid Profile</label>
                     <obs conceptId="1271" answerConceptId="77427" answerLabel="" /><label style="width: 170px;">HBsAg</label>
                     <obs conceptId="1271" answerConceptId="165730" answerLabel="" /><label style="width: 170px;">HCV</label>
+                    <obs conceptId="1271" answerConceptId="952" answerLabel="" /><label style="width: 170px;">Total lymphocytes count (TLC)</label>
 
                 </td>
                 <td>
