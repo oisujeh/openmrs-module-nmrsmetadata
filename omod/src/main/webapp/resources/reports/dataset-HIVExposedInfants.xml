@@ -4,7 +4,7 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2021-01-04 09:52:30 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2021-01-04 10:20:39 UTC</dateChanged>
+  <dateChanged id="4">2021-01-07 00:39:02 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -76,7 +76,7 @@
    and enc.voided=0 and &#xd;
    enc.encounter_datetime BETWEEN&#xd;
    :startDate and :endDate&#xd;
-   GROUP BY patient.patient_id;&#xd;
+   GROUP BY patient.patient_id,enc.encounter_id;&#xd;
    &#xd;
 </sqlQuery>
 </org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition>

@@ -4,7 +4,7 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2020-09-28 04:54:20 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2021-01-04 01:28:28 UTC</dateChanged>
+  <dateChanged id="4">2021-01-07 00:45:05 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -41,7 +41,7 @@ MAX(IF(obs.concept_id=1427,DATE_FORMAT(obs.value_datetime,&apos;%d-%b-%Y&apos;),
    as `ExpectedDeliveryDate`,&#xd;
    MAX(IF(obs.concept_id=1053,obs.value_numeric, NULL)) &#xd;
    as `Parity`,&#xd;
-   MAX(IF(obs.concept_id=1053,obs.value_numeric, NULL)) &#xd;
+   MAX(IF(obs.concept_id=164894,obs.value_numeric, NULL)) &#xd;
    as `Losses`,&#xd;
    MAX(IF(obs.concept_id=165280,cn1.name, NULL)) &#xd;
    as `WomanTestedForSyphilis`,&#xd;
@@ -83,7 +83,7 @@ MAX(IF(obs.concept_id=1427,DATE_FORMAT(obs.value_datetime,&apos;%d-%b-%Y&apos;),
    and enc.voided=0 and &#xd;
    enc.encounter_datetime BETWEEN&#xd;
    :startDate and :endDate&#xd;
-   GROUP BY patient.patient_id;&#xd;
+   GROUP BY patient.patient_id,enc.encounter_id;&#xd;
    &#xd;
 </sqlQuery>
 </org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition>
