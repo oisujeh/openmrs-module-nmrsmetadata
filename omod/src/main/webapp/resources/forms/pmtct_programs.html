@@ -47,7 +47,7 @@
             }
 
             let visitId = $.urlParam('visitId');
-            if(visitId != null && visitId !== 0 && visitId.length <= 1) visitId = ""
+            if(visitId === null || visitId === 0 || visitId.length &lt;= 1) visitId = ""
 
             href_htsreg=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+visitId+"&amp;formUuid=1b64c8bc-b289-45f7-943c-122be5de7274&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
             href_partner=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+visitId+"&amp;formUuid=3595782a-1cdc-44f1-84cc-5682fd405f46&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"

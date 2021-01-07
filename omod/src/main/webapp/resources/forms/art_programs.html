@@ -47,7 +47,7 @@
             }
 
             let visitId = $.urlParam('visitId');
-            if(visitId != null && visitId !== 0 && visitId.length <= 1) visitId = ""
+            if(visitId === null || visitId === 0 || visitId.length &lt;= 1) visitId = ""
 
             href_enrollment=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+visitId+"&amp;formUuid=c2df5a7d-05ac-4ae3-bcd0-39969f17dbab&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
