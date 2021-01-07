@@ -46,7 +46,7 @@
             }
 
             let visitId = $.urlParam('visitId');
-            if(visitId != null && visitId !== 0 && visitId.length <= 1) visitId = ""
+            if(visitId === null || visitId === 0 || visitId.length &lt;= 1) visitId = ""
             href_pmtct = baseUrl +
                 "/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=" +
                 $.urlParam('patientId') +
