@@ -635,7 +635,10 @@
 
                     if(visitDate > today)
                     {
-                        getField('date_of_visit.error').html('Visit date cannot be a future date').show();
+                        const field = getField('date_of_visit.error');
+                        if(field != null) {
+                            getField('date_of_visit.error').html('Visit date cannot be a future date').show();
+                        }
                     }
 
 
@@ -655,12 +658,18 @@
 
                     if(testVal > today)
                     {
-                        getField('hiv_test_date.error').html('Screening test date cannot be a future date').show();
+                        const field = getField('hiv_test_date.error');
+                        if(field != null) {
+                            getField('hiv_test_date.error').html('Screening test date cannot be a future date').show();
+                        }
                     }
 
                     if(visitDate > testVal)
                     {
-                        getField('hiv_test_date.error').html('Screening test date cannot be earlier than Visit Date').show();
+                        const field = getField('hiv_test_date.error');
+                        if(field != null) {
+                            getField('hiv_test_date.error').html('Screening test date cannot be earlier than Visit Date').show();
+                        }
                     }
 
 
@@ -680,12 +689,18 @@
 
                     if(confirmVal > today)
                     {
-                        getField('confirm_test_date.error').html('Confirmatory test date cannot be a future date').show();
+                        const field = getField('confirm_test_date.error');
+                        if(field != null) {
+                            getField('confirm_test_date.error').html('Confirmatory test date cannot be a future date').show();
+                        }
                     }
 
                     if(testVal > confirmVal)
                     {
-                        getField('confirm_test_date.error').html('Confirmatory test date cannot be earlier than Screening Test Date').show();
+                        const field = getField('confirm_test_date.error');
+                        if(field != null) {
+                            getField('confirm_test_date.error').html('Confirmatory test date cannot be earlier than Screening Test Date').show();
+                        }
                     }
 
 
@@ -705,12 +720,18 @@
 
                     if(tieVal > today)
                     {
-                        getField('tie_test_date.error').html('Tie breaker test date cannot be a future date').show();
+                        const field = getField('tie_test_date.error');
+                        if(field != null) {
+                            getField('tie_test_date.error').html('Tie breaker test date cannot be a future date').show();
+                        }
                     }
 
                     if(confirmVal > tieVal)
                     {
-                        getField('tie_test_date.error').html('Tie breaker test date cannot be earlier than Confirmatory Test Date').show();
+                        const field = getField('tie_test_date.error');
+                        if(field != null) {
+                            getField('tie_test_date.error').html('Tie breaker test date cannot be earlier than Confirmatory Test Date').show();
+                        }
                     }
 
 
@@ -730,12 +751,19 @@
 
                     if(rctd > today)
                     {
-                        getField('recency_test_date.error').html('Recency Test Date cannot be a future date').show();
+                        const field = getField('recency_test_date.error');
+                        if(field != null) {
+                            getField('recency_test_date.error').html('Recency Test Date cannot be a future date').show();
+                        }
                     }
 
                     if(testVal > rctd)
                     {
-                        getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
+                        const field = getField('recency_test_date.error');
+                        if(field != null) {
+                            getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
+                        }
+
                     }
 
 
@@ -750,25 +778,30 @@
 
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs= getValue('vl_result_obs.value');
-                if(vlresultT == "166239")
+                if(vlresultT === "166239")
                 {
                     if(vlresultobs &lt;1000)
                     {
 
-                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
+                        const field = getField('vl_result_obs.error');
+                        if(field != null) {
+                            getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
+                        }
 
                     }
 
                 }
 
-                if(vlresultT == "166238")
+                if(vlresultT === "166238")
                 {
 
                     if(vlresultobs >= 1000)
 
                     {
-
-                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
+                        const field = getField('vl_result_obs.error');
+                        if(field != null) {
+                            getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
+                        }
 
                     }
 
@@ -780,8 +813,10 @@
                     if(vlresultobs != "")
 
                     {
-
-                        getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
+                        const field = getField('vl_result_obs.error');
+                        if(field != null) {
+                            getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
+                        }
 
                     }
 
@@ -803,12 +838,18 @@
 
                     if(vlsamplev > today)
                     {
-                        getField('vlsample_value_obs.error').html('Sample collection Date cannot be a future date').show();
+                        const field = getField('vlsample_value_obs.error');
+                        if(field != null) {
+                            getField('vlsample_value_obs.error').html('Sample collection Date cannot be a future date').show();
+                        }
                     }
 
                     if(rctd > vlsamplev)
                     {
-                        getField('vlsample_value_obs.error').html('Sample collection Date cannot be earlier than Recency Test Date').show();
+                        const field = getField('vlsample_value_obs.error');
+                        if(field != null) {
+                            getField('vlsample_value_obs.error').html('Sample collection Date cannot be earlier than Recency Test Date').show();
+                        }
                     }
 
 
@@ -828,12 +869,18 @@
 
                     if(vlpcr > today)
                     {
-                        getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be a future date').show();
+                        const field = getField('vlpcr_value_obs.error');
+                        if(field != null) {
+                            getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be a future date').show();
+                        }
                     }
 
                     if(vlsamplev > vlpcr)
                     {
-                        getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection Date').show();
+                        const field = getField('vlpcr_value_obs.error');
+                        if(field != null) {
+                            getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection Date').show();
+                        }
                     }
 
 
@@ -854,12 +901,18 @@
 
                     if(vlvalue > today)
                     {
-                        getField('vl_value_obs.error').html('Sample Test Date cannot be a future date').show();
+                        const field = getField('vl_value_obs.error');
+                        if(field != null) {
+                            getField('vl_value_obs.error').html('Sample Test Date cannot be a future date').show();
+                        }
                     }
 
                     if(vlpcr > vlvalue)
                     {
-                        getField('vl_value_obs.error').html('Sample Test Date cannot be earlier than Date Sample Sent to PCR Lab').show();
+                        const field = getField('vl_value_obs.error');
+                        if(field != null) {
+                            getField('vl_value_obs.error').html('Sample Test Date cannot be earlier than Date Sample Sent to PCR Lab').show();
+                        }
                     }
 
 
@@ -972,14 +1025,24 @@
                         $('#test_name_dropdown').show();
                         setValue('test_name_dropdown.value', 166215);
 
-
-                        getField('control_line.error').html('*').show();
-                        getField('verification_line.error').html('*').show();
-                        getField('longterm_line.error').html('*').show();
-                        getField('recency_number_verif_value.error').html('*').show();
-                        getField('recency_test_date.error').html('*').show();
-                        getField('test_name_dropdown.error').html('*').show();
-                        //$('#preferred_recency').prop("checked", 'checked');
+                        if(getField('control_line.error') != null) {
+                            getField('control_line.error').html('*').show();
+                        }
+                        if(getField('verification_line.error') != null) {
+                            getField('verification_line.error').html('*').show();
+                        }
+                        if(getField('longterm_line.error') != null) {
+                            getField('longterm_line.error').html('*').show();
+                        }
+                        if(getField('recency_number_verif_value.error') != null) {
+                            getField('recency_number_verif_value.error').html('*').show();
+                        }
+                        if(getField('recency_test_date.error') != null) {
+                            getField('recency_test_date.error').html('*').show();
+                        }
+                        if(getField('test_name_dropdown.error') != null) {
+                            getField('test_name_dropdown.error').html('*').show();
+                        }
 
                     }
 
@@ -1974,7 +2037,7 @@
             var recency_test_date= getValue('recency_test_date.value');
             var test_name_dropdown= getValue('test_name_dropdown.value');
 
-            if(tb_optout == "1066"){
+            if(tb_optout === "1066"){
 
                 //var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
                 //var recencyNum= getValue('recency_number_value.value');
@@ -1987,46 +2050,46 @@
 
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs= getValue('vl_result_obs.value');
-                if(vlresultT == "166239"){
+                if(vlresultT === "166239"){
                     if(vlresultobs &lt;1000){
                         getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                         return false;
                     }
                 }
-                if(vlresultT == "166238"){
+                if(vlresultT === "166238"){
                     if(vlresultobs >= 1000){
                         getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
                         return false;
                     }
                 }
-                if(vlresultT == "166240"){
+                if(vlresultT === "166240"){
                     if(vlresultobs != ""){
                         getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
                         return false;
                     }
                 }
 
-                if (test_name_dropdown== "") {
+                if (test_name_dropdown=== "") {
                     getField('test_name_dropdown.error').html('Recency Test Name cannot be empty').show();
                     return false;
                 }
 
-                if (recency_test_date== "") {
+                if (recency_test_date=== "") {
                     getField('recency_test_date.error').html('Recency Test Date cannot be empty').show();
                     return false;
                 }
 
-                if (recency_number_verif_value == "") {
+                if (recency_number_verif_value === "") {
                     getField('recency_number_verif_value.error').html('Participant ID Verification cannot be empty').show();
                     return false;
                 }
 
-                if (control_line == "") {
+                if (control_line === "") {
                     getField('control_line.error').html('Control Line cannot be empty').show();
                     return false;
                 }
 
-                if (verification_line == "") {
+                if (verification_line === "") {
                     getField('verification_line.error').html('Verification Line cannot be empty').show();
                     return false;
                 }
@@ -2122,7 +2185,7 @@
                 var testVal = new Date(getValue('hiv_test_date.value'));
                 var rctd= new Date(getValue('recency_test_date.value'));
 
-                if (testVal > rctd) {
+                if (getField('recency_test_date.error') != null &amp;&amp; testVal > rctd) {
                     getField('recency_test_date.error').html('RecencyTest Date cannot be earlier than Screening Test Date').show();
                     return false;
                 }
@@ -2152,15 +2215,15 @@
             var scntest = getValue('screen_test_value.value');
 
             if(scntest == "1228"){
-                if (test_name_dropdown == "") {
+                if (test_name_dropdown === "") {
                     getField('test_name_dropdown.error').html('Test Name cannot be empty').show();
                     return false;
                 }
-                if (recency_test_date == "") {
+                if (recency_test_date === "") {
                     getField('recency_test_date.error').html('Test Date cannot be empty').show();
                     return false;
                 }
-                if (tb_optout == "") {
+                if (tb_optout === "") {
                     getField('tb_optout.error').html('Opt Out of RTRI cannot be empty').show();
                     return false;
                 }
