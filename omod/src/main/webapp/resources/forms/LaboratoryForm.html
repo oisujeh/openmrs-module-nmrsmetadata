@@ -1,104 +1,104 @@
 <htmlform formUuid="889ce948-f1ee-4656-91af-147a9e760309" formName="Laboratory Order and Result form" formEncounterType="7ccf3847-7bc3-42e5-8b7e-4125712660ea" formVersion="1.0">
     <style>
         .section {
-            border: 1px solid $headerColor;
-            padding: 2px;
-            text-align: left;
-            margin-bottom: 1em;
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
         }
         .sectionHeader {
-            background-color: #2f1c55;
-            color: white;
-            /* display: block; */
-            padding: 2px;
-            font-weight: bold;
+        background-color: #2f1c55;
+        color: white;
+        /* display: block; */
+        padding: 2px;
+        font-weight: bold;
         }
         table tr:nth-child(even) {
-            background: #ffffff;
+        background: #ffffff;
         }
         .alnleft_s{
-            text-align: left;
-            color:#000000;
-            width: 13%;
+        text-align: left;
+        color:#000000;
+        width: 13%;
         }
         .alnright_s{
-            text-align: right;
-            color:#000000;
-            width: 13%;
+        text-align: right;
+        color:#000000;
+        width: 13%;
         }
         .alnright{
-            text-align: right;
-            color:#000000;
-            width: 25%;
+        text-align: right;
+        color:#000000;
+        width: 25%;
         }
         .alnright_i{
-            text-align: right;
-            color:#000000;
-            width: 40%;
+        text-align: right;
+        color:#000000;
+        width: 40%;
         }
         .alnleft{
-            text-align: left;
-            color:#000000;
-            width: 25%;
+        text-align: left;
+        color:#000000;
+        width: 25%;
         }
         .error{
-            color:red;
+      color:red;
         }
         td {
-            border: none;
+        border: none;
         }
         table th, table td {
-            padding: 5px 10px;
-            border: None;
+        padding: 5px 10px;
+        border: None;
         }
         .legend_style {
-            max-width: 35%;
-            background: #FAFAFA;
+        max-width: 35%;
+        background: #FAFAFA;
         <!--padding: 5px;-->
-            margin: 0px left;
-            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
-            border-radius: 2px;
-            border: 1px solid #305a72;
-            border-bottom-left-radius: 2px;
-            text-transform:initial;
+        margin: 0px left;
+        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+        border-radius: 2px;
+        border: 1px solid #305a72;
+        border-bottom-left-radius: 2px;
+        text-transform:initial;
 
         }
         form fieldset, .form fieldset {
-            min-width: 98%;
-            border: none;
-            border-top: 1px solid #305a72;
+        min-width: 98%;
+        border: none;
+        border-top: 1px solid #305a72;
 
         }
         table th, table td {
-            padding: 5px 10px;
-            /* border: 1px solid #DDD; */
+        padding: 5px 10px;
+        /* border: 1px solid #DDD; */
         }
         table tr {
-            border: None;
+        border: None;
         }
         ul.select, .form input, .form select, .form textarea, .form ul.select {
-            padding: 2px 10px;
+        padding: 2px 10px;
         }
         form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
-            padding: 2px 10px;
+        padding: 2px 10px;
         }
         form select, .form select {
-            max-width: 200px;
+        max-width: 200px;
         }
         body {
-            font-family: "OpenSans", Arial, sans-serif;
-            color: #363463;
-            font-size: 14px;
+        font-family: "OpenSans", Arial, sans-serif;
+        color: #363463;
+        font-size: 14px;
         }
     </style>
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        var $ = jQuery;
-        $(document).ready(function ()
-        {
-            $('.hasDatepicker').attr('readonly', true)
-        });
-    </script>
+	var $ = jQuery;
+	$(document).ready(function ()
+	{
+	   $('.hasDatepicker').attr('readonly', true)
+	});
+</script>
     <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
         <fieldset>
             <legend class="legend_style">When?</legend>
@@ -123,17 +123,17 @@
 
     <table style="margin-bottom: 20px;">
         <thead>
-        <tr><th colspan='5' style="text-align: center">Laboratory Order &amp; Result Form</th></tr>
+            <tr><th colspan='5' style="text-align: center">Laboratory Order &amp; Result Form</th></tr>
         </thead>
     </table>
 
     <table class="table" width="100%">
         <tbody>
-        <tr>
-            <td class="alnright">Visit Date Date</td>
-            <td class="alnleft"><encounterDate default="now" showTime="false" allowFutureDates="false" required="true" /></td>
-            <td class="alnright"></td>
-        </tr>
+            <tr>
+                <td class="alnright">Visit Date</td>
+                <td class="alnleft"><encounterDate default="now" showTime="false" allowFutureDates="false" required="true" /></td>
+                <td class="alnright"></td>
+            </tr>
         </tbody>
     </table>
 
@@ -285,9 +285,21 @@
                 <td class="alnright">
                     <obs conceptId="165765" style="checkbox" value="false" labelText="Viral Load Test" toggle="viralLoad"/>
                 </td>
-            </tr>
+            </tr>			
         </table>
+		
         <table id="viralLoad">
+			<tr>			
+                <td><font color='red'>Last Sample collection date:</font></td>
+				<td><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('159951').obsDatetime" /></font></td>
+                
+				<td><font color='red'>Last Sample Type:</font></td>
+				<td><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('162476').valueCoded.name"/></font></td>
+				
+				<td><font color='red'>Last Indication for Viral Load:</font></td>
+				<td><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('164980').valueCoded.name"/></font></td>
+            </tr>
+			
             <tr>
                 <td class="alnleft_s">PCR Lab Sample No.</td>
                 <td><obs conceptId="165715"/></td>
@@ -310,10 +322,12 @@
                         </tr>
                     </table>
                 </td>
-                <td class="alnleft_s">Sample collection date</td>
-                <td><obs conceptId="159951"/></td>
+                <td class="alnleft_s">Sample collection date</td>				
+                <td><obs conceptId="159951"/></td>  
+				
                 <td class="alnleft_s">Date sample sent to PCR Lab</td>
-                <td><obs conceptId="165988" /></td>
+                 <td><obs conceptId="165988" /></td>
+				 
                 <td class="alnleft_s">Date sample received at PCR Lab</td>
                 <td><obs conceptId="165716"/></td>
             </tr>
@@ -321,11 +335,11 @@
                 <td class="alnleft_s">Viral Load test result</td>
                 <td><obs conceptId="856" labelText=""/>copies/ml</td>
 
-                <td class="alnleft_s">Date result was sent from PCR Lab</td>
-                <td><obs conceptId="165989" /></td>
+                 <td class="alnleft_s">Date result was sent from PCR Lab</td>
+                 <td><obs conceptId="165989" /></td>
 
-                <td class="alnleft_s">Date result was received at the facility</td>
-                <td><obs conceptId="165987" /></td>
+                 <td class="alnleft_s">Date result was received at the facility</td>
+                 <td><obs conceptId="165987" /></td>
 
             </tr>
         </table>
@@ -338,7 +352,7 @@
                 <td><encounterProvider role="Provider"/></td>
                 <td class="alnleft_s">Date Ordered</td>
                 <td><obs conceptId="164989" required="true" allowFutureDates="false"/></td>
-
+			
                 <td class="alnleft_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
@@ -347,8 +361,8 @@
                 <td><obs conceptId="164982" style="person" /></td>
                 <td class="alnleft_s">Date Reported</td>
                 <td><obs conceptId="165414" allowFutureDates="false"/></td>
-
-
+				
+		
                 <td class="alnleft_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
@@ -357,7 +371,7 @@
                 <td><obs conceptId="164983" labelText="" style="person" /></td>
                 <td class="alnleft_s">Date checked</td>
                 <td><obs conceptId="164984" allowFutureDates="false"/></td>
-
+				
                 <td class="alnleft_s"></td>
                 <td class="alnleft_s"></td>
             </tr>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="fn_getconceptval_20201112_1126" author="wande" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getconceptval.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+
+    </changeSet>
+    <changeSet id="fn_getcurrentregimen_20201112_1126" author="wande" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcurrentregimen.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getdaysofarvrefil_20201112_1126" author="wande" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getdaysofarvrefil.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getoutcome_20201112_1126" author="wande" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getoutcome.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getreporteddate_20201112_1126" author="wande" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getreporteddate.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="prc_drugduration_20201112_1126" author="wande" runOnChange="true">
+        <sqlFile path="dataquality/procedures/prc_drugduration.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="report_update_20201129850" author="Bright">
+        <!-- ERROR - ENCOUNTER WITHOUT ADD PAST VISIT  -->
+    <preConditions onFail="MARK_RAN">
+        <sqlCheck expectedResult="0">
+            SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='64b6148d-12b9-46df-bdba-896ae7504ae5';
+        </sqlCheck>
+    </preConditions>
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="633cfa97-fd46-4e0f-b061-3877792c5bcb"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:09:02 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:09:02"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="64b6148d-12b9-46df-bdba-896ae7504ae5"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="170540b0-d1a4-4171-9cbe-e51a0bac220a"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:09:18 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:09:18"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="64b6148d-12b9-46df-bdba-896ae7504ae5"/>
+       </insert>
+       
+       <!-- ERROR - DUPLICATE ART START DATE --> 
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="5acfd933-72b8-4f05-b56f-43b5d4ca102d"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:11:54 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:11:54"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="5c4758bf-b1be-45ca-8924-daddc3963b24"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="b6d692c0-43bf-40cb-bfe4-e04c7ca1d753"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:12:08 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:09:18"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="5c4758bf-b1be-45ca-8924-daddc3963b24"/>
+       </insert>
+    <!-- ERROR - VIRAL LOADS WITHOUT REPORTED DATE  -->
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="7db46114-e25e-4c84-bc13-a44e6d15d7e9"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:22:36 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:22:36"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="33ddb8f8-3bfa-4953-b654-21d60966ec72"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="75ea74de-8f6e-4265-8d62-fb2bce79a938"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:22:48 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:22:48"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="33ddb8f8-3bfa-4953-b654-21d60966ec72"/>
+       </insert>   
+       
+       <!-- ERROR - PHARMACY FORMS WITHOUT REGIMEN -->
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="8c49a6d8-4104-43a8-ae41-991b3f4511d5"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:14:49 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:14:49"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="5165f183-74f8-47ee-b84d-e18432524c13"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="cbfce54f-d1ad-4d49-a199-115c39db8a1b"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:15:02 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:15:02"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="5165f183-74f8-47ee-b84d-e18432524c13"/>
+       </insert>   
+     <!-- ERROR - PHARMACY FORMS WITHOUT DURATION -->
+     
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="49cc032d-4b62-4579-b81c-13fdcb7edcf7"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:18:24 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:18:24"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="4d8abe9b-1ec7-4dd0-bc2f-727b79b9e7cf"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="d5210863-51ad-4440-86f5-2a6c594aed3b"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Mon Mar 23 02:18:11 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-03-23 02:18:11"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="4d8abe9b-1ec7-4dd0-bc2f-727b79b9e7cf"/>
+       </insert>   
+     
+       
+    </changeSet>
+    <!-- HTS EXPORT -->
+    <changeSet id="report_update_20201129615" author="Bright">
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="80889f61-c5ff-4f2e-98fa-4511e4f2898c"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Sun Nov 15 23:07:29 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-11-15 23:07:29"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="65dba83d-b268-48af-a7ee-dd1626cd37a1"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="61cfbb18-70ed-4ef1-87fd-e2bd1903937d"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Sun Nov 15 23:07:56 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-11-15 23:07:56"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="65dba83d-b268-48af-a7ee-dd1626cd37a1"/>
+       </insert>
+       <!-- GENERAL ANTENATAL EXPORT -->
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="ad20eaae-540c-4a9d-a0af-7bde42c7223f"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Sun Nov 15 23:16:26 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-11-15 23:16:26"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="3959a398-0ec7-45df-9ae2-5039ebfa736e"/>
+       </insert>
+       <insert tableName="reporting_report_design">
+            <column name="uuid" value="3cac95d9-88c0-440c-a919-412559138f70"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+<column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Sun Nov 15 23:16:47 WAT 2020"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-11-15 23:16:47"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="3959a398-0ec7-45df-9ae2-5039ebfa736e"/>
+       </insert>
+       
+    </changeSet>
+
+</databaseChangeLog>
