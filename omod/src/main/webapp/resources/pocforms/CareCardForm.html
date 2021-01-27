@@ -147,63 +147,80 @@
             setValue('height.value', h);
             setValue('bp1.value', bp1);
             setValue('bp2.value', bp2);
-            setValue('bmi.value', bm.toFixed(2));
         });
 
 
 $(document).ready(function ()
 	{
-	   $('#height').keyup(calBMI);
-           $('#weight').keyup(calBMI);
-           $('#length').keyup(calBMI);
-	});
+    $('#height').keyup(calBMI);
+    $('#weight').keyup(calBMI);
+    $('#length').keyup(calBMI);
+});
 
 function calBMI(){
     var height_val = getValue('height.value');
     var weight_val = getValue('weight.value');
     var length_val = getValue('length.value');
+    if(height_val == 0){
+        height_val = 1;
+    }
+    if(weight_val == 0){
+        weight_val = 1;
+    }
     var height_num = parseFloat(height_val);
     var weight_num = parseFloat(weight_val);
     var length_num = parseFloat(length_val);
+
     if(!isNaN(height_num)){
         if(!isNaN(weight_num)){
             height_num = height_num/100;
             var bmi_val = weight_num / (height_num * height_num);
-            setValue('bmi.value',bmi_val.toFixed(2));
+            if(!isNaN(bmi_val)){
+                if(height_val == 1){
+                    setValue('bmi.value',0);
+                }else if(weight_val == 1){
+                    setValue('bmi.value',0);
+                }else{
+                    setValue('bmi.value',bmi_val.toFixed(2));
+                }
+            }
+        }else{
         }
-        else{
-            setValue('bmi.value', "");
-        }
-    }
-    else if(!isNaN(length_num)){
+    }else if(!isNaN(length_num)){
         if(!isNaN(weight_num)){
             length_num  = length_num/100;
             var bmi_val = weight_num / (length_num* length_num);
-            setValue('bmi.value',bmi_val.toFixed(2));
+             if(!isNaN(bmi_val)){
+                if(height_val == 1){
+                    setValue('bmi.value',0);
+                }else if(weight_val == 1){
+                    setValue('bmi.value',0);
+                }else if(length_val == 1){
+                    setValue('bmi.value',0);
+                }else{
+                    setValue('bmi.value',bmi_val.toFixed(2));
+                }
+            }
+        }else{
+
         }
-        else{
-            setValue('bmi.value', "");
-        }
-}
-    else {
-        setValue('bmi.value', "");
+    }else {
+
     }
 
     if(height_val.length > 0){
         setValue('length.value', "");
        $('#length').hide(200);
-}
-    else{
+    }else{
         $('#length').show(200);
-}
+    }
 
     if(length_val.length > 0){
- setValue('height.value', "");
-$('#height').hide(200);
-}
-    else{
+        setValue('height.value', "");
+        $('#height').hide(200);
+    }else{
         $('#height').show(200);
-}
+    }
 }
     </script>
 

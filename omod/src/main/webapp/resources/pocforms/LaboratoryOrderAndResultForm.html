@@ -529,7 +529,7 @@
     </fieldset>
     <submit/>
 
-    <includeIf velocityTest="$user.hasRole('Clinician')">
+    <includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Nurse')">
         <script>
             var items = document.getElementsByClassName("enable_clin_control");
             for(var i=0; i &lt; items.length; i++){
