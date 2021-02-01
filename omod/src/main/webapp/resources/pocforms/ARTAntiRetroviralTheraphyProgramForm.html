@@ -200,7 +200,7 @@
         Client Referral Form
     </a>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician')">
+<includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician') || $user.hasRole('Adherence') || $user.hasRole('MandE')">
     <a id="otz_form"
         href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=5dfc3ea6-9783-44a3-a3fd-7249f4e313bc&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
         class="button app big art">
@@ -230,7 +230,7 @@
         Care Card
     </a>
 </includeIf>
-<includeIf velocityTest="$user.hasRole('Clinician')">
+<includeIf velocityTest="$user.hasRole('Clinician') || $user.hasRole('Adherence')">
     <a id="adult"
         href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=2b8e038b-9b8d-4e73-b4ad-5f1d39499ff6&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
         class="button app big art">

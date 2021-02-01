@@ -760,9 +760,12 @@ else if(arvdos &gt; "10"){
     <br/>
 
     <fieldset>
+<includeIf velocityTest="$user.hasRole('Pharmacist')">
         <th>Feedback from the Pharmacist in case of any observed medication error </th>
+</includeIf>
         <table class="baseline-aligned">
             <br/>
+<includeIf velocityTest="$user.hasRole('Pharmacist')">
             <tr>
                 <td>
                     <label>Name of the drug(s):</label>
@@ -790,6 +793,7 @@ else if(arvdos &gt; "10"){
                 </td>
                 <td></td>
             </tr>
+</includeIf>
             <tr>
                 <td>
                     <label>Signature:</label>
