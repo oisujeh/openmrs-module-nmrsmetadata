@@ -125,6 +125,16 @@
             <column name="uuid" value="136e629b-78b6-4cdb-b76a-01c598d6a173"/>
         </insert>
     </changeSet>
+    <changeSet id="add_maternal_cohort_encounter_type_202102010283" author="arinze">
+        <insert tableName="encounter_type">
+            <column name="name" value="Maternal Cohort Register"/>
+            <column name="description" value="Maternal Cohort Register"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="56471441-6468-11eb-a56a-00ffccc264e9"/>
+        </insert>
+    </changeSet>
 
     <changeSet id="include_AZT-3TC-LPV/r_202101241029" author="wande" runOnChange="true">
         <preConditions onFail="MARK_RAN">
