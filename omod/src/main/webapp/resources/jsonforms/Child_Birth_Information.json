@@ -14,7 +14,7 @@
               "required":"yes",
               "questionOptions":{
                 "rendering":"date",
-                "concept":"6f2d8865-341f-4fe9-a060-49a4c37f8f24"
+                "concept":"6bcaf85b-8504-4c7f-b510-a50436236b80"
               },
               "type":"encounterDate",
               "validators":[
