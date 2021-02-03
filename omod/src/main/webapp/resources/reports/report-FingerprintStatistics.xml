@@ -1,0 +1,19 @@
+<org.openmrs.module.reporting.report.definition.ReportDefinition id="1" uuid="6001512e-8cd3-4f5c-9c86-02f9989effb1" retired="false">
+  <name>HI - Fingerprint Statistics</name>
+  <description>Number of patients with finger print capture</description>
+  <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
+  <dateCreated id="3">2019-07-21 00:34:48 UTC</dateCreated>
+  <changedBy reference="2"/>
+  <dateChanged id="4">2019-07-21 00:35:29 UTC</dateChanged>
+  <parameters id="5"/>
+  <id>38</id>
+  <dataSetDefinitions class="linked-hash-map" id="6">
+    <entry>
+      <string>HI-FingerprintStatistics</string>
+      <org.openmrs.module.reporting.evaluation.parameter.Mapped id="7">
+        <parameterizable class="org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition" id="8" uuid="d09bbc5d-46b3-45fe-8ae1-50ad51ae8aad"/>
+        <parameterMappings id="9"/>
+      </org.openmrs.module.reporting.evaluation.parameter.Mapped>
+    </entry>
+  </dataSetDefinitions>
+</org.openmrs.module.reporting.report.definition.ReportDefinition>
