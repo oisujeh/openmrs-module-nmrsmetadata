@@ -40,4 +40,7 @@
             <where>location_id='7'</where>
         </delete>
     </changeSet>
+
+    <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
+
 </databaseChangeLog>
