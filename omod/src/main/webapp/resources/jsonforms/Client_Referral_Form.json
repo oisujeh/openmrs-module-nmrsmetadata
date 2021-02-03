@@ -1,0 +1,284 @@
+{
+  "name":"Client Referral Form",
+  "uuid":"c2df5a7d-05ac-4ae3-bcd0-39969f17dbab",
+  "processor":"EncounterFormProcessor",
+  "pages":[
+    {
+      "label":"Client Referral Form",
+      "sections":[
+        {
+          "label":"Referral Details",
+          "questions":[
+            {
+              "label":"Date Referred",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"6bcaf85b-8504-4c7f-b510-a50436236b80"
+              },
+              "type":"encounterDate",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Unit/Department Referred from:",
+              "id":"Unit_Department_Referred_from",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"84cdf9a5-c108-4ba1-80f7-941746cb3e5c"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Name of referring organization:",
+              "id":"Name_of_referring_organization",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"92ab170e-5784-4126-bb70-7936248b90e4"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Address of referring organization:",
+              "id":"Address_of_referring_organization",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"cc2cc30d-1ae8-44af-9921-5c8a847ca216"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Phone number of referring organization:",
+              "id":"Phone_number_of_referring_organization",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"1fb3d5a5-22e5-472d-addb-22ab37942d4f"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Name of person referring/Contact person:",
+              "id":"Name_of_person_referring_Contact_person",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"161103AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Unit/Department Referred to:",
+              "id":"Unit_Department_Referred_to",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"1372f7f5-f0f1-477d-9e38-eecd59f9024d"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Name of receiving organization:",
+              "id":"Name_of_receiving_organization",
+              "defaultDisplay":"hide",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"de06184b-cc63-47bf-917c-b985a3a878ef"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Address of receiving organization:",
+              "id":"Address_of_receiving_organization",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"e4ad446d-44fd-48a4-bdbe-5e18d0b7b58e"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Phone number of receiving organization:",
+              "id":"Phone_number_of_receiving_organization",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"7c62f928-de98-4798-a21d-166444b10020"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Name of contact person:",
+              "id":"Name_of_contact_person",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"83d5a1dd-b592-4a3b-a1da-8e94e4fe2234"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Comments:",
+              "id":"Comments_",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"1234ba23-d19d-4c0a-9c76-b9a6da6e92e4"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Services Needed",
+      "sections":[
+        {
+          "label":"Services Needed",
+          "questions":[
+            {
+              "label":"Services Needed:",
+              "type":"obs",
+              "id":"Services_Needed",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"26046887-12ea-47d9-b3a9-00ac7a2efba4",
+                "answers":[
+                  {
+                    "concept":"343e3b47-f601-44ae-b944-8a838484dc71",
+                    "label":"Community Pharmacy"
+                  },
+                  {
+                    "concept":"9b49eb5e-9ca9-4494-a2ff-f1d62b6feecc",
+                    "label":"Community ART"
+                  },
+                  {
+                    "concept":"7a947a32-36a1-4f34-a596-65f258e350c7",
+                    "label":"OTZ Program"
+                  },
+                  {
+                    "concept":"9a508382-5848-4196-ba3a-a74f31990fe9",
+                    "label":"Oncology"
+                  },
+                  {
+                    "concept":"1744AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Pharmacy"
+                  },
+                  {
+                    "concept":"04b8e747-579f-47b4-bdd4-bfebc3e3cc98",
+                    "label":"Food Support"
+                  },
+                  {
+                    "concept":"a6a302ff-43ab-4713-a916-b2d39389df03",
+                    "label":"Education / Schooling"
+                  },
+                  {
+                    "concept":"04b8e747-579f-47b4-bdd4-bfebc3e3cc98",
+                    "label":"Nutrition Counselling"
+                  },
+                  {
+                    "concept":"5490AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Phychosocial Support"
+                  },
+                  {
+                    "concept":"1610AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Antiretroviral Theraphy"
+                  },
+                  {
+                    "concept":"162717AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Financial"
+                  },
+                  {
+                    "concept":"5488AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Adherence counselling "
+                  },
+                  {
+                    "concept":"015f28cf-1587-45ca-bbe9-032bdd93ad31",
+                    "label":"Child Care"
+                  },
+                  {
+                    "concept":"7d0c6b93-d990-471f-abbf-a8d6336274c6",
+                    "label":"PLHIV Support"
+                  },
+                  {
+                    "concept":"163559AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"STI Services"
+                  },
+                  {
+                    "concept":"e958a950-695f-4db1-9a07-353249ba47b3",
+                    "label":"PEP Services"
+                  },
+                  {
+                    "concept":"9d64e745-8014-40d0-a441-ca54f3a911d3",
+                    "label":"Clinical Care"
+                  },
+                  {
+                    "concept":"171a64de-c9c5-4ab1-926b-c3e02aa15406",
+                    "label":"Spiritual Support"
+                  },
+                  {
+                    "concept":"1370AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"HIV Testing Services"
+                  },
+                  {
+                    "concept":"5487AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Tuberculosis Services"
+                  },
+                  {
+                    "concept":"1e76470a-3dc1-42aa-92d0-ec64832b3ec3",
+                    "label":"OB/GYN Services"
+                  },
+                  {
+                    "concept":"2491eba3-9bc5-4964-8f7e-ec75000b1196",
+                    "label":"Legal Support"
+                  },
+                  {
+                    "concept":"9a4586c4-bd15-4802-b972-3b1e2c75abee",
+                    "label":"Home Based Care"
+                  },
+                  {
+                    "concept":"5483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Family Planning"
+                  },
+                  {
+                    "concept":"5486AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Social Services"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
