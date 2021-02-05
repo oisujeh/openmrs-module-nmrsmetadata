@@ -1,0 +1,198 @@
+{
+  "name":"Risk Assessment Pediatric",
+  "uuid":"a3524d1a-40cd-4bcd-b21c-82fbb0eab3db",
+  "processor":"EncounterFormProcessor",
+  "pages":[
+    {
+      "label":"Pediatric Risk Stratification",
+      "sections":[
+        {
+          "label":"Pediatric Risk Stratification",
+          "questions":[
+            {
+              "label":"Date of Assessment",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"6bcaf85b-8504-4c7f-b510-a50436236b80"
+              },
+              "type":"encounterDate",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Is the child/adolescent’s biological mother HIV-positive or are one (1) or more of the child/adolescent’s biological parents deceased due to an unknown or undisclosed illness? ",
+              "id":"Is_the_child_adolescent_biological_mothe",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"cacc7904-58f6-4c71-8525-2e663021a73b",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"as the child/adolescent ever been tested for HIV?",
+              "id":"as_the_child_adolescent_ever_been_tested_for_HIV",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"ecb19ce0-4b7f-4092-a168-69030f37f326",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Has the child/adolescent had repeated/recurring skin problems, rashes and/or blisters in the last six months?",
+              "id":"Has_the_child_adolescent_had_repeated",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"b58a1127-1862-438e-9069-ad3e79955cfa",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"In the last six months, has this child/adolescent been in poor health (more than other children/adolescents) or not growing as well as other children/adolescents of the same age?",
+              "id":"In_the_last_six_months_has_t",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"1c733781-71e5-4d3b-99d6-0cfdddc3281c",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Does the child/adolescent live with someone who has been diagnosed with TB or does the child/adolescent currently have any of the following TB symptoms: cough, fever, poor weight gain, or night sweats?",
+              "id":"Have_you_been_diagnosed_with_TB_or_currently_child",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"3b027b15-1b39-41e3-8341-2f2f1f747fc5",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Has the child/adolescent been forced to have sex against their will (without providing consent)?",
+              "id":"Has_the_child_adolescent_been_forced_to_have_sex_agains",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"30909867-d0cd-47f7-9cca-14896c92fd4d",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Has child/adolescent had anal or vaginal sex without a condom with one or more persons who were either known to be HIV positive or had an unknown status?",
+              "id":"Since_your_last_HIV_test_have_you_had_anal_child",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"8dda2a65-c030-4e35-8ad1-942543047e26",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

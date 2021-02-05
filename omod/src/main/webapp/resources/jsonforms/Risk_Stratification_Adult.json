@@ -1,0 +1,267 @@
+{
+  "name":"Risk Stratification Adult",
+  "uuid":"c50f3dda-754b-4fc5-9af9-0df15527b9e9",
+  "processor":"EncounterFormProcessor",
+  "pages":[
+    {
+      "label":"Adult Risk Stratification",
+      "sections":[
+        {
+          "label":"Adult Risk Stratification",
+          "questions":[
+            {
+              "label":"Date of Assessment",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"6bcaf85b-8504-4c7f-b510-a50436236b80"
+              },
+              "type":"encounterDate",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Is this HIV test based on a Clinician/Doctor/Health Care Provider’s request? ",
+              "id":"Is_this_HIV_test_based_on_a_Clinician",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"46320a3c-72cf-48b6-ad32-a4ce6912de91",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"When was your last HIV test done? ",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"164400AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"What was the result?",
+              "id":"What_was_the_result",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"6c4ebfeb-f613-493a-993a-ff5efa012e6d",
+                "answers":[
+                  {
+                    "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Positive"
+                  },
+                  {
+                    "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Negative"
+                  },
+                  {
+                    "concept":"159451AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Never"
+                  },
+                  {
+                    "concept":"1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Unknown"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Since your last HIV test, have you had anal or vaginal or oral sex without a condom with someone who was HIV positive or unaware of their HIV status?",
+              "id":"Since_your_last_HIV_test_have_you_had_anal_or_vaginal",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"0183f460-8798-46d3-8a9d-f92569b4d73c",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Since your last HIV test, have you had a blood or blood product transfusion?",
+              "id":"Since_your_last_HIV_test_have",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"828b885c-c191-44d3-9f63-b1d1ec8e7457",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Since your last HIV test, have you experienced painful urination, lower abdominal pain, vaginal or penile discharge, pain during sexual intercourse, thick, cloudy, or foul smelling discharge and/or small bumps or blisters near the mouth, penis, vagina, or anal areas?",
+              "id":"Since_your_last_HIV_test_have_you_experienced",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"8f82fdc8-a062-46ac-8070-f7601a017f64",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Have you been diagnosed with TB or currently have any of the following symptoms: cough, fever, weight loss, night sweats?",
+              "id":"Have_you_been_diagnosed_with_TB_or_currently",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"023fb1ae-c41e-4fc3-b512-7a47e29f77b1",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Since your last HIV test, have you ever injected drugs, shared needles or other sharp objects with someone known to be HIV positive or who you didn’t know their HIV status?",
+              "id":"Since_your_last_HIV_test_have_you_ever_injected_drugs",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"ea49fa12-cfea-4178-863c-eefe97051cb1",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Since your last HIV test, have you had anal, oral, or vaginal sex in exchange for money or other benefits?",
+              "id":"Since_your_last_HIV_test_have_you_had_anal",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"8dda2a65-c030-4e35-8ad1-942543047e26",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            },
+            {
+              "label":"Since your last HIV test, have you been forced to have sex?",
+              "id":"HIV_test_have_you_been_forced_to_have_sex",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"26605b5d-127d-4e1f-98af-1f537c6a3b48",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"select "
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

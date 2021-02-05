@@ -1,0 +1,662 @@
+{
+  "name":"Maternal Cohort Register",
+  "uuid":"5f217cca-75c7-49be-a559-f9714d3d0bd7",
+  "processor":"EncounterFormProcessor",
+  "pages":[
+    {
+      "label":"Maternal Cohort Register",
+      "sections":[
+        {
+          "label":"Maternal Cohort Register",
+          "questions":[
+            {
+              "label":"Visit Date",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"6bcaf85b-8504-4c7f-b510-a50436236b80"
+              },
+              "type":"encounterDate",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Point of Entry:",
+              "type":"obs",
+              "id":"Point_of_Entry",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"164851AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"1622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"ANC"
+                  },
+                  {
+                    "concept":"164850AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"L&D"
+                  },
+                  {
+                    "concept":"1180AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Postpartum (<=72hrs)"
+                  },
+                  {
+                    "concept":"b0898032-a7e5-410e-9ed6-6a2fca7a29e1",
+                    "label":"Postpartum (>72hrs)"
+                  }
+                ]
+              }
+            },
+            {
+              "label":" GA weeks :",
+              "id":"ga_weeks",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"1438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Gravida:",
+              "id":"Gravida_",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"5624AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"ART Start Date",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"159599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Timing of Mother's ART Initiation:",
+              "type":"obs",
+              "id":"Timing_of_Mother_ART_Initiation",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"be5a8c79-d4a6-4b7c-8cec-872839b8342a",
+                "answers":[
+                  {
+                    "concept":"6013b3bd-f99b-4107-9eb6-64e4bcf7232b",
+                    "label":"Period Prior to Pregnancy"
+                  },
+                  {
+                    "concept":"2f381528-2572-408d-b986-6a6ba45ef43d",
+                    "label":"Initiated ART during pregnancy < 36 weeks gestation period"
+                  },
+                  {
+                    "concept":"5de4104d-8a21-48eb-8410-96a88c910426",
+                    "label":"Initiated ART during pregnancy >= 36 weeks gestation period"
+                  },
+                  {
+                    "concept":"164850AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Initiated ART at Labour and Delivery"
+                  },
+                  {
+                    "concept":"1180AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Initiated ART after delivery (post-partum)"
+                  },
+                  {
+                    "concept":"1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"None"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Tuberculosis Status:",
+              "type":"obs",
+              "id":"Tuberculosis_disease_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"1659AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"1660AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No Signs or Symptoms of TB, not on IPT"
+                  },
+                  {
+                    "concept":"142177AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Presumptive TB"
+                  },
+                  {
+                    "concept":"1661AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TB Diagnosed (Confirmed)"
+                  },
+                  {
+                    "concept":"1662AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Currently On Treatment"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Date of Delivery",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"FP Counselling:",
+              "type":"obs",
+              "id":"FP_Counselling",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"1382AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"FP method:",
+              "type":"obs",
+              "id":"FP_method",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No FP Method"
+                  },
+                  {
+                    "concept":"190AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Condoms"
+                  },
+                  {
+                    "concept":"780AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Oral"
+                  },
+                  {
+                    "concept":"5279AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Injectable"
+                  },
+                  {
+                    "concept":"159589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Implantable"
+                  },
+                  {
+                    "concept":"136452AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"IUD"
+                  },
+                  {
+                    "concept":"5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Others"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Viral Load Information 21,22,23",
+      "sections":[
+        {
+          "label":"Viral Load Information 21,22,23",
+          "questions":[
+            {
+              "label":"Viral Load Period",
+              "type":"obs",
+              "id":"Viral_Load_Period",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"fd5c71f7-a6ff-48ed-992b-910daaeb03ef\n",
+                "answers":[
+                  {
+                    "concept":"a880f64b-4cff-40d7-b9b4-366baa5a9578",
+                    "label":"Viral Load at 32 to 36 weeks GA"
+                  },
+                  {
+                    "concept":"7f54b65f-5122-42d1-a8b6-d1bbd11c1467",
+                    "label":"Viral Load at any other point during PMTCT"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Sample Collection Date",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"159951AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"GA at VL Collection (Weeks):",
+              "id":"GAatVLCollectiomWeeks",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"02c25680-63a5-4bf7-ad3f-271d64812cd3",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Result (copies/ML) or Enter 0 for TND:",
+              "id":"Result_copies",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"a880f64b-4cff-40d7-b9b4-366baa5a9578",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Facility Visit",
+      "sections":[
+        {
+          "label":"Facility Visit",
+          "questions":[
+            {
+              "label":"Visit Status",
+              "type":"obs",
+              "id":"visit_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"e9a70926-70e8-4c59-af4e-5839446293d0",
+                "answers":[
+                  {
+                    "concept":"161636AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Active"
+                  },
+                  {
+                    "concept":"160563AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Transferred In"
+                  },
+                  {
+                    "concept":"159492AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Transferred Out"
+                  },
+                  {
+                    "concept":"7fa5ab3a-47dc-4884-8660-7627fd233fe5",
+                    "label":"Linked to ART"
+                  },
+                  {
+                    "concept":"164861AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Discharge from PMTCT"
+                  },
+                  {
+                    "concept":"5f40f28e-e74f-4342-aba7-95ca82bd4b3d",
+                    "label":"Missed Appointment"
+                  },
+                  {
+                    "concept":"f506af27-23b7-4570-bd65-1f5e829c6983",
+                    "label":"Lost to Follow Up"
+                  },
+                  {
+                    "concept":"160432AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Dead"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Regimen Line",
+              "type":"obs",
+              "defaultDisplay":"show",
+              "id":"ART_Regimen_Line",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"91bf2c14-1677-4c7f-be1b-99a2b64231b4",
+                "control":{
+                  "conditionOptions":[
+                    {
+                      "when":"Adult 1st-Line Regimen",
+                      "displayType":"show",
+                      "childControl":"164506AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 1st-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 1st-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"73fbac92-4663-43c1-ad89-5fe0bc2e52c7",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 1st-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164507AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 1st-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164514AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 1st-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"032e80e0-ed50-4e88-8ce3-7a2dfa40d0ae",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 2nd-line regimen",
+                      "displayType":"show",
+                      "childControl":"164513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 2nd-line regimen",
+                      "displayType":"hide",
+                      "childControl":"164506AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 2nd-line regimen",
+                      "displayType":"hide",
+                      "childControl":"73fbac92-4663-43c1-ad89-5fe0bc2e52c7",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 2nd-line regimen",
+                      "displayType":"hide",
+                      "childControl":"164507AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 2nd-line regimen",
+                      "displayType":"hide",
+                      "childControl":"164514AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 2nd-line regimen",
+                      "displayType":"hide",
+                      "childControl":"032e80e0-ed50-4e88-8ce3-7a2dfa40d0ae",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 3rd-Line Regimen",
+                      "displayType":"show",
+                      "childControl":"73fbac92-4663-43c1-ad89-5fe0bc2e52c7",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 3rd-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164507AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 3rd-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164514AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 3rd-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"032e80e0-ed50-4e88-8ce3-7a2dfa40d0ae",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 3rd-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    },
+                    {
+                      "when":"Adult 3rd-Line Regimen",
+                      "displayType":"hide",
+                      "childControl":"164506AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                      "controlType":"select"
+                    }
+                  ]
+                },
+                "answers":[
+                  {
+                    "concept":"164506AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Adult 1st-Line Regimen"
+                  },
+                  {
+                    "concept":"164513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Adult 2nd-line regimen"
+                  },
+                  {
+                    "concept":"73fbac92-4663-43c1-ad89-5fe0bc2e52c7",
+                    "label":"Adult 3rd-Line Regimen"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Regimen",
+              "type":"obs",
+              "defaultDisplay":"hide",
+              "id":"Adult_1st_Line_Regimens",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"164506AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"164505AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TDF-3TC-EFV"
+                  },
+                  {
+                    "concept":"104565AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TDF-FTC-EFV"
+                  },
+                  {
+                    "concept":"160124AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"AZT-3TC-EFV"
+                  },
+                  {
+                    "concept":"1652AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"AZT-3TC-NVP"
+                  },
+                  {
+                    "concept":"8a343013-0216-44e0-aefe-53909ffd5631",
+                    "label":"TDF-3TC-DTG"
+                  },
+                  {
+                    "concept":"d20de0fd-8c89-423b-be81-dd357e65c206",
+                    "label":"TDF-FTC-DTG"
+                  },
+                  {
+                    "concept":"114e5457-09fb-42bf-9947-2f7d20785419",
+                    "label":"TDF-3TC-EFV400"
+                  },
+                  {
+                    "concept":"f0772a15-d0d9-4039-a3f4-af0c5d15ed0c",
+                    "label":"TDF-FTC-EFV400"
+                  },
+                  {
+                    "concept":"162563AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"ABC-3TC-EFV"
+                  },
+                  {
+                    "concept":"162565AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TDF-3TC-NVP"
+                  },
+                  {
+                    "concept":"164854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TDF-FTC-NVP"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Regimen",
+              "type":"obs",
+              "defaultDisplay":"hide",
+              "id":"Adult_2nd_line_ARV_regimen",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"164513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"164512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TDF-3TC-ATV/r"
+                  },
+                  {
+                    "concept":"162201AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TDF-3TC-LPV/r"
+                  },
+                  {
+                    "concept":"164511AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"AZT-3TC-ATV/r"
+                  },
+                  {
+                    "concept":"162561AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"AZT-3TC-LPV/r"
+                  },
+                  {
+                    "concept":"4b24d78c-032c-4ed9-aaef-323a4c80184a",
+                    "label":"TDF-AZT-3TC-ATV/r"
+                  },
+                  {
+                    "concept":"c8109095-fa8e-41cb-846a-95270c7eb9df",
+                    "label":"AZT-TDF-3TC-LPV/r"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Regimen",
+              "type":"obs",
+              "defaultDisplay":"hide",
+              "id":"Adult_3rd_Line_ARV_Regimens",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"73fbac92-4663-43c1-ad89-5fe0bc2e52c7",
+                "answers":[
+                  {
+                    "concept":"d7827ccd-85a4-4e8e-91d6-bca3d0c5e895",
+                    "label":"DRV/r-DTG + 1-2 NRTIs"
+                  },
+                  {
+                    "concept":"e8afbb20-f696-4a6d-af40-36fef51dadbd",
+                    "label":"DRV/r-2NRTIs + NNRTI"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Maternal Outcome:",
+              "type":"obs",
+              "id":"Maternal_Outcome",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"e0cd106f-09df-4550-b44f-f1055050db5a",
+                    "label":"A = Active in PMTCT Cohort"
+                  },
+                  {
+                    "concept":"160563AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"TO = Transferred Out"
+                  },
+                  {
+                    "concept":"99d919d3-a9df-4a77-9c41-ef7df521263a",
+                    "label":"TP = Transferred to another PMTCT Cohort (new Pregnancy) "
+                  },
+                  {
+                    "concept":"635277e3-59c5-485c-b6bc-02271254a0be",
+                    "label":"TA = Transitioned to ART Clinic"
+                  },
+                  {
+                    "concept":"5240AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"LTFU = Lost to follow-up"
+                  },
+                  {
+                    "concept":"160432AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"D = Dead"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Date of Outcome",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"9ceef246-098a-49b8-abfa-28e022d44b89"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Comment:",
+              "id":"comment",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"85dc128f-271d-414e-9c17-b1be523d2fe7"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
