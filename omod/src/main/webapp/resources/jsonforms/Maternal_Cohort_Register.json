@@ -239,7 +239,7 @@
               "id":"Viral_Load_Period",
               "questionOptions":{
                 "rendering":"select",
-                "concept":"fd5c71f7-a6ff-48ed-992b-910daaeb03ef\n",
+                "concept":"fd5c71f7-a6ff-48ed-992b-910daaeb03ef",
                 "answers":[
                   {
                     "concept":"a880f64b-4cff-40d7-b9b4-366baa5a9578",
