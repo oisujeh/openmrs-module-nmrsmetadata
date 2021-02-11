@@ -9,7 +9,7 @@
 
 	<artifactId>nmrsmetadata-poc-api</artifactId>
 	<packaging>jar</packaging>
-	<name>NMRS Metatadata Module  API</name>
+	<name>NMRS Metatadata POC Module  API</name>
 	<description>API project for NMRS Metatadata Module </description>
 
 	<dependencies>

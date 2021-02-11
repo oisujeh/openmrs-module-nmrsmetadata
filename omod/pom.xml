@@ -9,7 +9,7 @@
 
 	<artifactId>nmrsmetadata-poc-omod</artifactId>
 	<packaging>jar</packaging>
-	<name>NMRS Metatadata Module  OMOD</name>
+	<name>NMRS Metatadata POC Module  OMOD</name>
 	<description>Omod submodule for NMRS Metatadata Module </description>
 
 	<dependencies>
