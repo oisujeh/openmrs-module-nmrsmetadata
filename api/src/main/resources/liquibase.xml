@@ -75,5 +75,27 @@
     </changeSet>
 
     <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
-
+    
+     <changeSet id="poc_role" author="toyeeb" runOnChange="true">
+       
+        <sqlFile path="pocsql/role/role.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="poc_role_role" author="toyeeb" runOnChange="true">
+       
+        <sqlFile path="pocsql/role/role_role.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="poc_role_privilege" author="toyeeb" runOnChange="true">
+       
+        <sqlFile path="pocsql/role/role_privilege.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
 </databaseChangeLog>
