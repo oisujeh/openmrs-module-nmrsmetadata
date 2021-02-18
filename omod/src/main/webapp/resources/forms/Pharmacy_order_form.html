@@ -267,12 +267,62 @@ beforeSubmit.push(function() {
 		</table>
 	</fieldset>
 	<br/>
-         <fieldset>
-                     <legend class="legend_style">Service Delivery Model</legend>
-                      <table class="baseline-aligned">
-                                  <tr><td>Model of Care</td><td><obs conceptId='166148' answerConceptIds='166153,166134,166135,166151,166149,166150'/></td></tr>
-                         </table>
-         </fieldset>
+
+<!-- UPDATED -->
+	<fieldset>
+		<legend class="legend_style">Service Type</legend>
+		<table class="table" width="100%">
+			<td>
+				<table id="ServiceDeliveryModel" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Service Delivery Model</label>
+							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="164507,164514,165703" answerLabels="Facility, Community, Multi-Month Dispensing (MMD)">
+								<controls>
+									<when value="164507" thenDisplay="#Facility_Dispensing"/>
+									<when value="164514" thenDisplay="#Community_Dispensing"/>
+									<when value="165703" thenDisplay="#Multi_Month_Dispensing"/>												
+								</controls>
+							</obs>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table id="Facility_Dispensing" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Facility Dispensing </label>
+							<obs conceptId='164507' answerConceptIds="166153,166151,166150" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table id="Community_Dispensing" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Community Dispensing </label>
+							<obs conceptId='164514' answerConceptIds="166134,166135,166150" answerLabels="Community Pharmacy, Community ART Group, Home Delivery"/>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table id="Multi_Month_Dispensing" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Multi-Month Dispensing (MMD)</label>
+							<obs conceptId='165703' answerConceptIds="166134,166135,166150" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
+						</td>
+					</tr>
+				</table>
+			</td>
+        </table>
+	</fieldset>
 
 	<fieldset>
 		<legend class="legend_style">ARV Medication Adherence</legend>
