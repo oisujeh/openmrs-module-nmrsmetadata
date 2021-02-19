@@ -126,7 +126,74 @@
 	    $('#id_none').click(function(){
 	          $('#id_none_result').toggle();
                });
+        $('#lmp').change(function(e) {
+            calEDD();
+        });
+
+        $('#ge').keyup(function(e) {
+            calEDDwithGe();
+        });
 	});
+
+    function getCustomDate(date){
+
+
+        console.log("Date:" + date);
+
+
+        var dd = date.getDate();
+        var mm = date.getMonth() + 1;
+
+        var yyyy = date.getFullYear();
+
+        console.log("Day: " + dd);
+        console.log(mm);
+        console.log(yyyy);
+        var d= dd;
+        var m = mm;
+        if(!isNaN(dd)){
+            if (10 > dd) {
+                d = "0" + dd;
+            }
+
+            if(!isNaN(mm)){
+                if (10 > mm) {
+                    m = "0" + mm;
+                }
+            }
+            return yyyy + "-" + m + "-" + d;
+        }
+    }
+
+    function calEDDwithGe(){
+        setValue("edd.value", "");
+        if(!isNaN(getValue("ge.value"))) {
+            var rWeeks = 40 - getValue("ge.value");
+            var edd = new Date();
+            var lmp = new Date();
+            edd = edd.setDate(edd.getDate() + (rWeeks * 7));
+            lmp = lmp.setDate(lmp.getDate() - (getValue("ge.value") * 7));
+            setValue('edd.value', getCustomDate(new Date(edd)));
+            setValue('lmp.value', getCustomDate(new Date(lmp)));
+        }else{
+            setValue("ge.value", "");
+        }
+    }
+
+    function calEDD() {
+        var lmp = new Date(getValue('lmp.value'));
+        if (lmp != null) {
+            lmp = lmp.setDate(lmp.getDate() + 280);
+            var Difference_In_Time = new Date().getTime() - new Date(getValue('lmp.value')).getTime();
+
+            var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+            setValue("ge.value", Math.round(Difference_In_Days / 7));
+            console.log(lmp);
+
+            //setValue('edd.value', null);
+            setValue('edd.value', getCustomDate(new Date(lmp)));
+        }
+    }
 </script>
 	<div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
 		<fieldset>
@@ -442,50 +509,44 @@
 			</tr>
 		</table>
 	</fieldset>
-       <includeIf velocityTest="$patient.gender == 'F' ">
-	<fieldset>
-		<table width="100%" border="0">
-			<tr>
-				<excludeIf velocityTest="$patient.gender == 'M' ">
-					<td width="13%" >Currently pregnant:</td>
-					<td >
-						<p>
-							<obs id="cur_pregnant" style="yes_no_dropdown" conceptId="1434">
-								<controls>
-									<when value="true" thenDisplay="#cur_pregnant_result"/>
-									<when value="false" thenDisplay="#cur_breastfeeding"/>
-								</controls>
-							</obs>
-						</p>
-					</td>
-				</excludeIf>
-			</tr>
-			<tr id="cur_pregnant_result">
-				<excludeIf velocityTest="$patient.gender == 'M' ">
-                                        
-					<td width="13%">Last menstrual period:</td>
-					<td><obs id="lmp" conceptId="1427"/></td>
-					<td width="13%">Gestational age in weeks:</td>
-					<td><obs conceptId="1438"/></td>
-                                        <td width="13%">Expected date of delivery: </td>
-                                        <td><obs id="edd" conceptId="5596"/></td>
-				</excludeIf>
-			</tr>
-			<tr id="cur_breastfeeding">
-				<excludeIf velocityTest="$patient.gender == 'M' ">
-					<td width="13%">Currently breastfeeding:</td>
-					<td width="37%"><obs id="cur_bf" conceptId="5632" style="yes_no_dropdown">
-						<controls>
-							<when value="1065" thenDisplay="#child_prophylaxis_q,#child_prophylaxis_a"/>
-						</controls></obs>
-					</td>
-					<td id="child_prophylaxis_q" width="13%">Did child recieve prophylaxis?</td>
-					<td id="child_prophylaxis_a" width="37%"><obs conceptId="165977"/></td>
-				</excludeIf>
-			</tr>
-		</table>
-	</fieldset>
-</includeIf>
+	<includeIf velocityTest="$patient.gender == 'F' ">
+		<fieldset>
+			<table width="100%" border="0">
+				<tr>
+					<excludeIf velocityTest="$patient.gender == 'M' ">
+						<td width="13%" >Pregnancy / Breastfeeding status:</td>
+						<td >
+							<p>
+								<obs id="woman_pregnant" conceptId="165050" answerConceptIds="165048,165049,165047"
+									 answerLabels="Pregnant, Breastfeeding, Not Pregnant">
+									<controls>
+										<when value="165048" thenDisplay="#cur_pregnant_result" />
+										<when value="165049" thenDisplay="#cur_breastfeeding" />
+									</controls>
+								</obs>
+							</p>
+						</td>
+					</excludeIf>
+				</tr>
+				<tr id="cur_pregnant_result">
+					<excludeIf velocityTest="$patient.gender == 'M' ">
+						<td width="13%">Last menstrual period:</td>
+						<td><obs id="lmp" conceptId="1427"/></td>
+						<td width="13%">Gestational age in weeks:</td>
+						<td><obs id="ge" conceptId="1438"/></td>
+						<td width="13%">Expected date of delivery: </td>
+						<td><obs id="edd" conceptId="5596"/></td>
+					</excludeIf>
+				</tr>
+				<tr id="cur_breastfeeding">
+					<excludeIf velocityTest="$patient.gender == 'M' ">
+						<td id="child_prophylaxis_q" width="13%">Did child receive prophylaxis?</td>
+						<td id="child_prophylaxis_a" width="37%"><obs conceptId="165977"/></td>
+					</excludeIf>
+				</tr>
+			</table>
+		</fieldset>
+	</includeIf>
 	<fieldset>
 		<table width="100%" border="0">
 			<tr>

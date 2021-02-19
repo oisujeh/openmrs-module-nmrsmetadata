@@ -1,4 +1,4 @@
-<htmlform formUuid="d4a727c5-1532-40cb-ae4a-1a5c66e8271f" formName="Antenatal Care Details" formEncounterType="15a98ee7-0e8d-4ee8-8aaa-99b28c7083ee" formVersion="2018">
+<htmlform formUuid="ac995d47-a8db-4ea8-91b4-f080489e523f" formName="General Antenatal Care" formEncounterType="c6f26a9a-5a8c-493a-a5a7-57bd2c81628d" formVersion="2018">
     <!-- General Antenatal Register 10-Apr-2018 -->
     <macros>
         paperFormId = (Fill this in)
@@ -7,155 +7,155 @@
     </macros>
     <style>
         .section {
-        border: 1px solid $headerColor;
-        padding: 2px;
-        text-align: left;
-        margin-bottom: 1em;
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
         }
         .sectionHeader {
-        background-color: #2f1c55;
-        color: white;
-        /* display: block; */
-        padding: 2px;
-        font-weight: bold;
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
         }
         table tr:nth-child(even) {
-        background: #ffffff;
+            background: #ffffff;
         }
         .alnright{
-        text-align: right;
-        color:#000000;
-        width: 25%;
+            text-align: right;
+            color:#000000;
+            width: 25%;
         }
         .alnright_s{
-        text-align: right;
-        color:#000000;
-        width: 13%;
+            text-align: right;
+            color:#000000;
+            width: 13%;
         }
         .alnleft_s{
-        text-align: left;
-        color:#000000;
-        width: 13%;
+            text-align: left;
+            color:#000000;
+            width: 13%;
         }
         .alnleft{
-        text-align: left;
-        color:#000000;
-        width: 25%;
+            text-align: left;
+            color:#000000;
+            width: 25%;
         }
         td {
-        border: none;
+            border: none;
         }
         table th, table td {
-        padding: 5px 10px;
-        border: None;
+            padding: 5px 10px;
+            border: None;
         }
         .legend_style {
-        max-width: 35%;
-        background: #FAFAFA;
+            max-width: 35%;
+            background: #FAFAFA;
         <!--padding: 5px;-->
-        margin: 0px left;
-        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
-        border-radius: 2px;
-        border: 1px solid #305a72;
-        border-bottom-left-radius: 2px;
-        text-transform:initial;
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
 
         }
         form fieldset, .form fieldset {
-        min-width: 98%;
-        border: none;
-        border-top: 1px solid #305a72;
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
 
         }
         table th, table td {
-        padding: 5px 10px;
-        /* border: 1px solid #DDD; */
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
         }
         table tr {
-        border: None;
+            border: None;
         }
         ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;
+            padding: 2px 10px;
         }
         form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;
+            padding: 2px 10px;
         }
         form select, .form select, .standard {
-        max-width: 200px;
-        min-width: 150px;
+            max-width: 200px;
+            min-width: 150px;
         }
         form select, .form select {
-        max-width: 200px;
-        min-width: auto;
+            max-width: 200px;
+            min-width: auto;
         }
 
         body {
-        font-family: "OpenSans", Arial, sans-serif;
-        color: #363463;
-        font-size: 14px;
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
         }
         <!--table.baseline-aligned td {-->
-        <!--vertical-align: baseline;-->
-        <!--}-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
     </style>
-    
-       <script type="text/javascript">
-       function diff_weeks(date2, date1) 
- {
 
-  var diff =(date2.getTime() - date1.getTime()) / 1000;
-  diff /= (60 * 60 * 24 * 7);
-  return Math.abs(Math.round(diff));
-  
- }
+    <script type="text/javascript">
+        function diff_weeks(date2, date1)
+        {
+
+            var diff =(date2.getTime() - date1.getTime()) / 1000;
+            diff /= (60 * 60 * 24 * 7);
+            return Math.abs(Math.round(diff));
+
+        }
 
         function onLMPOrGAChange() {
-			var display = new Date();
-                        var today = new Date();
-			var lmp = new Date(getValue('LMP.value'));
-        console.log(lmp.toString("dd/mm/yyyy"));
-                          console.log('Just a test');
-                      
-                 if(lmp &gt; today){
-                        window.alert('Error! future date not allowed');
-                        setValue('LMP.value',null);
-                         return;
-                         }
+            var display = new Date();
+            var today = new Date();
+            var lmp = new Date(getValue('LMP.value'));
+            console.log(lmp.toString("dd/mm/yyyy"));
+            console.log('Just a test');
 
- 			if (!isNaN(lmp))  {				
-			            display = lmp;				
-			display.setDate(display.getDate() + 280);
- console.log(display);
-                        console.log('final value');
-                        console.log(display.getMonth());
-                        setValue('EDD.value',display.getFullYear()+"-"+(display.getMonth()+1)+"-"+display.getDate());
-                        
-                        var ard = new Date(getValue('ARD.value'));
-                        var edd = new Date(getValue('EDD.value'));
-                        
-                        console.log('date diff values');
-                        console.log(ard);
-                        console.log(edd)
-                        
-                        var weekDiff = diff_weeks(ard,new Date(getValue('LMP.value')));
-                        setValue('gestationAge.value',weekDiff);
-			}     
-                       
-                        
-		}
-                
-                jQuery(function() {
-			jQuery('#LMP').change(onLMPOrGAChange); 
-                        jQuery('#EDD').find("input").attr("disabled",true);
-                        jQuery('#gestationAge').find("input").attr("disabled",true);                    
-                        });
-                
+            if(lmp &gt; today){
+                window.alert('Error! future date not allowed');
+                setValue('LMP.value',null);
+                return;
+            }
+
+            if (!isNaN(lmp))  {
+                display = lmp;
+                display.setDate(display.getDate() + 280);
+                console.log(display);
+                console.log('final value');
+                console.log(display.getMonth());
+                setValue('EDD.value',display.getFullYear()+"-"+(display.getMonth()+1)+"-"+display.getDate());
+                $('#EDD').attr("style", "pointer-events: none;");
+
+                var ard = new Date(getValue('ARD.value'));
+                var edd = new Date(getValue('EDD.value'));
+
+                console.log('date diff values');
+                console.log(ard);
+                console.log(edd)
+
+                var weekDiff = diff_weeks(ard,new Date(getValue('LMP.value')));
+                setValue('gestationAge.value',weekDiff);
+                $('#gestationAge').attr("style", "pointer-events: none;");
+            }
+
+
+        }
+
+        jQuery(function() {
+            jQuery('#LMP').change(onLMPOrGAChange);
+        });
+
     </script>
-     <script type="text/javascript">
+    <script type="text/javascript">
 
         var $ = jQuery;
 
-var path = $(location).attr('pathname').split('/')[1];
+        var path = $(location).attr('pathname').split('/')[1];
         var baseUrl = '/' + path + '/nigeriaemr/PatientIdTypeSetter';
 
         $(document).ready(function ()
@@ -219,7 +219,7 @@ var path = $(location).attr('pathname').split('/')[1];
                             },
                             error: function (e)
                             {
-                               console.log("ERROR : ", e);
+                                console.log("ERROR : ", e);
                             }
                         });
                     }
@@ -238,7 +238,7 @@ var path = $(location).attr('pathname').split('/')[1];
         });
 
     </script>
-    <!--<div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
+    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
         <fieldset>
             <legend class="legend_style">When?</legend>
             <label>When?</label>
@@ -256,10 +256,10 @@ var path = $(location).attr('pathname').split('/')[1];
             <label>Where?</label>
             <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
         </fieldset>
-    </div>-->
+    </div>
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr><th colspan='5' style="text-align: center">General Antenatal Care Form</th></tr>
+        <tr><th colspan='5' style="text-align: center">General Antenatal Care Form</th></tr>
         </thead>
     </table>
 
@@ -268,13 +268,10 @@ var path = $(location).attr('pathname').split('/')[1];
         <table>
 
             <tr>
-            <td class="alnright">Visit Date</td>
-            <td class="alnleft"><encounterDate default="now" showTime="false" id="ARD"/>
-                </td></tr>
-               <tr>
                 <td class="alnright">ANC No.</td>
-                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>
-<td style="vertical-align: top;">
+<!--                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>-->
+                <td class="alnleft"><obs conceptId="165567" id="identifer-td" required="true"/></td>
+                <td style="vertical-align: top;">
                     <label> <input type="checkbox" name="preferred" id="preferred" />preferred</label>
                     <input type="hidden" name="pref_value" id="pref_value" />
                     <input type="hidden" name="pref_type" id="pref_type" value="6" />
@@ -284,13 +281,14 @@ var path = $(location).attr('pathname').split('/')[1];
             <tr>
                 <td class="alnright">Antenatal registration date</td>
                 <td>
-                    <enrollInProgram programId="2"  showDate="true"/></td>
-                   
+                    <enrollInProgram programId="2"  showDate="false"/>
+                    <encounterDate id="ARD" showTime="false" allowFutureDates="false"  required="true" />
+                </td>
 
- 
+
                 <td class="alnright">Gravidity</td>
                 <td class="alnleft"><obs conceptId="5624" /></td>
-            </tr>				
+            </tr>
             <tr>
                 <td class="alnright">Last Menstral Period</td>
                 <td class="alnleft"><obs conceptId="1427" id="LMP" allowFutureDates="false" /></td>
@@ -305,14 +303,14 @@ var path = $(location).attr('pathname').split('/')[1];
             </tr>
             <tr>
                 <td class="alnright">Expected Delivery Date</td>
-                <td class="alnleft"><obs conceptId="5596" id="EDD" allowFutureDates='true'/></td>
-				<td class="alnright_s">Source of referral</td>
+                <td class="alnleft"><obs allowFutureDates="true" conceptId="5596" id="EDD"/></td>
+                <td class="alnright_s">Source of referral</td>
                 <td class="alnleft_s"><obs conceptId="165847"/></td>
             </tr>
             <tr>
                 <td class="alnright_s">Obstetrics/Gynaecological history</td>
                 <td class="alnleft_s" colspan="3"><obs conceptId="165848" rows="2"/></td>
-                
+
             </tr>
         </table>
     </fieldset>
@@ -322,11 +320,11 @@ var path = $(location).attr('pathname').split('/')[1];
         <table>
             <tr>
                 <td class="alnright_s" >Woman tested for Syphilis</td>
-                <td class="alnleft_s standard" ><obs id="testedForSyphilis" conceptId="165280"> 
-					<controls>
-						<when value="1065" thenDisplay="#syphilis_test_details"/>
-					</controls></obs></td>
-				<td class="alnright_s"></td>
+                <td class="alnleft_s standard" ><obs id="testedForSyphilis" conceptId="165280">
+                    <controls>
+                        <when value="1065" thenDisplay="#syphilis_test_details"/>
+                    </controls></obs></td>
+                <td class="alnright_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
             <tr id="syphilis_test_details">
@@ -334,17 +332,17 @@ var path = $(location).attr('pathname').split('/')[1];
                 <td class="alnleft_s"><obs conceptId="164952"/></td>
                 <td class="alnright_s">Syphilis test result</td>
                 <td class="alnleft_s"><obs id="pos_syphilis" conceptId="299" answerConceptIds="1228,1229,1304" answerLabels="Positive,Negative,Indeterminant">
-				<controls>
-						<when value="1228" thenDisplay="#syphilis_treatment"/>
-					</controls></obs></td>
+                    <controls>
+                        <when value="1228" thenDisplay="#syphilis_treatment"/>
+                    </controls></obs></td>
             </tr>
             <tr id="syphilis_treatment">
                 <td class="alnright_s">Treated for syphilis</td>
                 <td class="alnleft_s"><obs id="treatedForSyphilis" conceptId="160733" answerConceptIds="1065,1066">
-					<controls>
-						<when value="1065" thenDisplay="#syphilis_treatment_details"/>
-					</controls></obs></td>
-				<td class="alnright_s"></td>
+                    <controls>
+                        <when value="1065" thenDisplay="#syphilis_treatment_details"/>
+                    </controls></obs></td>
+                <td class="alnright_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
             <tr id="syphilis_treatment_details">
@@ -358,111 +356,45 @@ var path = $(location).attr('pathname').split('/')[1];
     <fieldset>
         <legend class="legend_style">Hepatitis Testing</legend>
         <table class="table" width="100%">
-<tr>
-     <td>Tested for Hepatitis B</td>
-     <td><obs id="HepB" conceptId="165514"><control><when value="1065" thenDisplay="#HepBlbl, #HepBAns" /></control></obs></td>
-</tr>
+            <tr>
+                <td>Tested for Hepatitis B</td>
+                <td><obs id="HepB" conceptId="165514"><control><when value="1065" thenDisplay="#HepBlbl, #HepBAns" /></control></obs></td>
+            </tr>
             <tr>
                 <td id="HepBlbl" class="alnleft_s">Hepatitis B Test:</td>
                 <td id="HepBAns" class="alnright_s"><obs id="result" conceptId="159430" answerConceptIds="703,664,165993" answerLabels="Positive,Negative,Positive and on treatment">
-				<controls>
-				   <when value="703" thenDisplay ="#was_patient_referd_label,#was_patient_refered_name"/>
-				</controls></obs></td>				
-				<td id="was_patient_referd_label" class="alnleft_s">Was patient referred?</td>
-				<td id="was_patient_refered_name" class="alnright_s"> <obs id="wasrefered" conceptId="166024">
-					<controls>
-						<when value="1065" thenDisplay="#Facility_Refered_To_label,#Facility_Refered_name"/>
-					</controls></obs></td>
-				<td id="Facility_Refered_To_label" class="alnleft_s">Facility Refered To</td>
-				<td id="Facility_Refered_name" class="alnright_s"><obs conceptId="165483"/> </td>
+                    <controls>
+                        <when value="703" thenDisplay ="#was_patient_referd_label,#was_patient_refered_name"/>
+                    </controls></obs></td>
+                <td id="was_patient_referd_label" class="alnleft_s">Was patient referred?</td>
+                <td id="was_patient_refered_name" class="alnright_s"> <obs id="wasrefered" conceptId="166024">
+                    <controls>
+                        <when value="1065" thenDisplay="#Facility_Refered_To_label,#Facility_Refered_name"/>
+                    </controls></obs></td>
+                <td id="Facility_Refered_To_label" class="alnleft_s">Facility Refered To</td>
+                <td id="Facility_Refered_name" class="alnright_s"><obs conceptId="165483"/> </td>
             </tr>
-<tr>
-     <td>Tested for Hepatitis C</td>
-     <td><obs id="HepC" conceptId="165515"><control><when value="1065" thenDisplay="#HepClbl, #HepCAns" /></control></obs></td>
-</tr>
-			<tr>
+            <tr>
+                <td>Tested for Hepatitis C</td>
+                <td><obs id="HepC" conceptId="165515"><control><when value="1065" thenDisplay="#HepClbl, #HepCAns" /></control></obs></td>
+            </tr>
+            <tr>
                 <td id="HepClbl" class="alnleft_s">Hepatitis C Test:</td>
                 <td id="HepCAns" class="alnright_s"><obs id="hcresult" conceptId="161471" answerConceptIds="703,664,165993" answerLabels="Positive,Negative,Positive and on treatment">
-				<controls>
-				   <when value="703" thenDisplay ="#hc_was_patient_referd_label,#hc_was_patient_refered_name"/>
-				</controls></obs></td>				
-				<td id="hc_was_patient_referd_label" class="alnleft_s">Was patient referred?</td>
-				<td id="hc_was_patient_refered_name" class="alnright_s"> <obs id="hcwasrefered" conceptId="166024">
-					<controls>
-						<when value="1065" thenDisplay="#hc_Facility_Refered_To_label,#hc_Facility_Refered_name"/>
-					</controls></obs></td>
-				<td id="hc_Facility_Refered_To_label" class="alnleft_s">Facility Refered To</td>
-				<td id="hc_Facility_Refered_name" class="alnright_s"><obs conceptId="165483"/> </td>
+                    <controls>
+                        <when value="703" thenDisplay ="#hc_was_patient_referd_label,#hc_was_patient_refered_name"/>
+                    </controls></obs></td>
+                <td id="hc_was_patient_referd_label" class="alnleft_s">Was patient referred?</td>
+                <td id="hc_was_patient_refered_name" class="alnright_s"> <obs id="hcwasrefered" conceptId="166024">
+                    <controls>
+                        <when value="1065" thenDisplay="#hc_Facility_Refered_To_label,#hc_Facility_Refered_name"/>
+                    </controls></obs></td>
+                <td id="hc_Facility_Refered_To_label" class="alnleft_s">Facility Refered To</td>
+                <td id="hc_Facility_Refered_name" class="alnright_s"><obs conceptId="165483"/> </td>
             </tr>
         </table>
 
     </fieldset>
-
-
-    <!--<div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
-        <section headerLabel="Encounter Details" style="width: 40%; margin-left: 30%;">
-            <fieldset>
-                <legend class="legend_style">ANC Enrollment Date</legend>
-                <label>ANC Enrollment Date</label>
-                <encounterDate default="now" showTime="false" allowFutureDates="false"/>
-            </fieldset>
-            <fieldset>
-                <legend class="legend_style">Facility</legend>
-                <label>Facility</label>
-                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
-            </fieldset>
-            <fieldset>
-                <legend class="legend_style">Service Provider</legend>
-                <label>Service Provider</label>
-                <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>
-            </fieldset>
-        </section>
-    </div>-->
-<!-- UPDATED -->
-    <fieldset>
-        <legend class="legend_style">Key Population</legend>
-        <table width="100%" border="0">
-		<td>
-		<table >
-			<td>
-				<tr>
-					<td class="alnleft_s">KP</td>
-					<td>
-						<obs id="key_pop" style="yes_no_dropdown" conceptId="165766">
-							<controls>
-								<when value="true" thenDisplay="#key_pop_type" />
-							</controls>
-						</obs>
-					</td>
-				</tr>
-			</td>
-			</table>		
-		</td>
-
-		<td>
-			<table class="table" width="100%" id="key_pop_type">
-				<tr>
-					<td>FSW (for females) <obs conceptId="165339" answerConceptId="165336" answerLabel="" /></td>
-				</tr>
-				<tr>
-					<td>MSM (for males) <obs conceptId="165339" answerConceptId="119537" answerLabel="" /></td>
-				</tr>
-				<tr>
-					<td>PWID <obs conceptId="165339" answerConceptId="121543" answerLabel="" /></td>
-				</tr>
-
-				<tr>
-					<td>TG <obs conceptId="165339" answerConceptId="165338" answerLabel="" /></td>
-				</tr>
-
-				<tr>
-					<td>People in prisons and other enclosed settings <obs conceptId="165339" answerConceptId="5622" answerLabel="" /></td>
-				</tr>
-			</table>
-        </td>
-		</table>
-    </fieldset>
-
 
 
 <!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
@@ -539,8 +471,8 @@ var path = $(location).attr('pathname').split('/')[1];
                     <td>Provider Name</td>
                     <td><encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/></td>
                     <td>Facility Name</td><td><p class='left'><encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/></p></td>
-                </tr>
-            </table>
+        </tr>
+        </table>
         </p>
 
     </fieldset>
