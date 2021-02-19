@@ -142,4 +142,11 @@
             <column name="sort_weight" valueNumeric="16"/>
         </insert>
     </changeSet>
+
+    <changeSet id="update_setting_concept_202102191156" author="wande">
+        <sql>
+            UPDATE obs SET value_coded = 160545 WHERE concept_id = 165839 AND value_coded = 165788 ;
+            UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
