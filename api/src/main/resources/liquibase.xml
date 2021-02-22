@@ -149,4 +149,52 @@
             UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
         </sql>
     </changeSet>
+    <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a8939d83-59d7-4f3c-aa80-029d7e4d8095"/>
+        </insert>
+    </changeSet>
+    <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
+        </insert>
+    </changeSet>
+    <changeSet id="add_risk_stratification_adult_form_202102220223" author="arinze">
+        <insert tableName="form">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="version" value="1"/>
+            <column name="published" value="1"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="encounter_type" value="33"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="c50f3dda-754b-4fc5-9af9-0df15527b9e9"/>
+        </insert>
+    </changeSet>
+    <changeSet id="add_risk_stratification_pediatrics_form_202102220223" author="arinze">
+        <insert tableName="form">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="version" value="1"/>
+            <column name="published" value="1"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="encounter_type" value="34"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a3524d1a-40cd-4bcd-b21c-82fbb0eab3db"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
