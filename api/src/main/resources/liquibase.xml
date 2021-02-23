@@ -149,4 +149,34 @@
             UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
         </sql>
     </changeSet>
+    <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='a8939d83-59d7-4f3c-aa80-029d7e4d8095';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a8939d83-59d7-4f3c-aa80-029d7e4d8095"/>
+        </insert>
+    </changeSet>
+    <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='723f8ea2-8708-4a68-a557-d5f232c8b45c';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
