@@ -150,6 +150,11 @@
         </sql>
     </changeSet>
     <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='a8939d83-59d7-4f3c-aa80-029d7e4d8095';
+            </sqlCheck>
+        </preConditions>
         <insert tableName="encounter_type">
             <column name="name" value="Risk Stratification Adult"/>
             <column name="description" value="Risk Stratification Adult"/>
@@ -160,6 +165,11 @@
         </insert>
     </changeSet>
     <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='723f8ea2-8708-4a68-a557-d5f232c8b45c';
+            </sqlCheck>
+        </preConditions>
         <insert tableName="encounter_type">
             <column name="name" value="Risk Stratification Pediatrics"/>
             <column name="description" value="Risk Stratification Pediatrics"/>
@@ -170,6 +180,11 @@
         </insert>
     </changeSet>
     <changeSet id="add_risk_stratification_adult_form_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form WHERE UUID='c50f3dda-754b-4fc5-9af9-0df15527b9e9';
+            </sqlCheck>
+        </preConditions>
         <insert tableName="form">
             <column name="name" value="Risk Stratification Adult"/>
             <column name="version" value="1"/>
@@ -184,6 +199,11 @@
         </insert>
     </changeSet>
     <changeSet id="add_risk_stratification_pediatrics_form_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM form WHERE UUID='a3524d1a-40cd-4bcd-b21c-82fbb0eab3db';
+            </sqlCheck>
+        </preConditions>
         <insert tableName="form">
             <column name="name" value="Risk Stratification Pediatrics"/>
             <column name="version" value="1"/>
