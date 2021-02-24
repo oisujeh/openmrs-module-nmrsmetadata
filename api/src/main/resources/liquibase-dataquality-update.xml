@@ -171,6 +171,11 @@
     </changeSet>
     <!-- HTS EXPORT -->
     <changeSet id="report_update_20201129615" author="Bright">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM reporting_report_design WHERE uuid='80889f61-c5ff-4f2e-98fa-4511e4f2898c';
+            </sqlCheck>
+        </preConditions>
         <insert tableName="reporting_report_design">
             <column name="uuid" value="80889f61-c5ff-4f2e-98fa-4511e4f2898c"/>
             <column name="name" value="CSV"/>

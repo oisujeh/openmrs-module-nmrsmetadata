@@ -1,0 +1,200 @@
+{
+  "name":"Partner Register",
+  "uuid":"3595782a-1cdc-44f1-84cc-5682fd405f46",
+  "processor":"EncounterFormProcessor",
+  "pages":[
+    {
+      "label":"Partner Information",
+      "sections":[
+        {
+          "label":"Partner Information",
+          "questions":[
+            {
+              "label":"Visit Date",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"6bcaf85b-8504-4c7f-b510-a50436236b80"
+              },
+              "type":"encounterDate",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Partner Age:",
+              "id":"Partner_Age",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"b7bcd34f-1a4a-4c76-9771-36de25e97597",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Pre-Test Counseled:",
+              "type":"obs",
+              "id":"Pre_test_counseled",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"cc579a62-fd4b-42cc-9ce4-b58648c469d0",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Partner Accepts HIV Test:",
+              "type":"obs",
+              "id":"Partner_accepts_HIV_test",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"1f447ddd-16b8-4d9e-a505-5c5e90d92dfa",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Partner HIV Status:",
+              "type":"obs",
+              "id":"Partner_HIV_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"1436AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Positive"
+                  },
+                  {
+                    "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Negative"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Post-Test Counseled/Recieved Test Result:",
+              "type":"obs",
+              "id":"Post_test_counseled",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"bcfea597-c92b-46e1-a244-a9c92be84c22",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"HBV Status:",
+              "type":"obs",
+              "id":"HBV_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"3e63f602-e708-4f73-9f84-78b76ca18900",
+                "answers":[
+                  {
+                    "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Positive"
+                  },
+                  {
+                    "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Negative"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"HCV Status:",
+              "type":"obs",
+              "id":"HCV_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"f54590cc-b379-4f68-bbce-e3cd44f3ffe4",
+                "answers":[
+                  {
+                    "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Positive"
+                  },
+                  {
+                    "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Negative"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Syphilis Status:",
+              "type":"obs",
+              "id":"Syphilis_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"1228AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Reactive"
+                  },
+                  {
+                    "concept":"1229AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Non Reactive"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Referred To:",
+              "type":"obs",
+              "id":"Referred_to",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"60e35945-5f3f-4abb-97c0-53b637492df7",
+                "answers":[
+                  {
+                    "concept":"1382AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Family planning counselling"
+                  },
+                  {
+                    "concept":"1610AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Antiretroviral therapy"
+                  },
+                  {
+                    "concept":"5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Others"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

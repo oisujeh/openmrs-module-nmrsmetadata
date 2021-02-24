@@ -1,0 +1,773 @@
+{
+  "name":"Child Follow Up",
+  "uuid":"046f8478-7c73-49ca-be4d-dd2e7802c923",
+  "processor":"EncounterFormProcessor",
+  "pages":[
+    {
+      "label":"Child Follow up Information",
+      "sections":[
+        {
+          "label":"Child Follow up Information",
+          "questions":[
+            {
+              "label":"Visit Date",
+              "required":"yes",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"93aaf29a-fc4c-4b54-8c82-ee70030ef660"
+              },
+              "type":"encounterDate",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"Weight(Kg):",
+              "id":"weight",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"5916AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max":"150",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Length(CM):",
+              "id":"Length",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"1503AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Head circumference(cm):",
+              "id":"head_circum",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"5314AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Mid upper arm circumference(cm):",
+              "id":"mid_upper_arm_circum",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"1343AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "max":"350",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"MUAC:",
+              "type":"obs",
+              "id":"MUAC",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"f887befe-01dd-43f5-bb3e-b1f83db1836e",
+                "answers":[
+                  {
+                    "concept":"44cab759-360c-4aa8-be1b-285cf364b0b2",
+                    "label":"Over"
+                  },
+                  {
+                    "concept":"8a160f90-ad58-43de-9e6e-65faf63bd699",
+                    "label":"Under"
+                  },
+                  {
+                    "concept":"dcd7075c-3163-4797-9516-1b9f4b0fa387",
+                    "label":"Normal"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"CTX given to child:",
+              "type":"obs",
+              "id":"CTX_given_to_child",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"72f5a993-5ea6-423c-ad71-b2dbd4c0d3dd",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Age at CTX Initiation (months):",
+              "id":"Age_at_CTX_Initiation",
+              "questionOptions":{
+                "rendering":"number",
+                "concept":"611be534-5ff3-4ad1-b9e3-f494f2183330",
+                "max":"120",
+                "min":"0"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            },
+            {
+              "label":"Feeding method:",
+              "type":"obs",
+              "id":"Feeding_method",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"1151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                "answers":[
+                  {
+                    "concept":"5254AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Infant formula"
+                  },
+                  {
+                    "concept":"6046AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Mixed feeding"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Exclusively Breastfed"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Immunization",
+      "sections":[
+        {
+          "label":"Immunization",
+          "questions":[
+            {
+              "label":"Immunization provided during 6 weeks visit:",
+              "type":"obs",
+              "id":"Immunization_provided_during_6_weeks_visit",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"6f082c18-a883-4bec-a211-82d0b1d9b372",
+                "answers":[
+                  {
+                    "concept":"783AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"OPV 1"
+                  },
+                  {
+                    "concept":"1685AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Penta 1"
+                  },
+                  {
+                    "concept":"77441AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"PCV 1"
+                  },
+                  {
+                    "concept":"83533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Rota 1"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Immunization provided during 10 weeks visit:",
+              "type":"obs",
+              "id":"Immunization_provided_during_10_weeks_visit",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"67ea17ef-17b7-4103-ad9b-a63c743165b5",
+                "answers":[
+                  {
+                    "concept":"783AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"OPV 2"
+                  },
+                  {
+                    "concept":"1685AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Penta 2"
+                  },
+                  {
+                    "concept":"77441AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"PCV 2"
+                  },
+                  {
+                    "concept":"83533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Rota 2"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Immunization provided during 14 weeks visit:",
+              "type":"obs",
+              "id":"Immunization_provided_during_14_weeks_visit",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"476d64f0-7bde-4c3a-afd3-ab0c4dc69a7d",
+                "answers":[
+                  {
+                    "concept":"783AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"OPV 3"
+                  },
+                  {
+                    "concept":"1685AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Penta 3"
+                  },
+                  {
+                    "concept":"77441AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"PCV 3"
+                  },
+                  {
+                    "concept":"82241AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"IPV"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Immunization provided during 6 months visit:",
+              "type":"obs",
+              "id":"Immunization_provided_during_6_months_visit",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"0880a4fa-388b-4dc9-9afe-a1d73afe0ea8",
+                "answers":[
+                  {
+                    "concept":"86339AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Vitamin A 1st Dose"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Immunization provided during 9 months visit:",
+              "type":"obs",
+              "id":"Immunization_provided_during_9_months_visit",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"c2867c56-2199-4b77-be55-3be8d9d6c467",
+                "answers":[
+                  {
+                    "concept":"79409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Measle 1"
+                  },
+                  {
+                    "concept":"86556AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yellow Fever"
+                  },
+                  {
+                    "concept":"79549AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Conjugate A CSM"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Immunization provided during 12 months visit:",
+              "type":"obs",
+              "id":"Immunization_provided_during_12_months_visit",
+              "questionOptions":{
+                "rendering":"check",
+                "concept":"871a9976-eeda-43b4-bc36-a95e777e181b",
+                "answers":[
+                  {
+                    "concept":"86339AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Vitamin A 2nd Dose"
+                  },
+                  {
+                    "concept":"79409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Measle 2"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"EID Lab Monitoring",
+      "sections":[
+        {
+          "label":"EID Lab Monitoring",
+          "questions":[
+            {
+              "type":"obsGroup",
+              "label":"1st PCR",
+              "questionOptions":{
+                "rendering":"group",
+                "concept":"06d1cd2a-f32a-4ff2-a324-0d5dd105d2b6"
+              },
+              "questions":[
+                {
+                  "label":"Date First PCR Sample Collected",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"9ff024b4-b543-4018-9579-9d446d858bbe"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"Date First PCR Sample Sent",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"2266edeb-adad-4ce5-b795-5adfb83dca53"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"Date Result Received at Facility",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"ab551517-f565-4dda-a1df-6e21c521aac6"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"Date Caregiver Given Result",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"6b1340ca-9379-4f64-8cbe-3ef6bb2c7e28"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"1st PCR Result:",
+                  "type":"obs",
+                  "id":"PCR_1_Result",
+                  "questionOptions":{
+                    "rendering":"select",
+                    "concept":"a4d8dcc8-5c02-40b1-94f5-a80599c7e380",
+                    "answers":[
+                      {
+                        "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Positive"
+                      },
+                      {
+                        "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Negative"
+                      },
+                      {
+                        "concept":"f3da766f-2e28-4ab1-bb4e-43d4f8232c54",
+                        "label":"Not processed"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"EID Lab Monitoring",
+      "sections":[
+        {
+          "label":"EID Lab Monitoring",
+          "questions":[
+            {
+              "type":"obsGroup",
+              "label":"2nd PCR",
+              "questionOptions":{
+                "rendering":"group",
+                "concept":"869d37ff-f449-4fe3-be2c-1d1d9fa8d417"
+              },
+              "questions":[
+                {
+                  "label":"Date 2nd PCR Sample Collected",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"9c68c5b2-92bc-41b2-a5ea-4efbb1d6a79a"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"2nd PCR Result:",
+                  "type":"obs",
+                  "id":"PCR_2_Result",
+                  "questionOptions":{
+                    "rendering":"select",
+                    "concept":"53dc07eb-629a-4c94-bc00-54d6c5fe8d6e",
+                    "answers":[
+                      {
+                        "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Positive"
+                      },
+                      {
+                        "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Negative"
+                      },
+                      {
+                        "concept":"f3da766f-2e28-4ab1-bb4e-43d4f8232c54",
+                        "label":"Not processed"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"EID Lab Monitoring",
+      "sections":[
+        {
+          "label":"EID Lab Monitoring",
+          "questions":[
+            {
+              "type":"obsGroup",
+              "label":"Confirmatory PCR",
+              "questionOptions":{
+                "rendering":"group",
+                "concept":"c6364f39-c6b0-496b-9bad-2b01f531b5dd"
+              },
+              "questions":[
+                {
+                  "label":"Date Confirmatory PCR Sample Collected",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"457dc26f-1b3a-45b8-be2d-2834adcbadb3"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"Confirmatory PCR Result:",
+                  "type":"obs",
+                  "id":"PCR_Result",
+                  "questionOptions":{
+                    "rendering":"select",
+                    "concept":"3c61bca4-0f4f-423b-a50d-af16f0e567b5",
+                    "answers":[
+                      {
+                        "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Positive"
+                      },
+                      {
+                        "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Negative"
+                      },
+                      {
+                        "concept":"f3da766f-2e28-4ab1-bb4e-43d4f8232c54",
+                        "label":"Not processed"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"EID Lab Monitoring",
+      "sections":[
+        {
+          "label":"EID Lab Monitoring",
+          "questions":[
+            {
+              "type":"obsGroup",
+              "label":"1st Rapid Antibody Test",
+              "questionOptions":{
+                "rendering":"group",
+                "concept":"c6364f39-c6b0-496b-9bad-2b01f531b5dd"
+              },
+              "questions":[
+                {
+                  "label":"Rapid Test Date",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"5d572495-3849-4237-8eab-23249a3c276c"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"Rapid Test Result:",
+                  "type":"obs",
+                  "id":"Rapid_Test_Result",
+                  "questionOptions":{
+                    "rendering":"select",
+                    "concept":"5720625e-0a2c-4347-ae58-12503e03e2b6",
+                    "answers":[
+                      {
+                        "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Positive"
+                      },
+                      {
+                        "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Negative"
+                      },
+                      {
+                        "concept":"1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Indeterminate"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"EID Lab Monitoring",
+      "sections":[
+        {
+          "label":"EID Lab Monitoring",
+          "questions":[
+            {
+              "type":"obsGroup",
+              "label":"2nd Rapid Antibody Test",
+              "questionOptions":{
+                "rendering":"group",
+                "concept":"c6364f39-c6b0-496b-9bad-2b01f531b5dd"
+              },
+              "questions":[
+                {
+                  "label":"Rapid Test Date",
+                  "questionOptions":{
+                    "rendering":"date",
+                    "concept":"e33675e8-e3c2-4313-ae8b-e77bf6939b3b"
+                  },
+                  "type":"obs",
+                  "validators":[
+                    {
+                      "type":"date"
+                    }
+                  ]
+                },
+                {
+                  "label":"2nd Rapid Test Result:",
+                  "type":"obs",
+                  "id":"second_Rapid_Test_Result",
+                  "questionOptions":{
+                    "rendering":"select",
+                    "concept":"164860AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "answers":[
+                      {
+                        "concept":"703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Positive"
+                      },
+                      {
+                        "concept":"664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Negative"
+                      },
+                      {
+                        "concept":"1138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                        "label":"Indeterminate"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Facility Visit",
+      "sections":[
+        {
+          "label":"Facility Visit",
+          "questions":[
+            {
+              "label":"Visit Status",
+              "type":"obs",
+              "id":"visit_status",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"e9a70926-70e8-4c59-af4e-5839446293d0",
+                "answers":[
+                  {
+                    "concept":"161636AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Active"
+                  },
+                  {
+                    "concept":"160563AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Transferred In"
+                  },
+                  {
+                    "concept":"159492AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Transferred Out"
+                  },
+                  {
+                    "concept":"7fa5ab3a-47dc-4884-8660-7627fd233fe5",
+                    "label":"Linked to ART"
+                  },
+                  {
+                    "concept":"164861AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Discharge from PMTCT"
+                  },
+                  {
+                    "concept":"5f40f28e-e74f-4342-aba7-95ca82bd4b3d",
+                    "label":"Missed Appointment"
+                  },
+                  {
+                    "concept":"f506af27-23b7-4570-bd65-1f5e829c6983",
+                    "label":"Lost to Follow Up"
+                  },
+                  {
+                    "concept":"160432AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Dead"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Child Breast Feeding:",
+              "type":"obs",
+              "id":"Child_Breast_Feeding",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"7dbae89a-7811-430b-83fb-0b8fc78cfc77",
+                "answers":[
+                  {
+                    "concept":"1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"Yes"
+                  },
+                  {
+                    "concept":"1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"No"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Child outcome at 18 months:",
+              "type":"obs",
+              "id":"Child_outcome_at_18_months",
+              "questionOptions":{
+                "rendering":"select",
+                "concept":"4a70fb57-dd4d-4ba9-93d7-ef1cdf2dfae7",
+                "answers":[
+                  {
+                    "concept":"7fa5ab3a-47dc-4884-8660-7627fd233fe5",
+                    "label":"HIV-Positive Linked to ART"
+                  },
+                  {
+                    "concept":"4c17fae6-1030-432d-8fa4-34ebfc4235dc",
+                    "label":"HIV-Positive Not Linked to ART"
+                  },
+                  {
+                    "concept":"fafddeb4-9339-41a0-b35e-2c670b5dd32b",
+                    "label":"HIV-Negative No Longer Breastfeeding"
+                  },
+                  {
+                    "concept":"1404AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                    "label":"HIV-Negative Still Breastfeeding"
+                  },
+                  {
+                    "concept":"947e0e00-fd20-4d6a-b9ea-24c13c678007",
+                    "label":"HIV-Negative Breastfeed Status Unknown"
+                  },
+                  {
+                    "concept":"7feb955a-7215-42c3-a415-bb73724870cf",
+                    "label":"HIV Status Unknown Died"
+                  },
+                  {
+                    "concept":"f4bc233d-6e74-418a-bd49-b60bb61b7cf1",
+                    "label":"HIV Status Unknown Lost to Follow Up"
+                  },
+                  {
+                    "concept":"af9564cb-f330-43cc-82b2-61dc61cec013",
+                    "label":"HIV Status Unknown Transfered Out"
+                  }
+                ]
+              }
+            },
+            {
+              "label":"Date Linked to ART Clinic",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"4942690d-fdef-4743-8f27-1f69808fe06c"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
+            {
+              "label":"ART Enrollment No:",
+              "id":"ART_Enrollment_No",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"76bd220c-933f-4b68-8d59-4073daf6d321"
+              },
+              "type":"obs",
+              "validators":[
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
