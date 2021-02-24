@@ -1525,25 +1525,26 @@
     </script>
 
 
-    <div class="hidden" headerLabel="Encounter Details" headerStyle="title" id="encounter-details" sectionTag="section">
-        <fieldset>
-            <legend class="legend_style">When?</legend>
-            <label>When?</label>
-            <encounterDate allowFutureDates="false" default="now" showTime="false"/>
-        </fieldset>
+<!--    <div class="hidden" headerLabel="Encounter Details" headerStyle="title" id="encounter-details" sectionTag="section">-->
+<!--        <fieldset>-->
+<!--            <legend class="legend_style">When?</legend>-->
+<!--            <label>When?</label>-->
+<!--            <encounterDate allowFutureDates="false" default="now" showTime="false"/>-->
+<!--        </fieldset>-->
 
-        <fieldset>
-            <legend>Who?</legend>
-            <label>Who?</label>
-            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>
-        </fieldset>
+<!--        <fieldset>-->
+<!--            <legend>Who?</legend>-->
+<!--            <label>Who?</label>-->
+<!--            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>-->
+<!--        </fieldset>-->
 
-        <fieldset>
-            <legend>Where?</legend>
-            <label>Where?</label>
-            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
-        </fieldset>
-    </div>
+<!--        <fieldset>-->
+<!--            <legend>Where?</legend>-->
+<!--            <label>Where?</label>-->
+<!--            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+<!--        </fieldset>-->
+<!--    </div>-->
+
     <table style="margin-bottom: 20px;">
         <thead>
         <tr><th  style="text-align: center">Client Intake Form</th></tr>
@@ -1565,8 +1566,8 @@
         <tr>
             <td class="alnleft_s">Date of Visit</td>
             <td>
-                <enrollInProgram programId="4"  showDate="false"/>
                 <encounterDate allowFutureDates="false" id="date_of_visit" name="date_of_visit" required="true" showTime="false"  />
+                <enrollInProgram programId="4"  showDate="false"/>
             </td>
             <td>Kind of HTS</td>
             <td>
@@ -1577,7 +1578,7 @@
 
             <td class="alnleft_s" id="setting_name_pitc">Setting</td>
             <td class="alnleft_s" id="setting_pitc">
-                <obs answerConceptIds="160539,160529,160546,5271,160542,161629,165788,165838,166135,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Community ART, Others" conceptId="165839" id="setting" required="true">
+                <obs answerConceptIds="160539,160529,160546,5271,160542,161629,160545,165838,166135,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Community ART, Others" conceptId="165839" id="setting" required="true">
                     <controls>
                         <when thenDisplay="#setting_other" value="5622"/>
                     </controls>
@@ -1909,7 +1910,7 @@
                 <tr>
                     <td id="recency_number_verif_label">Verify Participant ID</td>
 
-                    <td class="alnleft_s"><obs conceptId="166210" id="recency_number_verif_value"  required="true"/></td>
+                    <td class="alnleft_s"><obs conceptId="166210" id="recency_number_verif_value"  required="false"/></td>
                     <td colspan="2"> <span id="success" style="width:100%; color:green; font-weight:bold;"></span> </td>
 
                 </tr>

@@ -125,4 +125,58 @@
             <column name="uuid" value="136e629b-78b6-4cdb-b76a-01c598d6a173"/>
         </insert>
     </changeSet>
+
+
+    <changeSet id="include_AZT-3TC-LPV/r_202101241029" author="wande" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_id='164507' AND  answer_concept='162561';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept_answer">
+            <column name="concept_id" valueNumeric="164507"/>
+            <column name="answer_concept" valueNumeric="162561"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="uuid" value="133caea0-4dca-4767-98e2-ab2ff2022c48"/>
+            <column name="sort_weight" valueNumeric="16"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="update_setting_concept_202102191156" author="wande">
+        <sql>
+            UPDATE obs SET value_coded = 160545 WHERE concept_id = 165839 AND value_coded = 165788 ;
+            UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
+        </sql>
+    </changeSet>
+    <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='a8939d83-59d7-4f3c-aa80-029d7e4d8095';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a8939d83-59d7-4f3c-aa80-029d7e4d8095"/>
+        </insert>
+    </changeSet>
+    <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='723f8ea2-8708-4a68-a557-d5f232c8b45c';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
