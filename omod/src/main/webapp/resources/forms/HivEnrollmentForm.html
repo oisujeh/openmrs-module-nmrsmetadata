@@ -370,6 +370,52 @@
             </tr>
         </table>
     </fieldset>
+
+    <!-- ADDED -->
+    <fieldset>
+        <legend class="legend_style">Key Population</legend>
+        <table width="100%" border="0">
+		<td>
+		<table >
+			<td>
+				<tr>
+					<td class="alnleft_s">KP</td>
+					<td>
+						<obs id="key_pop" style="yes_no_dropdown" conceptId="165766">
+							<controls>
+								<when value="true" thenDisplay="#key_pop_type" />
+							</controls>
+						</obs>
+					</td>
+				</tr>
+			</td>
+			</table>		
+		</td>
+
+		<td>
+			<table class="table" width="100%" id="key_pop_type">
+				<tr>
+					<td>FSW (for females) <obs conceptId="165339" answerConceptId="165336" answerLabel="" /></td>
+				</tr>
+				<tr>
+					<td>MSM (for males) <obs conceptId="165339" answerConceptId="119537" answerLabel="" /></td>
+				</tr>
+				<tr>
+					<td>PWID <obs conceptId="165339" answerConceptId="121543" answerLabel="" /></td>
+				</tr>
+
+				<tr>
+					<td>TG <obs conceptId="165339" answerConceptId="165338" answerLabel="" /></td>
+				</tr>
+
+				<tr>
+					<td>People in prisons and other enclosed settings <obs conceptId="165339" answerConceptId="5622" answerLabel="" /></td>
+				</tr>
+			</table>
+        </td>
+		</table>
+    </fieldset>
+
     <fieldset>
         <legend class="legend_style">Signature</legend>
         <table width="100%">
