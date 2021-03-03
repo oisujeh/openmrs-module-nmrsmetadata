@@ -1,5 +1,6 @@
 SET FOREIGN_KEY_CHECKS=0/0xd
 REPLACE INTO `role_privilege` VALUES
+('Adherence','App: appointmentschedulingui.appointmentTypes'),
 ('Adherence','App: coreapps.findPatient'),
   ('Adherence','App: coreapps.patientDashboard'),
   ('Adherence','App: coreapps.patientVisits'),

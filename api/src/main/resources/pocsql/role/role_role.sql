@@ -1,4 +1,5 @@
 REPLACE INTO `role_role` VALUES
+  ('Application: Schedules Appointments','Adherence'),
   ('Privilege Level: Full','Adherence'),
   ('Provider','Adherence'),
   ('Organizational: Registration Clerk','ANC'),
