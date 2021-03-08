@@ -97,5 +97,35 @@
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    
+
+    <changeSet id="concept_202103081056" author="wande">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="concepts/20210303/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_description.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
 </databaseChangeLog>
