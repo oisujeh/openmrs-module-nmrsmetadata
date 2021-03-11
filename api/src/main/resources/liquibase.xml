@@ -98,4 +98,20 @@
                  endDelimiter="/0xd"/>
     </changeSet>
     
+    <changeSet id="patient_missed_appointment_flag_update" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="pocsql/patient_missed_appointment_flag.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="patient_missed_appointment_flag_tag_update" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="pocsql/patient _missed_appointment_flag_tag.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
 </databaseChangeLog>
