@@ -43,6 +43,12 @@
         </delete>
     </changeSet>
     <changeSet id="update141020200830" author="wande">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE uuid='555d447e-d18e-4a2e-832b-4b790dc03b27';
+            </sqlCheck>
+        </preConditions>
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <insert tableName="concept_answer">
             <column name="concept_answer_id" value="8908"/>
             <column name="concept_id" value="165725"/>
@@ -52,6 +58,7 @@
             <column name="uuid" value="555d447e-d18e-4a2e-832b-4b790dc03b27"/>
             <column name="sort_weight" value="31"/>
         </insert>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
     <changeSet author="toyeeb" id="delete161020201157" runOnChange="true">
         <delete tableName="location_tag_map">
@@ -77,28 +84,37 @@
     <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
     
      <changeSet id="poc_role" author="toyeeb" runOnChange="true">
-       
+
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="pocsql/role/role.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
+
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
     <changeSet id="poc_role_role" author="toyeeb" runOnChange="true">
-       
+
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="pocsql/role/role_role.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
     <changeSet id="poc_role_privilege" author="toyeeb" runOnChange="true">
-       
+
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="pocsql/role/role_privilege.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
 
-    <changeSet id="concept_202103081056" author="wande">
+    <changeSet id="concept_202103081056" author="wande" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
 
         <sqlFile path="concepts/20210303/concept.sql"

@@ -46,7 +46,7 @@
         <!-- ERROR - ENCOUNTER WITHOUT ADD PAST VISIT  -->
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
-                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='64b6148d-12b9-46df-bdba-896ae7504ae5';
+                SELECT COUNT(*) FROM reporting_report_design WHERE uuid='633cfa97-fd46-4e0f-b061-3877792c5bcb';
             </sqlCheck>
         </preConditions>
         <insert tableName="reporting_report_design">
