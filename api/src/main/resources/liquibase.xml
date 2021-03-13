@@ -180,7 +180,7 @@
         </insert>
     </changeSet>
     
-    <changeSet id="concept_202103081056" author="wande">
+    <changeSet id="concept_202103081056" author="wande" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
 
         <sqlFile path="concepts/20210303/concept.sql"
