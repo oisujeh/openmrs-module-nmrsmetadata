@@ -518,6 +518,7 @@
                             <when value="165769" thenDisplay="#reg_plan_response" />
                             <when value="165768" thenDisplay="#reg_plan_response2" />
                             <when value="165770" thenDisplay="#reg_plan_response3" />
+                            <when value="165770" thenDisplay="#date_stopped_regimen" />
                         </controls>
                     </obs>
                 </td>
@@ -547,6 +548,18 @@
                             <td class="alnright">Regimen stop reasons</td>
                             <td>
                                 <obs conceptId="1252" answerConceptIds="102,1434,843,159598,5485,1754,819,164435,160016,5622" answerLabels="Toxicity/side effects,Pregnancy,Treatment failure,Poor adherence,Illness or hospitalization,Drugs out of stock,Patient lacks finances,Other patient decision,Planned Rx interruption,Other" />
+                            </td>
+    `
+
+                        </tr>
+                    </table>
+                </td>
+                <td id="date_stopped_regimen">
+                    <table>
+                        <tr>
+                            <td class="alnright">Date Stopped Regimen</td>
+                            <td>
+                                <obs conceptId="166303" id="date_stopped_regimen" allowFutureDates="false" />
                             </td>
                         </tr>
                     </table>
