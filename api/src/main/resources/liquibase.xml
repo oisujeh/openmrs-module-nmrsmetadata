@@ -179,4 +179,34 @@
             <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
         </insert>
     </changeSet>
+    
+    <changeSet id="concept_202103081056" author="wande" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="concepts/20210303/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_description.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 </databaseChangeLog>
