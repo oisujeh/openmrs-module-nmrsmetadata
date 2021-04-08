@@ -304,6 +304,13 @@
 						</controls>
 					</obs>
 					</td>
+						<td class="alnleft">VA Cause of Death</td>
+				<td><obs id="va_death_cause" conceptId="166349" answerConceptIds="166348,166347" answerLabels="Adult Causes, Child Causes">
+					<controls>
+						<when value="166348" thenDisplay="#adult_va_cause_death"/>
+						<when value="166347" thenDisplay="#child_va_cause_death"/>
+					</controls>
+				</obs></td>
 				<td  class="alnleft">
 					<table>
 						<tr id="others_cause">
@@ -313,6 +320,18 @@
 					</table>
 				</td>
 				<td> </td>
+			</tr>
+			<tr id="adult_va_cause_death">
+				<td class="alnleft">Adult Causes</td>
+				<td><obs id="adut_va_cause_death" conceptId="166348" answerConceptIds="166304,166305,166306,166307,166308,166309,166310,166311,166312,166313,166314,166315,166316,166317,166318,166319,166320,166321,166322,166323,166324,166325,166326,166327,166331,166332,166350,166333,166334,166335,122255,166336,125538" 
+				answerLabels="B24 - AIDS, A09 - Diarrhea/Dysentery, B54 - Malaria, O95 - Maternal, B99 - Other Infectious Diseases,	J22 - Pneumonia, A16 - TB, I24 - Acute Myocardial Infarction, C50 - Breast Cancer, J44 - Chronic Respiratory Diseases, C53 - Cervical Cancers, K74 - Cirrhosis, C18 - Colorectal Cancer, E14 - Diabetes, C15 - Esophageal Cancer, C96 - Leukemia/Lymphomas, C34 - Lung Cancer, I99 - Other Cardiovascular Diseases, UU1 - Other Non-communicable Diseases, C61 - Prostate Cancer, N18 - Chronic Kidney Disease, C16 - Stomach Cancer, I64 - Stroke, C76 - Other Cancers, X27  -Bite of Venomous Animal, W74 - Drowning, W19-Falls, X09 - Fires, Y09 - Homicide (assault), X58 - Other Injuries,	X49 - Poisonings (accidental), V89 - Road Traffic, X84 - Suicide (intentional self-harm)">
+				</obs></td>
+			</tr>
+			<tr id="child_va_cause_death">
+				<td class="alnleft">Child Causes</td>
+				<td><obs id="chid_va_cause_death" conceptId="166347" answerConceptIds="166304,166305,166339,166340,166306,166308,166309,166328,166329,166330,166327,166321,166337,166338,166331,166332,118350,166333,122255,166336,166334,166341,166342,166343,166344,166345,166346"
+				answerLabels="B24 - AIDS, A09 - Diarrhea/Dysentery, G04 - Encephalitis, A99 - Hemorrhagic fever, B54 - Malaria, B99 - Other Infectious Diseases, J22 - Pneumonia, A41 - Sepsis, G03 - Meningitis, B05 - Measles, C76 - Other Cancers, I99 - Other Cardiovascular Diseases, UU2 - Other Defined Causes of Child Deaths, K92 - Other Digestive Diseases,	X27  -Bite of Venomous Animal, W74 - Drowning, W19-Falls, X09 - Fires,	X49 - Poisonings (accidental), V89 - Road Traffic, Y09 - Homicide (assault), P21 - Birth asphyxia, Q89 - Congenital malformation, P36 - Neonatal Meningitis/Sepsis, P23 - Neonatal Pneumonia, P07 - Preterm Delivery, P95 - Stillbirth">
+				</obs></td>
 			</tr>
 			<tr id="discontinue_care">
 				<td class="alnleft">Reason to Discontinue Care</td>
