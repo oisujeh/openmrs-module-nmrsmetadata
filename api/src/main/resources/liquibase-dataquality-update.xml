@@ -468,5 +468,37 @@
             <column name="report_definition_uuid" value="004adb10-7da2-47b7-bdfc-dd798245a850"/>
         </insert>
     </changeSet>
+    <!-- Biometric Line List  -->
+    <changeSet id="report_update_202104141154" author="Bright">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='95dee752-096e-441c-be3e-6141f33d8082';
+            </sqlCheck>
+        </preConditions>
+        <!-- Excel -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="7e7b83ba-735e-44f0-8b6b-0f61dc3a7f98"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Wed Apr 14 23:21:22 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-04-14 23:21:22"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="95dee752-096e-441c-be3e-6141f33d8082"/>
+        </insert>
+        <!-- CSV -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="42d31a4b-db5a-4410-b095-16fbd58a3793"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Wed Apr 14 23:21:08 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-04-14 23:21:08"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="95dee752-096e-441c-be3e-6141f33d8082"/>
+        </insert>
+    </changeSet>
        
 </databaseChangeLog>
