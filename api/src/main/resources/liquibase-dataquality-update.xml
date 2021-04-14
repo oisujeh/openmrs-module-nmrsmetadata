@@ -436,6 +436,38 @@
             <column name="report_definition_uuid" value="34e0883c-5b15-4fc4-a929-239cfa1b0ecb"/>
         </insert>
     </changeSet>
+    <!-- Finger Print Statistics --> 
+    <changeSet id="report_update_202104151205" author="Bright">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='6001512e-8cd3-4f5c-9c86-02f9989effb1';
+            </sqlCheck>
+        </preConditions>
+        <!-- Excel -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="6d68d07e-2f8b-453c-9242-fe6856cdc881"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Sun Jul 21 01:35:02 WAT 2019"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2019-07-21 01:35:02"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="6001512e-8cd3-4f5c-9c86-02f9989effb1"/>
+        </insert>
+        <!-- CSV -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="40d2a472-3bc4-4cf5-abcf-566ed3852407"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Sun Jul 21 01:35:13 WAT 2019"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2019-07-21 01:35:13"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="6001512e-8cd3-4f5c-9c86-02f9989effb1"/>
+        </insert>
+    </changeSet>
     <!-- Maternal Cohort Report -->
     <changeSet id="report_update_202102271043" author="Bright">
         <preConditions onFail="MARK_RAN">
