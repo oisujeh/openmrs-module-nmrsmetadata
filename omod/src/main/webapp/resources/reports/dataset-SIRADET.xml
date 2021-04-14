@@ -4,7 +4,7 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2019-07-08 23:21:26 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2020-11-16 00:05:31 UTC</dateChanged>
+  <dateChanged id="4">2021-02-21 22:33:54 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -34,10 +34,12 @@ MAX(IF(obs.concept_id=160540,cn1.name,null)) as CareEntryPoint,&#xd;
 &#xd;
 MAX(IF(obs.concept_id=165242,cn1.name,null)) as TransferInStatus,&#xd;
 MAX(IF(obs.concept_id=159599,DATE_FORMAT(obs.value_datetime,&apos;%d-%b-%Y&apos;),null)) as `ARTStartDate`,&#xd;
-MAX(IF((obs.concept_id=165708 and enc.form_id=27),DATE_FORMAT(sinner.last_date,&apos;%d-%b-%Y&apos;),null)) as `LastPickupDate`,&#xd;
+&#xd;
+getobsdatetime(getmaxconceptobsidwithformid(patient.patient_id,165708,27,:endDate)) as `LastPickupDate`,&#xd;
 enc_last.last_visit_date as LastVisitDate,&#xd;
 getconceptval(MAX(IF(obs.concept_id=162240,obs.obs_id,null) ),159368,patient.patient_id) as `DaysOfARVRefil`,&#xd;
 MAX(IF(obs2.concept_id=165708,cn2.name,null)) as `InitialRegimenLine`,&#xd;
+&#xd;
 &#xd;
 MAX(IF(obs2.concept_id=165708,getcurrentregimen(obs2.value_coded,obs2.encounter_id),null)) as `InitialRegimen`,&#xd;
 &#xd;
@@ -72,7 +74,7 @@ null&#xd;
 &#xd;
 IFNULL(MAX(IF(obs.concept_id=165470,cn1.name,null)) ,&#xd;
 getoutcome(&#xd;
-MAX(IF((obs.concept_id=165708 and enc.form_id=27),sinner.last_date,null)),&#xd;
+getobsdatetime(getmaxconceptobsidwithformid(patient.patient_id,165708,27,:endDate)),&#xd;
 getconceptval(MAX(IF(obs.concept_id=162240,obs.obs_id,null) ),159368,patient.patient_id) ,&#xd;
 28,&#xd;
 IF(:endDate IS NULL or :endDate = &apos;&apos;, CURDATE(),:endDate)&#xd;
@@ -92,7 +94,7 @@ IF(person.dead=1,person.death_date,&quot;&quot;) as MarkAsDeseasedDeathDate,&#xd
 CONCAT(&quot;+234-&quot;,psn_atr.value) AS RegistrationPhoneNo,&#xd;
 MAX(IF(obs.concept_id=159635,CONCAT(&quot;+234-&quot;,obs.value_text),null)) as `ContactPhoneNo`,&#xd;
 IF(biometrictable.patient_Id IS NOT NULL,&apos;Yes&apos;,&apos;No&apos;) as BiometricCaptured,&#xd;
-IF(biometrictable.patient_Id IS NOT NULL,IF(invalidprint.patient_Id IS NOT NULL,&apos;No&apos;,&apos;&apos;),&quot;&quot;) as ValidCapture,&#xd;
+IF(biometrictable.patient_Id IS NOT NULL,IF(invalidprint.patient_Id IS NOT NULL,&apos;No&apos;,&apos;Yes&apos;),&quot;&quot;) as ValidCapture,&#xd;
 MAX(IF(obs.concept_id=5089,obs.value_numeric,null)) as `CurrentWeight(Kg)`,&#xd;
 MAX(IF(obs.concept_id=5089,DATE_FORMAT(obs.obs_datetime,&apos;%d-%b-%Y&apos;),null)) as `CurrentWeightDate`,&#xd;
 MAX(IF(obs.concept_id=1659,cn1.name,null)) as `TBStatus`,&#xd;
@@ -131,7 +133,7 @@ obs.person_id,&#xd;
 obs.concept_id,&#xd;
  MAX(obs.obs_datetime) as last_date, &#xd;
 MIN(obs.obs_datetime) as first_date&#xd;
-from obs where obs.voided=0 and obs.obs_datetime&lt;=:endDate and concept_id in(159599,165708,159368,164506,164513,164507,164514,165702,165703,165050,&#xd;
+from obs INNER JOIN encounter on(encounter.encounter_id=obs.encounter_id) where encounter.form_id!=48 and obs.voided=0 and obs.obs_datetime&lt;=:endDate and concept_id in(159599,165708,159368,164506,164513,164507,164514,165702,165703,165050,&#xd;
 856,164980,165470,159635,5089,165988,1659,164852,166096,1113,159431,162240,165242,165724,166156,166158,165727,164982,165414,5596,165775,160540,165469,5096,1427) GROUP BY obs.person_id, obs.concept_id) as sinner on (sinner.person_id=patient.patient_id and patient.voided=0)&#xd;
 INNER JOIN obs on(obs.person_id=patient.patient_id and obs.concept_id=sinner.concept_id and obs.obs_datetime=sinner.last_date and obs.voided=0 and obs.obs_datetime&lt;=:endDate)&#xd;
 INNER JOIN obs obs2 on(obs2.person_id=patient.patient_id and obs2.concept_id=sinner.concept_id and obs2.obs_datetime=sinner.first_date and obs2.voided=0 and obs2.obs_datetime&lt;=:endDate)&#xd;
@@ -149,7 +151,7 @@ LEFT JOIN (&#xd;
    select &#xd;
    DISTINCT biometricinfo.patient_Id&#xd;
    from &#xd;
-   biometricinfo where template not like &apos;Rk1S%&apos;&#xd;
+   biometricinfo where template not like &apos;Rk1S%&apos; or CONVERT(new_template USING utf8) NOT LIKE &apos;Rk1S%&apos;&#xd;
 ) as invalidprint &#xd;
 on(patient.patient_id=invalidprint.patient_Id and patient.voided=0)&#xd;
 LEFT JOIN global_property on(global_property.property=&apos;facility_datim_code&apos;)&#xd;
