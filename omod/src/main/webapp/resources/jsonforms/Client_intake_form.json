@@ -23,6 +23,18 @@
               ]
             },
             {
+              "label":"Patient Identifier:",
+              "id":"patient_identifier",
+              "questionOptions":{
+                "rendering":"text",
+                "concept":"162576AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+              },
+              "type":"patientIdentifier",
+              "validators":[
+
+              ]
+            },
+            {
               "label":"Kind of HTS:",
               "id":"Kind_of_HTS",
               "questionOptions":{
@@ -2400,11 +2412,24 @@
       ]
     },
     {
-      "label":"Thank you for Testing",
+      "label":"Signature",
       "sections":[
         {
-          "label":"Thank you for Testing",
+          "label":"Signature",
           "questions":[
+            {
+              "label":"Signature Date",
+              "questionOptions":{
+                "rendering":"date",
+                "concept":"c26ab267-c014-4bc8-97b1-c6c5b08a2e93"
+              },
+              "type":"obs",
+              "validators":[
+                {
+                  "type":"date"
+                }
+              ]
+            },
             {
               "label":"Thank you for Testing:",
               "id":"Thank You",
