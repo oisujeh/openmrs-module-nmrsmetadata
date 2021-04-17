@@ -2429,7 +2429,17 @@
                   "type":"date"
                 }
               ]
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Thank You",
+      "sections":[
+        {
+          "label":"Thank You",
+          "questions":[
             {
               "label":"Thank you for Testing:",
               "id":"Thank You",
