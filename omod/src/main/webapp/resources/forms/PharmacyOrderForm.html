@@ -274,11 +274,11 @@ beforeSubmit.push(function() {
 					<tr>
 						<td>
 							<label>Service Delivery Model</label>
-							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="164507,164514,165703" answerLabels="Facility, Community, Multi-Month Dispensing (MMD)">
+							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166277,166149" answerLabels="Facility, Community, Multi-Month Dispensing (MMD)">
 								<controls>
-									<when value="164507" thenDisplay="#Facility_Dispensing"/>
-									<when value="164514" thenDisplay="#Community_Dispensing"/>
-									<when value="165703" thenDisplay="#Multi_Month_Dispensing"/>												
+									<when value="166276" thenDisplay="#Facility_Dispensing"/>
+									<when value="166277" thenDisplay="#Community_Dispensing"/>
+									<when value="166149" thenDisplay="#Multi_Month_Dispensing"/>												
 								</controls>
 							</obs>
 						</td>
@@ -291,7 +291,7 @@ beforeSubmit.push(function() {
 					<tr>
 						<td>
 							<label>Facility Dispensing </label>
-							<obs conceptId='164507' answerConceptIds="166153,166151,166150" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
+							<obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
 						</td>
 					</tr>
 				</table>
@@ -302,7 +302,7 @@ beforeSubmit.push(function() {
 					<tr>
 						<td>
 							<label>Community Dispensing </label>
-							<obs conceptId='164514' answerConceptIds="166134,166135,166150" answerLabels="Community Pharmacy, Community ART Group, Home Delivery"/>
+							<obs conceptId='166277' answerConceptIds="166134,166135,166280" answerLabels="Community Pharmacy, Community ART Group, Home Delivery"/>
 						</td>
 					</tr>
 				</table>
@@ -313,7 +313,7 @@ beforeSubmit.push(function() {
 					<tr>
 						<td>
 							<label>Multi-Month Dispensing (MMD)</label>
-							<obs conceptId='165703' answerConceptIds="166134,166135,166150" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
+							<obs conceptId='166149' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
 						</td>
 					</tr>
 				</table>
@@ -897,8 +897,8 @@ beforeSubmit.push(function() {
                                               required="true" />
 				</td>
 				<td>
-					<label>Date dispensed:</label>
-					<obs conceptId="164989" id="dateDrugOrdered" required="true"/>
+					<!-- Duplication of Date Ordered <label>Date dispensed:</label>
+					<obs conceptId="164989" id="dateDrugOrdered" required="true"/>-->
 				</td>
 
 			</tr>
@@ -956,15 +956,15 @@ beforeSubmit.push(function() {
 				</td>
 				<td></td>
 			</tr>
-			<tr>
+			<!-- This is not needed since we already have visit date <tr>
 				<td>
 					<label>Date:</label>
 				</td>
 				<td colspan="3">
-					<encounterDate />   <!-- UPDATED -->
+					<encounterDate />   
 				</td>
 				<td></td>
-			</tr>
+			</tr>-->
 
 		</table>
 	</fieldset>
