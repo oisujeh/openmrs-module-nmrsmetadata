@@ -165,6 +165,15 @@
                 "order": 16,
                 "requiredPrivilege": "App: reportingui.reports"
             },
+             {
+                "id": "Biometric Line List",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.monitoring",
+                "type": "link",
+                "label": "Biometric Line List",
+                "url": "reportingui/runReport.page?reportDefinition=95dee752-096e-441c-be3e-6141f33d8082",
+                "order": 17,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
            {
       "id": "EncounterWithoutAddPastVisit",
       "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
