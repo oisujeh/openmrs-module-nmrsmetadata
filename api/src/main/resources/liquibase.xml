@@ -209,4 +209,23 @@
 
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
+    <changeSet id="concept_202104181022" author="Bright" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="concepts/20210418/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="concepts/20210418/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="concepts/20210418/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 </databaseChangeLog>
