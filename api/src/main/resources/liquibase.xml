@@ -231,11 +231,13 @@
     </changeSet>
     
     <changeSet author="Toyeeb" id="20042021104930" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="forms/forms/encounter_type.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
-                 endDelimiter=";"/>     
+                 endDelimiter=";"/> 
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>     
     </changeSet>        
     
     <changeSet id="20042021105430" author="Toyeeb" runOnChange="true">
