@@ -533,4 +533,39 @@
         </insert>
     </changeSet>
        
+       <!-- Biometric Line List  -->
+    <changeSet id="report_update_202105051154" author="Toyeeb">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='9fabee75-ea4b-44a7-8c6a-44d6e3e1600e';
+            </sqlCheck>
+        </preConditions>
+        <!-- Excel -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="37b3f3f4-3186-4e93-9d95-572a8682467b"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Wed May 05 08:12:51 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-05-05 08:12:51"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="9fabee75-ea4b-44a7-8c6a-44d6e3e1600e"/>
+        </insert>
+        <!-- CSV -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="dc802d58-d153-4b22-bc21-d40f087e3561"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Wed May 05 08:14:33 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-05-05 08:12:51"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="9fabee75-ea4b-44a7-8c6a-44d6e3e1600e"/>
+        </insert>
+    </changeSet>  
+       
+       
+       
 </databaseChangeLog>

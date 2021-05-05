@@ -1,0 +1,61 @@
+<org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition id="1" uuid="4abc7a9b-07b9-4ca5-a406-08708bf63c3b" retired="false">
+  <name>DataEntrantStatistics</name>
+  <description>Users who enters data on NMRS - Count of number of forms filled by each users for each form as a data entry clerk</description>
+  <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
+  <dateCreated id="3">2021-05-05 8:00:36 UTC</dateCreated>
+  <changedBy reference="2"/>
+  <dateChanged id="4">2021-05-05 8:01:30 UTC</dateChanged>
+  <parameters id="5">
+    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
+      <name>startDate</name>
+      <label>Start Date</label>
+      <type>java.util.Date</type>
+      <required>true</required>
+    </org.openmrs.module.reporting.evaluation.parameter.Parameter>
+    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="7">
+      <name>endDate</name>
+      <label>End Date</label>
+      <type>java.util.Date</type>
+      <required>true</required>
+    </org.openmrs.module.reporting.evaluation.parameter.Parameter>
+  </parameters>
+  <id>351</id>
+  <sqlQuery>
+  select distinct u.person_id &quot;Creator ID&quot;,&#xd;
+concat(pn.given_name, &quot; &quot;, pn.family_name) as User,&#xd;
+count(distinct cif.encounter_id) &quot;Client Intake Form&quot;,&#xd; 
+count(distinct hiv.encounter_id) &quot;HIV Enrollment&quot;,&#xd;
+count(distinct acf.encounter_id) &quot;ART Commencement Form&quot;,&#xd;
+count(distinct aice.encounter_id) &quot;Adult Initial Clinical Evaluation&quot;,&#xd; 
+count(distinct lof.encounter_id) &quot;Lab Order and Result Form&quot;,&#xd;
+count(distinct cc.encounter_id) &quot;Care Card&quot;,&#xd;
+count(distinct cbr.encounter_id) &quot;Child Birth Registration&quot;,&#xd;
+count(distinct crf.encounter_id) &quot;Client Referral Form&quot;,&#xd;
+count(distinct pice.encounter_id) &quot;Pediatric Initial Clinical Evaluation&quot;,&#xd;
+count(distinct pof.encounter_id) &quot;Pharmacy Order Form&quot;&#xd;
+from users u&#xd;
+left join person p on u.person_id=p.person_id&#xd;
+left join person_name pn on p.person_id=pn.person_id&#xd;
+left join encounter cif on u.person_id=cif.creator and cif.form_id = 10&#xd;
+and DATE_FORMAT(cif.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter hiv on u.person_id=hiv.creator and hiv.form_id = 23&#xd;
+and DATE_FORMAT(hiv.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter acf on u.person_id=acf.creator and acf.form_id = 56&#xd;
+and DATE_FORMAT(acf.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter aice on u.person_id=aice.creator and aice.form_id = 22&#xd;
+and DATE_FORMAT(aice.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter lof on u.person_id=lof.creator and lof.form_id = 21&#xd;
+and DATE_FORMAT(lof.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter cc on u.person_id=cc.creator and cc.form_id = 14&#xd;
+and DATE_FORMAT(cc.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter cbr on u.person_id=cbr.creator and cbr.form_id = 19&#xd;
+and DATE_FORMAT(cbr.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter crf on u.person_id=crf.creator and crf.form_id = 52&#xd;
+and DATE_FORMAT(crf.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter pice on u.person_id=pice.creator and pice.form_id = 20&#xd;
+and DATE_FORMAT(pice.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+left join encounter pof on u.person_id=pof.creator and pof.form_id = 27&#xd;
+and DATE_FORMAT(pof.date_created, &quot;%Y-%m-%d&quot;) between :startDate and :endDate&#xd;
+group by 1, 2
+</sqlQuery>
+</org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition>
