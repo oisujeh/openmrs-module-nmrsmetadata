@@ -100,9 +100,7 @@
             color: #363463;
             font-size: 14px;
         }
-        <!--table.baseline-aligned td {-->
-            <!--vertical-align: baseline;-->
-            <!--}-->
+        
     </style>
 
 
@@ -787,7 +785,6 @@
                         if(field != null) {
                             getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                         }
-
                     }
 
                 }
@@ -1046,9 +1043,6 @@
 
                     }
 
-
-
-
                 });
             }
         });
@@ -1270,7 +1264,6 @@
                 }
             }
         }
-
 
     </script>
 
@@ -1912,7 +1905,6 @@
 
                     <td class="alnleft_s"><obs conceptId="166210" id="recency_number_verif_value"  required="false"/></td>
                     <td colspan="2"> <span id="success" style="width:100%; color:green; font-weight:bold;"></span> </td>
-
                 </tr>
 
 
@@ -1954,7 +1946,8 @@
             <table id="viral_load_table">
 
                 <td>Has viral load request been made?</td><tr>
-                <td><obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
+                <td>
+                <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
                     <controls>
                         <when thenDisplay="#vl_label,#vl_value,#vl_value_obs,#vlsample_value_obs,#vl_result,#vl_result_obs,#final_recency_label,#final_recency_value,#vl_dss,#vlpcr_value_obs,#vl_samplet,#sample_type,#vl_rpcr,#vl_rpcrlab,#receiving_lab,#sample_id,#sample_id_label, #vl_result_label,#vl_result_clasification" value="1065"/>
                     </controls>
