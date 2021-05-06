@@ -22,7 +22,7 @@ import java.util.List;
 
 public class ReportsInitializer implements Initializer {
 	
-	protected static final String providerName = "nmrsmetadata";
+	protected static final String providerName = "nmrsmetadata-poc";
 	
 	protected static final String reportsPath = "reports/";
 	

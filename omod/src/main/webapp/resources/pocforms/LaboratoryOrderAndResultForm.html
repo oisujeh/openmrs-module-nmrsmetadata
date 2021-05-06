@@ -438,14 +438,31 @@
             </tr>
         </table>
         <table id="viralLoad">
+        	<tr>	
+        	<includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician')">
+	       		
+	                <td><font color='red'>Last Sample collection date:</font></td>
+					<td><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('159951').obsDatetime" /></font></td>
+	                
+					<td><font color='red'>Last Sample Type:</font></td>
+					<td><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('162476').valueCoded.name"/></font></td>
+					
+					<td><font color='red'>Last Indication for Viral Load:</font></td>
+					<td><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('164980').valueCoded.name"/></font></td>
+	         </includeIf>
+	        </tr>           
             <tr>
                 <includeIf velocityTest="$user.hasRole('Lab')">
                     <td class="alnleft_s">PCR Lab Sample No.</td>
                     <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165715"/></div></td>
+               
                 </includeIf>
+                
                 <includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician')">
+                    <td class="alnleft_s">Sample ID.</td>
+                	<td><div><obs conceptId="165715"/></div></td>
                     <td class="alnleft_s">Sample Type</td>
-                    <td><div><obs conceptId="162476" answerConceptIds="1000,165568" answerLabels="Whole Blood/Plasma,DBS"/></div></td>
+                    <td><div><obs conceptId="162476" answerConceptIds="1000,165568" answerLabels="Whole Blood/Plasma,DBS"/></div></td>                            
                     <td class="alnleft_s">Indication for Viral Load</td>
                     <td><div><obs id="viral_load" conceptId="164980" answerConceptIds="162080,161236,162082,162081,163523,160566, 165978" answerLabels="Baseline (6 months after ART initiation), Routine (every 12 months), Confirmation (3-6 months after intense adherence counselling), Repeat test, Clinical failure, Immunological failure, PMTCT 32-36 weeks gestation">
                         <controls>

@@ -810,10 +810,11 @@
         <table>
             <tr>
                 <td class="alnleft"><b>Assessment:</b></td>
-                <td class="alnleft"><obs id="ass" conceptId="165602"  answerConceptIds="1068,5006"  answerLabels="Symptomatic,Asymptomatic">
-                    <controls>
-                        <when value="1068" thenDisplay="#aids_def,#opp"/>
-                    </controls>
+                <td class="alnleft"><obs id="ass" conceptId="165602" answerConceptIds="1068,5006"  answerLabels="Symptomatic,Asymptomatic">
+					<controls>
+						<when value="1068" thenDisplay="#aids_def,#opp,#who_stage"/>
+						<when value="5006" thenDisplay="#who_stage_asym"/>
+					</controls>
                 </obs></td>
                 <td>
                     <table>
@@ -834,7 +835,11 @@
         <table>
             <tr>
                 <td width="25%"><b>WHO stage</b></td>
-                <td width="25%"><obs conceptId="5356" answerConceptIds="1220,1221,1222, 1223" answerLabels="Stage 1,Stage 2,Stage 3,Stage 4"/></td>
+                 <td width="25%">
+					<obs id="who_stage" conceptId="5356" answerConceptIds="1221,1222,1223" answerLabels="Stage 2,Stage 3,Stage 4"> </obs>
+					
+					<obs id="who_stage_asym" conceptId="5356" answerConceptIds="1220" answerLabels="Stage 1"> </obs>		
+				</td>
                 <td width="50%"> </td>
             </tr>
         </table>

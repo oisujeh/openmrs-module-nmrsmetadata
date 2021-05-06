@@ -1,5 +1,4 @@
 <htmlform formUuid="3a9299e5-25b6-4489-9878-0cdfba06fba1" formName="Delivery register" formEncounterType="7daccd30-d04c-4215-b71e-97b8af8b3af3" formVersion="2018">
-
     <style>
         .section {
         border: 1px solid $headerColor;
@@ -90,7 +89,92 @@
     $(document).ready(function ()
     {
        $('.hasDatepicker').attr('readonly', true)
-    });
+       $('#birthStatus1').attr('readonly', true);
+       $('#childBirth').change(function (e) {
+           console.log("Called: "+getValue('childBirth.value'));
+           switch (getValue('childBirth.value')) {
+               case "165643":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').hide();
+                   $('#birthStatus3').hide();
+                   $('#birthStatus4').hide();
+                   $('#birthStatus5').hide();
+                   $('#birthStatus6').hide();
+                   $('#birthStatus7').hide();
+                   break;
+               case "165644":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').show();
+                   $('#birthStatus3').hide();
+                   $('#birthStatus4').hide();
+                   $('#birthStatus5').hide();
+                   $('#birthStatus6').hide();
+                   $('#birthStatus7').hide();
+                   break;
+               case "165645":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').show();
+                   $('#birthStatus3').show();
+                   $('#birthStatus4').hide();
+                   $('#birthStatus5').hide();
+                   $('#birthStatus6').hide();
+                   $('#birthStatus7').hide();
+                   break;
+               case "165646":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').show();
+                   $('#birthStatus3').show();
+                   $('#birthStatus4').show();
+                   $('#birthStatus5').hide();
+                   $('#birthStatus6').hide();
+                   $('#birthStatus7').hide();
+                   break;
+               case "165647":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').show();
+                   $('#birthStatus3').show();
+                   $('#birthStatus4').show();
+                   $('#birthStatus5').show();
+                   $('#birthStatus6').hide();
+                   $('#birthStatus7').hide();
+                   break;
+               case "165648":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').show();
+                   $('#birthStatus3').show();
+                   $('#birthStatus4').show();
+                   $('#birthStatus5').show();
+                   $('#birthStatus6').show();
+                   $('#birthStatus7').hide();
+                   break;
+               case "165649":
+                   console.log(1);
+                   $('#birthStatus1').show();
+                   $('#birthStatus2').show();
+                   $('#birthStatus3').show();
+                   $('#birthStatus4').show();
+                   $('#birthStatus5').show();
+                   $('#birthStatus6').show();
+                   $('#birthStatus7').show();
+                   break;
+               default:
+                   $('#birthStatus1').hide();
+                   $('#birthStatus2').hide();
+                   $('#birthStatus3').hide();
+                   $('#birthStatus4').hide();
+                   $('#birthStatus5').hide();
+                   $('#birthStatus6').hide();
+                   $('#birthStatus7').hide();
+           }
+       });
+
+   });
 </script>
     <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
         <fieldset>
@@ -196,30 +280,120 @@
                 <td><obs conceptId="160085" answerConceptIds="160429,134612" answerLabels="Alive,Dead"/></td>
             </tr>
       
-            <tr>
-				<td width="13%">Number of Child Birth</td>
-				<td width="13%">
-                                     <obs id="childBirth" conceptId="165708" answerConceptIds="165643,165644,165645,165646,165647,165648,165649,165650,165651,165652" 
-                                      answerLabels="1,2,3,4,5,6,7,8,9,10">
-						<controls>
-							<when value="165643"  thenDisplay="#num1"/>
-                                                        <when value="165644"  thenDisplay="#num2"/>
-                                                        <when value="165645"  thenDisplay="#num3"/>
-                                                        <when value="165646"  thenDisplay="#num4"/>
-                                                         <when value="165647" thenDisplay="#num5"/>
-						</controls>
-					</obs>
-				</td>
-           </tr>
-           <tr class="num1,num2,num3,num4,num5">
-				
-		<td >Child Outcome</td>
-		<td >
-		     <obs conceptId="164968" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
-		</td>
-		
-        </tr>
+             <tr>
+                <td width="13%">Number of Child Birth</td>
+                <td width="13%">
+                    <obs id="childBirth" conceptId="165708" answerConceptIds="165643,165644,165645,165646,165647,165648,165649"
+                         answerLabels="1,2,3,4,5,6,7">
+                        <controls>
+                            <when value="165643"  thenDisplay=".birthStatus1"/>
+                            <when value="165644"  thenDisplay=".birthStatus2"/>
+                            <when value="165645"  thenDisplay=".birthStatus3"/>
+                            <when value="165646"  thenDisplay=".birthStatus4"/>
+                            <when value="165647"  thenDisplay=".birthStatus5"/>
+                            <when value="165648"  thenDisplay=".birthStatus6"/>
+                            <when value="165649"  thenDisplay=".birthStatus7"/>
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+           </table>
+        <table class="birthStatus1,birthStatus2,birthStatus3,birthStatus4,birthStatus5,birthStatus6,birthStatus7,table" width="100%">
+            <tr id="birthStatus1">
+
+                    <td >Child Outcome 1</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+            </tr>
+            <tr id="birthStatus2">
+                    <td >Child Outcome 2</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+            </tr>
+            <tr id="birthStatus3">
+                    <td >Child Outcome 3</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+
+            </tr >
+            <tr id="birthStatus4">
+                    <td >Child Outcome 4</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+
+            </tr>
+            <tr id="birthStatus5">
+                    <td >Child Outcome 5</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+
+            </tr>
+            <tr id="birthStatus6">
+                    <td >Child Outcome 6</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+
+            </tr>
+            <tr id="birthStatus7">
+                    <td >Child Outcome 7</td>
+                    <td >
+                        <obs conceptId="164968" class="childNum" answerConceptIds="160429,154223,125872" answerLabels="Alive,Neonatal death,StillBirth"/>
+                    </td>
+
+            </tr>
         </table>
+    </fieldset>
+    
+    
+<!-- UPDATED -->
+    <fieldset>
+        <legend class="legend_style">Key Population</legend>
+        <table width="100%" border="0">
+		<td>
+		<table >
+			<td>
+				<tr>
+					<td class="alnleft_s">KP</td>
+					<td>
+						<obs id="key_pop" style="yes_no_dropdown" conceptId="165766">
+							<controls>
+								<when value="true" thenDisplay="#key_pop_type" />
+							</controls>
+						</obs>
+					</td>
+				</tr>
+			</td>
+			</table>		
+		</td>
+
+		<td>
+			<table class="table" width="100%" id="key_pop_type">
+				<tr>
+					<td>FSW (for females) <obs conceptId="165339" answerConceptId="165336" answerLabel="" /></td>
+				</tr>
+				<tr>
+					<td>MSM (for males) <obs conceptId="165339" answerConceptId="119537" answerLabel="" /></td>
+				</tr>
+				<tr>
+					<td>PWID <obs conceptId="165339" answerConceptId="121543" answerLabel="" /></td>
+				</tr>
+
+				<tr>
+					<td>TG <obs conceptId="165339" answerConceptId="165338" answerLabel="" /></td>
+				</tr>
+
+				<tr>
+					<td>People in prisons and other enclosed settings <obs conceptId="165339" answerConceptId="5622" answerLabel="" /></td>
+				</tr>
+			</table>
+        </td>
+		</table>
     </fieldset>
 
     <fieldset>

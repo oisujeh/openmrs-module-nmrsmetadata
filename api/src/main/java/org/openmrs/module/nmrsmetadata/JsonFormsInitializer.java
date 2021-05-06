@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class JsonFormsInitializer implements Initializer {
 	
-	protected static final String providerName = "nmrsmetadata";
+	protected static final String providerName = "nmrsmetadata-poc";
 	
 	protected static final String formsPath = "jsonforms/";
 	

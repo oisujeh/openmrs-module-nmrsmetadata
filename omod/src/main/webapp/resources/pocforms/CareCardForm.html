@@ -157,6 +157,71 @@ $(document).ready(function ()
     $('#length').keyup(calBMI);
 });
 
+$(document).ready(function ()
+        {
+            $('#height').keyup(calBMI);
+            $('#weight').keyup(calBMI);
+            $('#length').keyup(calBMI);
+
+            $('#lmp').change(function(e) {
+                calEDD();
+            });
+
+            $('#ge').keyup(function(e) {
+                calEDDwithGe();
+            });
+        });
+
+        function getCustomDate(date){
+            console.log("Date:" + date);
+            var dd = date.getDate();
+            var mm = date.getMonth() + 1;
+            var yyyy = date.getFullYear();
+            console.log("Day: " + dd);
+            console.log(mm);
+            console.log(yyyy);
+            var d= dd;
+            var m = mm;
+            if(!isNaN(dd)){
+                if (10 > dd) {
+                    d = "0" + dd;
+                }
+                if(!isNaN(mm)){
+                    if (10 > mm) {
+                        m = "0" + mm;
+                    }
+                }
+                return yyyy + "-" + m + "-" + d;
+            }
+        }
+        function calEDDwithGe(){
+            setValue("edd.value", "");
+            if(!isNaN(getValue("ge.value"))) {
+                var rWeeks = 40 - getValue("ge.value");
+                var edd = new Date();
+                var lmp = new Date();
+                edd = edd.setDate(edd.getDate() + (rWeeks * 7));
+                lmp = lmp.setDate(lmp.getDate() - (getValue("ge.value") * 7));
+                setValue('edd.value', getCustomDate(new Date(edd)));
+                setValue('lmp.value', getCustomDate(new Date(lmp)));
+            }else{
+                setValue("ge.value", "");
+            }
+        }
+        function calEDD() {
+            var lmp = new Date(getValue('lmp.value'));
+            if (lmp != null) {
+                lmp = lmp.setDate(lmp.getDate() + 280);
+                var Difference_In_Time = new Date().getTime() - new Date(getValue('lmp.value')).getTime();
+                var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                setValue("ge.value", Math.round(Difference_In_Days / 7));
+                console.log(lmp);
+                //setValue('edd.value', null);
+                setValue('edd.value', getCustomDate(new Date(lmp)));
+            }
+        }
+
+
 function calBMI(){
     var height_val = getValue('height.value');
     var weight_val = getValue('weight.value');
@@ -255,45 +320,44 @@ function calBMI(){
 
     <fieldset>
         <legend class="legend_style">Vital Signs</legend>
-        <table>
-            <tr>
-                <includeIf velocityTest="$patient.gender == 'F' ">
-                    <td class="alnright_s">Pregnant/Breastfeeding Status</td>
-                    <td>
-                        <obs id="woman_pregnant" conceptId="165050" answerConceptIds="165048,165049,165047" answerLabels="Pregnant, Breastfeeding, Not Pregnant">
-                            <controls>
-                                <when value="165048" thenDisplay="#woman_pregnant_result" />
-                            </controls>
-                        </obs>
-                    </td>
-
-                    <td id="woman_pregnant_result">
-                        <table>
-                            <tr>
-                                <td class="alnright_s">Expected Date of Delivery</td>
-                                <td>
-                                    <obs conceptId="5596" />
-                                </td>
-                                <td class="alnright_s"></td>
-                            </tr>
-                        </table>
-                    </td>
-                    <!--<td id="woman_Breastfeeding_result">
-                        <table>
-                            <tr>
-
-                                <td class="alnright_s">Is Woman Breastfeeding</td>
-                                <td>
-                                    <obs conceptId="5632"/>
-                                </td>
-                                <td class="alnright_s"></td>
-
-                            </tr>
-                        </table>
-                    </td>-->
-                </includeIf>
-            </tr>
-        </table>
+         <includeIf velocityTest="$patient.gender == 'F' ">
+            <fieldset>
+                <table width="100%" border="0">
+                    <tr>
+                        <excludeIf velocityTest="$patient.gender == 'M' ">
+                            <td width="13%" >Pregnancy / Breastfeeding status:</td>
+                            <td >
+                                <p>
+                                    <obs id="woman_pregnant" conceptId="165050" answerConceptIds="165048,165049,165047"
+                                         answerLabels="Pregnant, Breastfeeding, Not Pregnant" required="true">
+                                        <controls>
+                                            <when value="165048" thenDisplay="#cur_pregnant_result" />
+                                            <when value="165049" thenDisplay="#cur_breastfeeding" />
+                                        </controls>
+                                    </obs>
+                                </p>
+                            </td>
+                        </excludeIf>
+                    </tr>
+                    <tr id="cur_pregnant_result">
+                        <excludeIf velocityTest="$patient.gender == 'M' ">
+                            <td width="13%">Last menstrual period:</td>
+                            <td><obs id="lmp" conceptId="1427"/></td>
+                            <td width="13%">Gestational age in weeks:</td>
+                            <td><obs id="ge" conceptId="1438"/></td>
+                            <td width="13%">Expected date of delivery: </td>
+                            <td><obs id="edd" conceptId="5596"/></td>
+                        </excludeIf>
+                    </tr>
+                    <tr id="cur_breastfeeding">
+                        <excludeIf velocityTest="$patient.gender == 'M' ">
+                            <td id="child_prophylaxis_q" width="13%">Did child receive prophylaxis?</td>
+                            <td id="child_prophylaxis_a" width="37%"><obs conceptId="165977"/></td>
+                        </excludeIf>
+                    </tr>
+                </table>
+            </fieldset>
+        </includeIf>
         <table>
             <tr>
 
@@ -481,14 +545,15 @@ function calBMI(){
         <legend class="legend_style">Medication Plan</legend>
         <table>
             <tr>
-                <td>ARV Medication Plan</td>
+                  <td>ARV Medication Plan</td>
                 <td>
-                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770"
-                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen">
+                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904"
+                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication">
                         <controls>
                             <when value="165769" thenDisplay="#reg_plan_response" />
                             <when value="165768" thenDisplay="#reg_plan_response2" />
                             <when value="165770" thenDisplay="#reg_plan_response3" />
+                            <when value="165770" thenDisplay="#date_stopped_regimen" />
                         </controls>
                     </obs>
                 </td>
@@ -522,8 +587,19 @@ function calBMI(){
                         </tr>
                     </table>
                 </td>
+                <td id="date_stopped_regimen">
+                    <table>
+                        <tr>
+                            <td class="alnright">Date Stopped Regimen</td>
+                            <td>
+                                <obs conceptId="166303" id="date_stopped_regimen" allowFutureDates="false" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
+        
     </fieldset>
     <fieldset>
         <legend class="legend_style">Prescribed Medications</legend>
@@ -678,11 +754,12 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
         <table>
             <tr><th colspan="3" style="text-align: left;">Lab Orders</th></tr>
             <tr>
-                <td class="alnVertical">
+                 <td class="alnVertical">
                     <obs conceptId="1271" answerConceptId="657" answerLabel="" />
                     <label style="width: 170px;">CD4</label>
                     <obs conceptId="1271" answerConceptId="856" answerLabel="" />
-                    <label style="width: 170px;">Viral Load</label><br />
+                    <label style="width: 170px;">Viral Load</label>
+                    <obs conceptId="1271" answerConceptId="156176" answerLabel="" /><label style="width: 170px;">Esophageal Thrush</label><br />
                     Indication for Viral Load Test <obs conceptId='164980' answerLabels="Targeted,Routine" answerConceptIds=" 162082,161236" />
 
                 </td>
@@ -692,7 +769,7 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
                     <obs conceptId="1271" answerConceptId="678" answerLabel="" /><label style="width: 170px;">WBC + Diff</label>
                     <obs conceptId="1271" answerConceptId="654" answerLabel="" /><label style="width: 170px;">ALT</label>
                     <obs conceptId="1271" answerConceptId="653" answerLabel="" /><label style="width: 170px;">AST</label>
-
+                    <obs conceptId="1271" answerConceptId="1319" answerLabel="" /><label style="width: 170px;">Differential Lymphocytes count (DLC)</label>
 
 
                 </td>
@@ -701,6 +778,7 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
                     <obs conceptId="1271" answerConceptId="1010" answerLabel="" /><label style="width: 170px;">Lipid Profile</label>
                     <obs conceptId="1271" answerConceptId="77427" answerLabel="" /><label style="width: 170px;">HBsAg</label>
                     <obs conceptId="1271" answerConceptId="165730" answerLabel="" /><label style="width: 170px;">HCV</label>
+                    <obs conceptId="1271" answerConceptId="952" answerLabel="" /><label style="width: 170px;">Total lymphocytes count (TLC)</label>
 
                 </td>
                 <td>

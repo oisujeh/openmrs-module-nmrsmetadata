@@ -1,7 +1,4 @@
-<!--<htmlform formUuid="c75f120a-04ec-11e3-8780-2b40bef9a44b" formName="Pharmacy Order Form" formEncounterType="d7151f82-c1f3-4152-a605-2f9ea7414a79" formVersion="1.0">-->
-<!--&lt;!&ndash; Pharmacy Order Form Initial development 06-April-2018 &ndash;&gt;-->
 <htmlform formUuid="4a238dc4-a76b-4c0f-a100-229d98fd5758" formName="Pharmacy Order Form" formEncounterType="a1fa6aa3-59e1-4833-a28c-bb62f2fb07df" formVersion="2018">
-
     <macros>
         paperFormId = (Fill this in)
         headerColor =#2f1c55
@@ -24,7 +21,6 @@
 		table tr:nth-child(even) {
 		background: #ffffff;
 		}
-
 		.alnright{
 		text-align: right;
 		color:#000000;
@@ -33,9 +29,9 @@
 		td {
 		border: none;
 		}
-               .error{
+        .error{
                color:red;
-                }
+         }
 		table th, table td {
 		padding: 5px 10px;
 		border: None;
@@ -65,12 +61,12 @@
 		table tr {
 		border: None;
 		}
-		ul.select, .form input, .form select, .form textarea, .form ul.select {
+		/* ul.select, .form input, .form select, .form textarea, .form ul.select {
 		padding: 2px 10px;
 		}
 		form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
 		padding: 2px 10px;
-		}
+		} */
 		form select, .form select {
 		max-width: 100px;
 		}
@@ -82,7 +78,9 @@
                #w46 {
                      max-width: 70px;
                 }
-
+		span.gridmenu select { width: 6em; }
+                span.obs-field option { width: 6em; }
+                span.gridmenu input { width: 6em; }
 	</style>
     <script >
       jQuery(function() {
@@ -93,11 +91,90 @@
          setValue('arvdosage.value')
         }
 else if(arvdos &gt; "10"){
-       window.alert('ARV Dosage-: ' + getValue('arvdosage.value')+' Out of Range')
+       //window.alert('ARV Dosage-: ' + getValue('arvdosage.value')+' Out of Range')
+        if( confirm('ARV Dosage-: ' +getValue('arvdosage.value')+' Out of Range? Are you sure you want to submit?') ) {
+						return true;
+					}
+					else {
+						setValue('arvdosage.value')
+						return false;
+					}
 }
          });
 });
     </script>
+    
+    <!-- UPDATED (ADDED) -->
+<script type="text/javascript">
+<!-- Error Checking before Form Submit -->
+	// checking that line, age, regimen and duration are filled while allowing for OI flexibility
+
+beforeSubmit.push(function() {
+
+	if (((getValue('oi_drug.value') != "") || (getValue('tb_drug.value') != "")) &amp;&amp; ((getValue('TreatmentAgeCategory.value') == ""))) {
+
+		if( confirm('ARV entries are empty!!!  Sure you want to submit OI entries only?') ) {
+			return true;
+		}else {
+			return false;
+		}
+	}else {
+			var error = false;
+		<!-- Clear the previous errors -->
+			setValue('TreatmentAgeCategory.error', '');
+			setValue('RegimenLine.error', '');
+			setValue('Adult1stLine.error', '');
+			setValue('Adult2ndLine.error', '');
+			setValue('Ped1stLine.error', '');
+			setValue('Ped2ndLine.error', '');
+			setValue('duration_s.error', '');
+
+		// ARV
+			var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');
+			var RegimenLine = getValue('RegimenLine.value');
+			var Adult1stLine = getValue('Adult1stLine.value');
+			var Adult2ndLine = getValue('Adult2ndLine.value');
+			var Ped1stLine = getValue('Ped1stLine.value');
+			var Ped2ndLine = getValue('Ped2ndLine.value');
+			var duration_s = getValue('duration_s.value');
+
+		switch (true) {
+			<!-- TreatmentAgeCategory -->
+			case (TreatmentAgeCategory == ""):
+				getField('TreatmentAgeCategory.error').html('This field cannot be empty').show();
+				error=true;
+				break;
+
+			<!-- RegimenLine -->
+			case (RegimenLine == ""):
+				getField('RegimenLine.error').html('This field cannot be empty').show();
+				error=true;
+				break;
+
+			<!-- duration_s -->
+			case (duration_s == ""):
+				getField('duration_s.error').html('This field cannot be empty').show();
+				error=true;
+				break;
+
+
+			<!-- Adult1stLine -->
+			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "")):
+				return true;
+
+			case (error == true):
+				return false;
+				break;
+
+			default:
+				window.alert('Patients Regimen Line MUST be entered and can not be empty')
+				break;
+		}
+	}
+});
+
+</script>
+    
     <script type="text/javascript">
 
 	var $ = jQuery;
@@ -111,7 +188,7 @@ else if(arvdos &gt; "10"){
 
 </script>
 
-
+<!--
     <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
         <fieldset>
             <legend class="legend_style">When?</legend>
@@ -131,6 +208,7 @@ else if(arvdos &gt; "10"){
             <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
         </fieldset>
     </div>
+-->
 
     <table style="margin-bottom: 20px;">
         <thead>
@@ -138,13 +216,29 @@ else if(arvdos &gt; "10"){
         </thead>
     </table>
 
+<!-- UPDATED -->
+	<fieldset style="border: 1px solid #305a72; min-width: 90%; margin-left:5%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+        <legend class="legend_style">Last Clinical Parameters</legend>
+        <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
+            <tr>
+				<td><b>Treat Age:</b><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('165720').valueCoded.name"/> </font></td>
+				<td><b>Last Pick Up Date:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('164506').obsDatetime" /> </font></td>
+			</tr>
+			<tr>
+				<td><b>Current Line:</b><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('165708').valueCoded.name"/> </font></td>
+				<td><b>Current Regimen:</b><font color='blue' style="font-weight: bold"><lookup complexExpression="$fn.latestObs('164506').valueCoded.name"/> </font></td>
+			</tr>
 
+        </table>
+    </fieldset>
+
+	<!-- UPDATED -->
     <table class="baseline-aligned">
         <tr>
             <td></td>
 
             <td style="alnright">
-                <label>Visit Date:</label>
+                <label>Visit Date (Dispensed Date):</label>
                 <div class="enable_disable_control" style="pointer-events: none">
                     <encounterDate default="today" />
                 </div>
@@ -186,12 +280,69 @@ else if(arvdos &gt; "10"){
         </table>
     </fieldset>
     <br/>
+    
     <fieldset>
-        <legend class="legend_style">Service Delivery Model</legend>
-        <table class="baseline-aligned">
-            <tr><td>Model of Care</td><td><div class="enable_disable_control" style="pointer-events: none"><obs conceptId='166148' answerConceptIds='166153,166134,166135,166151,166149,166150'/></div></td></tr>
+		<legend class="legend_style">Service Type</legend>
+		<table class="table" width="100%">
+			<td>
+				<table id="ServiceDeliveryModel" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Service Delivery Model</label>
+							<div class="enable_disable_control" style="pointer-events: none">
+							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166277,166149" answerLabels="Facility, Community, Multi-Month Dispensing (MMD)">
+								<controls>
+									<when value="166276" thenDisplay="#Facility_Dispensing"/>
+									<when value="166277" thenDisplay="#Community_Dispensing"/>
+									<when value="166149" thenDisplay="#Multi_Month_Dispensing"/>												
+								</controls>
+							</obs>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table id="Facility_Dispensing" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Facility Dispensing </label>
+							<div class="enable_disable_control" style="pointer-events: none">
+							<obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table id="Community_Dispensing" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Community Dispensing </label>
+							<div class="enable_disable_control" style="pointer-events: none">
+							<obs conceptId='166277' answerConceptIds="166134,166135,166280" answerLabels="Community Pharmacy, Community ART Group, Home Delivery"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table id="Multi_Month_Dispensing" class="table" width="100%">
+					<tr>
+						<td>
+							<label>Multi-Month Dispensing (MMD)</label>
+							<div class="enable_disable_control" style="pointer-events: none">
+							<obs conceptId='166149' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
         </table>
-    </fieldset>
+	</fieldset>
 
     <fieldset>
         <legend class="legend_style">ARV Medication Adherence</legend>
@@ -221,94 +372,113 @@ else if(arvdos &gt; "10"){
 
     <fieldset>
         <legend class="legend_style">ARV Medication</legend>
-        <table class="baseline-aligned">
+   		 <table class="table" width="100%">
             <tr>
-                <td>
-                    <label>Treatment Age category</label>
+	           <td class="alnleft">
+					<b>Treatment Age category</b>
+					<div class="enable_disable_control" style="pointer-events: none">
+						<obs id="TreatmentAgeCategory" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult"> </obs>
+			   		</div>
+			   </td>
+               <td>
+					<table class="table" width="100%">
+						<tr>
+							<td><label>Regimen Line</label></td>
+						</tr>
+						<tr>
+							<td>
+								<div class="enable_disable_control" style="pointer-events: none">
+								<obs id="RegimenLine" conceptId="165708" answerConceptIds="164507, 164514, 165703, 164506, 164513, 165702" answerLabels="Child First Line, Child Second Line, Child Salvage, Adult First Line, Adult Second Line, Adult Salvage">
+												<controls>
+													<when value="164507" thenDisplay="#ped_first_line"/>
+													<when value="164514" thenDisplay="#ped_second_line"/>
+													<when value="165703" thenDisplay="#ped_salvage"/>
+													<when value="164506" thenDisplay="#adult_first_line"/>
+													<when value="164513" thenDisplay="#adult_second_line"/>
+													<when value="165702" thenDisplay="#adult_salvage"/>
+												</controls>
+								</obs>
+								</div>
+							</td>
+	
+						</tr>
+					</table>
+				</td>
+               	<td>
+						<table id="adult_first_line" class="table" width="100%">
+							<tr>
+								<td>
+									<label>Adult 1st Line Regimens</label>
+									<div class="enable_disable_control" style="pointer-events: none">
+										<obs conceptId="164506" id="Adult1stLine"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+			</td>
 
-                    <div class="enable_disable_control" style="pointer-events: none">
-                        <obs id="TreatmentAgeCategory" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult">
-                            <controls>
-                                <when value="1528" thenDisplay="#ped_regimen_line"/>
-                                <when value="165709" thenDisplay="#adult_regimen_line"/>
-                            </controls></obs>
-                    </div>
-                </td>
-                <td id="adult_regimen_line">
-                    <table>
-                        <tr>
-                            <td>
-                                <label>Regimen Line</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs id="adultRegimenLine" conceptId="165708" answerConceptIds="164506, 164513, 165702" answerLabels="First Line, Second Line, Salvage">
-                                        <controls>
-                                            <when value="164506" thenDisplay="#adult_first_line"/>
-                                            <when value="164513" thenDisplay="#adult_second_line"/>
-                                            <when value="165702" thenDisplay="#adult_salvage"/>
-                                        </controls>
-                                    </obs>
-                                </div>
-                            </td>
-                            <td id="adult_first_line">
-                                <label>Adult 1st Line Regimens</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs conceptId="164506" id="Adult1stLine"/>
-                                </div>
-                            </td>
-                            <td id="adult_second_line">
-                                <label>Adult 2nd Line Regimens</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs conceptId="164513" id="Adult2ndLine"/>
-                                </div>
-                            </td>
-                            <td id="adult_salvage">
-                                <label>Adult 3rd Line Regimens</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs conceptId="165702" id="Adult3rdLine"/>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td id="ped_regimen_line">
-                    <table>
-                        <tr>
-                            <td>
-                                <!--for pediatric-->
-                                <label>Regimen Line</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs id="pedRegimenLine" conceptId="165708" answerConceptIds="164507, 164514, 165703" answerLabels="First Line, Second Line, Salvage">
-                                        <controls>
-                                            <when value="164507" thenDisplay="#ped_first_line"/>
-                                            <when value="164514" thenDisplay="#ped_second_line"/>
-                                            <when value="165703" thenDisplay="#ped_salvage"/>
-                                        </controls>
-                                    </obs>
-                                </div>
-                            </td>
+			<td>
+				<table id="adult_second_line" class="table" width="100%">
+						<tr>
+								<td>
+									<label>Adult 2nd Line Regimens</label>
+									<div class="enable_disable_control" style="pointer-events: none">
+										<obs conceptId="164513" id="Adult2ndLine"/>
+									</div>	
+								</td>
+						</tr>
+				</table>
+			</td>
+            <td>
+				<table id="adult_salvage" class="table" width="100%">
+					<tr>
+								<td>
+									<label>Adult 3rd Line Regimens</label>
+									<div class="enable_disable_control" style="pointer-events: none">
+									<obs conceptId="165702" id="Adult3rdLine"/>
+									</div>
+								</td>
+					</tr>
+				</table>
+			</td>
 
-                            <td id="ped_first_line">
-                                <label>Pediatric 1st Line Regimens</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs conceptId="164507" id="Ped1stLine"/>
-                                </div>
-                            </td>
-                            <td id="ped_second_line">
-                                <label>Pediatric 2nd Line Regimens</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs conceptId="164514" id="Ped2ndLine"/>
-                                </div>
-                            </td>
-                            <td id="ped_salvage">
-                                <label>Pediatric 3rd Line Regimens</label>
-                                <div class="enable_disable_control" style="pointer-events: none">
-                                    <obs conceptId="165703" id="Ped3rdLine"/>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+			<td>
+				<table id="ped_first_line" class="table" width="100%">
+					<tr>
+							<td>
+									<label>Pediatric 1st Line Regimens</label>
+									<div class="enable_disable_control" style="pointer-events: none">
+									<obs conceptId="164507" id="Ped1stLine"/>
+									</div>
+							</td>
+					</tr>
+				</table>
+			</td>   
+            <td>
+				<table id="ped_second_line" class="table" width="100%">
+					<tr>
+								<td>
+									<label>Pediatric 2nd Line Regimens</label>
+									<div class="enable_disable_control" style="pointer-events: none">
+									<obs conceptId="164514" id="Ped2ndLine"/>
+									</div>
+								</td>
+					</tr>
+				</table>
+			</td>
 
+			<td>
+				<table  id="ped_salvage" class="table" width="100%">
+							<tr>
+								<td>
+									<label>Pediatric 3rd Line Regimens</label>
+									<div class="enable_disable_control" style="pointer-events: none">
+									<obs conceptId="165703" id="Ped3rdLine"/>
+									</div>
+								</td>
+							</tr>
+				</table>
+			</td>   
             </tr>
         </table>
 
@@ -531,7 +701,7 @@ else if(arvdos &gt; "10"){
                 <obsgroup groupingConceptId="165726">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="165257,76488,1679,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
+                            <obs conceptId="165727" answerConceptIds="165257,76488,656,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
                         </div>
                     </td>
                     <td>
@@ -567,7 +737,7 @@ else if(arvdos &gt; "10"){
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
                             <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,656" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
 							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
                         </div>
@@ -605,7 +775,7 @@ else if(arvdos &gt; "10"){
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
                             <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,656" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
 							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
                         </div>
@@ -643,7 +813,7 @@ else if(arvdos &gt; "10"){
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
                             <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,656" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
 							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
                         </div>
@@ -915,7 +1085,7 @@ else if(arvdos &gt; "10"){
             <tr>
                 <td>
                     <label>Ordered By:</label>
-                    <encounterProvider role="Clinician" default="currentUser" required="false" />
+                    <encounterProvider role="Clinician" default="currentUser" required="true" />
                 </td>
                 <td>
                     <label>Date orderd:</label>

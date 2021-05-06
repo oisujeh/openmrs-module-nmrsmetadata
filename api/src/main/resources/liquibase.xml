@@ -159,5 +159,241 @@
 
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
+    
+    <changeSet id="patientqueueing_202103232156" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="pocsql/patientqueing_globalproperty.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter=";"/>
+    </changeSet>
+    
+     <changeSet id="concept_202104181022" author="Bright" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="concepts/20210418/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="concepts/20210418/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="concepts/20210418/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
+ <changeSet id="concept_update_201010071131" author="wande">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_answer_id='8906';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept">
+            <column name="concept_id" value="166253"/>
+            <column name="retired" value="0"/>
+            <column name="datatype_id" value="2"/>
+            <column name="class_id" value="11"/>
+            <column name="is_set" value="0"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_changed" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="df90bdce-5566-46d7-a8b4-aa8371e4e08b"/>
+        </insert>
+        <insert tableName="concept">
+            <column name="concept_id" value="166252"/>
+            <column name="retired" value="0"/>
+            <column name="datatype_id" value="6"/>
+            <column name="class_id" value="11"/>
+            <column name="is_set" value="0"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_changed" valueDate="2020-10-06 16:59:54"/>
+            <column name="uuid" value="b7ddf181-40eb-4f5f-93c7-0527db87bcbb"/>
+        </insert>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8906"/>
+            <column name="concept_id" value="166253"/>
+            <column name="answer_concept" value="1065"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="4904221f-5faa-4225-a00a-b6ae931144fe"/>
+            <column name="sort_weight" value="1"/>
+        </insert>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8907"/>
+            <column name="concept_id" value="166253"/>
+            <column name="answer_concept" value="1066"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="80dd7a31-1fa0-42a9-b762-e79697f86f89"/>
+            <column name="sort_weight" value="2"/>
+        </insert>
+        <insert tableName="concept_description">
+            <column name="concept_description_id" value="18644"/>
+            <column name="concept_id" value="166252"/>
+            <column name="description" value="Date of Antenatal registration"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="uuid" value="de590347-df80-45ad-9616-e58d02c3a43c"/>
+        </insert>
+        <insert tableName="concept_description">
+            <column name="concept_description_id" value="18645"/>
+            <column name="concept_id" value="166253"/>
+            <column name="description" value="Consent given for index elicitation and contact"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="7bd3bd0d-b1d5-45aa-93b0-8ed6e4432442"/>
+        </insert>
+        <insert tableName="concept_name">
+            <column name="concept_id" value="166252"/>
+            <column name="name" value="Antenatal registration date"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="concept_name_id" value="143020"/>
+            <column name="voided" value="0"/>
+            <column name="uuid" value="9c7eedc1-25c8-48d4-ae09-888f6bd431e9"/>
+            <column name="concept_name_type" value="FULLY_SPECIFIED"/>
+            <column name="locale_preferred" value="1"/>
+        </insert>
+        <insert tableName="concept_name">
+            <column name="concept_id" value="166253"/>
+            <column name="name" value="Index elicitation consent"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="concept_name_id" value="143021"/>
+            <column name="voided" value="0"/>
+            <column name="uuid" value="17d24ba6-08e7-458f-b7fd-eff4fc8474d2"/>
+            <column name="concept_name_type" value="FULLY_SPECIFIED"/>
+            <column name="locale_preferred" value="1"/>
+        </insert>
+    </changeSet>
+
+ <changeSet id="inslude_ABC-3TC-LPV/r_2020-09-15-14:16" author="tega" runOnChange="true">
+        <insert tableName="concept_answer">
+            <column name="concept_id" valueNumeric="164507"/>
+            <column name="answer_concept" valueNumeric="162200"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="uuid" value="7huveyx5-d050-4e99-4826-ccddc456b8rf"/>
+            <column name="sort_weight" valueNumeric="15"/>
+        </insert>
+    </changeSet>
+    <changeSet id="update_form_resource_table_longtext_202012080400" author="wande">
+        <sql>
+            ALTER TABLE form_resource
+            CHANGE COLUMN value_reference value_reference LONGTEXT NULL DEFAULT NULL ;
+        </sql>
+    </changeSet>
+
+    <changeSet id="add_pmtcthts_encounter_type_202101050223" author="wande">
+        <insert tableName="encounter_type">
+            <column name="name" value="PMTCT HIV Testing"/>
+            <column name="description" value="PMTCT HIV Testing"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="136e629b-78b6-4cdb-b76a-01c598d6a173"/>
+        </insert>
+    </changeSet>
+
+ 	<changeSet id="include_AZT-3TC-LPV/r_202101241029" author="wande" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_id='164507' AND  answer_concept='162561';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept_answer">
+            <column name="concept_id" valueNumeric="164507"/>
+            <column name="answer_concept" valueNumeric="162561"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="uuid" value="133caea0-4dca-4767-98e2-ab2ff2022c48"/>
+            <column name="sort_weight" valueNumeric="16"/>
+        </insert>
+    </changeSet>
+
+ 	<changeSet id="update_setting_concept_202102191156" author="wande">
+        <sql>
+            UPDATE obs SET value_coded = 160545 WHERE concept_id = 165839 AND value_coded = 165788 ;
+            UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
+        </sql>
+    </changeSet>
+    <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='a8939d83-59d7-4f3c-aa80-029d7e4d8095';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a8939d83-59d7-4f3c-aa80-029d7e4d8095"/>
+        </insert>
+    </changeSet>
+
+ <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='723f8ea2-8708-4a68-a557-d5f232c8b45c';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
+        </insert>
+    </changeSet>
+
+	<changeSet author="Toyeeb" id="20042021104930" runOnChange="true">
+       <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="forms/forms/encounter_type.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>    
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>              
+    </changeSet>        
+    
+    <changeSet id="20042021105430" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="forms/forms/form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>        
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+    
+    <changeSet id="20042021134230" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+         <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>  
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+
+
+
+
 
 </databaseChangeLog>

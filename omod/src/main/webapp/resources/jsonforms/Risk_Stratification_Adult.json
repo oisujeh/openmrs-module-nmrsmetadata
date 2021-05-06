@@ -23,7 +23,7 @@
               ]
             },
             {
-              "label":"Is this HIV test based on a Clinician/Doctor/Health Care Provider’s request? ",
+              "label":"Is this HIV test based on a Clinician/Doctor/Health Care Provider's request? ",
               "id":"Is_this_HIV_test_based_on_a_Clinician",
               "questionOptions":{
                 "rendering":"select",
@@ -188,7 +188,7 @@
               ]
             },
             {
-              "label":"Since your last HIV test, have you ever injected drugs, shared needles or other sharp objects with someone known to be HIV positive or who you didn’t know their HIV status?",
+              "label":"Since your last HIV test, have you ever injected drugs, shared needles or other sharp objects with someone known to be HIV positive or who you didn't know their HIV status?",
               "id":"Since_your_last_HIV_test_have_you_ever_injected_drugs",
               "questionOptions":{
                 "rendering":"select",
