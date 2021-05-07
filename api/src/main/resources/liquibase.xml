@@ -270,4 +270,36 @@
          <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
     </changeSet>
     
+    <changeSet id="20210506133523" author="Toyeeb" runOnChange="true">
+        <sql>
+        	SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept SET datatype_id = 3 WHERE concept_id = 166288;
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+    
+     <changeSet author="toyeeb" id="20210505142424" runOnChange="true">
+     	<sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+        <delete tableName="form">
+            <where>form_id='74'</where>
+        </delete>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+	<changeSet author="toyeeb" id="20210506145024" runOnChange="true">
+     	<sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+        <delete tableName="htmlformentry_html_form">
+            <where>form_id='74'</where>
+        </delete>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+     <changeSet id="20210506164130" author="Toyeeb" runOnChange="true">
+         <sqlFile path="forms/forms/form_update.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>                   
+    </changeSet>
+   
+    
 </databaseChangeLog>
