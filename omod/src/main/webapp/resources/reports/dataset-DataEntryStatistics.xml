@@ -4,7 +4,7 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2021-05-07 08:59:01 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2021-05-07 09:33:55 UTC</dateChanged>
+  <dateChanged id="4">2021-05-10 02:28:41 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -21,8 +21,32 @@
   </parameters>
   <id>247</id>
   <sqlQuery>select &#xd;
-count(distinct encounter_id) TotalFormsEntered,&#xd;
-CONCAT(person_name.given_name,&quot; &quot;,person_name.family_name) as EnteredBy&#xd;
+&#xd;
+CONCAT(person_name.given_name,&quot; &quot;,person_name.family_name) as EnteredBy,&#xd;
+SUM( CASE WHEN encounter.form_id=23 THEN 1 ELSE 0 END) as HIVEnrollmentForms,&#xd;
+SUM( CASE WHEN encounter.form_id=56 THEN 1 ELSE 0 END) as ARTCommencementForm,&#xd;
+SUM( CASE WHEN encounter.form_id=22 THEN 1 ELSE 0 END) as AdultInitialClinicalEvalForm,&#xd;
+SUM( CASE WHEN encounter.form_id=20 THEN 1 ELSE 0 END) as PediatricInitialClinicalEvalForm,&#xd;
+SUM( CASE WHEN encounter.form_id=14 THEN 1 ELSE 0 END) as CareCard,&#xd;
+SUM( CASE WHEN encounter.form_id=27 THEN 1 ELSE 0 END) as PharmacyOrderForm,&#xd;
+SUM( CASE WHEN encounter.form_id=67 THEN 1 ELSE 0 END) as ViralLoadSampleCollectionForm,&#xd;
+SUM( CASE WHEN encounter.form_id=21 THEN 1 ELSE 0 END) as LabOrderAndResultForm,&#xd;
+SUM( CASE WHEN encounter.form_id=67 THEN 1 ELSE 0 END) as SampleCollectionForm,&#xd;
+SUM( CASE WHEN encounter.form_id=73 THEN 1 ELSE 0 END) as OperationTripleZeroServiceForm,&#xd;
+SUM( CASE WHEN encounter.form_id=69 THEN 1 ELSE 0 END) as EnhancedAdherenceCounseling,&#xd;
+SUM( CASE WHEN encounter.form_id=72 THEN 1 ELSE 0 END) as RiskAssessmentPediatric,&#xd;
+SUM( CASE WHEN encounter.form_id=70 THEN 1 ELSE 0 END) as RiskStratificationAdultForm,&#xd;
+SUM( CASE WHEN encounter.form_id=10 THEN 1 ELSE 0 END) as ClientIntakeForm,&#xd;
+SUM( CASE WHEN encounter.form_id=52 THEN 1 ELSE 0 END) as ClientReferralForm,&#xd;
+SUM( CASE WHEN encounter.form_id=66 THEN 1 ELSE 0 END) as ClientReferralFormB,&#xd;
+SUM( CASE WHEN encounter.form_id=19 THEN 1 ELSE 0 END) as ChildBirthRegistrationForm,&#xd;
+SUM( CASE WHEN encounter.form_id=8 THEN 1 ELSE 0 END) as ChildFollowUpForm,&#xd;
+SUM( CASE WHEN encounter.form_id=16 THEN 1 ELSE 0 END) as GeneralAntenatalForm,&#xd;
+SUM( CASE WHEN encounter.form_id=15 THEN 1 ELSE 0 END) as DeliveryRegister,&#xd;
+SUM( CASE WHEN encounter.form_id=54 THEN 1 ELSE 0 END) as PMTCTHTSForm,&#xd;
+SUM( CASE WHEN encounter.form_id=40 THEN 1 ELSE 0 END) as PartnerRegisterForm,&#xd;
+SUM( CASE WHEN encounter.form_id=48 THEN 1 ELSE 0 END) as MaternalCohortForm&#xd;
+&#xd;
 from encounter&#xd;
 left join users on(users.user_id=encounter.creator)&#xd;
 left join person_name on(person_name.person_id=users.person_id)&#xd;
