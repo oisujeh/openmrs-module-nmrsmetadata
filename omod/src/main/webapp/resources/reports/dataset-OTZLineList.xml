@@ -1,31 +1,31 @@
 <org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition id="1" uuid="287920c5-2e27-4c5d-af76-589f45743a94" retired="false">
   <name>OTZLineList</name>
   <description>An excel export of the OTZ form variables</description>
-  <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
-  <dateCreated id="3">2021-04-28 15:27:30 UTC</dateCreated>
-  <changedBy reference="2"/>
-  <dateChanged id="4">2021-05-05 10:27:33 UTC</dateChanged>
-  <parameters id="5">
-    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
+  <creator id="2" uuid="A4F30A1B-5EB9-11DF-A648-37A07F9C90FB"/>
+  <dateCreated id="3">2021-05-12 09:49:42 UTC</dateCreated>
+  <changedBy id="4" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
+  <dateChanged id="5">2021-05-12 11:40:08 UTC</dateChanged>
+  <parameters id="6">
+    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="7">
       <name>startDate</name>
       <label>OTZ Start Date</label>
       <type>java.util.Date</type>
       <required>true</required>
     </org.openmrs.module.reporting.evaluation.parameter.Parameter>
-    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="7">
+    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="8">
       <name>endDate</name>
       <label>OTZ End Date</label>
       <type>java.util.Date</type>
       <required>true</required>
     </org.openmrs.module.reporting.evaluation.parameter.Parameter>
-    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="8">
+    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="9">
       <name>cutoffDate</name>
       <label>Follow Up Period</label>
       <type>java.util.Date</type>
       <required>true</required>
     </org.openmrs.module.reporting.evaluation.parameter.Parameter>
   </parameters>
-  <id>245</id>
+  <id>246</id>
   <sqlQuery>SELECT&#xd;
    global_property.property_value as DatimCode,&#xd;
    pid2.identifier as PepfarID,&#xd;
@@ -39,7 +39,7 @@
    DATE_FORMAT(getdatevalueobsid(getmaxconceptobsid(patient.patient_id,5096,enc.encounter_datetime)),&apos;%d-%b-%Y&apos;) as `AppointmentDateBeforeEnrollment`,&#xd;
    getobsdatetime(getmaxconceptobsidwithformid(patient.patient_id,165708,27,enc.encounter_datetime)) as `PickupDateBeforeEnrollment`,&#xd;
    getcodedvalueobsid(getmaxconceptobsidwithformid(patient.patient_id,165290,14,enc.encounter_datetime)) as `AdherenceBeforeEnrollment`,&#xd;
-   getnumbericvalueobsid(getmaxconceptobsid(patient.patient_id,856,enc.encounter_datetime)) as `ViralLoadBeforeEnrollment`,&#xd;
+   getnumericvalueobsid(getmaxconceptobsid(patient.patient_id,856,enc.encounter_datetime)) as `ViralLoadBeforeEnrollment`,&#xd;
    DATE_FORMAT(getobsdatetime(getmaxconceptobsid(patient.patient_id,856,enc.encounter_datetime)),&apos;%d-%b-%Y&apos;) as `ViralLoadBeforeEnrollmentDate`,&#xd;
    &#xd;
    getobsdatetime(getmaxconceptobsidwithformid(patient.patient_id,165708,27,&#xd;
@@ -48,7 +48,7 @@
    DATE_FORMAT(getdatevalueobsid(getmaxconceptobsid(patient.patient_id,5096,:cutoffDate)),&apos;%d-%b-%Y&apos;) as `AppointmentDateFollowup`,&#xd;
    getobsdatetime(getmaxconceptobsidwithformid(patient.patient_id,165708,27,:cutoffDate)) as `PickupDateFollowUp`,&#xd;
    getcodedvalueobsid(getmaxconceptobsidwithformid(patient.patient_id,165290,14,:cutoffDate)) as `AdherenceFollowUp`,&#xd;
-   getnumbericvalueobsid(getmaxconceptobsid(patient.patient_id,856,:cutoffDate)) as `ViralLoadFollowUp`,&#xd;
+   getnumericvalueobsid(getmaxconceptobsid(patient.patient_id,856,:cutoffDate)) as `ViralLoadFollowUp`,&#xd;
    DATE_FORMAT(getobsdatetime(getmaxconceptobsid(patient.patient_id,856,:cutoffDate)),&apos;%d-%b-%Y&apos;) as `ViralLoadFollowUpDate`,&#xd;
    getcodedvalueobsid(getmaxconceptobsidwithformidvaluecoded(patient.patient_id,165708,27,164507,:cutoffDate)) as `LastPedFirstLine`,&#xd;
    getobsdatetime(getmaxconceptobsidwithformidvaluecoded(patient.patient_id,165708,27,164507,:cutoffDate)) `LastPedFirstLineDate`,&#xd;
