@@ -84,6 +84,45 @@
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
+    <!-- Missing changeset -->
+    <changeSet id="report_update_20201129850" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcodedintvalueobs.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getcodedvalueobsid_202105121209" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcodedintvalueobs.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getdatevalueobsid_202105121210" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getdatevalueobsid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getminconceptobswithformid_202105121212" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getminconceptobswithformid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getminconceptobswithformidvaluecoded_202105121213" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getminconceptobswithformidvaluecoded.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getnumericvalueobsid_202105121213" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getnumericvalueobsid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    
     <!-- Error - Pharmacy Forms Without Duration -->
     <changeSet id="report_update_20212702540" author="Bright">
         <preConditions onFail="MARK_RAN">
