@@ -91,8 +91,14 @@
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    <changeSet id="fn_getcodedvalueobsid_202105121209" author="Bright" runOnChange="true">
+    <changeSet id="fn_getcodedintvalueobs_202105121209" author="Bright" runOnChange="true">
         <sqlFile path="dataquality/functions/fn_getcodedintvalueobs.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getcodedvalueobsid_202105121209" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcodedvalueobsid.sql"
                  stripComments="true"
                  splitStatements="true"
                  endDelimiter="/0xd"/>
