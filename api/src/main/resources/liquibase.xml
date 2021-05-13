@@ -300,7 +300,12 @@
                  encoding="UTF-8"
                  endDelimiter=";"/>                   
     </changeSet>
-    
+     <changeSet id="update_concept_name_13052021105050" author="Toyeeb">
+        <sql>
+            UPDATE concept_description SET description = 'MMD greater than or equal to 6' WHERE concept_id = 166283;
+            UPDATE concept_answer SET name = '' WHERE concept_name_id = 143054 AND concept_id = 166283;
+        </sql>
+    </changeSet>
    
    
     

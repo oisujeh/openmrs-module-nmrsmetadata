@@ -610,7 +610,7 @@
         </insert>
     </changeSet>
     <!-- Data Entry Statistics -->
-    <changeSet id="report_update_202105120158" author="Bright">
+    <changeSet id="report_update_202105120158" author="Bright" runOnChange="true" >
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
                 SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='e4f1fa26-deac-435f-8b52-263c07532f67';
