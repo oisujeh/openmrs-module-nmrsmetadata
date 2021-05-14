@@ -62,3 +62,11 @@ REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`descr
 REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18706,166360,'third call','en',1,'2021-05-05 10:52:36',NULL,NULL,'250f63ce-a98b-4383-8275-0a497b689f75');
 REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18707,166361,'fourth call','en',1,'2021-05-05 10:53:04',NULL,NULL,'66579e22-648c-4623-bec3-9a54b824cfc4');
 REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18708,166362,'Intensive Follow Up Form Missed Medication','en',1,'2021-05-05 11:39:21',NULL,NULL,'758bee5d-c2a5-4b0f-b901-90c8ceb50b4f');
+REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18713,166367,'Others Dispensary','en',1,'2021-05-12 16:42:21',NULL,NULL,'2e2ac734-a86e-4423-841d-3f3e2a23d555'),
+REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18712,166366,'ATM','en',1,'2021-05-12 16:41:50',NULL,NULL,'0a9f8dd3-0068-4fce-b605-bd1937492011'),
+REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18711,166365,'Patent Medicine Stores','en',1,'2021-05-12 16:41:03',NULL,NULL,'28035746-8a1f-4e93-8351-d671455b2654'),
+REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18710,166364,'Private Clinics','en',1,'2021-05-12 16:37:35',NULL,NULL,'ffc4651a-b6b6-47fa-867e-02cf1a8fb74c'),
+REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18709,166363,'Decentralized Drug Delivery (DDD)','en',1,'2021-05-12 15:51:56',NULL,NULL,'96fa3d83-8ed6-4c55-9ad4-fcaad21306f3');
+
+
+
