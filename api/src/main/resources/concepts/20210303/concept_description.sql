@@ -67,6 +67,7 @@ REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`descr
 REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18711,166365,'Patent Medicine Stores','en',1,'2021-05-12 16:41:03',NULL,NULL,'28035746-8a1f-4e93-8351-d671455b2654');
 REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18710,166364,'Private Clinics','en',1,'2021-05-12 16:37:35',NULL,NULL,'ffc4651a-b6b6-47fa-867e-02cf1a8fb74c');
 REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18709,166363,'Decentralized Drug Delivery (DDD)','en',1,'2021-05-12 15:51:56',NULL,NULL,'96fa3d83-8ed6-4c55-9ad4-fcaad21306f3');
+REPLACE INTO `concept_description` (`concept_description_id`,`concept_id`,`description`,`locale`,`creator`,`date_created`,`changed_by`,`date_changed`,`uuid`) VALUES (18714,166368,'PLHIV','en',1,'2021-05-18 23:00:59',NULL,NULL,'e73246f8-45e7-4c47-9d90-1cd0991c7818');
 
 
 
