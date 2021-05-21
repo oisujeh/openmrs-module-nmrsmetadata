@@ -333,6 +333,18 @@
         </sql>
     </changeSet>
     
+    <changeSet id="20210521100130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 10 WHERE concept_id = 166284;
+          	UPDATE concept SET class_id = 7 WHERE concept_id = 166284;
+          	SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+   
+   
    
    
     
