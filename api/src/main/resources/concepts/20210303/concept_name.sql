@@ -181,7 +181,7 @@ REPLACE INTO `concept_name` (`concept_id`,`name`,`locale`,`creator`,`date_create
 REPLACE INTO `concept_name` (`concept_id`,`name`,`locale`,`creator`,`date_created`,`concept_name_id`,`voided`,`voided_by`,`date_voided`,`void_reason`,`uuid`,`concept_name_type`,`locale_preferred`) VALUES (166366,'ATM','en',1,'2021-05-12 16:41:50',143190,0,NULL,NULL,NULL,'303063f0-aca9-4a68-b696-619844b3f393','FULLY_SPECIFIED',1);
 REPLACE INTO `concept_name` (`concept_id`,`name`,`locale`,`creator`,`date_created`,`concept_name_id`,`voided`,`voided_by`,`date_voided`,`void_reason`,`uuid`,`concept_name_type`,`locale_preferred`) VALUES (166367,'Others Dispensary','en',1,'2021-05-12 16:42:21',143191,0,NULL,NULL,NULL,'2b953cab-e9c9-4611-ba09-2ae1f9a1b937','FULLY_SPECIFIED',1);
 REPLACE INTO `concept_name` (`concept_id`,`name`,`locale`,`creator`,`date_created`,`concept_name_id`,`voided`,`voided_by`,`date_voided`,`void_reason`,`uuid`,`concept_name_type`,`locale_preferred`) VALUES (166368,'PLHIV','en',1,'2021-05-18 23:00:59',143192,0,NULL,NULL,NULL,'648967bc-6eca-438e-89c9-e383ff849357','FULLY_SPECIFIED',1);
-
-
+REPLACE INTO `concept_name` (`concept_id`,`name`,`locale`,`creator`,`date_created`,`concept_name_id`,`voided`,`voided_by`,`date_voided`,`void_reason`,`uuid`,`concept_name_type`,`locale_preferred`) VALUES (166369,'KP Type','en',1,'2021-05-21 10:06:12',143193,0,NULL,NULL,NULL,'dabd7725-c0f9-489d-9ede-c99e1d1e5c83','SHORT',0);
+REPLACE INTO `concept_name` (`concept_id`,`name`,`locale`,`creator`,`date_created`,`concept_name_id`,`voided`,`voided_by`,`date_voided`,`void_reason`,`uuid`,`concept_name_type`,`locale_preferred`) VALUES (166369,'KP Type','en',1,'2021-05-21 10:06:12',143194,0,NULL,NULL,NULL,'f69b6b8d-7503-4468-986c-a61b555d097c','FULLY_SPECIFIED',1);
 
 
