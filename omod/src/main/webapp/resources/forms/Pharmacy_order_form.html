@@ -125,8 +125,10 @@ beforeSubmit.push(function() {
 			setValue('RegimenLine.error', '');
 			setValue('Adult1stLine.error', '');
 			setValue('Adult2ndLine.error', '');
+			setValue('Adult3rdLine.error', '');
 			setValue('Ped1stLine.error', '');
 			setValue('Ped2ndLine.error', '');
+			setValue('Ped3rdLine.error', '');
 			setValue('duration_s.error', '');
 
 		// ARV
@@ -134,8 +136,10 @@ beforeSubmit.push(function() {
 			var RegimenLine = getValue('RegimenLine.value');
 			var Adult1stLine = getValue('Adult1stLine.value');
 			var Adult2ndLine = getValue('Adult2ndLine.value');
+			var Adult3rdLine = getValue('Adult3rdLine.value');
 			var Ped1stLine = getValue('Ped1stLine.value');
 			var Ped2ndLine = getValue('Ped2ndLine.value');
+			var Ped3rdLine = getValue('Ped3rdLine.value');
 			var duration_s = getValue('duration_s.value');
 
 		switch (true) {
@@ -159,7 +163,7 @@ beforeSubmit.push(function() {
 
 
 			<!-- Adult1stLine -->
-			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "")):
+			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
 				return true;
 
 			case (error == true):
@@ -266,24 +270,36 @@ beforeSubmit.push(function() {
 	</fieldset>
 	<br/>
 
+<<<<<<< Updated upstream:omod/src/main/webapp/resources/forms/Pharmacy_order_form.html
 <<<<<<< Updated upstream
 <!-- UPDATED -->
 =======
 	<!-- UPDATED -->
 >>>>>>> Stashed changes
+=======
+<!-- UPDATED -->
+>>>>>>> Stashed changes:omod/src/main/webapp/resources/forms/PharmacyOrderForm.html
 	<fieldset>
-		<legend class="legend_style">Service Type</legend>
+		<legend class="legend_style">Service Delivery Model</legend>
 		<table class="table" width="100%">
 			<td>
 				<table id="ServiceDeliveryModel" class="table" width="100%">
 					<tr>
 						<td>
+<<<<<<< Updated upstream:omod/src/main/webapp/resources/forms/Pharmacy_order_form.html
 							<label>Service Delivery Model</label>
 							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="164507,164514,165703" answerLabels="Facility, Community, Multi-Month Dispensing (MMD)">
 								<controls>
 									<when value="164507" thenDisplay="#Facility_Dispensing"/>
 									<when value="164514" thenDisplay="#Community_Dispensing"/>
 									<when value="165703" thenDisplay="#Multi_Month_Dispensing"/>												
+=======
+							<label>Dispensing Modality</label>
+							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166363" answerLabels="Facility Dispensing, Decentralized Drug Delivery (DDD)">
+								<controls>
+									<when value="166276" thenDisplay="#Facility_Dispensing"/>
+									<when value="166363" thenDisplay="#ddd_Dispensing"/>												
+>>>>>>> Stashed changes:omod/src/main/webapp/resources/forms/PharmacyOrderForm.html
 								</controls>
 							</obs>
 						</td>
@@ -303,11 +319,21 @@ beforeSubmit.push(function() {
 			</td>
 
 			<td>
-				<table id="Community_Dispensing" class="table" width="100%">
+				<table id="ddd_Dispensing" class="table" width="100%">
 					<tr>
 						<td>
+<<<<<<< Updated upstream:omod/src/main/webapp/resources/forms/Pharmacy_order_form.html
 							<label>Community Dispensing </label>
 							<obs conceptId='164514' answerConceptIds="166134,166135,166150" answerLabels="Community Pharmacy, Community ART Group, Home Delivery"/>
+=======
+							<label>DDD Dispensing </label>
+							<obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group, Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">		
+								<controls>
+									<when value="5622" thenDisplay="#others_dispensary"/>
+								</controls>
+						    </obs>
+								<obs conceptId="166367" id="others_dispensary"/>
+>>>>>>> Stashed changes:omod/src/main/webapp/resources/forms/PharmacyOrderForm.html
 						</td>
 					</tr>
 				</table>
@@ -318,13 +344,21 @@ beforeSubmit.push(function() {
 					<tr>
 						<td>
 							<label>Multi-Month Dispensing (MMD)</label>
+<<<<<<< Updated upstream:omod/src/main/webapp/resources/forms/Pharmacy_order_form.html
 							<obs conceptId='165703' answerConceptIds="166134,166135,166150" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
+=======
+							<obs conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
+>>>>>>> Stashed changes:omod/src/main/webapp/resources/forms/PharmacyOrderForm.html
 						</td>
 					</tr>
 				</table>
 			</td>
+
         </table>
 	</fieldset>
+
+
+
 
 	<fieldset>
 		<legend class="legend_style">ARV Medication Adherence</legend>
