@@ -202,57 +202,70 @@
             var height_val = getValue('height.value');
             var weight_val = getValue('weight.value');
             var length_val = getValue('length.value');
+            if(height_val == 0){
+                height_val = 1;
+            }
+            if(weight_val == 0){
+                weight_val = 1;
+            }
             var height_num = parseFloat(height_val);
             var weight_num = parseFloat(weight_val);
             var length_num = parseFloat(length_val);
+
             if(!isNaN(height_num)){
                 if(!isNaN(weight_num)){
                     height_num = height_num/100;
                     var bmi_val = weight_num / (height_num * height_num);
-                    setValue('bmi.value',bmi_val.toFixed(2));
+                    if(!isNaN(bmi_val)){
+                        if(height_val == 1){
+                            setValue('bmi.value',0);
+                        }else if(weight_val == 1){
+                            setValue('bmi.value',0);
+                        }else{
+                            setValue('bmi.value',bmi_val.toFixed(2));
+                        }
+                    }
+                }else{
                 }
-                else{
-                    setValue('bmi.value', "");
-                }
-            }
-            else if(!isNaN(length_num)){
+            }else if(!isNaN(length_num)){
                 if(!isNaN(weight_num)){
                     length_num  = length_num/100;
                     var bmi_val = weight_num / (length_num* length_num);
-                    setValue('bmi.value',bmi_val.toFixed(2));
+                     if(!isNaN(bmi_val)){
+                        if(height_val == 1){
+                            setValue('bmi.value',0);
+                        }else if(weight_val == 1){
+                            setValue('bmi.value',0);
+                        }else if(length_val == 1){
+                            setValue('bmi.value',0);
+                        }else{
+                            setValue('bmi.value',bmi_val.toFixed(2));
+                        }
+                    }
+                }else{
+
                 }
-                else{
-                    setValue('bmi.value', "");
-                }
-            }
-            else {
-                setValue('bmi.value', "");
+            }else {
+
             }
 
             if(height_val.length > 0){
                 setValue('length.value', "");
-                $('#length').hide(200);
-            }
-            else{
+               $('#length').hide(200);
+            }else{
                 $('#length').show(200);
             }
 
             if(length_val.length > 0){
                 setValue('height.value', "");
                 $('#height').hide(200);
-            }
-            else{
+            }else{
                 $('#height').show(200);
             }
         }
     </script>
 
-    <script type="text/javascript">
-        <!--jQuery(function() {-->
-            <!--&lt;!&ndash;Hide the following questions when the form loads&ndash;&gt;-->
-            <!--htmlForm.simpleUi.hideField('familyr'); htmlForm.simpleUi.hideField('familyro');-->
-        <!--});-->
-    </script>
+ 
     <table style="margin-bottom: 20px;">
         <thead>
         <tr>
@@ -277,7 +290,7 @@
         <tr>
             <td class="alnright">Visit Date</td>
             <td>
-                <encounterDate default="now"  id="encounterDate" showTime="false" allowFutureDates="false" required="true" />
+                <encounterDate  id="encounterDate" showTime="false" allowFutureDates="false" required="true" />
             </td>
             <td></td>
         </tr>
@@ -344,12 +357,12 @@
                 <td>
                     <table>
                         <tr>
-                            <td>
-                                <obs conceptId="5085" />
+                             <td>
+                                <obs conceptId="5085" id="bp1" />
                             </td>
                             <td>/</td>
                             <td>
-                                <obs conceptId="5086" />
+                                <obs conceptId="5086" id="bp2" />
                             </td>
                         </tr>
                     </table>
@@ -512,12 +525,12 @@
             <tr>
                 <td>ARV Medication Plan</td>
                 <td>
-                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904"
-                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication">
+                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904,165357"
+                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication,Commence ART">
                         <controls>
                             <when value="165769" thenDisplay="#reg_plan_response" />
                             <when value="165768" thenDisplay="#reg_plan_response2" />
-                            <when value="165770" thenDisplay="#reg_plan_response3" />
+                            <when value="165770" thenDisplay="#reg_plan_response3,#date_stopped_regimen" />
                         </controls>
                     </obs>
                 </td>
@@ -548,8 +561,16 @@
                             <td>
                                 <obs conceptId="1252" answerConceptIds="102,1434,843,159598,5485,1754,819,164435,160016,5622" answerLabels="Toxicity/side effects,Pregnancy,Treatment failure,Poor adherence,Illness or hospitalization,Drugs out of stock,Patient lacks finances,Other patient decision,Planned Rx interruption,Other" />
                             </td>
-    `
-
+                        </tr>
+                    </table>
+                </td>
+                <td id="date_stopped_regimen">
+                    <table>
+                        <tr>
+                            <td class="alnright">Date Stopped Regimen</td>
+                            <td>
+                                <obs conceptId="166303" id="date_stopped_regimen" allowFutureDates="false" />
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -557,7 +578,7 @@
         </table>
     </fieldset>
     <fieldset>
-        <legend class="legend_style">Prescriped Medications</legend>
+        <legend class="legend_style">Prescribed Medications</legend>
         <table cellspacing="10px" cellpadding="10px">
             <tr valign="top">
                 <td width="34%" class="td_overwrote">
