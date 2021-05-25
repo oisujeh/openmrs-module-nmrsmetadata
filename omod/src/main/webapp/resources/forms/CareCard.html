@@ -525,13 +525,12 @@
             <tr>
                 <td>ARV Medication Plan</td>
                 <td>
-                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904"
-                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication">
+                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904,165357"
+                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication,Commence ART">
                         <controls>
                             <when value="165769" thenDisplay="#reg_plan_response" />
                             <when value="165768" thenDisplay="#reg_plan_response2" />
-                            <when value="165770" thenDisplay="#reg_plan_response3" />
-                            <when value="165770" thenDisplay="#date_stopped_regimen" />
+                            <when value="165770" thenDisplay="#reg_plan_response3,#date_stopped_regimen" />
                         </controls>
                     </obs>
                 </td>

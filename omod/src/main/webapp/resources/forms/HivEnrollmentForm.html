@@ -299,7 +299,7 @@
                 <td class="alnleft_s" id="trn_input"><obs conceptId="160535" /></td>
                 <td class="alnleft_s" id="trn_date_label">Date transferred in</td>
                 <td class="alnleft_s" id="trn_date_input"><obs conceptId="160534" /></td>
-                <td class="alnleft_s">Was patient previously on ART</td>
+                <td class="alnleft_s">Was patient previously on ARV</td>
                 <td class="alnleft_s">
                     <obs id="art_prev" style="yes_no_dropdown" conceptId="165766">
                         <controls>
@@ -310,9 +310,11 @@
             </tr>
             <tr id="art_prev_result">
 
-                <td class="alnleft_s">Prior ART</td>
-                <td class="alnleft_s"><obs conceptId="165242" /></td>
-                <td class="alnleft_s">ART Start Date</td>
+                <td class="alnleft_s">Prior ARVs</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165242" id="prior_arv"/>
+                </td>
+                <td class="alnleft_s"><span id="artStart">ART Start Date</span></td>
                 <td class="alnleft_s"><obs id="art_start_date" conceptId="159599" /></td>
             </tr>
         </table>
@@ -367,6 +369,23 @@
                 <td class="alnleft_s"><obs conceptId="164943" answerLabels="Father,Mother,Daughter,Sister,Brother,Son,Uncle,Aunt,Wife,Husband,Friend,Parent,Other" answerConceptIds="971,970,160728,160730,160729,160727,974,975,164944,164945,5618,1527,5622" /></td>
                 <td class="alnleft_s">Phone number of next of Kin</td>
                 <td class="alnleft_s"><obs conceptId="159635" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style">Treatment Supporter</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Name of Treatment Supporter</td>
+                <td class="alnleft_s"><obs conceptId="160638" /></td>
+                <td class="alnleft_s">Address of Treatment Supporter</td>
+                <td class="alnleft_s"><obs conceptId="160641" /></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Relationship with Treatment Supporter</td>
+                <td class="alnleft_s"><obs conceptId="160640" answerLabels="Father,Mother,Daughter,Sister,Brother,Son,Uncle,Aunt,Wife,Husband,Friend,Parent,Other,Peer(PLHIV)" answerConceptIds="971,970,160728,160730,160729,160727,974,975,164944,164945,5618,1527,5622,166368" /></td>
+                <td class="alnleft_s">Phone number of Treatment Suppoter</td>
+                <td class="alnleft_s"><obs conceptId="160642" /></td>
             </tr>
         </table>
     </fieldset>
@@ -432,6 +451,23 @@
         </table>
     </fieldset>
     <submit />
+
+    <script type="text/javascript">
+        var $ = jQuery;
+        $('#artStart').hide();
+        $('#art_start_date').hide();
+        $('#prior_arv').change(function(e) {
+            var prior_art = getValue('prior_arv.value');
+            if(prior_art == 165238 || prior_art == 165239){
+                $('#art_start_date').show();
+                $('#artStart').show();
+            }else {
+                $('#artStart').hide();
+                $('#art_start_date').hide();
+            }
+        });
+
+    </script>
 
     <ifMode mode="EDIT" include="false">
         <lookup complexExpression="
