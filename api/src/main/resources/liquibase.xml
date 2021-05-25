@@ -392,6 +392,18 @@
          <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
     </changeSet>
 
+	<changeSet id="20210523195530" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+				'{\"id\":\"patientDashboard.overallActions.form.60\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"ART (antiretroviral therapy) Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=175749fc-bd5e-4046-b4c3-fda5c0a8e358\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"hasMemberWithProperty (patientPrograms, \'uuid\', \'9083deaa-f37f-44b3-9046-b87b134711a1\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 60;
+				SET FOREIGN_KEY_CHECKS = 1;
+		 	]]>
+	    </sql>
+    </changeSet>
+
 
 
 

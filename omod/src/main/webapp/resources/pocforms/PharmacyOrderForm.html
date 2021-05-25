@@ -240,7 +240,7 @@ beforeSubmit.push(function() {
             <td style="alnright">
                 <label>Visit Date (Dispensed Date):</label>
                 <div class="enable_disable_control" style="pointer-events: none">
-                    <encounterDate default="today" />
+                    <encounterDate id="encounterDate" />
                 </div>
             </td>
         </tr>
@@ -532,7 +532,7 @@ beforeSubmit.push(function() {
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" size="1" id="duration"/>
+                            <obs conceptId="159368" size="1" id="duration_s"/>
                         </div>
                     </td>
                     <td>
@@ -701,7 +701,7 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165726">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="165257,76488,656,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
+                            <obs conceptId="165727" answerConceptIds="165257,76488,1679,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
                         </div>
                     </td>
                     <td>
@@ -737,7 +737,7 @@ beforeSubmit.push(function() {
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
                             <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,656" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
 							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
                         </div>
@@ -775,7 +775,7 @@ beforeSubmit.push(function() {
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
                             <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,656" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
 							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
                         </div>
@@ -813,7 +813,7 @@ beforeSubmit.push(function() {
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
                             <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,656" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
 							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
                         </div>
@@ -916,7 +916,7 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165728">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165304" answerConceptIds="83352,1679,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
+                            <obs conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
                         </div>
                     </td>
                     <td>
