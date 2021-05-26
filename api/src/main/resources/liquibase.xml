@@ -344,7 +344,15 @@
         </sql>
     </changeSet>
    
-   
+   	<changeSet id="Resolve_INHB6_Wrong_TB_Maping_202104241156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE obs SET value_coded = 656 WHERE concept_id =165304 AND value_coded =1679;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
    
    
     
