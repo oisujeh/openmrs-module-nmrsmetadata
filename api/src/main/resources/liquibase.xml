@@ -125,4 +125,235 @@
             <column name="uuid" value="136e629b-78b6-4cdb-b76a-01c598d6a173"/>
         </insert>
     </changeSet>
+
+
+    <changeSet id="include_AZT-3TC-LPV/r_202101241029" author="wande" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_id='164507' AND  answer_concept='162561';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept_answer">
+            <column name="concept_id" valueNumeric="164507"/>
+            <column name="answer_concept" valueNumeric="162561"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="uuid" value="133caea0-4dca-4767-98e2-ab2ff2022c48"/>
+            <column name="sort_weight" valueNumeric="16"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="update_setting_concept_202102191156" author="wande">
+        <sql>
+            UPDATE obs SET value_coded = 160545 WHERE concept_id = 165839 AND value_coded = 165788 ;
+            UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
+        </sql>
+    </changeSet>
+    <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='a8939d83-59d7-4f3c-aa80-029d7e4d8095';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a8939d83-59d7-4f3c-aa80-029d7e4d8095"/>
+        </insert>
+    </changeSet>
+    <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='723f8ea2-8708-4a68-a557-d5f232c8b45c';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
+        </insert>
+    </changeSet>
+    
+    <changeSet id="concept_202103081056" author="wande" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="concepts/20210303/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_description.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="concepts/20210303/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="concept_202104181022" author="Bright" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="concepts/20210418/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="concepts/20210418/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="concepts/20210418/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet author="Toyeeb" id="20042021104930" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="forms/forms/encounter_type.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/> 
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>     
+    </changeSet>        
+    
+    <changeSet id="20042021105430" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="forms/forms/form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>        
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+    
+    <changeSet id="20042021134230" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+         <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>  
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+    
+     <changeSet id="2021042894218" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+         <sqlFile path="program/program.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>  
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+    
+    <changeSet id="20210506133523" author="Toyeeb" runOnChange="true">
+        <sql>
+        	SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept SET datatype_id = 3 WHERE concept_id = 166288;
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+    
+     <changeSet author="toyeeb" id="20210505142424" runOnChange="true">
+     	<sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+        <delete tableName="form">
+            <where>form_id='74'</where>
+        </delete>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+	<changeSet author="toyeeb" id="20210506145024" runOnChange="true">
+     	<sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+        <delete tableName="htmlformentry_html_form">
+            <where>form_id='74'</where>
+        </delete>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+     <changeSet id="20210506164130" author="Toyeeb" runOnChange="true">
+         <sqlFile path="forms/forms/form_update.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>                   
+    </changeSet>
+     <changeSet id="update_concept_name_13052021105050" author="Toyeeb">
+        <sql>
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept_description SET description = "MMD greater than or equal to 6" WHERE concept_id = 166283;
+            UPDATE concept_name SET name = "MMD greater than or equal to 6" WHERE concept_name_id = 143054 AND concept_id = 166283;
+       		SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    
+     <changeSet id="14052021084627" author="Toyeeb" runOnChange="true">
+        <sql>
+         <![CDATA[
+        	SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166276;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166363;
+            UPDATE concept SET datatype_id = 3 WHERE concept_id = 166367;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166278;
+            SET FOREIGN_KEY_CHECKS=1;
+        ]]>
+        </sql>
+    </changeSet>
+    
+     <changeSet id="20210516115130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept_description SET description = "MMD greater than or equal to 6" WHERE concept_id = 166283;
+            UPDATE concept_name SET name = "MMD greater than or equal to 6" WHERE concept_name_id = 143054 AND concept_id = 166283;
+       		SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+    
+    <changeSet id="20210521100130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 10 WHERE concept_id = 166284;
+          	UPDATE concept SET class_id = 7 WHERE concept_id = 166284;
+          	SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+   
+   	<changeSet id="Resolve_INHB6_Wrong_TB_Maping_202104241156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE obs SET value_coded = 656 WHERE concept_id =165304 AND value_coded =1679;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+   
+   
+    
 </databaseChangeLog>

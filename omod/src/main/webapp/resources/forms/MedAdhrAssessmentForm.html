@@ -1,0 +1,322 @@
+<htmlform formUuid="f826d129-dea8-4b6b-86bc-1f448076615b" formName="Intensive Patient Follow Up Form(MedAdhrAssessment)"
+          formEncounterType="099661d2-12a3-473d-a768-be6288e4f22e" formVersion="2016">
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_j {
+            text-align: left;
+            color: #000000;
+            width: 20%;
+        }
+
+        .alnleft {
+            text-align: left;
+            color: #000000;8
+        width: 25%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        td {
+            border: none;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!-- padding: 5px; -->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+            padding: 10px 0px;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+
+        table tr {
+            border: None;
+        }
+
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form
+        ul.select {
+            padding: 2px 10px;
+        }
+
+        form select, .form select {
+            max-width: 150px;
+            min-width: 100px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+
+        .alnVertical {
+            vertical-align: top;
+        }
+        .td_overwrote {
+            border: 1px solid black;
+        }
+
+        .new {
+            font-size: 15px;
+            font-weight: 100;
+            background-color: #2f1157;
+            color:#ffffff;
+            border: 0px solid; float:none; align-content: center; clear-;
+            margin: 0px auto;
+        }
+
+        */
+
+    </style>
+
+
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr>
+            <th style="text-align: center">Advanced HIV Disease - Intensive Patient Follow up Form</th>
+        </tr>
+        </thead>
+
+
+    </table>
+
+
+
+    <fieldset style="border: 1px solid #305a72; min-width: 90%; margin-left:5%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+        <legend class="legend_style">Summary of Last Visit</legend>
+        <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
+
+            <tr>
+                <td><b>Last Call Session:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('162189').valueCoded.name" /></font></td>
+
+                <td><b>Missed Doses:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(166362).ValueCoded.name" /></font></td>
+
+            </tr>
+            <tr>
+                <td><b>Wellbeing at Last Session:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('159640').valueCoded.name" /></font> </td>
+                <td><b>Last Call Outcome:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('160433').valueCoded.name" /></font></td>
+
+            </tr>
+        </table>
+    </fieldset>
+
+
+
+    <!--Call Sessions-->
+    <table>
+        <tr>
+            <td class="alnleft">Date of Call</td>
+
+            <td>
+                <encounterDate showTime="false" allowFutureDates="false" required="true"/>
+            </td>
+            <td class="alnleft">Call Session</td>
+            <td>
+                <obs id="arv_exposure"  conceptId="162189" answerConceptIds="166358,166359,166360,166361" answerLabels="First Call, Second Call, Third Call, Fourth Call"/>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- Details of Call -->
+
+    <fieldset>
+
+
+
+        <legend class="legend_style new clearfix::after" > Details of Call </legend>
+        <table>
+
+            <tr>
+
+                <td width="25%" >How do you feel generally:</td>
+                <td width="25%"><obs conceptId="159640" labelText="" answerConceptIds="159405,159406,159407" style="radio; display:inline;" answerLabels="Good,Fair,Sick" /></td>
+                <td width="25%"></td>
+                <td width="25%"></td>
+            </tr>
+
+
+        </table>
+
+        <br />
+        <fieldset></fieldset>
+
+        <table>
+            <tr>
+                <th style="text-align: left;" colspan="12">Do you have any of the following: </th>
+
+            </tr>
+            <tr>
+                <td class="alnVertical" width="20%">
+                    Cough
+                    <obs conceptId="1728" answerConceptId="107" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Fever (feeling hot)
+                    <obs conceptId="1728" answerConceptId="5945" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Night Sweats
+                    <obs conceptId="1728" answerConceptId="6029" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Weight Loss
+                    <obs conceptId="1728" answerConceptId="5225" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    New Lumps
+                    <obs conceptId="1728" answerConceptId="125216" answerLabel="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="alnVertical" width="20%">
+                    Headache
+                    <obs conceptId="1728" answerConceptId="620" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Confusion
+                    <obs conceptId="1728" answerConceptId="6006" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Vomiting
+                    <obs conceptId="1728" answerConceptId="5980" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Feeling unwell
+                    <obs conceptId="1728" answerConceptId="163293" answerLabel="" />
+                </td>
+                <td class="alnVertical" width="20%">
+                    Unable to walk
+                    <obs conceptId="1728" answerConceptId="833" answerLabel="" />
+                </td>
+            </tr>
+        </table>
+
+        <fieldset></fieldset>
+        <table>
+            <tr>
+                <td width="25%">Have you missed any doses of your medications in the past 7 days?</td>
+                <td style="float: left">
+
+                    <!-- There was no suitable conceptId, so i created one "Missed Medication" (166254) -->
+
+                    <obs id="missed_med1" conceptId="166362" answerConceptIds="1065,1066" answerLabel="Yes,No">
+                        <controls>
+                            <when value="1065" thenDisplay="#yes1"/>
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+            <br />
+            <br />
+            <tr id="yes1">
+                <td class="alnleft" style="float: left; margin-top: 5px"> Why ?</td>
+                <td><obs conceptId="166130"/></td>
+            </tr>
+
+            <tr>
+                <td size="25">Others comments:</td>
+                <td colspan="3">
+                    <obs conceptId="165579" style="textarea" rows="3"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Outcomes of the call</td>
+                <td><obs conceptId="160433" answerConceptIds="164929,164928" answerLabels="Patient in care,loss to follow up" /></td>
+            </tr>
+
+
+        </table>
+
+    </fieldset>
+
+    <br />
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table>
+            <tr>
+
+                <td >Initials of the caller:</td>
+                <td colspan="3"> <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true" /></td>
+                <td width="25%">Facility:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                </td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <submit submitClass="confirm right" submitCode="general.save" />
+            <button type="button" class="cancel">
+                <uimessage code="general.cancel" />
+            </button>
+        </div>
+    </ifMode>
+</htmlform>
