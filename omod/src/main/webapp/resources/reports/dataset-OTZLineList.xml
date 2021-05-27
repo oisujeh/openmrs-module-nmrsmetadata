@@ -105,8 +105,8 @@ IF(:cutoffDate IS NULL or :cutoffDate = &apos;&apos;, CURDATE(),:cutoffDate)&#xd
    as `DateReturned`,&#xd;
    MAX(IF(obs.concept_id=166352,obs.value_text, NULL))&#xd;
    as `ReactivatedBy`,&#xd;
-   completedapy(patient.patient_id) as `CompletedAYPModule`,&#xd;
-   IF(completedapy(patient.patient_id)=&apos;Yes&apos;,DATE_FORMAT(datecompletedayp(patient.patient_id),&apos;%d-%b-%Y&apos;),NULL) as `DateCompletedAYPModule`&#xd;
+   completedayp(patient.patient_id) as `CompletedAYPModule`,&#xd;
+   IF(completedayp(patient.patient_id)=&apos;Yes&apos;,DATE_FORMAT(datecompletedayp(patient.patient_id),&apos;%d-%b-%Y&apos;),NULL) as `DateCompletedAYPModule`&#xd;
    &#xd;
    FROM&#xd;
    patient&#xd;
