@@ -779,7 +779,7 @@
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs = getValue('vl_result_obs.value');
                 if (vlresultT === "166239") {
-                    if (vlresultobs & lt; 1000) {
+                    if (vlresultobs &lt; 1000) {
 
                         const field = getField('vl_result_obs.error');
                         if (field != null) {
@@ -2123,7 +2123,7 @@
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs = getValue('vl_result_obs.value');
                 if (vlresultT === "166239") {
-                    if (vlresultobs & lt; 1000) {
+                    if (vlresultobs &lt; 1000) {
                         getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                         return false;
                     }
@@ -2233,7 +2233,7 @@
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs = getValue('vl_result_obs.value');
                 if (vlresultT == "166239") {
-                    if (vlresultobs & lt; 1000) {
+                    if (vlresultobs &lt; 1000) {
                         getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                         return false;
                     }
@@ -2257,7 +2257,7 @@
                 var testVal = new Date(getValue('hiv_test_date.value'));
                 var rctd = new Date(getValue('recency_test_date.value'));
 
-                if (getField('recency_test_date.error') != null & amp; & amp; testVal > rctd) {
+                if (getField('recency_test_date.error') != null &amp; &amp; testVal > rctd) {
                     getField('recency_test_date.error').html('RecencyTest Date cannot be earlier than Screening Test Date').show();
                     return false;
                 }

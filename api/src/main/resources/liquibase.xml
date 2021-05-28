@@ -354,6 +354,17 @@
         </sql>
 	</changeSet>
    
+	<changeSet id="resolve_lga_mapping_202105271156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE address_hierarchy_entry SET user_generated_id = 520 WHERE address_hierarchy_entry_id =5481;
+			UPDATE address_hierarchy_entry SET user_generated_id = 521 WHERE address_hierarchy_entry_id =7258;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+   
    
     
 </databaseChangeLog>
