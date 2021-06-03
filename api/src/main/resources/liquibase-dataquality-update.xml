@@ -11,7 +11,7 @@
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
-    <changeSet id="fn_getmaxconceptobsidwithformidvaluecoded_20210301_1046" author="Bright">
+    <changeSet id="fn_getmaxconceptobsidwithformidvaluecoded_20210301_1046" author="Bright" runOnChange="true">
         <sqlFile path="dataquality/functions/fn_getmaxconceptobsidwithformidvaluecoded.sql"
                  stripComments="true"
                  splitStatements="true"
