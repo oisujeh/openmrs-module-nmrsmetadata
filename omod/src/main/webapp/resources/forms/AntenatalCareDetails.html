@@ -1,9 +1,7 @@
 <htmlform formUuid="d4a727c5-1532-40cb-ae4a-1a5c66e8271f" formName="Antenatal Care Details" formEncounterType="15a98ee7-0e8d-4ee8-8aaa-99b28c7083ee" formVersion="2018">
     <!-- General Antenatal Register 10-Apr-2018 -->
     <macros>
-        paperFormId = (Fill this in)
-        headerColor =#2f1c55
-        fontOnHeaderColor = white
+        paperFormId = (Fill this in) headerColor =#2f1c55 fontOnHeaderColor = white
     </macros>
     <style>
         .section {
@@ -12,6 +10,7 @@
             text-align: left;
             margin-bottom: 1em;
         }
+        
         .sectionHeader {
             background-color: #2f1c55;
             color: white;
@@ -19,91 +18,124 @@
             padding: 2px;
             font-weight: bold;
         }
+        
         table tr:nth-child(even) {
             background: #ffffff;
         }
-        .alnright{
+        
+        .alnright {
             text-align: right;
-            color:#000000;
+            color: #000000;
             width: 25%;
         }
-        .alnright_s{
+        
+        .alnright_s {
             text-align: right;
-            color:#000000;
+            color: #000000;
             width: 13%;
         }
-        .alnleft_s{
+        
+        .alnleft_s {
             text-align: left;
-            color:#000000;
+            color: #000000;
             width: 13%;
         }
-        .alnleft{
+        
+        .alnleft {
             text-align: left;
-            color:#000000;
+            color: #000000;
             width: 25%;
         }
+        
         td {
             border: none;
         }
-        table th, table td {
+        
+        table th,
+        table td {
             padding: 5px 10px;
             border: None;
         }
+        
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
-        <!--padding: 5px;-->
-            margin: 0px left;
-            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            <!--padding: 5px;
+            -->margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
             border-radius: 2px;
             border: 1px solid #305a72;
             border-bottom-left-radius: 2px;
-            text-transform:initial;
-
+            text-transform: initial;
         }
-        form fieldset, .form fieldset {
+        
+        form fieldset,
+        .form fieldset {
             min-width: 98%;
             border: none;
             border-top: 1px solid #305a72;
-
         }
-        table th, table td {
+        
+        table th,
+        table td {
             padding: 5px 10px;
             /* border: 1px solid #DDD; */
         }
+        
         table tr {
             border: None;
         }
-        ul.select, .form input, .form select, .form textarea, .form ul.select {
+        
+        ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
             padding: 2px 10px;
         }
-        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+        
+        form input,
+        form select,
+        form textarea,
+        form ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
             padding: 2px 10px;
         }
-        form select, .form select, .standard {
+        
+        form select,
+        .form select,
+        .standard {
             max-width: 200px;
             min-width: 150px;
         }
-        form select, .form select {
+        
+        form select,
+        .form select {
             max-width: 200px;
             min-width: auto;
         }
-
+        
         body {
             font-family: "OpenSans", Arial, sans-serif;
             color: #363463;
             font-size: 14px;
         }
-        <!--table.baseline-aligned td {-->
-            <!--vertical-align: baseline;-->
-            <!--}-->
+        
+        <!--table.baseline-aligned td {
+            --><!--vertical-align: baseline;
+            --><!--
+        }
+        
+        -->
     </style>
 
     <script type="text/javascript">
-        function diff_weeks(date2, date1)
-        {
+        function diff_weeks(date2, date1) {
 
-            var diff =(date2.getTime() - date1.getTime()) / 1000;
+            var diff = (date2.getTime() - date1.getTime()) / 1000;
             diff /= (60 * 60 * 24 * 7);
             return Math.abs(Math.round(diff));
 
@@ -116,19 +148,19 @@
             console.log(lmp.toString("dd/mm/yyyy"));
             console.log('Just a test');
 
-            if(lmp &gt; today){
+            if (lmp &gt; today) {
                 window.alert('Error! future date not allowed');
-                setValue('LMP.value',null);
+                setValue('LMP.value', null);
                 return;
             }
 
-            if (!isNaN(lmp))  {
+            if (!isNaN(lmp)) {
                 display = lmp;
                 display.setDate(display.getDate() + 280);
                 console.log(display);
                 console.log('final value');
                 console.log(display.getMonth());
-                setValue('EDD.value',display.getFullYear()+"-"+(display.getMonth()+1)+"-"+display.getDate());
+                setValue('EDD.value', display.getFullYear() + "-" + (display.getMonth() + 1) + "-" + display.getDate());
                 $('#EDD').attr("style", "pointer-events: none;");
 
                 var ard = new Date(getValue('ARD.value'));
@@ -138,8 +170,8 @@
                 console.log(ard);
                 console.log(edd)
 
-                var weekDiff = diff_weeks(ard,new Date(getValue('LMP.value')));
-                setValue('gestationAge.value',weekDiff);
+                var weekDiff = diff_weeks(ard, new Date(getValue('LMP.value')));
+                setValue('gestationAge.value', weekDiff);
                 $('#gestationAge').attr("style", "pointer-events: none;");
             }
 
@@ -149,45 +181,42 @@
         jQuery(function() {
             jQuery('#LMP').change(onLMPOrGAChange);
         });
-
     </script>
     <script type="text/javascript">
-
         var $ = jQuery;
 
         var path = $(location).attr('pathname').split('/')[1];
         var baseUrl = '/' + path + '/nigeriaemr/PatientIdTypeSetter';
 
-        $(document).ready(function ()
-        {
+        $(document).ready(function() {
             $('.hasDatepicker').attr('readonly', true)
 
             $.ajax({
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 url: baseUrl + "/getIdentifier.action",
-                data: { patientId: $('input[name=personId]').val(), identifierType: $('#pref_type').val() },
+                data: {
+                    patientId: $('input[name=personId]').val(),
+                    identifierType: $('#pref_type').val()
+                },
                 cache: false,
                 timeout: 600000,
-                success: function (r) {
+                success: function(r) {
                     if (r.code > 0) {
-                        if (r.identifier.length > 0)
-                        {
-                            if (r.preferred === true)
-                            {
+                        if (r.identifier.length > 0) {
+                            if (r.preferred === true) {
                                 $('#preferred').prop("checked", 'checked');
                             }
                         }
                     }
                 },
-                error: function (e) {
+                error: function(e) {
                     console.log("ERROR : ", e);
                 }
             });
 
 
-            $('#preferred').click(function (e)
-            {
+            $('#preferred').click(function(e) {
                 var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
                 if (patientIdentifier) {
                     if (patientIdentifier.trim().length > 0) {
@@ -200,8 +229,13 @@
                         var patientId = $('input[name=personId]').val();
                         var identifierType = $('#pref_type').val();
 
-                        var pid = { patientId: patientId, patientIdentifier: patientIdentifier, identifierType: identifierType, isPreferred: isPreferred };
-                        var link = baseUrl  + "/setPidType.action";
+                        var pid = {
+                            patientId: patientId,
+                            patientIdentifier: patientIdentifier,
+                            identifierType: identifierType,
+                            isPreferred: isPreferred
+                        };
+                        var link = baseUrl + "/setPidType.action";
 
                         $.ajax({
                             contentType: "application/json; charset=utf-8",
@@ -210,56 +244,50 @@
                             data: pid,
                             cache: false,
                             timeout: 600000,
-                            success: function (r)
-                            {
-                                if (r.code !== 5)
-                                {
+                            success: function(r) {
+                                if (r.code !== 5) {
                                     alert(r.message);
                                 }
                             },
-                            error: function (e)
-                            {
+                            error: function(e) {
                                 console.log("ERROR : ", e);
                             }
                         });
-                    }
-                    else
-                    {
+                    } else {
                         $('#preferred').prop("checked", '');
                         alert('Please fill in the ANC No. before setting as preferred');
                     }
-                }
-                else
-                {
+                } else {
                     $('#preferred').prop("checked", '');
                     alert('Please fill in the ANC No. before setting as preferred');
                 }
             });
         });
-
     </script>
-<!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
-<!--        <fieldset>-->
-<!--            <legend class="legend_style">When?</legend>-->
-<!--            <label>When?</label>-->
-<!--            <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
-<!--        </fieldset>-->
+    <!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
+    <!--        <fieldset>-->
+    <!--            <legend class="legend_style">When?</legend>-->
+    <!--            <label>When?</label>-->
+    <!--            <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
+    <!--        </fieldset>-->
 
-<!--        <fieldset>-->
-<!--            <legend>Who?</legend>-->
-<!--            <label>Who?</label>-->
-<!--            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>-->
-<!--        </fieldset>-->
+    <!--        <fieldset>-->
+    <!--            <legend>Who?</legend>-->
+    <!--            <label>Who?</label>-->
+    <!--            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>-->
+    <!--        </fieldset>-->
 
-<!--        <fieldset>-->
-<!--            <legend>Where?</legend>-->
-<!--            <label>Where?</label>-->
-<!--            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
-<!--        </fieldset>-->
-<!--    </div>-->
+    <!--        <fieldset>-->
+    <!--            <legend>Where?</legend>-->
+    <!--            <label>Where?</label>-->
+    <!--            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+    <!--        </fieldset>-->
+    <!--    </div>-->
     <table style="margin-bottom: 20px;">
         <thead>
-        <tr><th colspan='5' style="text-align: center">General Antenatal Care Form</th></tr>
+            <tr>
+                <th colspan='5' style="text-align: center">General Antenatal Care Form</th>
+            </tr>
         </thead>
     </table>
 
@@ -269,8 +297,10 @@
 
             <tr>
                 <td class="alnright">ANC No.</td>
-<!--                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>-->
-                <td class="alnleft"><obs conceptId="165567" id="identifer-td" required="true"/></td>
+                <!--                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>-->
+                <td class="alnleft">
+                    <obs conceptId="165567" id="identifer-td" required="true" />
+                </td>
                 <td style="vertical-align: top;">
                     <label> <input type="checkbox" name="preferred" id="preferred" />preferred</label>
                     <input type="hidden" name="pref_value" id="pref_value" />
@@ -281,35 +311,51 @@
             <tr>
                 <td class="alnright">Antenatal registration date</td>
                 <td>
-                    <enrollInProgram programId="2"  showDate="false"/>
-                    <encounterDate default="now" showTime="false" id="ARD"/>
+                    <enrollInProgram programId="2" showDate="false" />
+                    <encounterDate default="now" showTime="false" id="ARD" />
                 </td>
 
 
                 <td class="alnright">Gravidity</td>
-                <td class="alnleft"><obs conceptId="5624" /></td>
+                <td class="alnleft">
+                    <obs conceptId="5624" />
+                </td>
             </tr>
             <tr>
                 <td class="alnright">Last Menstral Period</td>
-                <td class="alnleft"><obs conceptId="1427" id="LMP" allowFutureDates="false" /></td>
+                <td class="alnleft">
+                    <obs conceptId="1427" id="LMP" allowFutureDates="false" />
+                </td>
                 <td class="alnright">Parity</td>
-                <td class="alnleft"><obs conceptId="1053"/></td>
+                <td class="alnleft">
+                    <obs conceptId="1053" />
+                </td>
             </tr>
             <tr>
                 <td class="alnright">Gestational Age (in Weeks)</td>
-                <td class="alnleft"><obs conceptId="1438" id="gestationAge"/></td>
+                <td class="alnleft">
+                    <obs conceptId="1438" id="gestationAge" />
+                </td>
                 <td class="alnright">Number Alive</td>
-                <td class="alnleft"><obs conceptId="1053"/></td>
+                <td class="alnleft">
+                    <obs conceptId="1053" />
+                </td>
             </tr>
             <tr>
                 <td class="alnright">Expected Delivery Date</td>
-                <td class="alnleft"><obs allowFutureDates="true" conceptId="5596" id="EDD"/></td>
+                <td class="alnleft">
+                    <obs allowFutureDates="true" conceptId="5596" id="EDD" />
+                </td>
                 <td class="alnright_s">Source of referral</td>
-                <td class="alnleft_s"><obs conceptId="165847"/></td>
+                <td class="alnleft_s">
+                    <obs conceptId="165847" />
+                </td>
             </tr>
             <tr>
                 <td class="alnright_s">Obstetrics/Gynaecological history</td>
-                <td class="alnleft_s" colspan="3"><obs conceptId="165848" rows="2"/></td>
+                <td class="alnleft_s" colspan="3">
+                    <obs conceptId="165848" rows="2" />
+                </td>
 
             </tr>
         </table>
@@ -319,37 +365,52 @@
         <legend class="legend_style">Syphilis Screening</legend>
         <table>
             <tr>
-                <td class="alnright_s" >Woman tested for Syphilis</td>
-                <td class="alnleft_s standard" ><obs id="testedForSyphilis" conceptId="165280">
-                    <controls>
-                        <when value="1065" thenDisplay="#syphilis_test_details"/>
-                    </controls></obs></td>
+                <td class="alnright_s">Woman tested for Syphilis</td>
+                <td class="alnleft_s standard">
+                    <obs id="testedForSyphilis" conceptId="165280">
+                        <controls>
+                            <when value="1065" thenDisplay="#syphilis_test_details" />
+                        </controls>
+                    </obs>
+                </td>
                 <td class="alnright_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
             <tr id="syphilis_test_details">
                 <td class="alnright_s">Syphilis test date</td>
-                <td class="alnleft_s"><obs conceptId="164952"/></td>
+                <td class="alnleft_s">
+                    <obs conceptId="164952" />
+                </td>
                 <td class="alnright_s">Syphilis test result</td>
-                <td class="alnleft_s"><obs id="pos_syphilis" conceptId="299" answerConceptIds="1228,1229,1304" answerLabels="Positive,Negative,Indeterminant">
-                    <controls>
-                        <when value="1228" thenDisplay="#syphilis_treatment"/>
-                    </controls></obs></td>
+                <td class="alnleft_s">
+                    <obs id="pos_syphilis" conceptId="299" answerConceptIds="1228,1229,1304" answerLabels="Positive,Negative,Indeterminant">
+                        <controls>
+                            <when value="1228" thenDisplay="#syphilis_treatment" />
+                        </controls>
+                    </obs>
+                </td>
             </tr>
             <tr id="syphilis_treatment">
                 <td class="alnright_s">Treated for syphilis</td>
-                <td class="alnleft_s"><obs id="treatedForSyphilis" conceptId="160733" answerConceptIds="1065,1066">
-                    <controls>
-                        <when value="1065" thenDisplay="#syphilis_treatment_details"/>
-                    </controls></obs></td>
+                <td class="alnleft_s">
+                    <obs id="treatedForSyphilis" conceptId="160733" answerConceptIds="1065,1066">
+                        <controls>
+                            <when value="1065" thenDisplay="#syphilis_treatment_details" />
+                        </controls>
+                    </obs>
+                </td>
                 <td class="alnright_s"></td>
                 <td class="alnleft_s"></td>
             </tr>
             <tr id="syphilis_treatment_details">
                 <td class="alnright_s">Syphilis treatment date</td>
-                <td class="alnleft_s"><obs conceptId="164953"/></td>
+                <td class="alnleft_s">
+                    <obs conceptId="164953" />
+                </td>
                 <td class="alnright_s">Referred Syphilis +ve client</td>
-                <td class="alnleft_s"><obs conceptId="165517"/></td>
+                <td class="alnleft_s">
+                    <obs conceptId="165517" />
+                </td>
             </tr>
         </table>
     </fieldset>
@@ -358,64 +419,150 @@
         <table class="table" width="100%">
             <tr>
                 <td>Tested for Hepatitis B</td>
-                <td><obs id="HepB" conceptId="165514"><control><when value="1065" thenDisplay="#HepBlbl, #HepBAns" /></control></obs></td>
+                <td>
+                    <obs id="HepB" conceptId="165514">
+                        <control>
+                            <when value="1065" thenDisplay="#HepBlbl, #HepBAns" />
+                        </control>
+                    </obs>
+                </td>
             </tr>
             <tr>
                 <td id="HepBlbl" class="alnleft_s">Hepatitis B Test:</td>
-                <td id="HepBAns" class="alnright_s"><obs id="result" conceptId="159430" answerConceptIds="703,664,165993" answerLabels="Positive,Negative,Positive and on treatment">
-                    <controls>
-                        <when value="703" thenDisplay ="#was_patient_referd_label,#was_patient_refered_name"/>
-                    </controls></obs></td>
+                <td id="HepBAns" class="alnright_s">
+                    <obs id="result" conceptId="159430" answerConceptIds="703,664,165993" answerLabels="Positive,Negative,Positive and on treatment">
+                        <controls>
+                            <when value="703" thenDisplay="#was_patient_referd_label,#was_patient_refered_name" />
+                        </controls>
+                    </obs>
+                </td>
                 <td id="was_patient_referd_label" class="alnleft_s">Was patient referred?</td>
-                <td id="was_patient_refered_name" class="alnright_s"> <obs id="wasrefered" conceptId="166024">
-                    <controls>
-                        <when value="1065" thenDisplay="#Facility_Refered_To_label,#Facility_Refered_name"/>
-                    </controls></obs></td>
+                <td id="was_patient_refered_name" class="alnright_s">
+                    <obs id="wasrefered" conceptId="166024">
+                        <controls>
+                            <when value="1065" thenDisplay="#Facility_Refered_To_label,#Facility_Refered_name" />
+                        </controls>
+                    </obs>
+                </td>
                 <td id="Facility_Refered_To_label" class="alnleft_s">Facility Refered To</td>
-                <td id="Facility_Refered_name" class="alnright_s"><obs conceptId="165483"/> </td>
+                <td id="Facility_Refered_name" class="alnright_s">
+                    <obs conceptId="165483" /> </td>
             </tr>
             <tr>
                 <td>Tested for Hepatitis C</td>
-                <td><obs id="HepC" conceptId="165515"><control><when value="1065" thenDisplay="#HepClbl, #HepCAns" /></control></obs></td>
+                <td>
+                    <obs id="HepC" conceptId="165515">
+                        <control>
+                            <when value="1065" thenDisplay="#HepClbl, #HepCAns" />
+                        </control>
+                    </obs>
+                </td>
             </tr>
             <tr>
                 <td id="HepClbl" class="alnleft_s">Hepatitis C Test:</td>
-                <td id="HepCAns" class="alnright_s"><obs id="hcresult" conceptId="161471" answerConceptIds="703,664,165993" answerLabels="Positive,Negative,Positive and on treatment">
-                    <controls>
-                        <when value="703" thenDisplay ="#hc_was_patient_referd_label,#hc_was_patient_refered_name"/>
-                    </controls></obs></td>
+                <td id="HepCAns" class="alnright_s">
+                    <obs id="hcresult" conceptId="161471" answerConceptIds="703,664,165993" answerLabels="Positive,Negative,Positive and on treatment">
+                        <controls>
+                            <when value="703" thenDisplay="#hc_was_patient_referd_label,#hc_was_patient_refered_name" />
+                        </controls>
+                    </obs>
+                </td>
                 <td id="hc_was_patient_referd_label" class="alnleft_s">Was patient referred?</td>
-                <td id="hc_was_patient_refered_name" class="alnright_s"> <obs id="hcwasrefered" conceptId="166024">
-                    <controls>
-                        <when value="1065" thenDisplay="#hc_Facility_Refered_To_label,#hc_Facility_Refered_name"/>
-                    </controls></obs></td>
+                <td id="hc_was_patient_refered_name" class="alnright_s">
+                    <obs id="hcwasrefered" conceptId="166024">
+                        <controls>
+                            <when value="1065" thenDisplay="#hc_Facility_Refered_To_label,#hc_Facility_Refered_name" />
+                        </controls>
+                    </obs>
+                </td>
                 <td id="hc_Facility_Refered_To_label" class="alnleft_s">Facility Refered To</td>
-                <td id="hc_Facility_Refered_name" class="alnright_s"><obs conceptId="165483"/> </td>
+                <td id="hc_Facility_Refered_name" class="alnright_s">
+                    <obs conceptId="165483" /> </td>
             </tr>
         </table>
 
     </fieldset>
 
 
-<!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
-<!--        <section headerLabel="Encounter Details" style="width: 40%; margin-left: 30%;">-->
-<!--            <fieldset>-->
-<!--                <legend class="legend_style">ANC Enrollment Date</legend>-->
-<!--                <label>ANC Enrollment Date</label>-->
-<!--                <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
-<!--            </fieldset>-->
-<!--            <fieldset>-->
-<!--                <legend class="legend_style">Facility</legend>-->
-<!--                <label>Facility</label>-->
-<!--                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
-<!--            </fieldset>-->
-<!--            <fieldset>-->
-<!--                <legend class="legend_style">Service Provider</legend>-->
-<!--                <label>Service Provider</label>-->
-<!--                <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>-->
-<!--            </fieldset>-->
-<!--        </section>-->
-<!--    </div>-->
+    <!-- UPDATED -->
+    <fieldset>
+        <legend class="legend_style">Key Population</legend>
+        <table width="100%" border="0">
+            <td>
+                <table>
+                    <td>
+                        <tr>
+                            <td class="alnleft_s">KP</td>
+                            <td>
+                                <obs id="key_pop" style="yes_no_dropdown" conceptId="166284">
+                                    <controls>
+                                        <when value="true" thenDisplay="#key_pop_type" />
+                                    </controls>
+                                </obs>
+                            </td>
+                        </tr>
+                    </td>
+                </table>
+            </td>
+
+            <td>
+                <table class="table" width="100%" id="key_pop_type">
+                    <includeIf velocityTest="$patient.gender == 'F' ">
+                        <tr>
+                            <td>FSW
+                                <obs conceptId="166369" answerConceptId="166285" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+
+                    <includeIf velocityTest="$patient.gender == 'M' ">
+                        <tr>
+                            <td>MSM
+                                <obs conceptId="166369" answerConceptId="160578" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+                    <tr>
+                        <td>PWID
+                            <obs conceptId="166369" answerConceptId="166286" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TG
+                            <obs conceptId="166369" answerConceptId="166287" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>People in prisons and other enclosed settings
+                            <obs conceptId="166369" answerConceptId="162277" answerLabel="" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </table>
+    </fieldset>
+
+
+
+    <!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
+    <!--        <section headerLabel="Encounter Details" style="width: 40%; margin-left: 30%;">-->
+    <!--            <fieldset>-->
+    <!--                <legend class="legend_style">ANC Enrollment Date</legend>-->
+    <!--                <label>ANC Enrollment Date</label>-->
+    <!--                <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
+    <!--            </fieldset>-->
+    <!--            <fieldset>-->
+    <!--                <legend class="legend_style">Facility</legend>-->
+    <!--                <label>Facility</label>-->
+    <!--                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+    <!--            </fieldset>-->
+    <!--            <fieldset>-->
+    <!--                <legend class="legend_style">Service Provider</legend>-->
+    <!--                <label>Service Provider</label>-->
+    <!--                <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>-->
+    <!--            </fieldset>-->
+    <!--        </section>-->
+    <!--    </div>-->
 
 
     <fieldset>
@@ -424,10 +571,17 @@
             <table class='left'>
                 <tr>
                     <td>Provider Name</td>
-                    <td><encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/></td>
-                    <td>Facility Name</td><td><p class='left'><encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/></p></td>
-        </tr>
-        </table>
+                    <td>
+                        <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true" />
+                    </td>
+                    <td>Facility Name</td>
+                    <td>
+                        <p class='left'>
+                            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                        </p>
+                    </td>
+                </tr>
+            </table>
         </p>
 
     </fieldset>

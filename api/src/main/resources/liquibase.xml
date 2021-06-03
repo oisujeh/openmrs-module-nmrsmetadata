@@ -309,6 +309,62 @@
         </sql>
     </changeSet>
 
+     <changeSet id="14052021084627" author="Toyeeb" runOnChange="true">
+        <sql>
+         <![CDATA[
+        	SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166276;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166363;
+            UPDATE concept SET datatype_id = 3 WHERE concept_id = 166367;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166278;
+            SET FOREIGN_KEY_CHECKS=1;
+        ]]>
+        </sql>
+    </changeSet>
+
+     <changeSet id="20210516115130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept_description SET description = "MMD greater than or equal to 6" WHERE concept_id = 166283;
+            UPDATE concept_name SET name = "MMD greater than or equal to 6" WHERE concept_name_id = 143054 AND concept_id = 166283;
+       		SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210521100130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 10 WHERE concept_id = 166284;
+          	UPDATE concept SET class_id = 7 WHERE concept_id = 166284;
+          	SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+
+   	<changeSet id="Resolve_INHB6_Wrong_TB_Maping_202104241156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE obs SET value_coded = 656 WHERE concept_id =165304 AND value_coded =1679;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+
+	<changeSet id="resolve_lga_mapping_202105271156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE address_hierarchy_entry SET user_generated_id = 520 WHERE address_hierarchy_entry_id =5481;
+			UPDATE address_hierarchy_entry SET user_generated_id = 521 WHERE address_hierarchy_entry_id =7258;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+
     <changeSet id="2021060300001" author="Melody" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="apps/tracking_results.sql"
@@ -318,5 +374,5 @@
                  endDelimiter=";"/>
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
-    
+
 </databaseChangeLog>

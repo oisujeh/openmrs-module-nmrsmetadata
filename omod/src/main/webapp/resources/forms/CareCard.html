@@ -336,6 +336,7 @@
                 </table>
             </fieldset>
         </includeIf>
+
         <table>
             <tr>
 
@@ -353,22 +354,25 @@
                 <td>
                     <obs conceptId="5090" id="length" />
                 </td>
+                <td class="alnright_s">Temp (c)</td>
+                <td><obs conceptId="5088" id="temp" /></td>
+            </tr>
+            <tr>
                 <td class="alnright_s">Blood Pressure (mmHg)</td>
                 <td>
                     <table>
                         <tr>
-                             <td>
-                                <obs conceptId="5085" id="bp1" />
+                            <td>
+                                <obs conceptId="5085" />
                             </td>
                             <td>/</td>
                             <td>
-                                <obs conceptId="5086" id="bp2" />
+                                <obs conceptId="5086" />
                             </td>
                         </tr>
                     </table>
                 </td>
-            </tr>
-            <tr>
+
                 <td class="alnright_s">Body Mass Index (BMI)</td>
                 <td>
                     <obs conceptId="1342" id="bmi" />
@@ -384,6 +388,9 @@
                 <td class="alnright_s">
                     <obs conceptId="165243" />
                 </td>
+            </tr>
+            <tr>
+                
                 <td class="alnright_s">Is Patient on Family Planning</td>
                 <td>
                     <obs id="family_planning" style="yes_no_dropdown" conceptId="5271">
@@ -394,6 +401,7 @@
                 </td>
             </tr>
         </table>
+
         <table>
             <tr>
                 <td id="family_planning_result">
@@ -467,7 +475,7 @@
                     Dementia / Encephalitis
                     <obs conceptId="160170" answerConceptId="119566" answerLabel="" />
                     <br />
-                    Thrush, Oral/Virginal
+                    Thrush, Oral/Vaginal
                     <obs conceptId="160170" answerConceptId="5334" answerLabel="" />
                     <br />
                     Other OIs<obs conceptId="165613" />

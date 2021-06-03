@@ -127,6 +127,27 @@
                  splitStatements="true"
                  endDelimiter="/0xd"/>
     </changeSet>
+    <!-- New functions for the OTZ Line List -->
+    <changeSet id="fn_completedayp_202105270138" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_completedayp.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="fn_datecompletedayp_202105270202" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_datecompletedayp.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="fn_previous_202105270206" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_previous.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
     
     
     <!-- Error - Pharmacy Forms Without Duration -->

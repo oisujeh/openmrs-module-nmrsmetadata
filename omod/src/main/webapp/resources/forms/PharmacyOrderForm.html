@@ -79,34 +79,33 @@
 
 
 <!-- UPDATED -->
-    <script >
-      jQuery(function() {
-         getField('arvdosage.value').change(function() {
-         var arvdos = getValue('arvdosage.value');
-             if(arvdos &lt; "0.5"){
-				window.alert('ARV Dosage:- ' +getValue('arvdosage.value')+' Out of Range')
-				setValue('arvdosage.value')
-			}
-			else if(arvdos &gt; "10"){
-				 // window.alert('ARV Dosage-: ' + getValue('arvdosage.value')+' Out of Range')
+<script >
+	jQuery(function() {
+	   getField('arvdosage.value').change(function() {
+	   var arvdos = getValue('arvdosage.value');
+		   if(arvdos &lt; "0.5"){
+			  window.alert('ARV Dosage:- ' +getValue('arvdosage.value')+' Out of Range')
+			  setValue('arvdosage.value')
+		  }
+		  else if(arvdos &gt; "10"){
+			   // window.alert('ARV Dosage-: ' + getValue('arvdosage.value')+' Out of Range')
 
-				   if( confirm('ARV Dosage-: ' +getValue('arvdosage.value')+' Out of Range? Are you sure you want to submit?') ) {
-						return true;
-					}
-					else {
-						setValue('arvdosage.value')
-						return false;
-					}
-			}
-		});
-		});
-    </script>
+				 if( confirm('ARV Dosage-: ' +getValue('arvdosage.value')+' Out of Range? Are you sure you want to submit?') ) {
+					  return true;
+				  }
+				  else {
+					  setValue('arvdosage.value')
+					  return false;
+				  }
+		  }
+	  });
+	  });
+  </script>
 
 
 <!-- UPDATED (ADDED) -->
 <script type="text/javascript">
-<!-- Error Checking before Form Submit -->
-	// checking that line, age, regimen and duration are filled while allowing for OI flexibility
+	// checking that line, age, regimen and duration are filled while allowing for OI flexibility.
 
 beforeSubmit.push(function() {
 
@@ -124,8 +123,10 @@ beforeSubmit.push(function() {
 			setValue('RegimenLine.error', '');
 			setValue('Adult1stLine.error', '');
 			setValue('Adult2ndLine.error', '');
+			setValue('Adult3rdLine.error', '');
 			setValue('Ped1stLine.error', '');
 			setValue('Ped2ndLine.error', '');
+			setValue('Ped3rdLine.error', '');
 			setValue('duration_s.error', '');
 
 		// ARV
@@ -133,8 +134,10 @@ beforeSubmit.push(function() {
 			var RegimenLine = getValue('RegimenLine.value');
 			var Adult1stLine = getValue('Adult1stLine.value');
 			var Adult2ndLine = getValue('Adult2ndLine.value');
+			var Adult3rdLine = getValue('Adult3rdLine.value');
 			var Ped1stLine = getValue('Ped1stLine.value');
 			var Ped2ndLine = getValue('Ped2ndLine.value');
+			var Ped3rdLine = getValue('Ped3rdLine.value');
 			var duration_s = getValue('duration_s.value');
 
 		switch (true) {
@@ -158,21 +161,71 @@ beforeSubmit.push(function() {
 
 
 			<!-- Adult1stLine -->
-			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "")):
+			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
 				return true;
-
-			case (error == true):
+			}else {
 				return false;
-				break;
-
-			default:
-				window.alert('Patients Regimen Line MUST be entered and can not be empty')
-				break;
+			}
+		}else {
+				var error = false;
+			<!-- Clear the previous errors -->
+				setValue('TreatmentAgeCategory.error', '');
+				setValue('RegimenLine.error', '');
+				setValue('Adult1stLine.error', '');
+				setValue('Adult2ndLine.error', '');
+				setValue('Adult3rdLine.error', '');
+				setValue('Ped1stLine.error', '');
+				setValue('Ped2ndLine.error', '');
+				setValue('Ped3rdLine.error', '');
+				setValue('duration_s.error', '');
+	
+			// ARV
+				var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');
+				var RegimenLine = getValue('RegimenLine.value');
+				var Adult1stLine = getValue('Adult1stLine.value');
+				var Adult2ndLine = getValue('Adult2ndLine.value');
+				var Adult3rdLine = getValue('Adult3rdLine.value');
+				var Ped1stLine = getValue('Ped1stLine.value');
+				var Ped2ndLine = getValue('Ped2ndLine.value');
+				var Ped3rdLine = getValue('Ped3rdLine.value');
+				var duration_s = getValue('duration_s.value');
+	
+			switch (true) {
+				<!-- TreatmentAgeCategory -->
+				case (TreatmentAgeCategory == ""):
+					getField('TreatmentAgeCategory.error').html('This field cannot be empty').show();
+					error=true;
+					break;
+	
+				<!-- RegimenLine -->
+				case (RegimenLine == ""):
+					getField('RegimenLine.error').html('This field cannot be empty').show();
+					error=true;
+					break;
+	
+				<!-- duration_s -->
+				case (duration_s == ""):
+					getField('duration_s.error').html('This field cannot be empty').show();
+					error=true;
+					break;
+	
+	
+				<!-- Adult1stLine -->
+				case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
+					return true;
+	
+				case (error == true):
+					return false;
+					break;
+	
+				default:
+					window.alert('Patients Regimen Line MUST be entered and can not be empty')
+					break;
+			}
 		}
-	}
-});
-
-</script>
+	});
+	
+	</script>
 
 
 <script type="text/javascript">
@@ -265,60 +318,68 @@ beforeSubmit.push(function() {
 	</fieldset>
 	<br/>
 
-	<fieldset>
-		<legend class="legend_style">Service Type</legend>
-		<table class="table" width="100%">
-			<td>
-				<table id="ServiceDeliveryModel" class="table" width="100%">
-					<tr>
-						<td>
-							<label>Service Delivery Model</label>
-							<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166277,166149" answerLabels="Facility, Community, Multi-Month Dispensing (MMD)">
-								<controls>
-									<when value="166276" thenDisplay="#Facility_Dispensing"/>
-									<when value="166277" thenDisplay="#Community_Dispensing"/>
-									<when value="166149" thenDisplay="#Multi_Month_Dispensing"/>												
-								</controls>
-							</obs>
-						</td>
-					</tr>
-				</table>
-			</td>
+<!-- UPDATED -->
+<fieldset>
+	<legend class="legend_style">Service Delivery Model</legend>
+	<table class="table" width="100%">
+		<td>
+			<table id="ServiceDeliveryModel" class="table" width="100%">
+				<tr>
+					<td>
+						<label>Dispensing Modality</label>
+						<obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166363" answerLabels="Facility Dispensing, Decentralized Drug Delivery (DDD)">
+							<controls>
+								<when value="166276" thenDisplay="#Facility_Dispensing"/>
+								<when value="166363" thenDisplay="#ddd_Dispensing"/>												
+							</controls>
+						</obs>
+					</td>
+				</tr>
+			</table>
+		</td>
 
-			<td>
-				<table id="Facility_Dispensing" class="table" width="100%">
-					<tr>
-						<td>
-							<label>Facility Dispensing </label>
-							<obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
-						</td>
-					</tr>
-				</table>
-			</td>
+		<td>
+			<table id="Facility_Dispensing" class="table" width="100%">
+				<tr>
+					<td>
+						<label>Facility Dispensing </label>
+						<obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
+					</td>
+				</tr>
+			</table>
+		</td>
 
-			<td>
-				<table id="Community_Dispensing" class="table" width="100%">
-					<tr>
-						<td>
-							<label>Community Dispensing </label>
-							<obs conceptId='166277' answerConceptIds="166134,166135,166280" answerLabels="Community Pharmacy, Community ART Group, Home Delivery"/>
-						</td>
-					</tr>
-				</table>
-			</td>
+		<td>
+			<table id="ddd_Dispensing" class="table" width="100%">
+				<tr>
+					<td>
+						<label>DDD Dispensing </label>
+						<obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group, Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">		
+							<controls>
+								<when value="5622" thenDisplay="#others_dispensary"/>
+							</controls>
+						</obs>
+							<obs conceptId="166367" id="others_dispensary"/>
+					</td>
+				</tr>
+			</table>
+		</td>
 
-			<td>
-				<table id="Multi_Month_Dispensing" class="table" width="100%">
-					<tr>
-						<td>
-							<label>Multi-Month Dispensing (MMD)</label>
-							<obs conceptId='166149' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
-						</td>
-					</tr>
-				</table>
-			</td>
-        </table>
-	</fieldset>
+		<td>
+			<table id="Multi_Month_Dispensing" class="table" width="100%">
+				<tr>
+					<td>
+						<label>Multi-Month Dispensing (MMD)</label>
+						<obs conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+
+	</table>
+</fieldset>
+
+
 
 	<fieldset>
 		<legend class="legend_style">ARV Medication Adherence</legend>
