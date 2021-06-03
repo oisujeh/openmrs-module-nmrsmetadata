@@ -308,7 +308,7 @@
        		SET FOREIGN_KEY_CHECKS = 1;
         </sql>
     </changeSet>
-    
+
      <changeSet id="14052021084627" author="Toyeeb" runOnChange="true">
         <sql>
          <![CDATA[
@@ -321,7 +321,7 @@
         ]]>
         </sql>
     </changeSet>
-    
+
      <changeSet id="20210516115130" author="Toyeeb" runOnChange="true">
         <sql>
         <![CDATA[
@@ -332,7 +332,7 @@
        	]]>
         </sql>
     </changeSet>
-    
+
     <changeSet id="20210521100130" author="Toyeeb" runOnChange="true">
         <sql>
         <![CDATA[
@@ -343,7 +343,7 @@
        	]]>
         </sql>
     </changeSet>
-   
+
    	<changeSet id="Resolve_INHB6_Wrong_TB_Maping_202104241156" author="temiye" runOnChange="true">
 		<sql>
         <![CDATA[
@@ -353,7 +353,7 @@
 		]]>
         </sql>
 	</changeSet>
-   
+
 	<changeSet id="resolve_lga_mapping_202105271156" author="temiye" runOnChange="true">
 		<sql>
         <![CDATA[
@@ -364,7 +364,15 @@
 		]]>
         </sql>
 	</changeSet>
-   
-   
-    
+
+    <changeSet id="2021060300001" author="Melody" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="apps/tracking_results.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
 </databaseChangeLog>
