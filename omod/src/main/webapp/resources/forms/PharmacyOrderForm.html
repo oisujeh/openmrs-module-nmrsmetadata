@@ -163,67 +163,17 @@ beforeSubmit.push(function() {
 			<!-- Adult1stLine -->
 			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
 				return true;
-			}else {
+
+			case (error == true):
 				return false;
-			}
-		}else {
-				var error = false;
-			<!-- Clear the previous errors -->
-				setValue('TreatmentAgeCategory.error', '');
-				setValue('RegimenLine.error', '');
-				setValue('Adult1stLine.error', '');
-				setValue('Adult2ndLine.error', '');
-				setValue('Adult3rdLine.error', '');
-				setValue('Ped1stLine.error', '');
-				setValue('Ped2ndLine.error', '');
-				setValue('Ped3rdLine.error', '');
-				setValue('duration_s.error', '');
-	
-			// ARV
-				var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');
-				var RegimenLine = getValue('RegimenLine.value');
-				var Adult1stLine = getValue('Adult1stLine.value');
-				var Adult2ndLine = getValue('Adult2ndLine.value');
-				var Adult3rdLine = getValue('Adult3rdLine.value');
-				var Ped1stLine = getValue('Ped1stLine.value');
-				var Ped2ndLine = getValue('Ped2ndLine.value');
-				var Ped3rdLine = getValue('Ped3rdLine.value');
-				var duration_s = getValue('duration_s.value');
-	
-			switch (true) {
-				<!-- TreatmentAgeCategory -->
-				case (TreatmentAgeCategory == ""):
-					getField('TreatmentAgeCategory.error').html('This field cannot be empty').show();
-					error=true;
-					break;
-	
-				<!-- RegimenLine -->
-				case (RegimenLine == ""):
-					getField('RegimenLine.error').html('This field cannot be empty').show();
-					error=true;
-					break;
-	
-				<!-- duration_s -->
-				case (duration_s == ""):
-					getField('duration_s.error').html('This field cannot be empty').show();
-					error=true;
-					break;
-	
-	
-				<!-- Adult1stLine -->
-				case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
-					return true;
-	
-				case (error == true):
-					return false;
-					break;
-	
-				default:
-					window.alert('Patients Regimen Line MUST be entered and can not be empty')
-					break;
-			}
+				break;
+
+			default:
+				window.alert('Patients Regimen Line MUST be entered and can not be empty')
+				break;
 		}
-	});
+	}
+});
 	
 	</script>
 
