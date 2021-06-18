@@ -336,6 +336,7 @@
                 </table>
             </fieldset>
         </includeIf>
+
         <table>
             <tr>
 
@@ -353,22 +354,25 @@
                 <td>
                     <obs conceptId="5090" id="length" />
                 </td>
+                <td class="alnright_s">Temp (c)</td>
+                <td><obs conceptId="5088" id="temp" /></td>
+            </tr>
+            <tr>
                 <td class="alnright_s">Blood Pressure (mmHg)</td>
                 <td>
                     <table>
                         <tr>
-                             <td>
-                                <obs conceptId="5085" id="bp1" />
+                            <td>
+                                <obs conceptId="5085" />
                             </td>
                             <td>/</td>
                             <td>
-                                <obs conceptId="5086" id="bp2" />
+                                <obs conceptId="5086" />
                             </td>
                         </tr>
                     </table>
                 </td>
-            </tr>
-            <tr>
+
                 <td class="alnright_s">Body Mass Index (BMI)</td>
                 <td>
                     <obs conceptId="1342" id="bmi" />
@@ -384,6 +388,9 @@
                 <td class="alnright_s">
                     <obs conceptId="165243" />
                 </td>
+            </tr>
+            <tr>
+                
                 <td class="alnright_s">Is Patient on Family Planning</td>
                 <td>
                     <obs id="family_planning" style="yes_no_dropdown" conceptId="5271">
@@ -394,6 +401,7 @@
                 </td>
             </tr>
         </table>
+
         <table>
             <tr>
                 <td id="family_planning_result">
@@ -467,7 +475,7 @@
                     Dementia / Encephalitis
                     <obs conceptId="160170" answerConceptId="119566" answerLabel="" />
                     <br />
-                    Thrush, Oral/Virginal
+                    Thrush, Oral/Vaginal
                     <obs conceptId="160170" answerConceptId="5334" answerLabel="" />
                     <br />
                     Other OIs<obs conceptId="165613" />
@@ -525,13 +533,12 @@
             <tr>
                 <td>ARV Medication Plan</td>
                 <td>
-                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904"
-                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication">
+                    <obs id="reg_plan" conceptId="165771" answerConceptIds="1257,165769,165768,165770,162904,165357"
+                         answerLabels="Continue regimen, Substitute regimen, Switch regimen, Stop regimen, Restart medication,Commence ART">
                         <controls>
                             <when value="165769" thenDisplay="#reg_plan_response" />
                             <when value="165768" thenDisplay="#reg_plan_response2" />
-                            <when value="165770" thenDisplay="#reg_plan_response3" />
-                            <when value="165770" thenDisplay="#date_stopped_regimen" />
+                            <when value="165770" thenDisplay="#reg_plan_response3,#date_stopped_regimen" />
                         </controls>
                     </obs>
                 </td>
@@ -562,8 +569,6 @@
                             <td>
                                 <obs conceptId="1252" answerConceptIds="102,1434,843,159598,5485,1754,819,164435,160016,5622" answerLabels="Toxicity/side effects,Pregnancy,Treatment failure,Poor adherence,Illness or hospitalization,Drugs out of stock,Patient lacks finances,Other patient decision,Planned Rx interruption,Other" />
                             </td>
-    `
-
                         </tr>
                     </table>
                 </td>
@@ -581,7 +586,7 @@
         </table>
     </fieldset>
     <fieldset>
-        <legend class="legend_style">Prescriped Medications</legend>
+        <legend class="legend_style">Prescribed Medications</legend>
         <table cellspacing="10px" cellpadding="10px">
             <tr valign="top">
                 <td width="34%" class="td_overwrote">

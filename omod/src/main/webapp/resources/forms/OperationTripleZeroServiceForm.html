@@ -122,31 +122,31 @@
 
             <tr>
                 <td><obs conceptId="166256" style="checkbox" answerConceptId="1065" answerLabel="Positive Living" id="posLiving" toggle="posLivingDate"/></td>
-                <td><span id="posLivingDate">Positive Living Completion Date: <obs conceptId="166261" allowFutureDates="false" /></span></td>
+                <td><span id="posLivingDate">Positive Living Completion Date: <obs id="posLivingDat" conceptId="166261" allowFutureDates="false" /></span></td>
             </tr>
             <tr>
                 <td><obs conceptId="166257" style="checkbox" answerConceptId="1065" answerLabel="Treatment Literacy" id="treatLit" toggle="treatLitDate"/></td>
-                <td><span  id="treatLitDate">Treatment Literacy Completion Date: <obs conceptId="166262" allowFutureDates="false" /></span> </td>
+                <td><span  id="treatLitDate">Treatment Literacy Completion Date: <obs id="treatLitDat" conceptId="166262" allowFutureDates="false" /></span> </td>
             </tr>
             <tr>
                 <td><obs conceptId="166258" style="checkbox" answerConceptId="1065" answerLabel="Adolescents Participation" id="adoPart" toggle="adoPartDate"/></td>
-                <td><span id="adoPartDate">Adolescents Participation Completion Date: <obs conceptId="166263" allowFutureDates="false" /></span></td>
+                <td><span id="adoPartDate">Adolescents Participation Completion Date: <obs id="adoPartDat" conceptId="166263" allowFutureDates="false" /></span></td>
             </tr>
             <tr>
                 <td><obs conceptId="166259" style="checkbox" answerConceptId="1065" answerLabel="Leadership Training" id="leadTrain" toggle="leadTrainDate"/></td>
-                <td><span id="leadTrainDate">Leadership Training Completed Date: <obs conceptId="166264" allowFutureDates="false" /></span></td>
+                <td><span id="leadTrainDate">Leadership Training Completed Date: <obs id="leadTrainDat" conceptId="166264" allowFutureDates="false" /></span></td>
             </tr>
             <tr>
                 <td><obs conceptId="166260" style="checkbox" answerConceptId="1065" answerLabel="Peer-to-Peer Mentorship" id="peerMentor" toggle="peerMentorDate"/></td>
-                <td><span id="peerMentorDate">Peer-to-Peer Mentorship Completed Date: <obs conceptId="166265" allowFutureDates="false" /></span></td>
+                <td><span id="peerMentorDate">Peer-to-Peer Mentorship Completed Date: <obs id="peerMentorDat" conceptId="166265" allowFutureDates="false" /></span></td>
             </tr>
             <tr>
                 <td><obs conceptId="166255" style="checkbox" answerConceptId="1065" answerLabel="Role of OTZ in 95-95-95" id="role95" toggle="role95Date"/></td>
-                <td><span id="role95Date">Role of OTZ in 95-95-95 Completed Date: <obs conceptId="166266" allowFutureDates="false" /></span></td>
+                <td><span id="role95Date">Role of OTZ in 95-95-95 Completed Date: <obs id="role95Dat" conceptId="166266" allowFutureDates="false" /></span></td>
             </tr>
             <tr>
                 <td><obs conceptId="166267" style="checkbox" answerConceptId="1065" answerLabel="OTZ Champion Orientation" id="role95" toggle="orientationDate"/></td>
-                <td><span id="orientationDate">OTZ Champion Orientation Completed Date: <obs conceptId="166268" allowFutureDates="false" /></span></td>
+                <td><span id="orientationDate">OTZ Champion Orientation Completed Date: <obs id="orientationDat" conceptId="166268" allowFutureDates="false" /></span></td>
             </tr>
             </tbody>
         </table>
@@ -231,97 +231,97 @@
     <script type="text/javascript">
         beforeSubmit.push(function() {
             var val_posLiving = getValue('posLiving.value');
-            var val_posLivingDate = getValue('posLivingDate.value');
+            var val_posLivingDate = getValue('posLivingDat.value');
             var val_treatLit = getValue('treatLit.value');
-            var val_treatLitDate = getValue('treatLitDate.value');
+            var val_treatLitDate = getValue('treatLitDat.value');
             var val_adoPart = getValue('adoPart.value');
-            var val_adoPartDate = getValue('adoPartDate.value');
+            var val_adoPartDate = getValue('adoPartDat.value');
             var val_leadTrain = getValue('leadTrain.value');
-            var val_leadTrainDate = getValue('leadTrainDate.value');
+            var val_leadTrainDate = getValue('leadTrainDat.value');
             var val_peerMentor = getValue('peerMentor.value');
-            var val_peerMentorDate = getValue('peerMentorDate.value');
+            var val_peerMentorDate = getValue('peerMentorDat.value');
             var val_role95 = getValue('role95.value');
-            var val_role95Date = getValue('role95Date.value');
-            if (val_posLiving !== "") {
+            var val_role95Date = getValue('role95Dat.value');
+            if (val_posLiving) {
                 if(val_posLivingDate === "") {
-                    getField('posLivingDate.error').html('Module/Activity end date must not be empty').show();
+                    getField('posLivingDat.error').html('Module/Activity end date required').show();
                     getField('posLiving.error').html('').hide();
                     return false;
                 }
-            } else if (val_posLiving === "") {
+            } else if (!val_posLiving) {
                 if(val_posLivingDate !== "") {
                     getField('posLiving.error').html('Module/Activity must be selected').show();
-                    getField('posLivingDate.error').html('').hide();
+                    getField('posLivingDat.error').html('').hide();
                     return false;
                 }
             }
 
-            if (val_treatLit !== "") {
+            if (val_treatLit) {
                 if(val_treatLitDate === "") {
-                    getField('treatLitDate.error').html('Module/Activity end date must not be empty').show();
+                    getField('treatLitDat.error').html('Module/Activity end date required').show();
                     getField('treatLit.error').html('').hide();
                     return false;
                 }
-            } else if (val_treatLit === "") {
+            } else if (!val_treatLit) {
                 if(val_treatLitDate !== "") {
                     getField('treatLit.error').html('Module/Activity must be selected').show();
-                    getField('treatLitDate.error').html('').hide();
+                    getField('treatLitDat.error').html('').hide();
                     return false;
                 }
             }
 
-            if (val_adoPart !== "") {
+            if (val_adoPart) {
                 if(val_adoPartDate === "") {
-                    getField('adoPartDate.error').html('Module/Activity end date must not be empty').show();
+                    getField('adoPartDat.error').html('Module/Activity end date required').show();
                     getField('adoPart.error').html('').hide();
                     return false;
                 }
-            } else if (val_adoPart === "") {
+            } else if (!val_adoPart) {
                 if(val_adoPartDate !== "") {
                     getField('adoPart.error').html('Module/Activity must be selected').show();
-                    getField('adoPartDate.error').html('').hide();
+                    getField('adoPartDat.error').html('').hide();
                     return false;
                 }
             }
 
-            if (val_leadTrain !== "") {
+            if (val_leadTrain) {
                 if(val_leadTrainDate === "") {
-                    getField('leadTrainDate.error').html('Module/Activity end date must not be empty').show();
+                    getField('leadTrainDat.error').html('Module/Activity end date required').show();
                     getField('leadTrain.error').html('').hide();
                     return false;
                 }
-            } else if (val_leadTrain === "") {
+            } else if (!val_leadTrain) {
                 if(val_leadTrainDate !== "") {
                     getField('leadTrain.error').html('Module/Activity must be selected').show();
-                    getField('leadTrainDate.error').html('').hide();
+                    getField('leadTrainDat.error').html('').hide();
                     return false;
                 }
             }
 
-            if (val_peerMentor !== "") {
+            if (val_peerMentor) {
                 if(val_peerMentorDate === "") {
-                    getField('peerMentorDate.error').html('Module/Activity end date must not be empty').show();
+                    getField('peerMentorDat.error').html('Module/Activity end date required').show();
                     getField('peerMentor.error').html('').hide();
                     return false;
                 }
-            } else if (val_peerMentor === "") {
+            } else if (!val_peerMentor) {
                 if(val_peerMentorDate !== "") {
                     getField('peerMentor.error').html('Module/Activity must be selected').show();
-                    getField('peerMentorDate.error').html('').hide();
+                    getField('peerMentorDat.error').html('').hide();
                     return false;
                 }
             }
 
-            if (val_role95 !== "") {
+            if (val_role95) {
                 if(val_role95Date === "") {
-                    getField('role95Date.error').html('Module/Activity end date must not be empty').show();
+                    getField('role95Dat.error').html('Module/Activity end date required').show();
                     getField('role95.error').html('').hide();
                     return false;
                 }
-            } else if (val_role95 === "") {
+            } else if (!val_role95) {
                 if(val_role95Date !== "") {
                     getField('role95.error').html('Module/Activity must be selected').show();
-                    getField('role95Date.error').html('').hide();
+                    getField('role95Dat.error').html('').hide();
                     return false;
                 }
             }

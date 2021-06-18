@@ -183,6 +183,17 @@
                 "order": 18,
                 "requiredPrivilege": "App: reportingui.reports"
             },
+
+{
+                "id": "Data Entry Statistics",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.monitoring",
+                "type": "link",
+                "label": "Data Entry Statistics",
+                "url": "reportingui/runReport.page?reportDefinition=e4f1fa26-deac-435f-8b52-263c07532f67",
+                "order": 19,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+
            {
       "id": "EncounterWithoutAddPastVisit",
       "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
@@ -228,8 +239,6 @@
       "order": 5,
       "requiredPrivilege": "App: reportingui.reports"
     }
-   
-   
    
         ],
         "requiredPrivilege": "App: reportingui.reports"

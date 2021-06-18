@@ -4,7 +4,7 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2020-09-28 04:54:20 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2021-01-07 00:45:05 UTC</dateChanged>
+  <dateChanged id="4">2021-05-14 09:46:58 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
@@ -22,7 +22,8 @@
   <id>234</id>
   <sqlQuery>SELECT&#xd;
    global_property.property_value as DatimCode,&#xd;
-   pid1.identifier as ANCNo,&#xd;
+   MAX(IF(obs.concept_id=165567,obs.value_text, pid1.identifier))&#xd;
+   as `ANCNo`,&#xd;
    pid2.identifier as PepfarID,&#xd;
    pid3.identifier as HospID,&#xd;
    person.gender as Sex,&#xd;
@@ -59,20 +60,17 @@ MAX(IF(obs.concept_id=1427,DATE_FORMAT(obs.value_datetime,&apos;%d-%b-%Y&apos;),
    as `HepatitisBTest`,&#xd;
    MAX(IF(obs.concept_id= 161471,cn1.name, NULL))&#xd;
    as `HepatitisCTest`,&#xd;
-   MAX(IF(obs.concept_id= 166029,DATE_FORMAT(obs.value_datetime,&apos;%d-%b-%Y&apos;), NULL))&#xd;
-   as `HTSRegisterDate`,&#xd;
-   MAX(IF(obs.concept_id= 166030,cn1.name, NULL))&#xd;
-   as `PreviouslyKnownHIVPositive`,&#xd;
-   MAX(IF(obs.concept_id= 166031,DATE_FORMAT(obs.value_datetime,&apos;%d-%b-%Y&apos;), NULL))&#xd;
-   as `DatePreviouslyTestedHIVPositive`,&#xd;
-   MAX(IF(obs.concept_id= 159427,cn1.name, NULL))&#xd;
-   as `ResultOfHIVTest`&#xd;
+getdatevalueobsid(getmaxconceptobsidwithformid(patient.patient_id,166029,54,curdate())) as `HTSRegisterDate`,&#xd;
+getcodedvalueobsid(getmaxconceptobsidwithformid(patient.patient_id,166030,54,curdate())) as `PreviouslyKnownHIVPositive`,&#xd;
+getdatevalueobsid(getmaxconceptobsidwithformid(patient.patient_id,166031,54,curdate())) as `DatePreviouslyTestedHIVPositive`,&#xd;
+getcodedvalueobsid(getmaxconceptobsidwithformid(patient.patient_id,159427,54,curdate())) as `ResultOfHIVTest`&#xd;
+   &#xd;
    &#xd;
   FROM&#xd;
    obs&#xd;
    LEFT JOIN patient ON(patient.patient_id=obs.person_id and obs.voided=0 and patient.voided=0)&#xd;
    LEFT JOIN person ON(person.person_id=patient.patient_id and person.voided=0)&#xd;
-   LEFT join encounter enc on(enc.encounter_id=obs.encounter_id and enc.voided=0 and obs.voided=0 and enc.form_id IN (16,54))&#xd;
+   LEFT join encounter enc on(enc.encounter_id=obs.encounter_id and enc.voided=0 and obs.voided=0 and enc.form_id IN (16))&#xd;
    LEFT JOIN visit on (enc.visit_id=visit.visit_id and visit.voided=0)&#xd;
    left join concept_name cn1 on(obs.value_coded=cn1.concept_id and cn1.locale=&apos;en&apos; and cn1.locale_preferred=1)&#xd;
    LEFT JOIN patient_identifier pid1 on(pid1.patient_id=patient.patient_id and patient.voided=0 and pid1.identifier_type=6 and pid1.voided=0)&#xd;
