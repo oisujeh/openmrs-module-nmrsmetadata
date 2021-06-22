@@ -403,9 +403,44 @@
 		 	]]>
 	    </sql>
     </changeSet>
+    
+    <changeSet id="20210602175730" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+    			'{\"id\":\"patientDashboard.overallActions.form.62\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"HEI (HIV Exposed Infant) Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=d86d3fdd-935e-4391-9f29-58f2bbdb2c53\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"hasMemberWithProperty (patientPrograms, \'uuid\', \'a0a9b9a2-6c18-4a5e-af74-aca2860001cd\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 62;
+				SET FOREIGN_KEY_CHECKS = 1;
+		 	]]>
+	    </sql>
+    </changeSet>
+     <changeSet id="20210602175830" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+				'{\"id\":\"patientDashboard.overallActions.form.61\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"HTS Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=aa50cb4e-05ee-43e5-a00b-589c3c12d03b\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"hasMemberWithProperty (patientPrograms, \'uuid\', \'14d6f977-7952-41cd-b243-1c3bcc4a9213\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 61;
+				SET FOREIGN_KEY_CHECKS = 1;
+			]]>
+	    </sql>
+    </changeSet>
+
+	 <changeSet id="20210602175930" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+				'{\"id\":\"patientDashboard.overallActions.form.63\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"PMTCT Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=6c7dad1b-ebfa-4a70-a1c1-6e5908eb0b0d\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"patient.person.gender==\'F\' && hasMemberWithProperty  (patientPrograms, \'uuid\', \'c3ae2d33-97d3-4cc4-9206-8a8160593648\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 63;
+				SET FOREIGN_KEY_CHECKS = 1;
+			]]>
+	    </sql>
+    </changeSet>
 
 
 
-
+	
 
 </databaseChangeLog>
