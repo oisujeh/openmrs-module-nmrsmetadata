@@ -779,7 +779,7 @@
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs = getValue('vl_result_obs.value');
                 if (vlresultT === "166239") {
-                    if (vlresultobs &lt; 1000) {
+                    if (vlresultobs & lt; 1000) {
 
                         const field = getField('vl_result_obs.error');
                         if (field != null) {
@@ -2123,7 +2123,7 @@
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs = getValue('vl_result_obs.value');
                 if (vlresultT === "166239") {
-                    if (vlresultobs &lt; 1000) {
+                    if (vlresultobs & lt; 1000) {
                         getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                         return false;
                     }
@@ -2233,7 +2233,7 @@
                 var vlresultT = getValue('vl_result_clasification.value');
                 var vlresultobs = getValue('vl_result_obs.value');
                 if (vlresultT == "166239") {
-                    if (vlresultobs &lt; 1000) {
+                    if (vlresultobs & lt; 1000) {
                         getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                         return false;
                     }
@@ -2257,7 +2257,7 @@
                 var testVal = new Date(getValue('hiv_test_date.value'));
                 var rctd = new Date(getValue('recency_test_date.value'));
 
-                if (getField('recency_test_date.error') != null &amp; &amp; testVal > rctd) {
+                if (getField('recency_test_date.error') != null & amp; & amp; testVal > rctd) {
                     getField('recency_test_date.error').html('RecencyTest Date cannot be earlier than Screening Test Date').show();
                     return false;
                 }
@@ -2581,7 +2581,7 @@
     </fieldset>
 
 
-    <!-- UPDATED -->
+    <!-- ADDED -->
     <fieldset>
         <legend class="legend_style">Key Population</legend>
         <table width="100%" border="0">
@@ -2591,7 +2591,7 @@
                         <tr>
                             <td class="alnleft_s">KP</td>
                             <td>
-                                <obs id="key_pop" style="yes_no_dropdown" conceptId="166284">
+                                <obs id="key_pop" style="yes_no_dropdown" conceptId="165766">
                                     <controls>
                                         <when value="true" thenDisplay="#key_pop_type" />
                                     </controls>
@@ -2604,34 +2604,31 @@
 
             <td>
                 <table class="table" width="100%" id="key_pop_type">
-                    <includeIf velocityTest="$patient.gender == 'F' ">
-                        <tr>
-                            <td>FSW
-                                <obs conceptId="166369" answerConceptId="166285" answerLabel="" />
-                            </td>
-                        </tr>
-                    </includeIf>
-
-                    <includeIf velocityTest="$patient.gender == 'M' ">
-                        <tr>
-                            <td>MSM
-                                <obs conceptId="166369" answerConceptId="160578" answerLabel="" />
-                            </td>
-                        </tr>
-                    </includeIf>
+                    <tr>
+                        <td>FSW (for females)
+                            <obs conceptId="165339" answerConceptId="165336" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MSM (for males)
+                            <obs conceptId="165339" answerConceptId="119537" answerLabel="" />
+                        </td>
+                    </tr>
                     <tr>
                         <td>PWID
-                            <obs conceptId="166369" answerConceptId="166286" answerLabel="" />
+                            <obs conceptId="165339" answerConceptId="121543" answerLabel="" />
                         </td>
                     </tr>
+
                     <tr>
                         <td>TG
-                            <obs conceptId="166369" answerConceptId="166287" answerLabel="" />
+                            <obs conceptId="165339" answerConceptId="165338" answerLabel="" />
                         </td>
                     </tr>
+
                     <tr>
                         <td>People in prisons and other enclosed settings
-                            <obs conceptId="166369" answerConceptId="162277" answerLabel="" />
+                            <obs conceptId="165339" answerConceptId="5622" answerLabel="" />
                         </td>
                     </tr>
                 </table>
