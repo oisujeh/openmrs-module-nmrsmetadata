@@ -1119,6 +1119,27 @@
 
     <script>
         jQuery(function() {
+            if (getField('vl_result_clasification.value') != null) {
+                getField('vl_result_clasification.value').change(function() {
+                    var vlresult_entered = getValue('vl_result_clasification.value');
+                    if (vlresult_entered != null) {
+                        if (vlresult_entered == "166238") {
+                            setValue('final_recency_value.value', 166235);
+                        }
+                        if (vlresult_entered == "166239") {
+                            setValue('final_recency_value.value', 166236);
+                        }
+                        if (vlresult_entered == "166240") {
+                            setValue('final_recency_value.value', 166237);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
             if (getField('control_line.value') != null) {
                 getField('control_line.value').change(function() {
                     var ctrln = getValue('control_line.value');
@@ -1924,7 +1945,7 @@
 
                 <tr>
 
-                    <td id="recency_warning_label" style="width: 100%; color:red">Participant ID must meet specified requirements. (Max of 10 characters, with 2 Uppercase Alphabets and 8 Numbers)</td>
+                    <td id="recency_warning_label" style="width: 100%; color:red">Participant ID must not be more than 10 characters with atleast 2 Uppercase Alphabets present</td>
 
                 </tr>
                 <tr>
@@ -2061,32 +2082,28 @@
                     </td>
                     <td class="alnleft_f" id="vl_result_label">Viral Load Result Classification:</td>
 
-
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000
-,Failed VL" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000,Failed VL" conceptId="166241" id="vl_result_clasification" />
                     </td>
 
                 </tr>
 
                 <tr>
-
                     <td class="alnleft_f" id="vl_result">Result (copies/ml)</td>
                     <td class="alnleft_f">
                         <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
                     </td>
-
 
                     <td class="alnleft_f" id="final_recency_label"><b>Final Recency Result:</b></td>
 
                     <td class="alnleft_f">
                         <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
                     </td>
-
-                    <td id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
-
                 </tr>
 
+                <tr>
+                    <td id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
+                </tr>
 
             </table>
 
@@ -2108,6 +2125,8 @@
             var final_recency_value = getValue('final_recency_value.value');
             var recency_test_date = getValue('recency_test_date.value');
             var test_name_dropdown = getValue('test_name_dropdown.value');
+            //var vl_result_obs = getValue('vl_result_obs.value');
+            //var longterm_line = getValue('longterm_line.value');
 
             if (tb_optout === "1066") {
 
