@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
-    <include file="liquibase-dataquality-update.xml" relativeToChangelogFile="true" />
+   
 
     <changeSet id="concept_update_201010071131" author="wande">
         <preConditions onFail="MARK_RAN">
@@ -374,5 +374,8 @@
                  endDelimiter=";"/>
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
+    
+    
+    
 
 </databaseChangeLog>
