@@ -141,3 +141,13 @@ REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `des
 REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18766, 166420, 'Target Not Detected', 'en', 1, '2021-07-22 13:02:56', NULL, NULL, '805f3ad1-4263-4d8f-806a-3e8916195b88');
 REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18767, 166421, 'Wrong entry', 'en', 1, '2021-07-22 13:03:14', NULL, NULL, '26edaf58-92e9-492e-aeb3-6f2a0194d8aa');
 REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18768, 166422, 'Alphanumeric Viral Load Result', 'en', 1, '2021-07-22 14:00:37', NULL, NULL, '219d9791-2dd2-4650-9e9d-5dae6f0363cc');
+REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18769, 166423, 'Result Date', 'en', 1, '2021-07-23 12:52:09', NULL, NULL, 'ec233530-015f-49cb-803c-075ad092f716');
+REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18770, 166424, 'Assay Date', 'en', 1, '2021-07-23 12:53:00', NULL, NULL, '409dabd9-95b9-43db-8702-ecb4a26258fd');
+REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18771, 166425, 'Approval Date', 'en', 1, '2021-07-23 12:54:13', NULL, NULL, '0dd72af0-acf4-4af6-ba03-a03cee3ac5e6');
+REPLACE INTO `concept_description` (`concept_description_id`, `concept_id`, `description`, `locale`, `creator`, `date_created`, `changed_by`, `date_changed`, `uuid`) VALUES (18772, 166426, 'Numeric Value', 'en', 1, '2021-07-25 23:24:02', NULL, NULL, 'dcdbf0b0-a36e-41d7-b8fe-6e8bb2a4e809');
+
+
+
+
+
+
