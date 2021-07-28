@@ -99,14 +99,27 @@
 	</style>
 	<script type="text/javascript">
 		beforeSubmit.push(function() {
+		var woman_pregnant = getValue('woman_pregnant.value');
 		var val_encounterDate = getValue('encounterDate.value');
 		var val_next_appointment = getValue('next_appointment.value');
-		var edd_val=getValue('edd.value');
-		var lmp_val=getValue('lmp.value');
-		if (lmp_val > edd_val) {
-		    getField('lmp.error').html('EDD has to be later than LMP').show();
-			return false;
-		}
+		var edd_val = getValue('edd.value');
+		var lmp_val = getValue('lmp.value');
+
+
+            console.log(woman_pregnant);
+            if (woman_pregnant === '165048' ) {
+                console.log(lmp_val);
+                if(! lmp_val) {
+                    getField('lmp.error').html('LMP is required').show();
+                    return false;
+                }else {
+                    if (lmp_val > edd_val) {
+                        getField('lmp.error').html('EDD has to be later than LMP').show();
+                        return false;
+                    }
+				}
+            }
+
 		if (val_encounterDate > val_next_appointment) {
 		getField('next_appointment.error').html('Next appointment date has to be later than visit date').show();
 		return false;
