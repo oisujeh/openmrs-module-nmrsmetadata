@@ -166,7 +166,7 @@ REPLACE INTO `appframework_user_app` (`app_id`,`json`) VALUES
 '
 );
 
-UPDATE `delta_ch_agbor`.`address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='5';
-UPDATE `delta_ch_agbor`.`address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='3';
-UPDATE `delta_ch_agbor`.`address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='2';
-UPDATE `delta_ch_agbor`.`address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='1';
+UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='5';
+UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='3';
+UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='2';
+UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='1';
