@@ -102,10 +102,10 @@
         jQuery(function() {
             getField('arvdosage.value').change(function() {
                 var arvdos = getValue('arvdosage.value');
-                if(arvdos &lt; "0.5" ){
+                if (arvdos &lt; "0.5") {
                     window.alert('ARV Dosage:- ' + getValue('arvdosage.value') + ' Out of Range')
                     setValue('arvdosage.value')
-                }else if (arvdos > 10) {
+                } else if (arvdos &gt; "10") {
                     // window.alert('ARV Dosage-: ' + getValue('arvdosage.value')+' Out of Range')
 
                     if (confirm('ARV Dosage-: ' + getValue('arvdosage.value') + ' Out of Range? Are you sure you want to submit?')) {
@@ -126,8 +126,7 @@
 
         beforeSubmit.push(function() {
 
-            if (((getValue('oi_drug.value') != "") || (getValue('tb_drug.value') != ""))  &amp; &amp;
-                ((getValue('TreatmentAgeCategory.value') == ""))) {
+            if (((getValue('oi_drug.value') != "") || (getValue('tb_drug.value') != "")) &amp;&amp; ((getValue('TreatmentAgeCategory.value') == ""))) {
 
                 if (confirm('ARV entries are empty!!!  Sure you want to submit OI entries only?')) {
                     return true;
@@ -278,7 +277,7 @@
     <script>
         jQuery(function() {
 
-            // MMD Compar with Duration and Quantiy dispensensed
+            // MMD Compare with Duration and Quantiy dispensensed
             getField('duration_s.value').change(function() {
                 setValue('duration_s.error', '');
                 var duration_s = getValue('duration_s.value');
@@ -433,12 +432,9 @@
             <td>
                 <table id="Multi_Month_Dispensing" class="table" width="100%">
                     <tr>
-                        <td>
+                        <td> 
                             <label>Multi-Month Dispensing (MMD)</label>
-
                             <obs id="mmd_Dispensings" conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6" />
-
-                            <obs conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6" />
                         </td>
                     </tr>
                 </table>

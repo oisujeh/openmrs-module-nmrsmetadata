@@ -394,48 +394,58 @@
     <fieldset>
         <legend class="legend_style">Key Population</legend>
         <table width="100%" border="0">
-		<td>
-		<table >
-			<td>
-				<tr>
-					<td class="alnleft_s">KP</td>
-					<td>
-						<obs id="key_pop" style="yes_no_dropdown" conceptId="166284">
-							<controls>
-								<when value="true" thenDisplay="#key_pop_type" />
-							</controls>
-						</obs>
-					</td>
-				</tr>
-			</td>
-			</table>		
-		</td>
+            <td>
+                <table>
+                    <td>
+                        <tr>
+                            <td class="alnleft_s">KP</td>
+                            <td>
+                                <obs id="key_pop" style="yes_no_dropdown" conceptId="166284">
+                                    <controls>
+                                        <when value="true" thenDisplay="#key_pop_type" />
+                                    </controls>
+                                </obs>
+                            </td>
+                        </tr>
+                    </td>
+                </table>
+            </td>
 
-		<td>
-			<table class="table" width="100%" id="key_pop_type">
-				<includeIf velocityTest="$patient.gender == 'F' ">
-					<tr>
-						<td>FSW <obs conceptId="166369" answerConceptId="166285" answerLabel="" /></td>
-					</tr>
-				</includeIf>
-				
-				<includeIf velocityTest="$patient.gender == 'M' ">
-					<tr>
-						<td>MSM <obs conceptId="166369" answerConceptId="160578" answerLabel="" /></td>
-					</tr>
-				</includeIf>
-				<tr>
-					<td>PWID <obs conceptId="166369" answerConceptId="166286" answerLabel="" /></td>
-				</tr>
-				<tr>
-					<td>TG <obs conceptId="166369" answerConceptId="166287" answerLabel="" /></td>
-				</tr>
-				<tr>
-					<td>People in prisons and other enclosed settings <obs conceptId="166369" answerConceptId="162277" answerLabel="" /></td>
-				</tr>
-			</table>
-        </td>
-		</table>
+            <td>
+                <table class="table" width="100%" id="key_pop_type">
+                    <includeIf velocityTest="$patient.gender == 'F' ">
+                        <tr>
+                            <td>FSW
+                                <obs conceptId="166369" answerConceptId="166285" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+
+                    <includeIf velocityTest="$patient.gender == 'M' ">
+                        <tr>
+                            <td>MSM
+                                <obs conceptId="166369" answerConceptId="160578" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+                    <tr>
+                        <td>PWID
+                            <obs conceptId="166369" answerConceptId="166286" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TG
+                            <obs conceptId="166369" answerConceptId="166287" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>People in prisons and other enclosed settings
+                            <obs conceptId="166369" answerConceptId="162277" answerLabel="" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </table>
     </fieldset>
 
     <fieldset>
