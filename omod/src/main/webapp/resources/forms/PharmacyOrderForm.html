@@ -9,7 +9,7 @@
             text-align: left;
             margin-bottom: 1em;
         }
-        
+
         .sectionHeader {
             background-color: #2f1c55;
             color: white;
@@ -17,52 +17,52 @@
             padding: 2px;
             font-weight: bold;
         }
-        
+
         table tr:nth-child(even) {
             background: #ffffff;
         }
-        
+
         .alnright {
             text-align: right;
             color: #000000;
             width: 25%;
         }
-        
+
         td {
             border: none;
         }
-        
+
         table th,
         table td {
             padding: 5px 5px;
             border: None;
         }
-        
+
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
-            <!--padding: 5px;
-            -->margin: 0px left;
+        <!--padding: 5px;
+        -->margin: 0px left;
             box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
             border-radius: 2px;
             border: 1px solid #305a72;
             border-bottom-left-radius: 2px;
             text-transform: initial;
         }
-        
+
         form fieldset,
         .form fieldset {
             min-width: 98%;
             border: none;
             border-top: 1px solid #305a72;
         }
-        
+
         table th,
         table td {
             padding: 5px 5px;
             /* border: 1px solid #DDD; */
         }
-        
+
         table tr {
             border: None;
         }
@@ -72,23 +72,23 @@
 		form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
 		padding: 2px 10px;
 		} */
-        
+
         span.gridmenu select {
             width: 6em;
         }
-        
+
         span.obs-field option {
             width: 6em;
         }
-        
+
         span.gridmenu input {
             width: 6em;
         }
-        
+
         .error {
             color: red;
         }
-        
+
         body {
             font-family: "OpenSans", Arial, sans-serif;
             color: #363463;
@@ -156,6 +156,8 @@
                 var Ped2ndLine = getValue('Ped2ndLine.value');
                 var Ped3rdLine = getValue('Ped3rdLine.value');
                 var duration_s = getValue('duration_s.value');
+                var qtyPrescribed = getValue('qtyPrescribed.value');
+                var qtyDispensed = getValue('qtyDispensed.value');
 
                 switch (true) {
                     <!-- TreatmentAgeCategory -->
@@ -164,20 +166,32 @@
                         error = true;
                         break;
 
-                        <!-- RegimenLine -->
+                    <!-- RegimenLine -->
                     case (RegimenLine == ""):
                         getField('RegimenLine.error').html('This field cannot be empty').show();
                         error = true;
                         break;
 
-                        <!-- duration_s -->
+                    <!-- duration_s -->
                     case (duration_s == ""):
                         getField('duration_s.error').html('This field cannot be empty').show();
                         error = true;
                         break;
 
+                    <!-- Quantity Prescribed -->
+                    case (qtyPrescribed == ""):
+                        getField('qtyPrescribed.error').html('This field cannot be empty').show();
+                        error = true;
+                        break;
 
-                        <!-- Adult1stLine -->
+                    <!-- Quatity Dispensed -->
+                    case (qtyDispensed == ""):
+                        getField('qtyDispensed.error').html('This field cannot be empty').show();
+                        error = true;
+                        break;
+
+
+                    <!-- Adult1stLine -->
                     case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
                         return true;
 
@@ -203,6 +217,8 @@
 
     <script>
         jQuery(function() {
+
+            setValue('pillBallance.value', 0);
 
             // organise customdate
             function getCustomDate(date) {
@@ -285,7 +301,7 @@
                 var duration_mmd = $('input:text', '#duration_s').eq(0).val();
                 var mmd_Dispensed = getValue('mmd_Dispensings.value');
 
-				if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &gt; "90")) {
+                if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &gt; "90")) {
                     window.alert('Duration for MMD &lt; 3 can not be ' + duration_mmd + ' please correct this entry');
                     setValue('duration_s.value', "")
                     return false;
@@ -310,9 +326,9 @@
     <!-- UPDATED -->
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr>
-                <th colspan='5' style="text-align: center">Pharmacy Order Form</th>
-            </tr>
+        <tr>
+            <th colspan='5' style="text-align: center">Pharmacy Order Form</th>
+        </tr>
         </thead>
     </table>
 
@@ -432,7 +448,7 @@
             <td>
                 <table id="Multi_Month_Dispensing" class="table" width="100%">
                     <tr>
-                        <td> 
+                        <td>
                             <label>Multi-Month Dispensing (MMD)</label>
                             <obs id="mmd_Dispensings" conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD &gt;= 6" />
                         </td>
@@ -1020,7 +1036,7 @@
                 <td>
                     <label>Current Duration:</label>
                     <obs conceptId="159368" id="currentDuration" />
-                    <td> <span id="currentDurations" style="width:100%; color:green; font-weight:bold;"></span> </td>
+                <td> <span id="currentDurations" style="width:100%; color:green; font-weight:bold;"></span> </td>
                 </td>
                 <td>
                     <label>Calculated Next Appointment Date:</label>
