@@ -41,8 +41,8 @@
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
-        <!--padding: 5px;
-        -->margin: 0px left;
+            <!--padding: 5px;
+            -->margin: 0px left;
             box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
             border-radius: 2px;
             border: 1px solid #305a72;
@@ -145,6 +145,8 @@
                 setValue('Ped2ndLine.error', '');
                 setValue('Ped3rdLine.error', '');
                 setValue('duration_s.error', '');
+				setValue('qtyPrescribed_s.error', '');
+				setValue('qtyDispensed_s.error', '');
 
                 // ARV
                 var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');
@@ -156,8 +158,8 @@
                 var Ped2ndLine = getValue('Ped2ndLine.value');
                 var Ped3rdLine = getValue('Ped3rdLine.value');
                 var duration_s = getValue('duration_s.value');
-                var qtyPrescribed = getValue('qtyPrescribed.value');
-                var qtyDispensed = getValue('qtyDispensed.value');
+				var qtyPrescribed_s = getValue('qtyPrescribed_s.value');
+				var qtyDispensed_s = getValue('qtyDispensed_s.value');
 
                 switch (true) {
                     <!-- TreatmentAgeCategory -->
@@ -166,32 +168,31 @@
                         error = true;
                         break;
 
-                    <!-- RegimenLine -->
+                        <!-- RegimenLine -->
                     case (RegimenLine == ""):
                         getField('RegimenLine.error').html('This field cannot be empty').show();
                         error = true;
                         break;
 
-                    <!-- duration_s -->
+                        <!-- duration_s -->
                     case (duration_s == ""):
                         getField('duration_s.error').html('This field cannot be empty').show();
                         error = true;
                         break;
 
-                    <!-- Quantity Prescribed -->
-                    case (qtyPrescribed == ""):
-                        getField('qtyPrescribed.error').html('This field cannot be empty').show();
+                        <!-- qtyPrescribed_s -->
+                    case (qtyPrescribed_s == ""):
+                        getField('qtyPrescribed_s.error').html('This field cannot be empty').show();
                         error = true;
                         break;
 
-                    <!-- Quatity Dispensed -->
-                    case (qtyDispensed == ""):
-                        getField('qtyDispensed.error').html('This field cannot be empty').show();
+                        <!-- qtyDispensed_s -->
+                    case (qtyDispensed_s == ""):
+                        getField('qtyDispensed_s.error').html('This field cannot be empty').show();
                         error = true;
                         break;
 
-
-                    <!-- Adult1stLine -->
+                        <!-- Adult1stLine -->
                     case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "") || (Adult3rdLine != "") || (Ped3rdLine != "")):
                         return true;
 
@@ -218,9 +219,7 @@
     <script>
         jQuery(function() {
 
-            setValue('pillBallance.value', 0);
-
-            // organise customdate
+            // organise custom date
             function getCustomDate(date) {
                 // console.log("Date:" + date);
                 var dd = date.getDate();
@@ -248,11 +247,11 @@
             // declear global
             var pillBallances;
             var duration_ss;
-            var TrimcalcNxtApp;
+
 
             // get and set duration and next appt date
-            getField('duration_s.value').change(function() {
-                var duration_sss = $('input:text', '#duration_s').eq(0).val();
+             getField('duration_s.value').change(function() {
+                var duration_sss =  $('input:text', '#duration_s').eq(0).val();
                 var pillBallances = $('input:text', '#pillBallance').eq(0).val();
                 var encounterDates = getValue('encounterDate.value');
 
@@ -261,11 +260,11 @@
                 var calcNxtApp = new Date(getValue('encounterDate.value'));
                 calcNxtApp = calcNxtApp.setDate(calcNxtApp.getDate() + duration_ss);
 
-                setValue('currentDuration.value', duration_ss);
+                // setValue('currentDuration.value', duration_ss);
                 setValue('calcNxtAppDate.value', getCustomDate(new Date(calcNxtApp)));
 
-                var currentDurations = document.getElementById("currentDuration")
-                currentDurations.textContent = duration_ss + " " + "Days"
+                // var currentDurations = document.getElementById("currentDuration")
+                // currentDurations.textContent = duration_ss + " " + "Days";
             });
 
             // get and add pills count to next appt date
@@ -286,6 +285,20 @@
                     // console.log(calcNxtAppPill);
                     setValue('calcNxtAppDate.value', getCustomDate(new Date(calcNxtAppPill)));
                 }
+
+				// check if pill ballance is NaN or empty
+				var pillBallance_check = getValue('pillBallance.value');
+					// console.log(pillBallance_check);
+                if (pillBallance_check == "NaN") {
+                    setValue('pillBallance.value', "");
+
+                var calcNxtAppPill = new Date(getValue('encounterDate.value'));
+				var pillDurations = (duration_ss);
+					calcNxtAppPill = calcNxtAppPill.setDate(calcNxtAppPill.getDate() + pillDurations);
+                    // console.log(calcNxtAppPill);
+                    setValue('calcNxtAppDate.value', getCustomDate(new Date(calcNxtAppPill)));
+                }
+
             });
         });
     </script>
@@ -296,12 +309,11 @@
             // MMD Compare with Duration and Quantiy dispensensed
             getField('duration_s.value').change(function() {
                 setValue('duration_s.error', '');
-                var duration_s = getValue('duration_s.value');
 
                 var duration_mmd = $('input:text', '#duration_s').eq(0).val();
                 var mmd_Dispensed = getValue('mmd_Dispensings.value');
 
-                if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &gt; "90")) {
+				if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &gt; "90")) {
                     window.alert('Duration for MMD &lt; 3 can not be ' + duration_mmd + ' please correct this entry');
                     setValue('duration_s.value', "")
                     return false;
@@ -633,10 +645,10 @@
                         <!-- UPDATED -->
                     </td>
                     <td>
-                        <obs conceptId="160856" id="qtyPrescribed" />
+                        <obs conceptId="160856" id="qtyPrescribed_s" />
                     </td>
                     <td>
-                        <obs conceptId="1443" id="qtyDispensed" />
+                        <obs conceptId="1443" id="qtyDispensed_s" />
                     </td>
                 </obsgroup>
             </tr>
@@ -1034,9 +1046,8 @@
                     <obs conceptId="166406" id="pillBallance" required="false" />
                 </td>
                 <td>
-                    <label>Current Duration:</label>
-                    <obs conceptId="159368" id="currentDuration" />
-                <td> <span id="currentDurations" style="width:100%; color:green; font-weight:bold;"></span> </td>
+                    <!--  <label>Current Duration:</label> -->
+                    <!-- <obs conceptId="159368" id="currentDuration" /> -->
                 </td>
                 <td>
                     <label>Calculated Next Appointment Date:</label>
@@ -1122,7 +1133,7 @@
 					<label>Date:</label>
 				</td>
 				<td colspan="3">
-					<encounterDate />   
+					<encounterDate />
 				</td>
 				<td></td>
 			</tr>-->
