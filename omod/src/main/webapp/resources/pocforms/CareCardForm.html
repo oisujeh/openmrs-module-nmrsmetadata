@@ -375,6 +375,10 @@ function calBMI(){
                 <td>
                     <obs conceptId="5090" id="length" />
                 </td>
+                <td class="alnright_s">Temp (c)</td>
+                <td><obs conceptId="5088" id="temp" /></td>
+           </tr>
+           <tr>
                 <td class="alnright_s">Blood Pressure (mmHg)</td>
                 <td>
                     <table>
@@ -389,8 +393,7 @@ function calBMI(){
                         </tr>
                     </table>
                 </td>
-            </tr>
-            <tr>
+          
                 <td class="alnright_s">Body Mass Index (BMI)</td>
                 <td>
                     <obs conceptId="1342" id="bmi" />
@@ -406,6 +409,8 @@ function calBMI(){
                 <td class="alnright_s">
                     <obs conceptId="165243" />
                 </td>
+            </tr>
+            <tr>
                 <td class="alnright_s">Is Patient on Family Planning</td>
                 <td>
                     <obs id="family_planning" style="yes_no_dropdown" conceptId="5271">
@@ -552,8 +557,7 @@ function calBMI(){
                         <controls>
                             <when value="165769" thenDisplay="#reg_plan_response" />
                             <when value="165768" thenDisplay="#reg_plan_response2" />
-                            <when value="165770" thenDisplay="#reg_plan_response3" />
-                            <when value="165770" thenDisplay="#date_stopped_regimen" />
+                            <when value="165770" thenDisplay="#reg_plan_response3,#date_stopped_regimen" />
                         </controls>
                     </obs>
                 </td>

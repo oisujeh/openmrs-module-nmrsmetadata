@@ -451,7 +451,7 @@
     <changeSet id="report_update_202104141154" author="Bright">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
-                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='95dee752-096e-441c-be3e-6141f33d8082';
+              SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='95dee752-096e-441c-be3e-6141f33d8082';
             </sqlCheck>
         </preConditions>
         <!-- Excel -->
@@ -479,7 +479,186 @@
             <column name="report_definition_uuid" value="95dee752-096e-441c-be3e-6141f33d8082"/>
         </insert>
     </changeSet>  
-      
+    <!-- Missing changeset -->
+  	<changeSet id="report_update_20201129855509899898" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcodedintvalueobs.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+	 <changeSet id="fn_getcodedintvalueobs_202105121209" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcodedintvalueobs.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getcodedvalueobsid_202105121209" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getcodedvalueobsid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getdatevalueobsid_202105121210" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getdatevalueobsid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getminconceptobswithformid_202105121212" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getminconceptobswithformid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getminconceptobswithformidvaluecoded_202105121213" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getminconceptobswithformidvaluecoded.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    <changeSet id="fn_getnumericvalueobsid_202105121213" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_getnumericvalueobsid.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+	  <!-- New functions for the OTZ Line List -->
+    <changeSet id="fn_completedayp_202105270138" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_completedayp.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="fn_datecompletedayp_202105270202" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_datecompletedayp.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="fn_previous_202105270206" author="Bright" runOnChange="true">
+        <sqlFile path="dataquality/functions/fn_previous.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+	<!-- Force export type for Finger Print Statistics to show -->
+    <changeSet id='report_update_202105160114' author='Bright'>
+        <sql>
+            <![CDATA[
+			REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (39,'6d68d07e-2f8b-453c-9242-fe6856cdc881','Excel',NULL,'org.openmrs.module.reporting.report.renderer.XlsReportRenderer','#Sun Jul 21 01:35:02 WAT 2019\r\n',1,'2019-07-21 01:35:02',NULL,NULL,0,NULL,NULL,NULL,'6001512e-8cd3-4f5c-9c86-02f9989effb1');
+                        REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (40,'40d2a472-3bc4-4cf5-abcf-566ed3852407','CSV',NULL,'org.openmrs.module.reporting.report.renderer.CsvReportRenderer','#Sun Jul 21 01:35:13 WAT 2019\r\n',1,'2019-07-21 01:35:13',NULL,NULL,0,NULL,NULL,NULL,'6001512e-8cd3-4f5c-9c86-02f9989effb1');
 
+		]]>
+        </sql>
+        
+    </changeSet>
+
+	 <!-- OTZ Line Listing -->
+    <changeSet id="report_update_202105120146" author="Bright">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='cbc1c600-0535-4158-9101-c31ffb4a5ead';
+            </sqlCheck>
+        </preConditions>
+        <!-- Excel -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="06c830c7-9108-4c17-a202-87e9bb0c09c8"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Wed Apr 28 16:29:48 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-04-28 16:29:48"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="cbc1c600-0535-4158-9101-c31ffb4a5ead"/>
+        </insert>
+        <!-- CSV -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="e8ec6b4c-1f19-41bf-89a2-a32683a54824"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Wed Apr 28 16:30:05 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-04-28 16:30:05"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="cbc1c600-0535-4158-9101-c31ffb4a5ead"/>
+        </insert>
+    </changeSet>
+    
+     <!-- Force export type for OTZ Line List to show -->
+    <changeSet id='report_update_202105160122' author='Bright'>
+        <sql>
+            <![CDATA[
+			REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (102,'06c830c7-9108-4c17-a202-87e9bb0c09c8','Excel','Excel Export','org.openmrs.module.reporting.report.renderer.XlsReportRenderer','#Wed Apr 28 16:29:48 WAT 2021',1,'2021-04-28 16:29:48',NULL,NULL,0,NULL,NULL,NULL,'cbc1c600-0535-4158-9101-c31ffb4a5ead');
+                        REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (103,'e8ec6b4c-1f19-41bf-89a2-a32683a54824','CSV','CSV Export','org.openmrs.module.reporting.report.renderer.CsvReportRenderer','#Wed Apr 28 16:30:05 WAT 2021',1,'2021-04-28 16:30:05',NULL,NULL,0,NULL,NULL,NULL,'cbc1c600-0535-4158-9101-c31ffb4a5ead');
+
+
+		]]>
+        </sql>
+        
+    </changeSet>
+    
+    <!-- Data Entry Statistics -->
+    <changeSet id="report_update_202105120158" author="Bright" runOnChange="true" >
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM reporting_report_design WHERE report_definition_uuid='e4f1fa26-deac-435f-8b52-263c07532f67';
+            </sqlCheck>
+        </preConditions>
+        <!-- Excel -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="c30ba419-5552-49f7-8ef0-57542518c386"/>
+            <column name="name" value="Excel"/>
+            <column name="description" value="Excel Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.XlsReportRenderer"/>
+            <column name="properties" value="#Fri May 07 10:12:50 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-05-07 10:12:50"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="e4f1fa26-deac-435f-8b52-263c07532f67"/>
+        </insert>
+        <!-- CSV -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="d8b4e4a1-1107-47f3-bf03-ca277e566655"/>
+            <column name="name" value="CSV"/>
+            <column name="description" value="CSV Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.CsvReportRenderer"/>
+            <column name="properties" value="#Fri May 07 10:13:04 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-05-07 10:13:04"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="e4f1fa26-deac-435f-8b52-263c07532f67"/>
+        </insert>
+        <!-- Web -->
+        <insert tableName="reporting_report_design">
+            <column name="uuid" value="3ea537e1-8f5c-41ff-a444-f086dfe43bd7"/>
+            <column name="name" value="Web"/>
+            <column name="description" value="Web Export"/>
+            <column name="renderer_type" value="org.openmrs.module.reporting.report.renderer.SimpleHtmlReportRenderer"/>
+            <column name="properties" value="#Fri May 07 10:13:19 WAT 2021"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2021-05-07 10:13:19"/>
+            <column name="retired" value="0"/>
+            <column name="report_definition_uuid" value="e4f1fa26-deac-435f-8b52-263c07532f67"/>
+        </insert>
+    </changeSet>
+    
+	 <!-- Force export type for Data Entry Statistics to show -->
+    <changeSet id='report_update_202105160127' author='Bright'>
+        <sql>
+            <![CDATA[
+			REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (104,'c30ba419-5552-49f7-8ef0-57542518c386','Excel','Excel Export','org.openmrs.module.reporting.report.renderer.XlsReportRenderer','#Fri May 07 10:12:50 WAT 2021',1,'2021-05-07 10:12:50',NULL,NULL,0,NULL,NULL,NULL,'e4f1fa26-deac-435f-8b52-263c07532f67');
+                        REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (105,'d8b4e4a1-1107-47f3-bf03-ca277e566655','CSV','CSV Export','org.openmrs.module.reporting.report.renderer.CsvReportRenderer','#Fri May 07 10:13:04 WAT 2021',1,'2021-05-07 10:13:04',NULL,NULL,0,NULL,NULL,NULL,'e4f1fa26-deac-435f-8b52-263c07532f67');
+                        REPLACE INTO `reporting_report_design` (`id`,`uuid`,`name`,`description`,`renderer_type`,`properties`,`creator`,`date_created`,`changed_by`,`date_changed`,`retired`,`retired_by`,`date_retired`,`retire_reason`,`report_definition_uuid`) VALUES (106,'3ea537e1-8f5c-41ff-a444-f086dfe43bd7','Web','Web Export','org.openmrs.module.reporting.report.renderer.SimpleHtmlReportRenderer','#Fri May 07 10:13:19 WAT 2021',1,'2021-05-07 10:13:19',NULL,NULL,0,NULL,NULL,NULL,'e4f1fa26-deac-435f-8b52-263c07532f67');
+		]]>
+        </sql>
+        
+    </changeSet>
+    
+       
 
 </databaseChangeLog>

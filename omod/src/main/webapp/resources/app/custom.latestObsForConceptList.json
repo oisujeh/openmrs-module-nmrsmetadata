@@ -1,0 +1,24 @@
+{
+  "id": "custom.latestObsForConceptList",
+  "instanceOf": "coreapps.template.dashboardWidget",
+  "description": "coreapps.latestObsForConceptList.app.description",
+  "order": 20,
+  "config": {
+    "widget": "latestobsforconceptlist",
+    "obsGroupLabels": "FSN",
+    "icon": "icon-user-md",
+    "label": "Tracking Outcome",
+    "concepts": "c2010e51-528a-4e9d-8478-df8cdfdbc484"
+  },
+  "extensions": [
+    {
+      "id": "org.openmrs.module.coreapps.mostRecentVitals.clinicianDashboardFirstColumn",
+      "appId": "custom.latestObsForConceptList",
+      "extensionPointId": "patientDashboard.firstColumnFragments",
+      "extensionParams": {
+        "provider": "coreapps",
+        "fragment": "dashboardwidgets/dashboardWidget"
+      }
+    }
+  ]
+}

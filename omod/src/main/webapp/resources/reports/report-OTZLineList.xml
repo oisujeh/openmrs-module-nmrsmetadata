@@ -4,28 +4,34 @@
   <creator id="2" uuid="1c3db49d-440a-11e6-a65c-00e04c680037"/>
   <dateCreated id="3">2021-04-28 15:29:10 UTC</dateCreated>
   <changedBy reference="2"/>
-  <dateChanged id="4">2021-04-28 15:30:28 UTC</dateChanged>
+  <dateChanged id="4">2021-05-05 10:37:55 UTC</dateChanged>
   <parameters id="5">
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="6">
       <name>startDate</name>
-      <label>Start Date</label>
+      <label>OTZ Start Date</label>
       <type>java.util.Date</type>
       <required>true</required>
     </org.openmrs.module.reporting.evaluation.parameter.Parameter>
     <org.openmrs.module.reporting.evaluation.parameter.Parameter id="7">
       <name>endDate</name>
-      <label>End Date</label>
+      <label>OTZ Stop Date</label>
+      <type>java.util.Date</type>
+      <required>true</required>
+    </org.openmrs.module.reporting.evaluation.parameter.Parameter>
+    <org.openmrs.module.reporting.evaluation.parameter.Parameter id="8">
+      <name>cutoffDate</name>
+      <label>Follow up Period</label>
       <type>java.util.Date</type>
       <required>true</required>
     </org.openmrs.module.reporting.evaluation.parameter.Parameter>
   </parameters>
   <id>246</id>
-  <dataSetDefinitions class="linked-hash-map" id="8">
+  <dataSetDefinitions class="linked-hash-map" id="9">
     <entry>
       <string>OTZLineList</string>
-      <org.openmrs.module.reporting.evaluation.parameter.Mapped id="9">
-        <parameterizable class="org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition" id="10" uuid="287920c5-2e27-4c5d-af76-589f45743a94"/>
-        <parameterMappings id="11">
+      <org.openmrs.module.reporting.evaluation.parameter.Mapped id="10">
+        <parameterizable class="org.openmrs.module.reporting.dataset.definition.SqlDataSetDefinition" id="11" uuid="287920c5-2e27-4c5d-af76-589f45743a94"/>
+        <parameterMappings id="12">
           <entry>
             <string>endDate</string>
             <string>${endDate}</string>
@@ -33,6 +39,10 @@
           <entry>
             <string>startDate</string>
             <string>${startDate}</string>
+          </entry>
+          <entry>
+            <string>cutoffDate</string>
+            <string>${cutoffDate}</string>
           </entry>
         </parameterMappings>
       </org.openmrs.module.reporting.evaluation.parameter.Mapped>

@@ -537,15 +537,10 @@ $j('#no_wives_label').hide();
 $j('#no_wives').hide();
 $j('#recency').hide();
 });
-
-
-
   </script>
   
 
 <script type="text/javascript">
-
-
       var $ = jQuery;
    var $j = jQuery;
 
@@ -788,7 +783,7 @@ jQuery(function() {
       var vlresultobs= getValue('vl_result_obs.value');
      if(vlresultT == "166239")
             {
-        if(vlresultobs &lt;1000)
+        if(vlresultobs &lt; 1000)
         {
         
            const field = getField('vl_result_obs.error');
@@ -1449,8 +1444,7 @@ if(myrecency_number_verif_value != null){
                               $('#tb_vl_request').attr("style", "pointer-events: unset;");
                           }
                       }
-                  }
-      
+                  }      
                   if(control_line == "1065"){
                       if(verification_line == "1066"){
                           if(longterm_line == "1066"){
@@ -2437,27 +2431,40 @@ var scntest = getValue('screen_test_value.value');
     </td>
     </table>		
   </td>
-  <td>
-    <table class="table" width="100%" id="key_pop_type">
-      <tr>
-        <td>FSW (for females) <obs conceptId="165339" answerConceptId="165336" answerLabel="" /></td>
-      </tr>
-      <tr>
-        <td>MSM (for males) <obs conceptId="165339" answerConceptId="119537" answerLabel="" /></td>
-      </tr>
-      <tr>
-        <td>PWID <obs conceptId="165339" answerConceptId="121543" answerLabel="" /></td>
-      </tr>
+   <td>
+                <table class="table" width="100%" id="key_pop_type">
+                    <includeIf velocityTest="$patient.gender == 'F' ">
+                        <tr>
+                            <td>FSW
+                                <obs conceptId="166369" answerConceptId="166285" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
 
-      <tr>
-        <td>TG <obs conceptId="165339" answerConceptId="165338" answerLabel="" /></td>
-      </tr>
-
-      <tr>
-        <td>People in prisons and other enclosed settings <obs conceptId="165339" answerConceptId="5622" answerLabel="" /></td>
-      </tr>
-    </table>
-      </td>
+                    <includeIf velocityTest="$patient.gender == 'M' ">
+                        <tr>
+                            <td>MSM
+                                <obs conceptId="166369" answerConceptId="160578" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+                    <tr>
+                        <td>PWID
+                            <obs conceptId="166369" answerConceptId="166286" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TG
+                            <obs conceptId="166369" answerConceptId="166287" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>People in prisons and other enclosed settings
+                            <obs conceptId="166369" answerConceptId="162277" answerLabel="" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
   </table>
   </fieldset>
   

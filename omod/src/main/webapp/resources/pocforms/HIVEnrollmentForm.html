@@ -371,8 +371,26 @@
         </table>
     </fieldset>
     
-    <!-- ADDED -->
-    <fieldset>
+     <fieldset>
+        <legend class="legend_style">Treatment Supporter</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Name of Treatment Supporter</td>
+                <td class="alnleft_s"><obs conceptId="160638" /></td>
+                <td class="alnleft_s">Address of Treatment Supporter</td>
+                <td class="alnleft_s"><obs conceptId="160641" /></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Relationship with Treatment Supporter</td>
+                <td class="alnleft_s"><obs conceptId="160640" answerLabels="Father,Mother,Daughter,Sister,Brother,Son,Uncle,Aunt,Wife,Husband,Friend,Parent,Other,Peer(PLHIV)" answerConceptIds="971,970,160728,160730,160729,160727,974,975,164944,164945,5618,1527,5622,166368" /></td>
+                <td class="alnleft_s">Phone number of Treatment Suppoter</td>
+                <td class="alnleft_s"><obs conceptId="160642" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    
+    <!-- UPDATED -->
+     <fieldset>
         <legend class="legend_style">Key Population</legend>
         <table width="100%" border="0">
 		<td>
@@ -381,7 +399,7 @@
 				<tr>
 					<td class="alnleft_s">KP</td>
 					<td>
-						<obs id="key_pop" style="yes_no_dropdown" conceptId="165766">
+						<obs id="key_pop" style="yes_no_dropdown" conceptId="166284">
 							<controls>
 								<when value="true" thenDisplay="#key_pop_type" />
 							</controls>
@@ -394,21 +412,25 @@
 
 		<td>
 			<table class="table" width="100%" id="key_pop_type">
+				<includeIf velocityTest="$patient.gender == 'F' ">
+					<tr>
+						<td>FSW <obs conceptId="166369" answerConceptId="166285" answerLabel="" /></td>
+					</tr>
+				</includeIf>
+				
+				<includeIf velocityTest="$patient.gender == 'M' ">
+					<tr>
+						<td>MSM <obs conceptId="166369" answerConceptId="160578" answerLabel="" /></td>
+					</tr>
+				</includeIf>
 				<tr>
-					<td>FSW (for females) <obs conceptId="165339" answerConceptId="165336" answerLabel="" /></td>
+					<td>PWID <obs conceptId="166369" answerConceptId="166286" answerLabel="" /></td>
 				</tr>
 				<tr>
-					<td>MSM (for males) <obs conceptId="165339" answerConceptId="119537" answerLabel="" /></td>
+					<td>TG <obs conceptId="166369" answerConceptId="166287" answerLabel="" /></td>
 				</tr>
 				<tr>
-					<td>PWID <obs conceptId="165339" answerConceptId="121543" answerLabel="" /></td>
-				</tr>
-
-				<tr>
-					<td>TG <obs conceptId="165339" answerConceptId="165338" answerLabel="" /></td>
-				</tr>
-    <tr>
-					<td>People in prisons and other enclosed settings <obs conceptId="165339" answerConceptId="5622" answerLabel="" /></td>
+					<td>People in prisons and other enclosed settings <obs conceptId="166369" answerConceptId="162277" answerLabel="" /></td>
 				</tr>
 			</table>
         </td>
@@ -432,6 +454,23 @@
     </fieldset>
     <submit />
 
+	   <script type="text/javascript">
+        var $ = jQuery;
+        $('#artStart').hide();
+        $('#art_start_date').hide();
+        $('#prior_arv').change(function(e) {
+            var prior_art = getValue('prior_arv.value');
+            if(prior_art == 165238 || prior_art == 165239){
+                $('#art_start_date').show();
+                $('#artStart').show();
+            }else {
+                $('#artStart').hide();
+                $('#art_start_date').hide();
+            }
+        });
+
+    </script>
+    
     <ifMode mode="EDIT" include="false">
         <lookup complexExpression="
                 #set( $encounter=0 )

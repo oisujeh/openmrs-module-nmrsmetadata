@@ -76,6 +76,8 @@
 
             href_vitals = baseUrl + "/htmlformentryui/htmlform/enterHtmlFormWithSimpleUi.page?patientId=" + $.urlParam('patientId') + "&amp;visitId=" + $.urlParam('visitId') + "&amp;formUuid=a000cb34-9ec1-4344-a1c8-f692232f6edd&amp;returnUrl=%2F" + domain + "%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D" + $.urlParam('patientId') + "%26"
 
+            href_ipf=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=f826d129-dea8-4b6b-86bc-1f448076615b&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+            
             var src = $('#vitals')
             src.attr("href", href_vitals)
 
@@ -127,6 +129,9 @@
             var medadhrform = $('#medadherence')
             medadhrform.attr("href", href_medadherence)
             
+            var ipf_form = $('#ipf_form')
+          	ipf_form.attr("href", href_ipf)
+            
         });
 
 
@@ -141,9 +146,7 @@
             <td>
                 <div id="home-container">
                     <div id="apps">
-                        <includeIf velocityTest="$user.hasRole('HTS')">
-
-                        </includeIf>
+                      
                         <includeIf velocityTest="$user.hasRole('MandE') || $user.hasRole('Clinician')">
     <a id="enrollment"
         href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=5d522e63-463e-4a9f-a2c1-7ebbe4069a49&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
@@ -259,6 +262,14 @@
         <i class="icon-user"></i>
         Medication Adherence
     </a>       
+</includeIf>
+<includeIf velocityTest="$user.hasRole('Clinician')">
+   <a id="ipf_form"
+       	href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=f826d129-dea8-4b6b-86bc-1f448076615b&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+       	class="button app big art">
+ 		<i class="icon-legal"></i>
+			Intensive Patient Follow Up
+   </a>
 </includeIf>
                     </div>
                 </div>
