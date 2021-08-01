@@ -193,6 +193,7 @@
                 "order": 19,
                 "requiredPrivilege": "App: reportingui.reports"
             },
+
            {
       "id": "EncounterWithoutAddPastVisit",
       "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
@@ -238,8 +239,6 @@
       "order": 5,
       "requiredPrivilege": "App: reportingui.reports"
     }
-   
-   
    
         ],
         "requiredPrivilege": "App: reportingui.reports"

@@ -116,7 +116,7 @@
         console.log(lmp.toString("dd/mm/yyyy"));
                           console.log('Just a test');
                       
-                 if(lmp &gt; today){
+                 if(lmp > today){
                         window.alert('Error! future date not allowed');
                         setValue('LMP.value',null);
                          return;
@@ -129,6 +129,7 @@
                         console.log('final value');
                         console.log(display.getMonth());
                         setValue('EDD.value',display.getFullYear()+"-"+(display.getMonth()+1)+"-"+display.getDate());
+                        $('#EDD').attr("style", "pointer-events: none;");
                         
                         var ard = new Date(getValue('ARD.value'));
                         var edd = new Date(getValue('EDD.value'));
@@ -267,27 +268,32 @@ var path = $(location).attr('pathname').split('/')[1];
         <legend class="legend_style">Antenatal booking details</legend>
         <table>
 
-            <tr>
+           <tr>
                 <td class="alnright">ANC No.</td>
-                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>
-<td style="vertical-align: top;">
+                <!--                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>-->
+                <td class="alnleft">
+                    <obs conceptId="165567" id="identifer-td" required="true" />
+                </td>
+                <td style="vertical-align: top;">
                     <label> <input type="checkbox" name="preferred" id="preferred" />preferred</label>
                     <input type="hidden" name="pref_value" id="pref_value" />
                     <input type="hidden" name="pref_type" id="pref_type" value="6" />
                 </td>
             </tr>
 
-            <tr>
+           <tr>
                 <td class="alnright">Antenatal registration date</td>
                 <td>
-                    <enrollInProgram programId="2"  showDate="false"/>
-                    <encounterDate default="now" showTime="false" id="ARD"/>
+                    <encounterDate id="ARD" showTime="false" allowFutureDates="false" required="true" />
+                    <enrollInProgram programId="2" showDate="false" />
                 </td>
 
- 
+
                 <td class="alnright">Gravidity</td>
-                <td class="alnleft"><obs conceptId="5624" /></td>
-            </tr>				
+                <td class="alnleft">
+                    <obs conceptId="5624" />
+                </td>
+            </tr>		
             <tr>
                 <td class="alnright">Last Menstral Period</td>
                 <td class="alnleft"><obs conceptId="1427" id="LMP" allowFutureDates="false" /></td>

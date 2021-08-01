@@ -78,6 +78,8 @@
 
             href_ipf=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=f826d129-dea8-4b6b-86bc-1f448076615b&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
             
+            href_adr=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=40a38992-18c1-463e-8413-cdaa29a9e420&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+      		            
             var src = $('#vitals')
             src.attr("href", href_vitals)
 
@@ -131,6 +133,9 @@
             
             var ipf_form = $('#ipf_form')
           	ipf_form.attr("href", href_ipf)
+          	
+            var adr_form = $('#adr_form')
+            adr_form.attr("href", href_adr)
             
         });
 
@@ -270,6 +275,14 @@
  		<i class="icon-legal"></i>
 			Intensive Patient Follow Up
    </a>
+</includeIf>
+<includeIf velocityTest="$user.hasRole('Clinician')">
+     <a id="adr_form"
+          href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=40a38992-18c1-463e-8413-cdaa29a9e420&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+          class="button app big art">
+          <i class="icon-legal"></i>
+				 Adverse Drug Reaction
+     </a>                      
 </includeIf>
                     </div>
                 </div>

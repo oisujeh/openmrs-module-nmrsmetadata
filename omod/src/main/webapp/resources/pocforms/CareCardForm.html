@@ -304,7 +304,26 @@ function calBMI(){
         <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
 
             <tr><td><b>Weight:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('5089').valueNumeric" /></font>kg <lookup expression="fn.latestObs('5089').obsDatetime" /></td><td><b>Height:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('5090').valueNumeric" /></font> cm <lookup expression="fn.latestObs('5090').obsDatetime" /></td><td><b>CD4 Count:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('5497').valueNumeric" /></font> c/mm <sup>3</sup> <lookup expression="fn.latestObs('5497').obsDatetime" /></td></tr>
-            <tr><td><b>Viral Load:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font>copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td><td><b>Regimen:</b></td><td><b>ART Start Date:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(159599).getValueDatetime()" /></font></td></tr>
+            <tr>
+	            <excludeIf velocityTest="$fn.latestObs('856').obsDatetime == ''">
+	                <includeIf velocityTest="!$fn.latestObs('166422').valueCoded">
+	                    <td><b>Viral Load: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font> copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td>
+	                </includeIf>
+	                <includeIf velocityTest="$fn.latestObs('166422').valueCoded">
+	                    <includeIf velocityTest="$fn.latestObs('166422').valueCoded == 'Concept #166426'">
+	                        <td><b>Viral Load: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font> copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td>
+	                    </includeIf> 
+	
+	                    <includeIf velocityTest="$fn.latestObs('166422').valueCoded != 'Concept #166426'">
+	                        <td><b>Viral Load: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('166422').valueCoded.name" /></font> <lookup expression="fn.latestObs('166422').obsDatetime" /></td>
+	                    </includeIf> 
+	
+	                </includeIf>
+	            </excludeIf>
+	
+	            <td><b>Regimen: </b></td><td><b>ART Start Date: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(159599).getValueDatetime()" /></font>
+	            </td>
+	        </tr>    
         </table>
     </fieldset>
 
@@ -869,7 +888,6 @@ Did not want others to know, Too many pills, Did not want to take meds , Afraid 
             </tr>
 
         </table>
-        <label id="mul"></label>
     </fieldset>
     <submit />
 </htmlform>

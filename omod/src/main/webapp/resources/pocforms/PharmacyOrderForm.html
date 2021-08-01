@@ -130,6 +130,8 @@ beforeSubmit.push(function() {
 			setValue('Ped2ndLine.error', '');
 			setValue('Ped3rdLine.error', '');
 			setValue('duration_s.error', '');
+			setValue('qtyPrescribed_s.error', '');
+			setValue('qtyDispensed_s.error', '');
 
 		// ARV
 			var TreatmentAgeCategory = getValue('TreatmentAgeCategory.value');
@@ -141,6 +143,8 @@ beforeSubmit.push(function() {
 			var Ped2ndLine = getValue('Ped2ndLine.value');
 			var Ped3rdLine = getValue('Ped3rdLine.value');
 			var duration_s = getValue('duration_s.value');
+			var qtyPrescribed_s = getValue('qtyPrescribed_s.value');
+			var qtyDispensed_s = getValue('qtyDispensed_s.value');
 
 		switch (true) {
 			<!-- TreatmentAgeCategory -->
@@ -161,7 +165,18 @@ beforeSubmit.push(function() {
 				error=true;
 				break;
 
+				 <!-- qtyPrescribed_s -->
+            case (qtyPrescribed_s == ""):
+                getField('qtyPrescribed_s.error').html('This field cannot be empty').show();
+                error = true;
+                break;
 
+                <!-- qtyDispensed_s -->
+            case (qtyDispensed_s == ""):
+                getField('qtyDispensed_s.error').html('This field cannot be empty').show();
+                error = true;
+                break;
+                
 			<!-- Adult1stLine -->
 			case ((Adult1stLine != "") || (Adult2ndLine != "") || (Ped1stLine != "") || (Ped2ndLine != "")):
 				return true;
@@ -192,27 +207,124 @@ beforeSubmit.push(function() {
 
 </script>
 
-<!--
-    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
-        <fieldset>
-            <legend class="legend_style">When?</legend>
-            <label>When?</label>
-            <encounterDate default="now" showTime="false" allowFutureDates="false"/>
-        </fieldset>
+ <script>
+        jQuery(function() {
 
-        <fieldset>
-            <legend>Who?</legend>
-            <label>Who?</label>
-            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>
-        </fieldset>
+            // organise custom date
+            function getCustomDate(date) {
+                // console.log("Date:" + date);
+                var dd = date.getDate();
+                var mm = date.getMonth() + 1;
+                var yyyy = date.getFullYear();
+                // console.log("Day: " + dd);
+                // console.log(mm);
+                // console.log(yyyy);
+                var d = dd;
+                var m = mm;
+                if (!isNaN(dd)) {
+                    if (10 > dd) {
+                        d = "0" + dd;
+                    }
+                    if (!isNaN(mm)) {
+                        if (10 > mm) {
+                            m = "0" + mm;
+                        }
+                    }
+                    return yyyy + "-" + m + "-" + d;
+                }
+            }
 
-        <fieldset>
-            <legend>Where?</legend>
-            <label>Where?</label>
-            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
-        </fieldset>
-    </div>
--->
+
+            // declear global
+            var pillBallances;
+            var duration_ss;
+
+
+            // get and set duration and next appt date
+             getField('duration_s.value').change(function() {
+                var duration_sss =  $('input:text', '#duration_s').eq(0).val();
+                var pillBallances = $('input:text', '#pillBallance').eq(0).val();
+                var encounterDates = getValue('encounterDate.value');
+
+                var duration_ss = parseInt(duration_sss);
+
+                var calcNxtApp = new Date(getValue('encounterDate.value'));
+                calcNxtApp = calcNxtApp.setDate(calcNxtApp.getDate() + duration_ss);
+
+                // setValue('currentDuration.value', duration_ss);
+                setValue('calcNxtAppDate.value', getCustomDate(new Date(calcNxtApp)));
+
+                // var currentDurations = document.getElementById("currentDuration")
+                // currentDurations.textContent = duration_ss + " " + "Days";
+            });
+
+            // get and add pills count to next appt date
+            getField('pillBallance.value').change(function() {
+                var pillBallances = $('input:text', '#pillBallance').eq(0).val();
+                var duration_ssss = $('input:text', '#duration_s').eq(0).val();
+                var encounterDatess = getValue('encounterDate.value');
+
+                var pillBallances = parseInt(pillBallances);
+                setValue('pillBallance.value', pillBallances);
+
+                var duration_ss = parseInt(duration_ssss);
+
+                var calcNxtAppPill = new Date(getValue('encounterDate.value'));
+                var pillDuration = (pillBallances + duration_ss);
+                if (calcNxtAppPill != null) {
+                    calcNxtAppPill = calcNxtAppPill.setDate(calcNxtAppPill.getDate() + pillDuration);
+                    // console.log(calcNxtAppPill);
+                    setValue('calcNxtAppDate.value', getCustomDate(new Date(calcNxtAppPill)));
+                }
+
+				// check if pill ballance is NaN or empty
+				var pillBallance_check = getValue('pillBallance.value');
+					// console.log(pillBallance_check);
+                if (pillBallance_check == "NaN") {
+                    setValue('pillBallance.value', "");
+
+                var calcNxtAppPill = new Date(getValue('encounterDate.value'));
+				var pillDurations = (duration_ss);
+					calcNxtAppPill = calcNxtAppPill.setDate(calcNxtAppPill.getDate() + pillDurations);
+                    // console.log(calcNxtAppPill);
+                    setValue('calcNxtAppDate.value', getCustomDate(new Date(calcNxtAppPill)));
+                }
+
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+
+            // MMD Compare with Duration and Quantiy dispensensed
+            getField('duration_s.value').change(function() {
+                setValue('duration_s.error', '');
+
+                var duration_mmd = $('input:text', '#duration_s').eq(0).val();
+                var mmd_Dispensed = getValue('mmd_Dispensings.value');
+
+				if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &gt; "90")) {
+                    window.alert('Duration for MMD &lt; 3 can not be ' + duration_mmd + ' please correct this entry');
+                    setValue('duration_s.value', "")
+                    return false;
+                }
+
+                if ((mmd_Dispensed == "166282") &amp;&amp; (duration_mmd &lt;= "90" &amp;&amp; duration_mmd &gt; "150")) {
+                    window.alert('Duration for MMD 3 to 5 can not be ' + duration_mmd + ' please correct this entry');
+                    setValue('duration_s.value', "")
+                    return false;
+                }
+
+                if ((mmd_Dispensed == "166283") &amp;&amp; (duration_mmd &lt; "180")) {
+                    window.alert('Duration for MMD > 6 can not be ' + duration_mmd + ' please correct this entry');
+                    setValue('duration_s.value', "")
+                    return false;
+                }
+            });
+        });
+    </script>
+
 
     <table style="margin-bottom: 20px;">
         <thead>
@@ -514,17 +626,17 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" id="drugStrength"  />
+                            <obs class='gridmenu' conceptId="165725" id="drugStrength"  />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
@@ -539,13 +651,13 @@ beforeSubmit.push(function() {
                     </td>
                     <td>
                         <div>
-                            <obs conceptId="160856" size="1" id="qtyPrescribed"/>
+                            <obs conceptId="160856" size="1" id="qtyPrescribed_s"/>
                         </div>
                     </td>
 
                     <includeIf velocityTest="$user.hasRole('Pharmacist')">
                         <td>
-                            <obs conceptId="1443" size="1" id="qtyDispensed"/>
+                            <obs conceptId="1443" size="1" id="qtyDispensed_s"/>
                         </td>
                     </includeIf>
                 </obsgroup>
@@ -555,22 +667,22 @@ beforeSubmit.push(function() {
 
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" id="drugStrength"/>
+                            <obs class='gridmenu' conceptId="165725" id="drugStrength"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
+                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
                         </div>
                     </td>
                     <td>
@@ -595,22 +707,22 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" id="drugStrength"/>
+                            <obs class='gridmenu' conceptId="165725" id="drugStrength"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
+                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
                         </div>
                     </td>
                     <td>
@@ -635,22 +747,22 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" id="drugStrength"/>
+                            <obs class='gridmenu' conceptId="165725" id="drugStrength"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
+                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
                         </div>
                     </td>
                     <td>
@@ -703,55 +815,17 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165726">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="165257,76488,1679,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
+                            <obs id="oi_drug" class='gridmenu' conceptId="165727" answerConceptIds="165257,76488,1679,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" answerConceptIds="166050,166137,165068,165060,165062" />
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="166050,166137,165068,165060,165062" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" id="duration" />
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <obs conceptId="160856" id="qtyPrescribed" />
-                        </div>
-                    </td>
-
-                    <includeIf velocityTest="$user.hasRole('Pharmacist')">
-                        <td>
-                            <obs conceptId="1443" id="qtyDispensed" />
-                        </td>
-                    </includeIf>
-                </obsgroup>
-            </tr>
-            <tr>
-                <obsgroup groupingConceptId="165726">
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
-							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
-							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" answerConceptIds="165617,165076,165075,165635" />
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                            <obs conceptId="165723" answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
                         </div>
                     </td>
                     <td>
@@ -784,12 +858,12 @@ beforeSubmit.push(function() {
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" answerConceptIds="165617,165076,165074" />
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="165617,165076,165075,165635" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                            <obs conceptId="165723" class='gridmenu' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
                         </div>
                     </td>
                     <td>
@@ -822,12 +896,50 @@ beforeSubmit.push(function() {
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" answerConceptIds="166145,166146,166147" />
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="165617,165076,165074" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                            <obs conceptId="165723" class='gridmenu' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                            <obs conceptId="159368" id="duration" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <obs conceptId="160856" id="qtyPrescribed" />
+                        </div>
+                    </td>
+
+                    <includeIf velocityTest="$user.hasRole('Pharmacist')">
+                        <td>
+                            <obs conceptId="1443" id="qtyDispensed" />
+                        </td>
+                    </includeIf>
+                </obsgroup>
+            </tr>
+            <tr>
+                <obsgroup groupingConceptId="165726">
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                            <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
+							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="166145,166146,166147" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                            <obs conceptId="165723" class='gridmenu' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
                         </div>
                     </td>
                     <td>
@@ -883,17 +995,17 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165728">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165304" answerConceptIds="1675,768,1677,1108" answerLabels="RHZE,RHZ,RHE,EH"/>
+                            <obs class='gridmenu' conceptId="165304" answerConceptIds="1675,768,1677,1108" answerLabels="RHZE,RHZ,RHE,EH"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" answerConceptIds="162401"/>
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="162401"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency'/>
+                            <obs conceptId="165723" class='gridmenu' />
                         </div>
                     </td>
                     <td>
@@ -918,17 +1030,17 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165728">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
+                            <obs class='gridmenu' conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165725" answerConceptIds="165075"/>
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="165075"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency'/>
+                            <obs conceptId="165723" class='gridmenu' />
                         </div>
                     </td>
                     <td>
@@ -1080,6 +1192,28 @@ beforeSubmit.push(function() {
                </table>
 </fieldset>
 
+<!-- ADDED -->
+    <fieldset>
+        <legend class="legend_style">Next Appointment</legend>
+        <table class="baseline-aligned">
+            <tr>
+                <td>
+                    <label>Pill Ballance:</label>
+                    <obs conceptId="166406" id="pillBallance" required="false" />
+                </td>
+                <td>
+                    <!--  <label>Current Duration:</label> -->
+                    <!-- <obs conceptId="159368" id="currentDuration" /> -->
+                </td>
+                <td>
+                    <label>Calculated Next Appointment Date:</label>
+                    <obs conceptId="5096" id="calcNxtAppDate" allowFutureDates="true" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <br/>
 
     <fieldset>
         <legend class="legend_style">Signature</legend>
@@ -1154,15 +1288,7 @@ beforeSubmit.push(function() {
                 </td>
                 <td></td>
             </tr>
-            <tr>
-                <td>
-                    <label>Date:</label>
-                </td>
-                <td colspan="3">
-                    <encounterDate default="today"/>
-                </td>
-                <td></td>
-            </tr>
+         
         </table>
     </fieldset>
 

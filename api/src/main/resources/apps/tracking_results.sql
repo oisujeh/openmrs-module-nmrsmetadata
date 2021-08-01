@@ -34,3 +34,5 @@ REPLACE INTO `appframework_user_app` (`app_id`,`json`) VALUES
   ]
 }'
 );
+
+

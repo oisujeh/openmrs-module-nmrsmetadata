@@ -1,8 +1,6 @@
 <htmlform formUuid="35cc381b-3b8f-45fa-b9b1-f638d51ad774" formName="Client intake form" formEncounterType="254574ff-2daf-4552-ba47-ca1636ddffa6" formVersion="2018">
   <macros>
-      paperFormId = (Fill this in)t
-      headerColor =#2f1c55
-      fontOnHeaderColor = white
+      paperFormId = (Fill this in)t headerColor =#2f1c55 fontOnHeaderColor = white
   </macros>
   <style>
       .section {
@@ -11,6 +9,7 @@
       text-align: left;
       margin-bottom: 1em;
       }
+      
       .sectionHeader {
       background-color: #2f1c55;
       color: white;
@@ -18,44 +17,55 @@
       padding: 2px;
       font-weight: bold;
       }
+      
       table tr:nth-child(even) {
       background: #ffffff;
       }
+      
       .alnright{
       text-align: right;
       color:#000000;
       width: 25%;
       }
+      
       .alnright_s{
       text-align: right;
       color:#000000;
       width: 13%;
       }
+      
       .alnleft_s{
       text-align: left;
       color:#000000;
       width: 13%;
       }
+      
       .alnleft_f{
       text-align: left;
       color:#000000;
       width: 20%;
       }
+      
       .alnleft{
       text-align: left;
       color:#000000;
       width: 25%;
       }
+      
      .error{
           color:red;
          }
+         
       td {
       border: none;
       }
-      table th, table td {
+      
+      table th, 
+      table td {
       padding: 5px 10px;
       border: None;
       }
+      
       .legend_style {
       max-width: 35%;
       background: #FAFAFA;
@@ -66,41 +76,60 @@
       border: 1px solid #305a72;
       border-bottom-left-radius: 2px;
       text-transform:initial;
-
       }
-      form fieldset, .form fieldset {
+      
+      form fieldset, 
+      .form fieldset {
       min-width: 98%;
       border: none;
       border-top: 1px solid #305a72;
-
       }
-      table th, table td {
+      
+      table th, 
+      table td {
       padding: 5px 10px;
       /* border: 1px solid #DDD; */
       }
+      
       table tr {
       border: None;
       }
-      ul.select, .form input, .form select, .form textarea, .form ul.select {
+      
+      ul.select, 
+      .form input,
+      .form select, 
+      .form textarea, 
+      .form ul.select {
       padding: 2px 10px;
       }
-      form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+      
+      form input, 
+      form select, 
+      form textarea, 
+      form ul.select, 
+      .form input, 
+      .form select, 
+      .form textarea, 
+      .form ul.select {
       padding: 2px 10px;
       }
-      form select, .form select {
+      
+      form select, 
+      .form select {
       max-width: 200px;
       min-width: 150px;
       }
+      
       .standard {
       max-width: 200px;
       min-width: 150px;
       }
+      
       body {
       font-family: "OpenSans", Arial, sans-serif;
       color: #363463;
       font-size: 14px;
       }
-
   </style>
 <script type="text/javascript">
 
@@ -111,8 +140,7 @@
 var path = $(location).attr('pathname').split('/')[1];
       var baseUrl = '/' + path + '/nigeriaemr/PatientIdTypeSetter';
 
-      $(document).ready(function ()
-      {
+      $(document).ready(function (){
 
 $('.hasDatepicker').attr('readonly', true)
 
@@ -1141,6 +1169,27 @@ jQuery(function() {
               }
       });
   </script>	
+  
+   <script>
+        jQuery(function() {
+            if (getField('vl_result_clasification.value') != null) {
+                getField('vl_result_clasification.value').change(function() {
+                    var vlresult_entered = getValue('vl_result_clasification.value');
+                    if (vlresult_entered != null) {
+                        if (vlresult_entered == "166238") {
+                            setValue('final_recency_value.value', 166235);
+                        }
+                        if (vlresult_entered == "166239") {
+                            setValue('final_recency_value.value', 166236);
+                        }
+                        if (vlresult_entered == "166240") {
+                            setValue('final_recency_value.value', 166237);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 
 <script>
     jQuery(function() {
@@ -2138,43 +2187,28 @@ if (vlpcr > vlvalue) {
 
 var vlresultT = getValue('vl_result_clasification.value');
       var vlresultobs= getValue('vl_result_obs.value');
-     if(vlresultT == "166239")
-            {
-        if(vlresultobs &lt;1000)
-        {
-        
+     if(vlresultT == "166239"){
+        if(vlresultobs &lt;1000){        
           getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
-          return false;
-        
-        }
-                  
-            }
-           
-            if(vlresultT == "166238")
-            {
-      
-      if(vlresultobs > 1000)
-        
-        {
-        
+          return false;        
+        }                  
+     }           
+     if(vlresultT == "166238"){      
+      	if(vlresultobs > 1000){        
           getField('vl_result_obs.error').html('Result (copies/ml) cannot be greater than 1000 if Viral Load Result Classification is less than 1000').show();
-          return false;
-        
-        }
-                   
-            }
-            if( confirm("Have you verified the correctness of all fields from the paper form? Are you sure you want to submit?") ) {
-                return true;
-            }else{
-                return false;
-            }
+          return false;        
+        }                   
+     }
+     if( confirm("Have you verified the correctness of all fields from the paper form? Are you sure you want to submit?") ) {
+         return true;
+     }else{
+         return false;
+     }
     
   return true;
-}
-else
-{
+}else{
 
-     var testVal = new Date(getValue('hiv_test_date.value'));
+  var testVal = new Date(getValue('hiv_test_date.value'));
   var rctd= new Date(getValue('recency_test_date.value'));
 
   if (getField('recency_test_date.error') != null &amp;&amp; testVal > rctd) {
@@ -2328,7 +2362,7 @@ var scntest = getValue('screen_test_value.value');
           </td>
       </tr>
       <br/>
-      <table class="table" width="100%">
+      <table class="table" id="pns_details_display"  width="100%">
           <tr>
               <td class="alnleft" colspan="3"><b>Partner Name:</b></td>
               <td class="alnleft"><b>Partner Gender</b></td>
@@ -2412,6 +2446,7 @@ var scntest = getValue('screen_test_value.value');
       </table>
   </fieldset>
 
+<!-- UPDATED -->
    <fieldset>
       <legend class="legend_style">Key Population</legend>
       <table width="100%" border="0">
