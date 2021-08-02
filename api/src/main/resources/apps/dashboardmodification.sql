@@ -1,4 +1,11 @@
 
+
+UPDATE `address_hierarchy_level` SET `required`=1 WHERE `address_hierarchy_level_id`=4;
+UPDATE `address_hierarchy_level` SET `required`=1 WHERE `address_hierarchy_level_id`=3;
+UPDATE `address_hierarchy_level` SET `required`=1 WHERE `address_hierarchy_level_id`=2;
+UPDATE `address_hierarchy_level` SET `required`=1 WHERE `address_hierarchy_level_id`=1;
+UPDATE `address_hierarchy_level` SET `required`=0 WHERE `address_hierarchy_level_id`=5;
+
 REPLACE INTO `appframework_user_app` (`app_id`,`json`) VALUES
 (
   'nextappointment.latestObsForConceptList',
@@ -165,8 +172,3 @@ REPLACE INTO `appframework_user_app` (`app_id`,`json`) VALUES
 
 '
 );
-
-UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='5';
-UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='3';
-UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='2';
-UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='1';
