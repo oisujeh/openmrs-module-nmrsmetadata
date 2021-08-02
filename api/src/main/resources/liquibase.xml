@@ -576,5 +576,14 @@
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
 	
+	<changeSet id="update_custom_report_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n    \"id\": \"customReport\",\r\n    \"description\": \"OpenMRS System Administration\",\r\n    \"order\": 0,\r\n    \"extensions\": [\r\n        {\r\n            \"id\": \"demoapp.homepageLink\",\r\n            \"extensionPointId\": \"org.openmrs.referenceapplication.homepageLink\",\r\n            \"type\": \"link\",\r\n            \"label\": \"NMRS Export\",\r\n            \"url\": \"nigeriaemr/customreport.page\",\r\n            \"icon\": \"icon-upload-alt \",\r\n            \"requiredPrivilege\": \"Nigeriaemr Privilege\"\r\n        },\r\n       {\r\n            \"id\": \"demoapp.homepageLink\",\r\n            \"extensionPointId\": \"org.openmrs.referenceapplication.homepageLink\",\r\n            \"type\": \"link\",\r\n            \"label\": \"Database Backup\",\r\n            \"url\": \"module/databasebackup/backup.form\",\r\n            \"icon\": \"icon-download-alt \",\r\n            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n        }\r\n    ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'customReport';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
 
 </databaseChangeLog>

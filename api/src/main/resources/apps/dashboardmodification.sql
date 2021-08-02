@@ -91,8 +91,8 @@ REPLACE INTO `appframework_user_app` (`app_id`,`json`) VALUES
                                         "fragmentId": "field/personAddressWithHierarchy",
                                         "config" : {
                                             "shortcutFor": "address1",
-                                            "manualFields": ["address2"],
-                                            "required": true
+                                            "manualFields": ["address2"], 
+											"required": true
                                             }
                                     }
                                 }
@@ -166,7 +166,8 @@ REPLACE INTO `appframework_user_app` (`app_id`,`json`) VALUES
 '
 );
 
-UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='5';
+UPDATE `address_hierarchy_level` SET `required`='0' WHERE `address_hierarchy_level_id`='5';
+UPDATE `address_hierarchy_level` SET `required`='1', name='address2' WHERE `address_hierarchy_level_id`='4';
 UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='3';
 UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='2';
 UPDATE `address_hierarchy_level` SET `required`='1' WHERE `address_hierarchy_level_id`='1';
