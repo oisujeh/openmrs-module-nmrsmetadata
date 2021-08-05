@@ -99,16 +99,11 @@
 
 <script type="text/javascript">
           jQuery(function() {
-            
-                        jQuery('.datefield').find("input").attr("readonly",true);
-jQuery('.hasDatepicker').attr('readonly', true)
-                                         
-                        });
+            jQuery('.datefield').find("input").attr("readonly",true);
+            jQuery('.hasDatepicker').attr('readonly', true)
+          });
 
     </script>
-
-
-
 
     <script type="text/javascript">
     beforeSubmit.push(function() {
@@ -124,7 +119,6 @@ jQuery('.hasDatepicker').attr('readonly', true)
     </script>
     <script type="text/javascript">
     var $ = jQuery;
-
 
     $(document).ready(function() {
         $.ajax({
@@ -147,7 +141,6 @@ jQuery('.hasDatepicker').attr('readonly', true)
                 console.log("ERROR : ", e);
             }
         });
-
 
         $('#preferred').click(function(e) {
             var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
@@ -216,8 +209,10 @@ jQuery('.hasDatepicker').attr('readonly', true)
                 </td>
                 <td class="alnright_s">Enrollment Date</td>
                 <td>
+                    <encounterDate showTime="false" id="date_enrolled" allowFutureDates="false" required="true"/>
+
                     <enrollInProgram programId="3" showDate="false" />
-                    <encounterDate class="datefield" showTime="false" id="date_enrolled" />
+
                 </td>
 
            </tr>

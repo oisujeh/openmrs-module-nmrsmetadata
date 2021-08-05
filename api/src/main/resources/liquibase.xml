@@ -363,16 +363,6 @@
         </sql>
 	</changeSet>
 
-    <changeSet id="2021060300001" author="Melody" runOnChange="true">
-        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-        <sqlFile path="apps/tracking_results.sql"
-                 stripComments="true"
-                 splitStatements="true"
-                 encoding="UTF-8"
-                 endDelimiter=";"/>
-        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
-    </changeSet>
-
     <changeSet id="2021080209061" author="Melody" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="apps/dashboardmodification.sql"

@@ -10,9 +10,9 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>nmrsmetadata</artifactId>
-	<version>1.0.3.1-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>NMRS Metatadat Module </name>
+	<name>NMRS Metatadata Module </name>
 	<description>This module will install everything that has to do with NMRS</description>
 
 	<url>https://wiki.openmrs.org/x/FQ4z</url>
