@@ -363,7 +363,6 @@
         </sql>
 	</changeSet>
 
-
     <changeSet id="2021080209061" author="Melody" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="apps/dashboardmodification.sql"
