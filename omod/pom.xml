@@ -9,14 +9,14 @@
 
 	<artifactId>nmrsmetadata-omod</artifactId>
 	<packaging>jar</packaging>
-	<name>NMRS Metatadat Module  OMOD</name>
+	<name>NMRS Metatadata Module  OMOD</name>
 	<description>Omod submodule for NMRS Metatadat Module </description>
 
 	<dependencies>
         <dependency>
             <groupId>org.openmrs.module</groupId>
             <artifactId>nmrsmetadata-api</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.3-SNAPSHOT</version>
         </dependency>
 		<dependency>
 			<groupId>org.openmrs.web</groupId>

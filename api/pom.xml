@@ -9,7 +9,7 @@
 
 	<artifactId>nmrsmetadata-api</artifactId>
 	<packaging>jar</packaging>
-	<name>NMRS Metatadat Module  API</name>
+	<name>NMRS Metatadata Module  API</name>
 	<description>API project for NMRS Metatadat Module </description>
 
 	<dependencies>

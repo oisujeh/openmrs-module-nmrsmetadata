@@ -429,7 +429,7 @@
                         <tr id="others_discont">
                             <td>Specify</td>
                             <td>
-                                <obs conceptId="165917" required="true" />
+                                <obs conceptId="165917" id="discont_specify"/>
                             </td>
                         </tr>
                     </table>
@@ -478,5 +478,18 @@
 
     <submit/>
 
+    <script type="text/javascript">
+        beforeSubmit.push(function() {
+            var disc_cause = getValue('disc_cause.value');
+            var discont_specify = getValue('discont_specify.value');
+            if (disc_cause == 5622) {
+                if(! discont_specify) {
+                    getField('discont_specify.error').html('Reason must be provided').show();
+                    return false;
+                }
+            }
 
+            return true;
+        });
+    </script>
 </htmlform>
