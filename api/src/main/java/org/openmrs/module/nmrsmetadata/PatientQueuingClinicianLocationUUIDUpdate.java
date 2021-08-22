@@ -3,12 +3,14 @@ package org.openmrs.module.nmrsmetadata;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.GlobalProperty;
+import org.openmrs.Privilege;
 import org.openmrs.api.context.Context;
 
 public class PatientQueuingClinicianLocationUUIDUpdate implements Initializer {
 	
 	protected static final Log log = LogFactory.getLog(PatientQueuingClinicianLocationUUIDUpdate.class);
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void started() {
 		try {
@@ -39,6 +41,7 @@ public class PatientQueuingClinicianLocationUUIDUpdate implements Initializer {
 			        + "<string>cityVillage stateProvince country postalCode</string>\n" + "</lineByLineFormat>\n"
 			        + "</org.openmrs.layout.address.AddressTemplate>";
 			Context.getAdministrationService().updateGlobalProperty(prop, val);
+			
 		}
 		catch (Exception e) {
 			log.error("Could not update property value for patient queueing: ", e);

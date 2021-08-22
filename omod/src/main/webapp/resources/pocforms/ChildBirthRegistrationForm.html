@@ -52,6 +52,7 @@
         .legend_style {
         max-width: 35%;
         background: #FAFAFA;
+        <!--padding: 5px;-->
         margin: 0px left;
         box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
         border-radius: 2px;
@@ -90,22 +91,19 @@
         color: #363463;
         font-size: 14px;
         }
-   
+        <!--table.baseline-aligned td {-->
+        <!--vertical-align: baseline;-->
+        <!--}-->
     </style>
 
 
 <script type="text/javascript">
           jQuery(function() {
-            
-                        jQuery('.datefield').find("input").attr("readonly",true);
-jQuery('.hasDatepicker').attr('readonly', true)
-                                         
-                        });
+            jQuery('.datefield').find("input").attr("readonly",true);
+            jQuery('.hasDatepicker').attr('readonly', true)
+          });
 
     </script>
-
-
-
 
     <script type="text/javascript">
     beforeSubmit.push(function() {
@@ -121,7 +119,6 @@ jQuery('.hasDatepicker').attr('readonly', true)
     </script>
     <script type="text/javascript">
     var $ = jQuery;
-
 
     $(document).ready(function() {
         $.ajax({
@@ -144,7 +141,6 @@ jQuery('.hasDatepicker').attr('readonly', true)
                 console.log("ERROR : ", e);
             }
         });
-
 
         $('#preferred').click(function(e) {
             var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
@@ -189,7 +185,7 @@ jQuery('.hasDatepicker').attr('readonly', true)
         });
     });
     </script>
- 
+  
     <span style="float:right">Paper Form ID: $paperFormId</span>
     <table style="margin-bottom: 20px;">
         <thead>
@@ -213,8 +209,11 @@ jQuery('.hasDatepicker').attr('readonly', true)
                 </td>
                 <td class="alnright_s">Enrollment Date</td>
                 <td>
+
+                    <encounterDate showTime="false" id="date_enrolled" allowFutureDates="false" required="true"/>
+
                     <enrollInProgram programId="3" showDate="false" />
-                    <encounterDate class="datefield" showTime="false" id="date_enrolled" />
+
                 </td>
 
            </tr>
@@ -287,7 +286,7 @@ jQuery('.hasDatepicker').attr('readonly', true)
                 </td>
                 <td class="alnright_s">Enrolled by:</td>
                 <td class="alnleft_s">
-                    <encounterProvider default="currentUser" />
+                    <encounterProvider default="currentUser" required="true" />
                 </td>
                 <td class="alnright_s">Facility:</td>
                 <td>

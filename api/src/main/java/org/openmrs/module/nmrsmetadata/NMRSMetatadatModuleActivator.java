@@ -12,6 +12,7 @@ package org.openmrs.module.nmrsmetadata;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.GlobalProperty;
+import org.openmrs.Privilege;
 import org.openmrs.api.AdministrationService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.BaseModuleActivator;
@@ -27,6 +28,7 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 	/**
 	 * @see #started()
 	 */
+	@SuppressWarnings("deprecation")
 	public void started() {
 		new HtmlFormsInitializer().started();
 		new ReportsInitializer().started();
@@ -38,6 +40,25 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 		    "visits.assignmentHandler");
 		globalProperty.setPropertyValue("org.openmrs.api.handler.ExistingOrNewVisitAssignmentHandler");
 		Context.getAdministrationService().saveGlobalProperty(globalProperty);
+		
+		//create new privilege 
+		//check if Lims module privilege already exist, if exist dont create
+		Privilege isPrivilegeAlreadySaved = null;
+		isPrivilegeAlreadySaved = Context.getUserService().getPrivilege("Apps: LIMS Module Privilege");
+		if (isPrivilegeAlreadySaved.getPrivilege().equals("Apps: LIMS Module Privilege")) {} else {
+			Privilege priv = new Privilege();
+			priv.setPrivilege("Apps: LIMS Module Privilege");
+			Context.getUserService().savePrivilege(priv);
+		}
+		
+		//check if export module privilege already exist, if exist dont create
+		Privilege isPrivilegeAlreadySavedExp = null;
+		isPrivilegeAlreadySavedExp = Context.getUserService().getPrivilege("Apps: Export Module Privilege");
+		if (isPrivilegeAlreadySavedExp.getPrivilege().equals("Apps: Export Module Privilege")) {} else {
+			Privilege privv = new Privilege();
+			privv.setPrivilege("Apps: Export Module Privilege");
+			Context.getUserService().savePrivilege(privv);
+		}
 		
 		log.info("Started NMRS Metatadat Module ");
 	}

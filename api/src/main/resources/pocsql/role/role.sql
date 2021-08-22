@@ -8,5 +8,6 @@ REPLACE INTO `role` VALUES
 ('Nurse','Triage Nurse','8ac6f647-9b83-48ce-8ead-c1236aa21591'),
 ('MandE','NULL','9792c62d-f649-420d-bfb8-d201d5efa8cb'),
 ('Pharmacist','Pharmacist','35b667b8-199b-4619-b6a3-89bd25b0aa83'),
+('Data Manager','Data Manager','ec22e0e0-f871-11eb-9a03-0242ac130003'),
 ('System Developer','Developers of the OpenMRS .. have additional access to change fundamental structure of the database model.','8d94f852-c2cc-11de-8d13-0010c6dffd0f')/0xd
 SET FOREIGN_KEY_CHECKS=1/0xd

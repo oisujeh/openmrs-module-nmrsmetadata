@@ -35,4 +35,12 @@ REPLACE INTO `role_role` VALUES
   ('Provider','MandE'),
   ('Privilege Level: Full','Pharmacist'),
   ('Pharmacist','Application: Schedules Appointments'),
-  ('Provider','Pharmacist')/0xd
+  ('Provider','Pharmacist'),  
+  ('Pharmacist','Data Manager'),
+  ('MandE','Data Manager'),
+  ('Lab','Data Manager'),
+  ('HTS','Data Manager'),
+  ('Nurse','Data Manager'),
+  ('Clinician','Data Manager'),
+  ('ANC','Data Manager'),
+  ('Adherence','Data Manager')/0xd

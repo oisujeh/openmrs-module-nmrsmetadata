@@ -83,6 +83,19 @@ REPLACE INTO `role_privilege` VALUES
   ('Lab','Task: patientqueueing.sendPatientToQueue'),
   ('Lab','App: registrationapp.registerPatient'),
   ('Lab','Task: coreapps.createVisit'),
+  ('Lab','Apps: LIMS Module Privilege'),
+  
+  ('Lab','App: View Inventory App'),
+  ('Lab','App: Edit Visit'),
+  ('Lab','App: Access Inventory Tasks'),
+  ('Lab','Task: Manage Inventory Module'),
+  ('Lab','Task: Manage Inventory Metadata'),
+  ('Lab','Task: Access Create Operation'),
+  ('Lab','Task: View Stock Operations'),
+  ('Lab','Task: Access Stock Take'),
+  ('Lab','Task: Access Inventory Reports'),
+  ('Lab','Task: Pharmacy Menu'),
+  
   ('MandE','App: coreapps.activeVisits'),
   ('MandE','App: registrationapp.registerPatient'),
   ('MandE','App: reportingui.reports'),
@@ -110,6 +123,7 @@ REPLACE INTO `role_privilege` VALUES
 ('MandE','Manage Appointment Types'),
 ('MandE','Schedule Appointments'),
 ('MandE','App: appointmentschedulingui.providerSchedules'),
+('MandE','Apps: Export Module Privilege'),
   ('Pharmacist','Task: emr.patient.encounter.edit'),
   ('Pharmacist','App: coreapps.findPatient'),
   ('Pharmacist','App: coreapps.activeVisits'),
@@ -126,5 +140,17 @@ REPLACE INTO `role_privilege` VALUES
   ('Pharmacist','Task: coreapps.mergeVisits'),
   ('Pharmacist','Task: patientqueueing.completePatientQueue'),
   ('Pharmacist','Task: patientqueueing.sendPatientToQueue'),
+  ('Pharmacist','App: View Inventory App'),
+  
+  ('Pharmacist','App: Edit Visit'),
+  ('Pharmacist','App: Access Inventory Tasks'),
+  ('Pharmacist','Task: Manage Inventory Module'),
+  ('Pharmacist','Task: Manage Inventory Metadata'),
+  ('Pharmacist','Task: Access Create Operation'),
+  ('Pharmacist','Task: View Stock Operations'),
+  ('Pharmacist','Task: Access Stock Take'),
+  ('Pharmacist','Task: Access Inventory Reports'),
+  ('Pharmacist','Task: Pharmacy Menu'),
+  
   ('Pharmacist','Task: coreapps.createVisit')/0xd
   SET FOREIGN_KEY_CHECKS=1/0xd
