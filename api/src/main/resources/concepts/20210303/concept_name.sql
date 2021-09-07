@@ -266,4 +266,10 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166426, 'Numeric Value', 'en', 1, '2021-07-25 23:24:02', 143272, 0, NULL, NULL, NULL, '0df625a6-e563-4a1a-a0f1-6586beae0182', 'SHORT', 0);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166426, 'Numeric Value', 'en', 1, '2021-07-25 23:24:02', 143273, 0, NULL, NULL, NULL, '5f2c5546-0f9f-4e1a-aba0-bb58062a8de4', 'FULLY_SPECIFIED', 1);
 
+/*
+   Covid 19
+*/
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166698, 'Covid19 Treatment Service', 'en', 1, '2021-09-02 15:58:15', 143276, 0, NULL, NULL, NULL, '34e48843-f39f-47b8-992a-172794842fb6', 'FULLY_SPECIFIED', 1);
+
+
 
