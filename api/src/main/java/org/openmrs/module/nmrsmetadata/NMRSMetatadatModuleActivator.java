@@ -29,7 +29,7 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		new HtmlFormsInitializer().started();
-		new ReportsInitializer().started();
+		//new ReportsInitializer().started();
 		new JsonFormsInitializer().started();
 		
 		// set visit handler
