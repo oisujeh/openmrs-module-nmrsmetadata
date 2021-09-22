@@ -313,19 +313,19 @@
                 var duration_mmd = $('input:text', '#duration_s').eq(0).val();
                 var mmd_Dispensed = getValue('mmd_Dispensings.value');
 
-				if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &gt; "90")) {
+				if ((mmd_Dispensed == "166281") &amp;&amp; (duration_mmd &lt; "1" || duration_mmd &gt;= "90")) {
                     window.alert('Duration for MMD &lt; 3 can not be ' + duration_mmd + ' please correct this entry');
                     setValue('duration_s.value', "")
                     return false;
                 }
 
-                if ((mmd_Dispensed == "166282") &amp;&amp; (duration_mmd &lt;= "90" &amp;&amp; duration_mmd &gt; "150")) {
+                if ((mmd_Dispensed == "166282") &amp;&amp; (duration_mmd &lt; "90" &amp;&amp; duration_mmd &gt; "150")) {
                     window.alert('Duration for MMD 3 to 5 can not be ' + duration_mmd + ' please correct this entry');
                     setValue('duration_s.value', "")
                     return false;
                 }
 
-                if ((mmd_Dispensed == "166283") &amp;&amp; (duration_mmd &lt; "180")) {
+                if ((mmd_Dispensed == "166283") &amp;&amp; (duration_mmd &lt; "151" || duration_mmd &gt; "180" )) {
                     window.alert('Duration for MMD > 6 can not be ' + duration_mmd + ' please correct this entry');
                     setValue('duration_s.value', "")
                     return false;
@@ -462,7 +462,7 @@
                     <tr>
                         <td>
                             <label>Multi-Month Dispensing (MMD)</label>
-                            <obs id="mmd_Dispensings" conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt;= 3, MMD 3 to 5, MMD &gt;= 6" />
+                            <obs id="mmd_Dispensings" conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt; 3, MMD 3 to 5, MMD 6" />
                         </td>
                     </tr>
                 </table>
@@ -513,7 +513,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <obs id="RegimenLine" conceptId="165708" answerConceptIds="164507, 164514, 165703, 164506, 164513, 165702" answerLabels="Child First Line, Child Second Line, Child Salvage, Adult First Line, Adult Second Line, Adult Salvage">
+                                <obs id="RegimenLine" conceptId="165708" answerConceptIds="164507, 164514, 165703, 164506, 164513, 165702" answerLabels="Paediatrics First Line, Paediatrics Second Line, Paediatrics Salvage, Adult First Line, Adult Second Line, Adult Salvage">
                                     <controls>
                                         <when value="164507" thenDisplay="#ped_first_line" />
                                         <when value="164514" thenDisplay="#ped_second_line" />
