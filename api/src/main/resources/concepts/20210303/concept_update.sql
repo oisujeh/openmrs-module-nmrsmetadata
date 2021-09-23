@@ -46,4 +46,7 @@ UPDATE concept SET datatype_id = 2 WHERE concept_id = 165652;
 UPDATE concept SET datatype_id = 2 WHERE concept_id = 165653;
 UPDATE concept SET datatype_id = 2 WHERE concept_id = 165654;
 UPDATE concept SET datatype_id = 2 WHERE concept_id = 1101;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166444;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 160699;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 162632;
 SET FOREIGN_KEY_CHECKS=1;
