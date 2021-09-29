@@ -574,6 +574,37 @@
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
     
+    <changeSet id="export_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM privilege WHERE privilege='Apps: Export Module Privilege';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+        	REPLACE INTO `privilege` (`privilege`, `description`, `uuid`) VALUES ('Apps: Export Module Privilege', NULL, 'a06d59be-7e19-4c65-8e70-a18092048ff7');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="lims_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM privilege WHERE privilege='Apps: LIMS Module Privilege';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+        	REPLACE INTO `privilege` (`privilege`, `description`, `uuid`) VALUES ('Apps: LIMS Module Privilege', NULL, '7279a651-dc76-4288-8e1c-74e28d417405');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+    
 	<changeSet id="update_custom_report_app_id_privilege" author="Toyeeb" runOnChange="true">
 		<preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
@@ -604,20 +635,116 @@
         </sql>
 	</changeSet>
 	
+	<changeSet id="clinical_mgt_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM privilege WHERE privilege='Task: clinicalManagement';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+        	REPLACE INTO `privilege` (`privilege`, `description`, `uuid`) VALUES ('Task: clinicalManagement', NULL, 'fddc804a-adb6-436f-b76a-c6e017c88e7c');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
 	
 	
 	
+	<changeSet id="update_nmrsClinicalMgt_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM appframework_user_app WHERE app_id='nmrsClinicalManagement';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n \"id\": \"nmrsClinicalManagement\",\r\n \"description\": \"OpenMRS System Administration\",\r\n \"order\": 1,\r\n \"extensions\": [\r\n {\r\n \"id\": \"nmrsClinicalManagement\",\r\n \"extensionPointId\": \"patientDashboard.overallActions\",\r\n \"type\": \"link\",\r\n \"label\": \"Clinical Management\",\r\n \"url\": \"nmrsclinicals/PatientVisual.page?patientId={{patient.uuid}}\",\r\n \"icon\": \"icon-link\",\r\n \"order\": 1,\r\n \"requiredPrivilege\": \"Task: clinicalManagement\"\r\n }\r\n ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'nmrsClinicalManagement';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
 	
+	<changeSet id="update_role_privilege" author="Toyeeb" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			REPLACE INTO `role_privilege` (`role`,`privilege`)  VALUES ('Clinician','Task: clinicalManagement');
+			REPLACE INTO `role_privilege` (`role`,`privilege`)  VALUES ('MandE','Task: clinicalManagement');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="update_pastEncounters_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM appframework_user_app WHERE app_id='nmrsClinicalManagement';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n \"id\": \"patientEncountersByType\",\r\n \"description\": \"Patient Encounter by Type\",\r\n \"order\": 7,\r\n \"extensions\": [\r\n {\r\n \"id\": \"patientEncountersByType\",\r\n \"extensionPointId\": \"patientDashboard.overallActions\",\r\n \"type\": \"link\",\r\n \"label\": \"Past Encounters\",\r\n \"url\": \"nmrsclinicals/encounterbytype.page?patientId={{patient.uuid}}\",\r\n \"icon\": \"icon-hand-down \",\r\n \"order\": 1,\r\n \"requiredPrivilege\": \"Task: clinicalManagement\"\r\n }\r\n ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'patientEncountersByType';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+		</sql>
+	</changeSet>
 
 
 
 
 
+	<changeSet id="2021080209061" author="Melody" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="apps/dashboardmodification.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 
+	<changeSet id="patient_identifier_types_020920211640" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="patient_identifier_types/patient_identifier_types.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 
+	 <changeSet author="Toyeeb" id="070920211233000000" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="forms/forms/form_resource.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 
+	 <changeSet author="Toyeeb" id="0809202119110000" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="concepts/20210303/concept_update.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 
-
-
-
+ 	<changeSet id="20210521100138" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 10 WHERE concept_id = 166284;
+          	UPDATE concept SET class_id = 7 WHERE concept_id = 166284;
+          	SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
 </databaseChangeLog>

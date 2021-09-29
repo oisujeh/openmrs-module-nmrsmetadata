@@ -83,7 +83,8 @@
         padding: 2px 10px;
         }
         form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;       
+        padding: 2px 10px;
+        <!--min-width: 150px;-->
         }
         form select, .form select {
         max-width: 200px;
@@ -94,7 +95,9 @@
         color: #363463;
         font-size: 14px;
         }
-      
+        <!--table.baseline-aligned td {-->
+        <!--vertical-align: baseline;-->
+        <!--}-->
     </style>
 <script type="text/javascript">
 
@@ -195,9 +198,9 @@
                     <encounterDate default="now" showTime="false" allowFutureDates="false"/>
                 </td>
                 <td class="alnright_s">Weight(kg):</td>
-                <td class="alnleft_s"><obs conceptId="5916"/></td>
+                <td class="alnleft_s"><obs conceptId="5916" id="childsWeight" /></td>
                 <td class="alnright_s">Length(cm):</td>
-                <td class="alnleft_s"><obs conceptId="1503"/></td>
+                <td class="alnleft_s"><obs conceptId="1503" id="childsLength" /></td>
             </tr>
             <tr>
                 <td class="alnright_s">Head circumference(cm):</td>
@@ -205,12 +208,12 @@
                 <td class="alnright_s">Mid upper arm circumference(cm):</td>
                 <td class="alnleft_s"><obs conceptId="1343"/></td>
                 <td class="alnright_s">MUAC</td>
-                <td class="alnleft_s"><obs conceptId="165935" answerConceptIds="165932, 165933,165934" answerLabels="Over, Under, Normal"/></td>
+                <td class="alnleft_s"><obs conceptId="165935" answerConceptIds="165932, 165933,165934" answerLabels="Over, Under, Normal" id="childsMUAC" /></td>
 
             </tr>
             <tr>
                 <td class="alnright_s">BMI/MUAC</td>
-                <td class="alnleft_s"><obs conceptId="165243" /></td>
+                <td class="alnleft_s"><obs conceptId="165243" id="BMIorMUAC"  /></td>
                 <td class="alnright_s">CTX given to child</td>
                 <td class="alnleft_s"><obs conceptId="165837" style="yes_no_dropdown" answerLabel=""/></td>
                 <td class="alnright_s">Feeding method</td>
@@ -415,4 +418,62 @@
     </fieldset><br/>
 
     <submit/>
+	<script>
+	 var $ = jQuery;
+   
+        $(document).ready(function ()
+        {
+           
+            $('#childsWeight').keyup(calBMIoverMUAC);
+            $('#childsLength').keyup(calBMIoverMUAC);
+			//$('#childsMUAC').keyup(calBMIoverMUAC);
+			getField('BMIorMUAC.value')[0].disabled = 'disabled';
+        });
+	
+function calBMIoverMUAC(){
+    var weight_val = getValue('childsWeight.value');
+    var length_val = getValue('childsLength.value');
+	//var childsMUAC_val = getValue('childsMUAC.value');
+	var BMIoverMUAC = null;
+    if(length_val == 0){
+        length_val = 1;
+		//childsMUAC_val =1;
+    }
+    if(weight_val == 0){
+        weight_val = 1;
+		//childsMUAC_val =1;
+    }
+	/*if(childsMUAC_val == 0){
+	weight_val = 1;
+	length_val = 1;
+	}*/
+    var weight_num = parseFloat(weight_val);
+    var length_num = parseFloat(length_val);
+	//var childsMUAC_num = parseFloat(childsMUAC_val);
+
+  if(!isNaN(length_num)){
+        if(!isNaN(weight_num)){
+            length_num  = length_num/100;
+            var bmi_val = weight_num / (length_num* length_num);
+            if(!isNaN(bmi_val)){
+                if(length_val == 1){
+                    setValue('BMIorMUAC.value',"");
+                }else if(weight_val == 1){
+                    setValue('BMIorMUAC.value',"");
+                }else if(length_val == 1){
+                    setValue('BMIorMUAC.value',"");
+                }else{
+                    setValue('BMIorMUAC.value',parseInt(bmi_val.toFixed(2)));
+                }
+            }
+        }else{
+
+        }
+    }else {
+
+    }
+
+   
+}
+</script>
 </htmlform>

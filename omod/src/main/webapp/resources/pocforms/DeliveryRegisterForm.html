@@ -1,182 +1,186 @@
-<htmlform formUuid="3a9299e5-25b6-4489-9878-0cdfba06fba1" formName="Delivery register" formEncounterType="7daccd30-d04c-4215-b71e-97b8af8b3af3" formVersion="2018">
-    <style>
+<htmlform formUuid="3a9299e5-25b6-4489-9878-0cdfba06fba1" formName="Delivery register" formEncounterType="7daccd30-d04c-4215-b71e-97b8af8b3af3" formVersion="1.0">
+<style>
         .section {
-        border: 1px solid $headerColor;
-        padding: 2px;
-        text-align: left;
-        margin-bottom: 1em;
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
         }
         .sectionHeader {
-        background-color: #2f1c55;
-        color: white;
-        /* display: block; */
-        padding: 2px;
-        font-weight: bold;
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
         }
         table tr:nth-child(even) {
-        background: #ffffff;
+            background: #ffffff;
         }
         .alnright{
-        text-align: right;
-        color:#000000;
-        width: 25%;
+            text-align: right;
+            color:#000000;
+            width: 25%;
         }
         .alnright_i{
-        text-align: right;
-        color:#000000;
-        width: 40%;
+            text-align: right;
+            color:#000000;
+            width: 40%;
         }
         .alnleft{
-        text-align: left;
-        color:#000000;
-        width: 25%;
+            text-align: left;
+            color:#000000;
+            width: 25%;
         }
         td {
-        border: none;
+            border: none;
         }
         table th, table td {
-        padding: 5px 10px;
-        border: None;
+            padding: 5px 10px;
+            border: None;
         }
         .legend_style {
-        max-width: 35%;
-        background: #FAFAFA;
+            max-width: 35%;
+            background: #FAFAFA;
         <!--padding: 5px;-->
-        margin: 0px left;
-        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
-        border-radius: 2px;
-        border: 1px solid #305a72;
-        border-bottom-left-radius: 2px;
-        text-transform:initial;
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
 
         }
         form fieldset, .form fieldset {
-        min-width: 98%;
-        border: none;
-        border-top: 1px solid #305a72;
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
 
         }
         table th, table td {
-        padding: 5px 10px;
-        /* border: 1px solid #DDD; */
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
         }
         table tr {
-        border: None;
+            border: None;
         }
         ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;
+            padding: 2px 10px;
         }
         form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;
-        min-width: 180px;
+            padding: 2px 10px;
+            min-width: 180px;
         }
         form select, .form select {
-        max-width: 200px;
-        min-width: 180px;
+            max-width: 200px;
+            min-width: 180px;
         }
         body {
-        font-family: "OpenSans", Arial, sans-serif;
-        color: #363463;
-        font-size: 14px;
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
         }
+        <!--table.baseline-aligned td {-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
     </style>
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    var $ = jQuery;
-    $(document).ready(function ()
-    {
-       $('.hasDatepicker').attr('readonly', true)
-       $('#birthStatus1').attr('readonly', true);
-       $('#childBirth').change(function (e) {
-           console.log("Called: "+getValue('childBirth.value'));
-           switch (getValue('childBirth.value')) {
-               case "165643":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').hide();
-                   $('#birthStatus3').hide();
-                   $('#birthStatus4').hide();
-                   $('#birthStatus5').hide();
-                   $('#birthStatus6').hide();
-                   $('#birthStatus7').hide();
-                   break;
-               case "165644":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').show();
-                   $('#birthStatus3').hide();
-                   $('#birthStatus4').hide();
-                   $('#birthStatus5').hide();
-                   $('#birthStatus6').hide();
-                   $('#birthStatus7').hide();
-                   break;
-               case "165645":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').show();
-                   $('#birthStatus3').show();
-                   $('#birthStatus4').hide();
-                   $('#birthStatus5').hide();
-                   $('#birthStatus6').hide();
-                   $('#birthStatus7').hide();
-                   break;
-               case "165646":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').show();
-                   $('#birthStatus3').show();
-                   $('#birthStatus4').show();
-                   $('#birthStatus5').hide();
-                   $('#birthStatus6').hide();
-                   $('#birthStatus7').hide();
-                   break;
-               case "165647":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').show();
-                   $('#birthStatus3').show();
-                   $('#birthStatus4').show();
-                   $('#birthStatus5').show();
-                   $('#birthStatus6').hide();
-                   $('#birthStatus7').hide();
-                   break;
-               case "165648":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').show();
-                   $('#birthStatus3').show();
-                   $('#birthStatus4').show();
-                   $('#birthStatus5').show();
-                   $('#birthStatus6').show();
-                   $('#birthStatus7').hide();
-                   break;
-               case "165649":
-                   console.log(1);
-                   $('#birthStatus1').show();
-                   $('#birthStatus2').show();
-                   $('#birthStatus3').show();
-                   $('#birthStatus4').show();
-                   $('#birthStatus5').show();
-                   $('#birthStatus6').show();
-                   $('#birthStatus7').show();
-                   break;
-               default:
-                   $('#birthStatus1').hide();
-                   $('#birthStatus2').hide();
-                   $('#birthStatus3').hide();
-                   $('#birthStatus4').hide();
-                   $('#birthStatus5').hide();
-                   $('#birthStatus6').hide();
-                   $('#birthStatus7').hide();
-           }
-       });
+        var $ = jQuery;
+        $(document).ready(function ()
+        {
+            $('.hasDatepicker').attr('readonly', true);
+            $('#birthStatus1').attr('readonly', true);
+            $('#childBirth').change(function (e) {
+                console.log("Called: "+getValue('childBirth.value'));
+                switch (getValue('childBirth.value')) {
+                    case "165643":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').hide();
+                        $('#birthStatus3').hide();
+                        $('#birthStatus4').hide();
+                        $('#birthStatus5').hide();
+                        $('#birthStatus6').hide();
+                        $('#birthStatus7').hide();
+                        break;
+                    case "165644":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').show();
+                        $('#birthStatus3').hide();
+                        $('#birthStatus4').hide();
+                        $('#birthStatus5').hide();
+                        $('#birthStatus6').hide();
+                        $('#birthStatus7').hide();
+                        break;
+                    case "165645":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').show();
+                        $('#birthStatus3').show();
+                        $('#birthStatus4').hide();
+                        $('#birthStatus5').hide();
+                        $('#birthStatus6').hide();
+                        $('#birthStatus7').hide();
+                        break;
+                    case "165646":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').show();
+                        $('#birthStatus3').show();
+                        $('#birthStatus4').show();
+                        $('#birthStatus5').hide();
+                        $('#birthStatus6').hide();
+                        $('#birthStatus7').hide();
+                        break;
+                    case "165647":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').show();
+                        $('#birthStatus3').show();
+                        $('#birthStatus4').show();
+                        $('#birthStatus5').show();
+                        $('#birthStatus6').hide();
+                        $('#birthStatus7').hide();
+                        break;
+                    case "165648":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').show();
+                        $('#birthStatus3').show();
+                        $('#birthStatus4').show();
+                        $('#birthStatus5').show();
+                        $('#birthStatus6').show();
+                        $('#birthStatus7').hide();
+                        break;
+                    case "165649":
+                        console.log(1);
+                        $('#birthStatus1').show();
+                        $('#birthStatus2').show();
+                        $('#birthStatus3').show();
+                        $('#birthStatus4').show();
+                        $('#birthStatus5').show();
+                        $('#birthStatus6').show();
+                        $('#birthStatus7').show();
+                        break;
+                    default:
+                        $('#birthStatus1').hide();
+                        $('#birthStatus2').hide();
+                        $('#birthStatus3').hide();
+                        $('#birthStatus4').hide();
+                        $('#birthStatus5').hide();
+                        $('#birthStatus6').hide();
+                        $('#birthStatus7').hide();
+                }
 
-   });
-</script>
-   
+            });
+
+        });
+    </script>
+ 
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr><th colspan='5' style="text-align: center">Delivery Informtation</th></tr>
+        <tr><th colspan='5' style="text-align: center">Delivery Informtation</th></tr>
         </thead>
     </table>
     <fieldset>
@@ -258,8 +262,8 @@
                 <td class="alnright">Maternal outcome</td>
                 <td><obs conceptId="160085" answerConceptIds="160429,134612" answerLabels="Alive,Dead"/></td>
             </tr>
-      
-             <tr>
+
+            <tr>
                 <td width="13%">Number of Child Birth</td>
                 <td width="13%">
                     <obs id="childBirth" conceptId="165708" answerConceptIds="165643,165644,165645,165646,165647,165648,165649"
@@ -276,7 +280,7 @@
                     </obs>
                 </td>
             </tr>
-           </table>
+        </table>
         <table class="birthStatus1,birthStatus2,birthStatus3,birthStatus4,birthStatus5,birthStatus6,birthStatus7,table" width="100%">
             <tr id="birthStatus1">
 
@@ -328,55 +332,65 @@
             </tr>
         </table>
     </fieldset>
-    
-    
-<!-- UPDATED -->
+
+    <!-- UPDATED -->
     <fieldset>
         <legend class="legend_style">Key Population</legend>
         <table width="100%" border="0">
-		<td>
-		<table >
-			<td>
-				<tr>
-					<td class="alnleft_s">KP</td>
-					<td>
-						<obs id="key_pop" style="yes_no_dropdown" conceptId="165766">
-							<controls>
-								<when value="true" thenDisplay="#key_pop_type" />
-							</controls>
-						</obs>
-					</td>
-				</tr>
-			</td>
-			</table>		
-		</td>
+            <td>
+                <table>
+                    <td>
+                        <tr>
+                            <td class="alnleft_s">KP</td>
+                            <td>
+                                <obs id="key_pop" style="yes_no_dropdown" conceptId="166284">
+                                    <controls>
+                                        <when value="true" thenDisplay="#key_pop_type" />
+                                    </controls>
+                                </obs>
+                            </td>
+                        </tr>
+                    </td>
+                </table>
+            </td>
 
-		<td>
-			<table class="table" width="100%" id="key_pop_type">
-				<includeIf velocityTest="$patient.gender == 'F' ">
-					<tr>
-						<td>FSW <obs conceptId="166369" answerConceptId="166285" answerLabel="" /></td>
-					</tr>
-				</includeIf>
-				
-				<includeIf velocityTest="$patient.gender == 'M' ">
-					<tr>
-						<td>MSM <obs conceptId="166369" answerConceptId="160578" answerLabel="" /></td>
-					</tr>
-				</includeIf>
-				<tr>
-					<td>PWID <obs conceptId="166369" answerConceptId="166286" answerLabel="" /></td>
-				</tr>
-				<tr>
-					<td>TG <obs conceptId="166369" answerConceptId="166287" answerLabel="" /></td>
-				</tr>
-				<tr>
-					<td>People in prisons and other enclosed settings <obs conceptId="166369" answerConceptId="162277" answerLabel="" /></td>
-				</tr>
-			</table>
-        </td>
-		</table>
+            <td>
+                <table class="table" width="100%" id="key_pop_type">
+                    <includeIf velocityTest="$patient.gender == 'F' ">
+                        <tr>
+                            <td>FSW
+                                <obs conceptId="166369" answerConceptId="166285" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+
+                    <includeIf velocityTest="$patient.gender == 'M' ">
+                        <tr>
+                            <td>MSM
+                                <obs conceptId="166369" answerConceptId="160578" answerLabel="" />
+                            </td>
+                        </tr>
+                    </includeIf>
+                    <tr>
+                        <td>PWID
+                            <obs conceptId="166369" answerConceptId="166286" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TG
+                            <obs conceptId="166369" answerConceptId="166287" answerLabel="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>People in prisons and other enclosed settings
+                            <obs conceptId="166369" answerConceptId="162277" answerLabel="" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </table>
     </fieldset>
+
 
     <fieldset>
         <legend class="legend_style">Signature</legend>
