@@ -59,4 +59,14 @@ UPDATE concept SET class_id = 7 WHERE concept_id = 166436;
 UPDATE concept SET class_id = 10 WHERE concept_id = 1641;
 UPDATE concept SET datatype_id = 6 WHERE concept_id = 1641;
 UPDATE concept SET datatype_id = 2 WHERE concept_id = 165347;
+
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166026;
+UPDATE concept_name SET voided = 1, voided_by = 1, date_voided = '2021-10-21 11:02:42', void_reason = 'Deleted due to change of name' WHERE concept_name_id = 142622;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166027;
+UPDATE concept_name SET voided = 1, voided_by = 1, date_voided = '2021-10-21 11:02:42', void_reason = 'Deleted due to change of name' WHERE concept_name_id = 142623;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166028;
+UPDATE concept_name SET voided = 1, voided_by = 1, date_voided = '2021-10-21 11:02:42', void_reason = 'Deleted due to change of name' WHERE concept_name_id = 142624;
+UPDATE concept SET datatype_id = 6 WHERE concept_id = 160715;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 165613;
+
 SET FOREIGN_KEY_CHECKS=1;
