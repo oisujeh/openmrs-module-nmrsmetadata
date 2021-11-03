@@ -402,5 +402,15 @@
                  endDelimiter=";"/>
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
+    
+    <changeSet id="update_maternal_cohort_encountertype" author="Toyeeb">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE form SET encounter_type = 45 WHERE form_id = 48;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
 
 </databaseChangeLog>
