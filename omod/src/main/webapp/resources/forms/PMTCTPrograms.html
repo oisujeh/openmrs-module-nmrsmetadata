@@ -57,6 +57,10 @@
 
             href_maternal=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=5f217cca-75c7-49be-a559-f9714d3d0bd7&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
+            href_pmtctreg=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=69abe746-b538-428b-b82d-030b9e655700&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+
+            
+
             var hts = $('#htsreg')
             hts.attr("href",href_htsreg)
 
@@ -80,6 +84,10 @@
             var mat = $('#maternal')
             mat.attr("href",href_maternal)
 
+            var pmt = $('#pmtctreg')
+            pmt.attr("href",href_pmtctreg)
+
+
 
 
         });
@@ -89,84 +97,263 @@
         <tr><td>PMTCT Program forms</td></tr>
         <tr>
             <td>
-                <div id="home-container">
-                    <div id="apps">
+                <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name != 'Postpartum greater than 72 hrs' ">
+                    <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name != 'POSTPARTUM' ">
+                     
+                        <div id="home-container">
+                            <div id="apps">
+        
+                                <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name == 'Prenatal' ">
+                                    
+                                    
+                                    <a id="antenatal"
+                                       href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=ac995d47-a8db-4ea8-91b4-f080489e523f&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                       class="button app big">
+            
+                                        <i class="icon-home"></i>
+            
+                                        General Antenatal Care
+                                    </a>
+            
+                                </includeIf>
+        
+        
+                                <a id="htsreg"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=2b8e038b-9b8d-4e73-b4ad-5f1d39499ff6&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big pmtct">
+        
+                                    <i class="icon-user"></i>
+        
+                                    PMTCT HTS Register
+                                </a>
+        
+                                <a id="partner"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=35cc381b-3b8f-45fa-b9b1-f638d51ad774&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big pmtct">
+        
+        
+        
+                                    <i class="icon-user"></i>
+        
+                                    Partner Registration
+                                </a>
+        
+                                <excludeIf velocityTest="$fn.latestObs('166025').valueCoded.name == 'Postnatal' ">
+        
+                                    <a id="delivery"
+                                    href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=889ce948-f1ee-4656-91af-147a9e760309&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                    class="button app big pmtct">
+            
+                                        <i class="icon-user"></i>
+            
+                                        Delivery Registration
+                                    </a>
+        
+                                </excludeIf>
+        
+                                <a id="referral"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=5d522e63-463e-4a9f-a2c1-7ebbe4069a49&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big pmtct">
+        
+        
+                                    <i class="icon-exchange"></i>
+        
+                                    Client Referral
+                                </a>
+        
+        
+                                <a id="maternal"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=9bacf7ac-93c9-4a01-b7b4-80cc74e7f6c0&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big pmtct">
+        
+                                    <i class="icon-truck"></i>
+        
+                                    Maternal Cohort Register
+                                </a>
+        
+                                <a id="pmtctreg"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=4d06f88a-e934-46a2-944f-454af155bbed&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big pmtct">
+        
+                                    <i class="icon-pencil"></i>
+        
+                                    PMTCT Registeration
+                                </a>
+        
+                               
+                            </div>
+        
+                        </div>
+                        
+                    </includeIf>
+                </includeIf>
 
-                        <a id="htsreg"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=2b8e038b-9b8d-4e73-b4ad-5f1d39499ff6&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big pmtct">
-
-                            <i class="icon-user"></i>
-
-                            PMTCT HTS Register
-                        </a>
-
-                        <a id="partner"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=35cc381b-3b8f-45fa-b9b1-f638d51ad774&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big pmtct">
-
-
-
-                            <i class="icon-user"></i>
-
-                            Partner Registration
-                        </a>
-
-
-
-                        <a id="delivery"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=889ce948-f1ee-4656-91af-147a9e760309&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big pmtct">
-
-                            <i class="icon-user"></i>
-
-                            Delivery Registration
-                        </a>
-
-                        <a id="referral"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=5d522e63-463e-4a9f-a2c1-7ebbe4069a49&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big pmtct">
-
-
-                            <i class="icon-exchange"></i>
-
-                            Client Referral
-                        </a>
-
-                        <a id="antenatal"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=ac995d47-a8db-4ea8-91b4-f080489e523f&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big">
-
-                            <i class="icon-home"></i>
-
-                            General Antenatal Care
-                        </a>
-
-
-
-                        <a id="maternal"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=9bacf7ac-93c9-4a01-b7b4-80cc74e7f6c0&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big pmtct">
-
-                            <i class="icon-truck"></i>
-
-                            Maternal Cohort Register
-                        </a>
-
-
+                
+                
+                <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name == 'POSTPARTUM' ">
+                    
+                    <div id="home-container">
+                        <div id="apps">
+    
+                            <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name == 'Prenatal' ">
+                                
+                                
+                                <a id="antenatal"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=ac995d47-a8db-4ea8-91b4-f080489e523f&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big">
+        
+                                    <i class="icon-home"></i>
+        
+                                    General Antenatal Care
+                                </a>
+        
+                            </includeIf>
+    
+    
+                            <a id="htsreg"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=2b8e038b-9b8d-4e73-b4ad-5f1d39499ff6&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+                                <i class="icon-user"></i>
+    
+                                PMTCT HTS Register
+                            </a>
+    
+                            <a id="partner"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=35cc381b-3b8f-45fa-b9b1-f638d51ad774&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+    
+    
+                                <i class="icon-user"></i>
+    
+                                Partner Registration
+                            </a>
+    
+                            
+                            <a id="referral"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=5d522e63-463e-4a9f-a2c1-7ebbe4069a49&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+    
+                                <i class="icon-exchange"></i>
+    
+                                Client Referral
+                            </a>
+    
+    
+                            <a id="maternal"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=9bacf7ac-93c9-4a01-b7b4-80cc74e7f6c0&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+                                <i class="icon-truck"></i>
+    
+                                Maternal Cohort Register
+                            </a>
+    
+                            <a id="pmtctreg"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=4d06f88a-e934-46a2-944f-454af155bbed&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+                                <i class="icon-pencil"></i>
+    
+                                PMTCT Registeration
+                            </a>
+    
+                           
+                        </div>
+    
                     </div>
+                    
+                </includeIf>
 
-                </div>
+                <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name == 'Postpartum greater than 72 hrs'">
+                    <div id="home-container">
+                        <div id="apps">
+    
+                            <includeIf velocityTest="$fn.latestObs('166025').valueCoded.name == 'Prenatal' ">
+                                
+                                
+                                <a id="antenatal"
+                                   href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=ac995d47-a8db-4ea8-91b4-f080489e523f&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                                   class="button app big">
+        
+                                    <i class="icon-home"></i>
+        
+                                    General Antenatal Care
+                                </a>
+        
+                            </includeIf>
+    
+    
+                            <a id="htsreg"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=2b8e038b-9b8d-4e73-b4ad-5f1d39499ff6&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+                                <i class="icon-user"></i>
+    
+                                PMTCT HTS Register
+                            </a>
+    
+                            <a id="partner"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=35cc381b-3b8f-45fa-b9b1-f638d51ad774&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+    
+    
+                                <i class="icon-user"></i>
+    
+                                Partner Registration
+                            </a>
+    
+                            
+                            <a id="referral"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=5d522e63-463e-4a9f-a2c1-7ebbe4069a49&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+    
+                                <i class="icon-exchange"></i>
+    
+                                Client Referral
+                            </a>
+    
+    
+                            <a id="maternal"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=9bacf7ac-93c9-4a01-b7b4-80cc74e7f6c0&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+                                <i class="icon-truck"></i>
+    
+                                Maternal Cohort Register
+                            </a>
+    
+                            <a id="pmtctreg"
+                               href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=69abe746-b538-428b-b82d-030b9e655700&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                               class="button app big pmtct">
+    
+                                <i class="icon-pencil"></i>
+    
+                                PMTCT Registeration
+                            </a>
+    
+                           
+                        </div>
+    
+                    </div>
+                    
+                </includeIf>
+
+
             </td>
 
         </tr>
 
     </table>
-    <div class="show"> General Antenatal Care form must be filled before you access other forms</div>
+    <div class="show"> PMTCT Registration form must be filled before you access other forms</div>
     <ifMode mode="" include="false">
         <lookup complexExpression="
             #set( $encounter = 0 )
-            #set( $encounter = $fn.latestEncounter('c6f26a9a-5a8c-493a-a5a7-57bd2c81628d'))
+            #set( $encounter = $fn.latestEncounter('97735f91-bb8c-4b49-9409-d1bc2899d941'))
             #if( $encounter == 0 )
                 &lt;script type=&quot;text/javascript&quot;>
                        $('.pmtct').hide()

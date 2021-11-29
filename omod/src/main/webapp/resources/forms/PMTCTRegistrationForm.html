@@ -1,6 +1,388 @@
 <htmlform formUuid="69abe746-b538-428b-b82d-030b9e655700" formName="PMTCT Registration Form" formEncounterType="97735f91-bb8c-4b49-9409-d1bc2899d941" formVersion="2021">
 	
-	
+	<!-- PMTCT Registration Form 08-Oct-2021 By Adeyemi -->
+    <macros>
+        paperFormId = (Fill this in) headerColor =#2f1c55 fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+        
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+        
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+        
+        .alnleft {
+            text-align: left;
+            color: #000000;
+            width: 25%;
+        }
+        
+        td {
+            border: none;
+        }
+        
+        table th,
+        table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+            <!--padding: 5px;
+            -->margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+        
+        form fieldset,
+        .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+        }
+        
+        table th,
+        table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        
+        table tr {
+            border: None;
+        }
+        
+        ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
+            padding: 2px 10px;
+        }
+        
+        form input,
+        form select,
+        form textarea,
+        form ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
+            padding: 2px 10px;
+        }
+        
+        form select,
+        .form select,
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        
+        form select,
+        .form select {
+            max-width: 200px;
+            min-width: auto;
+        }
+        
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+        
+        <!--table.baseline-aligned td {
+            --><!--vertical-align: baseline;
+            --><!--
+        }
+        
+        -->
+    </style>
 
+    
+    <script type="text/javascript">
+        var $ = jQuery;
+
+        var path = $(location).attr('pathname').split('/')[1];
+        var baseUrl = '/' + path + '/nigeriaemr/PatientIdTypeSetter';
+
+        $(document).ready(function() {
+            $('.hasDatepicker').attr('readonly', true)
+
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url: baseUrl + "/getIdentifier.action",
+                data: {
+                    patientId: $('input[name=personId]').val(),
+                    identifierType: $('#pref_type').val()
+                },
+                cache: false,
+                timeout: 600000,
+                success: function(r) {
+                    if (r.code > 0) {
+                        if (r.identifier.length > 0) {
+                            if (r.preferred === true) {
+                                $('#preferred').prop("checked", 'checked');
+                            }
+                        }
+                    }
+                },
+                error: function(e) {
+                    console.log("ERROR : ", e);
+                }
+            });
+
+
+            $('#preferred').click(function(e) {
+                var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
+                if (patientIdentifier) {
+                    if (patientIdentifier.trim().length > 0) {
+                        var obj = e.target;
+                        var isPreferred = false;
+                        if ($(obj).prop("checked") == true) {
+                            isPreferred = true;
+                        }
+
+                        var patientId = $('input[name=personId]').val();
+                        var identifierType = $('#pref_type').val();
+
+                        var pid = {
+                            patientId: patientId,
+                            patientIdentifier: patientIdentifier,
+                            identifierType: identifierType,
+                            isPreferred: isPreferred
+                        };
+                        var link = baseUrl + "/setPidType.action";
+
+                        $.ajax({
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            url: link,
+                            data: pid,
+                            cache: false,
+                            timeout: 600000,
+                            success: function(r) {
+                                if (r.code !== 5) {
+                                    alert(r.message);
+                                }
+                            },
+                            error: function(e) {
+                                console.log("ERROR : ", e);
+                            }
+                        });
+                    } else {
+                        $('#preferred').prop("checked", '');
+                        alert('Please fill in the PMTCT No. before setting as preferred');
+                    }
+                } else {
+                    $('#preferred').prop("checked", '');
+                    alert('Please fill in the PMTCT No. before setting as preferred');
+                }
+            });
+        });
+    </script>
+    <!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
+    <!--        <fieldset>-->
+    <!--            <legend class="legend_style">When?</legend>-->
+    <!--            <label>When?</label>-->
+    <!--            <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
+    <!--        </fieldset>-->
+
+    <!--        <fieldset>-->
+    <!--            <legend>Who?</legend>-->
+    <!--            <label>Who?</label>-->
+    <!--            <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"                                                     required="true"/>-->
+    <!--        </fieldset>-->
+
+    <!--        <fieldset>-->
+    <!--            <legend>Where?</legend>-->
+    <!--            <label>Where?</label>-->
+    <!--            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+    <!--        </fieldset>-->
+    <!--    </div>-->
+    <table style="margin-bottom: 20px;">
+        <thead>
+            <tr>
+                <th colspan='5' style="text-align: center">PMTCT Registration Form</th>
+            </tr>
+        </thead>
+    </table>
+
+    <fieldset style="border: 1px solid #305a72; min-width: 90%; margin-left:5%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+        <legend class="legend_style">Last Registration Details</legend>
+        <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
+            <tr>
+                
+                <td><b>Last PMTCT Registration Date:</b>
+                    <font color='blue' style="font-weight: bold">
+                        <lookup expression="fn.latestObs('165567').obsDatetime" /> </font>
+                </td>
+           
+                <td><b>Last Mode of Entry</b>
+                    <font color='blue' style="font-weight: bold">
+                        <lookup expression="fn.latestObs('166508').valueCoded.name" /> </font>
+                </td>
+                <td><b>Last PMTCT Entry Point:</b>
+                    <font color='blue' style="font-weight: bold">
+                        <lookup expression="fn.latestObs('166025').valueCoded.name" /> </font>
+                </td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Registration details</legend>
+        <table>
+            <tr>
+                <td class="alnright">PMTCT No.</td>
+                <!--                <td class="alnleft" id="identifer-td"><patient field="identifier" identifierTypeId="6" required="true"/>   </td>-->
+                <td class="alnleft">
+                    <obs conceptId="165567" id="identifer-td" required="true" />
+                </td>
+                <td style="vertical-align: top;">
+                    <label> <input type="checkbox" name="preferred" id="preferred" />preferred</label>
+                    <input type="hidden" name="pref_value" id="pref_value" />
+                    <input type="hidden" name="pref_type" id="pref_type" value="6" />
+                </td>
+            </tr>
+            <tr>
+                <td class="alnright">PMTCT registration date</td>
+                <td>
+                    <encounterDate id="ARD" showTime="false" allowFutureDates="false" required="true" />
+                    <enrollInProgram programId="2" showDate="false" />
+                </td>
+            </tr>
+            
+
+           
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">PMTCT Modalities</legend>
+        <table>
+            <tr>
+                <td class="alnright">Mode of Entry</td>
+                <td class="alnleft standard">
+                    <obs conceptId="166508" id="genX" answerConceptIds="166509,166510" answerLabels="Facility,Community" required="true">
+                                <controls>
+                                    <when value="166509" thenDisplay="#Facility"/><when value="166510" thenDisplay="#Community"/>
+                                </controls>
+                            </obs>
+                </td>
+                <td class="alnright">PMTCT Entry Point</td>
+                <td class="alnleft_s">
+                    <obs conceptId="166025" answerConceptIds="166026,166027,1180,166121" answerLabels="Prenatal,Peri-natal,Post-partum&#8804;72hrs,Post-partum&#62;72hrs" required="true"/>
+                    </td>
+                    <td></td> 
+            </tr>
+            <tr id="Facility">
+                <td class="alnright_s">Facility Source:</td>
+                <td class="alnleft_s" >
+                    <obs conceptId="166509" id="gen" answerConceptIds="166509,166511" answerLabels="In Faciltity, Spoke" />
+                </td>
+                </tr>
+            <tr id="Community">
+                <td class="alnright_s">Community Source:</td>
+                <td class="alnleft_s" >
+                    <obs conceptId="166510" id="gen" answerConceptIds="166512,166513,166514,166515" answerLabels="Birth Centre (BC), Traditional Birth Centre (TBC), PMTCT (CAP),Traditional Birth Attendant" />
+                </td>
+               
+            </tr>
+            
+        </table>
+       
+    </fieldset>
+    
+
+
+    <!--    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">-->
+    <!--        <section headerLabel="Encounter Details" style="width: 40%; margin-left: 30%;">-->
+    <!--            <fieldset>-->
+    <!--                <legend class="legend_style">ANC Enrollment Date</legend>-->
+    <!--                <label>ANC Enrollment Date</label>-->
+    <!--                <encounterDate default="now" showTime="false" allowFutureDates="false"/>-->
+    <!--            </fieldset>-->
+    <!--            <fieldset>-->
+    <!--                <legend class="legend_style">Facility</legend>-->
+    <!--                <label>Facility</label>-->
+    <!--                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>-->
+    <!--            </fieldset>-->
+    <!--            <fieldset>-->
+    <!--                <legend class="legend_style">Service Provider</legend>-->
+    <!--                <label>Service Provider</label>-->
+    <!--                <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true"/>-->
+    <!--            </fieldset>-->
+    <!--        </section>-->
+    <!--    </div>-->
+
+
+    <!-- ADDED -->
+    
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+    
+            <table >
+                <tr>
+                    <td class="alnright">Provider Name</td>
+                    <td class="alnleft">
+                        <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true" />
+                    </td>
+                    <td class="alnright">Facility Name</td>
+                    <td>
+                        <p class="alnleft">
+                            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+    
+
+    </fieldset>
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <submit submitClass="confirm right" submitCode="general.save" />
+            <button type="button" class="cancel">
+                <uimessage code="general.cancel" />
+            </button>
+        </div>
+    </ifMode>
 			
 </htmlform>

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.openmrs.module</groupId>
 		<artifactId>nmrsmetadata</artifactId>
-		<version>1.0.3.2-SNAPSHOT</version>
+		<version>1.0.3.2</version>
 	</parent>
 
 	<artifactId>nmrsmetadata-omod</artifactId>
@@ -14,11 +14,12 @@
 	<description>Omod submodule for NMRS Metatadat Module </description>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.openmrs.module</groupId>
-			<artifactId>nmrsmetadata-api</artifactId>
-			<version>1.0.3.2-SNAPSHOT</version>
-		</dependency>
+
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>nmrsmetadata-api</artifactId>
+            <version>1.0.3.2</version>
+        </dependency>
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
@@ -30,7 +31,7 @@
 			<scope>provided</scope>
 			<classifier>tests</classifier>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>uiframework-api</artifactId>
