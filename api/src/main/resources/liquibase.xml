@@ -413,4 +413,21 @@
         </sql>
 	</changeSet>
 
+    <changeSet id="nmrsmetadata-2021-11-17-1637136178" author="tobechi">
+        <comment>
+            Inserting new property for facility national ID number
+        </comment>
+
+        <insert tableName="global_property">
+            <column name="property" value="national_id"></column>
+            <column name="property_value" value="UNKNOWN"></column>
+            <column name="description" value="Facility National Identification Number"></column>
+            <column name="uuid" value="dd29bc60-a051-4320-9d30-34b402221982"></column>
+            <column name="datatype" value="NULL"></column>
+            <column name="datatype_config" value="NULL"></column>
+            <column name="preferred_handler" value="NULL"></column>
+            <column name="handler_config" value="NULL"></column>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>
