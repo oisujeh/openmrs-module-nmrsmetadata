@@ -194,17 +194,12 @@ beforeSubmit.push(function() {
 
 </script>
     
-    <script type="text/javascript">
-
+<script type="text/javascript">
 	var $ = jQuery;
 	$(document).ready(function ()
 	{
-	   $('.hasDatepicker').attr('readonly', true);
-        $
-
+	   $('.hasDatepicker').attr('readonly', true)
 	});
-
-
 </script>
 
  <script>
@@ -626,38 +621,40 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                            <!-- <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/> -->
+	                        <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine"
+	                        />   
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" id="drugStrength"  />
+                            <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165618,166044,165633,165619,165620,165621,165622,165623,166080,165634,165707,5622" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
+                            <obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" size="1" id="duration_s"/>
+                            <obs conceptId="159368"  id="duration_s"/>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <obs conceptId="160856" size="1" id="qtyPrescribed_s"/>
+                            <obs conceptId="160856"  id="qtyPrescribed_s"/>
                         </div>
                     </td>
 
                     <includeIf velocityTest="$user.hasRole('Pharmacist')">
                         <td>
-                            <obs conceptId="1443" size="1" id="qtyDispensed_s"/>
+                            <obs conceptId="1443"  id="qtyDispensed_s"/>
                         </td>
                     </includeIf>
                 </obsgroup>
@@ -667,38 +664,40 @@ beforeSubmit.push(function() {
 
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                            <obs class='gridmenu' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
+                        />
+                       </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                             <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
+                        />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" id="drugStrength"/>
+                            <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
+                         	<obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" size="1" id="duration"/>
+                            <obs conceptId="159368"  id="duration"/>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <obs conceptId="160856" size="1" id="qtyPrescribed"/>
+                            <obs conceptId="160856"  id="qtyPrescribed"/>
                         </div>
                     </td>
 
                     <includeIf velocityTest="$user.hasRole('Pharmacist')">
                         <td>
-                            <obs conceptId="1443" size="1" id="qtyDispensed"/>
+                            <obs conceptId="1443"  id="qtyDispensed"/>
                         </td>
                     </includeIf>
                 </obsgroup>
@@ -707,38 +706,40 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                           <obs class='gridmenu' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
+                        />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" id="drugStrength"/>
+                             <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
+                        />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
+                            <obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" size="1" id="duration"/>
+                            <obs conceptId="159368" id="duration"/>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <obs conceptId="160856" size="1" id="qtyPrescribed"/>
+                            <obs conceptId="160856" id="qtyPrescribed"/>
                         </div>
                     </td>
 
                     <includeIf velocityTest="$user.hasRole('Pharmacist')">
                         <td>
-                            <obs conceptId="1443" size="1" id="qtyDispensed"/>
+                            <obs conceptId="1443"  id="qtyDispensed"/>
                         </td>
                     </includeIf>
                 </obsgroup>
@@ -747,38 +748,40 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"/>
+                           <obs class='gridmenu' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
+                        />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" id="drugStrength"/>
+                             <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
+                        /> 
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="166120" size="1" id="arvdosage"/>
+                            <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage"/>
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='frequency gridmenu' answerConceptIds="160862,160858,165721,160870,165722" answerLabels="OD,BD,2 BD,QDS,3ce/week"/>
+                             <obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" size="1" id="duration"/>
+                            <obs conceptId="159368" id="duration"/>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <obs conceptId="160856" size="1" id="qtyPrescribed"/>
+                            <obs conceptId="160856" id="qtyPrescribed"/>
                         </div>
                     </td>
 
                     <includeIf velocityTest="$user.hasRole('Pharmacist')">
                         <td>
-                            <obs conceptId="1443" size="1" id="qtyDispensed"/>
+                            <obs conceptId="1443" id="qtyDispensed"/>
                         </td>
                     </includeIf>
                 </obsgroup>
@@ -815,55 +818,17 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165726">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs id="oi_drug" class='gridmenu' conceptId="165727" answerConceptIds="165257,76488,1679,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid,Nystatin" />
+                           <obs class='gridmenu' id="oi_drug" conceptId="165727" answerConceptIds="165257,76488,1679,80945" answerLabels="Cotrimoxazole,Fluconazole,Isoniazid (INH),Nystatin" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" answerConceptIds="166050,166137,165068,165060,165062" />
-                        </div>
+                         <obs class='gridmenu' conceptId="165725" answerConceptIds="165062,165060,165075,166095,165068,165992,165074,165076,166145,166146,166147,166050,166137,165617,165635,5622" />
+                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="159368" id="duration" />
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <obs conceptId="160856" id="qtyPrescribed" />
-                        </div>
-                    </td>
-
-                    <includeIf velocityTest="$user.hasRole('Pharmacist')">
-                        <td>
-                            <obs conceptId="1443" id="qtyDispensed" />
-                        </td>
-                    </includeIf>
-                </obsgroup>
-            </tr>
-            <tr>
-                <obsgroup groupingConceptId="165726">
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
-							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
-							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
-							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" answerConceptIds="165617,165076,165075,165635" />
-                        </div>
-                    </td>
-                    <td>
-                        <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='gridmenu' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                           <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
@@ -888,20 +853,21 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165726">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
+                           <obs class='gridmenu' id="oi_drug" conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
 							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
-							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
+							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid (INH)," />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" answerConceptIds="165617,165076,165074" />
+                            <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,165074,165076,166145,166146,166147,166137,5622"
+                        />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='gridmenu' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                              <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
@@ -926,20 +892,60 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165726">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
+                             <obs class='gridmenu' id="oi_drug" conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
 							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
 							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
-							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid Prophylaxis" />
+							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid (INH)," />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" answerConceptIds="166145,166146,166147" />
+                          <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,165074,165076,166145,166146,166147,166137,5622"
+                        />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='gridmenu' answerConceptIds="160862,160858,160870" answerLabels="OD,BD,QDS" />
+                             <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                            <obs conceptId="159368" id="duration" />
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <obs conceptId="160856" id="qtyPrescribed" />
+                        </div>
+                    </td>
+
+                    <includeIf velocityTest="$user.hasRole('Pharmacist')">
+                        <td>
+                            <obs conceptId="1443" id="qtyDispensed" />
+                        </td>
+                    </includeIf>
+                </obsgroup>
+            </tr>
+            <tr>
+                <obsgroup groupingConceptId="165726">
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                             <obs class='gridmenu' id="oi_drug" conceptId="165727" answerConceptIds="70245,450,76488,80945,85151,71780,159587,73041,73449,75222,75842,76488,166059,81022,84221,84893,
+							931,1447,76613,256,77714,461,77897,79037,82667,85276,924,165257,1679" answerLabels="Acyclovir 200mg tab,Clavulanate pot. Amoxycillin 625mg tab,Fluconazole 50mg cap/tab,Nystatin 100000iu/ml susp,Tinidazole 500mg tab,Azithromycin 500mg cap,Benzathine penicillin 1gm inj,Ceftriaxone 1gm inj,Ciprofloxacin 500mg tab,Doxycycline 100mg cap,Erythromycin 500mg tab,
+							Fluconazole 100mg,Oral Nystatin,Ofloxacin 200mg tab,Spectinomycin 1gm inj,Tetracycline 500mg cap,Amitryptiline 25mg tab,Arthemeter 20mg + Lumefantrine 120mg,Folic Acid tab,Ferrous Sulphate tab,Hydrocortizone,Multivitamin tab,Ibuprofen 200mg,Loperamide 2mg,Promethazine HCL 25mg,Tramadol HCL 50mg,
+							Sulfadoxine/Pyrimethamine 500mg/25mg,Cotrimoxazole,Isoniazid (INH)" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                           <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,165074,165076,166145,166146,166147,166137,5622"
+                        />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="enable_disable_control" style="pointer-events: none">
+                           <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
@@ -995,17 +1001,18 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165728">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165304" answerConceptIds="1675,768,1677,1108" answerLabels="RHZE,RHZ,RHE,EH"/>
+                               <obs class='gridmenu' id="tb_drug" conceptId="165304" answerConceptIds="1675,768,656,1108" answerLabels="RHZE,RHZ,RHE,EH" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" answerConceptIds="162401"/>
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="166061,165622,166062,162401,5622" answerLabels="150mg/75mg,300mg/150mg,150mg/75mg/40mg,Kit,Others" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='gridmenu' />
+                            <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+
                         </div>
                     </td>
                     <td>
@@ -1030,17 +1037,17 @@ beforeSubmit.push(function() {
                 <obsgroup groupingConceptId="165728">
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
+                             <obs class='gridmenu' id="tb_drug" conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs class='gridmenu' conceptId="165725" answerConceptIds="165075"/>
+                            <obs class='gridmenu' conceptId="165725" answerConceptIds="166063,165075,165074,165076,166054,5622" answerLabels="1g,150mg,300mg,100mg,400mg,Others" />
                         </div>
                     </td>
                     <td>
                         <div class="enable_disable_control" style="pointer-events: none">
-                            <obs conceptId="165723" class='gridmenu' />
+                             <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                         </div>
                     </td>
                     <td>
@@ -1105,7 +1112,7 @@ beforeSubmit.push(function() {
               </td>
               <td>
                 <div class="enable_disable_control" style="pointer-events: none">
-                   <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
+                   <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                 </div>
               </td>
               <td>
@@ -1138,7 +1145,7 @@ beforeSubmit.push(function() {
             </td>
             <td>
               <div class="enable_disable_control" style="pointer-events: none">
-                 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
+                    <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
               </div>
             </td>
             <td>
@@ -1171,7 +1178,7 @@ beforeSubmit.push(function() {
             </td>
             <td>
               <div class="enable_disable_control" style="pointer-events: none">
-                 <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others"/>
+                <obs conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
               </div>
             </td>
             <td>

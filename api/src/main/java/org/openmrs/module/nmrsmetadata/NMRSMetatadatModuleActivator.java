@@ -32,7 +32,7 @@ public class NMRSMetatadatModuleActivator extends BaseModuleActivator {
 	public void started() {
 		new HtmlFormsInitializer().started();
 		//new ReportsInitializer().started();
-		//new JsonFormsInitializer().started();
+		new JsonFormsInitializer().started();
 		new PatientQueuingClinicianLocationUUIDUpdate().started();
 		
 		// set visit handler
