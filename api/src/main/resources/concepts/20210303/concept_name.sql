@@ -392,6 +392,9 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 
 
 
+
+
+
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166698, 'Covid19 Treatment Service', 'en', 1, '2021-09-02 15:58:15', 143276, 0, NULL, NULL, NULL, '34e48843-f39f-47b8-992a-172794842fb6', 'FULLY_SPECIFIED', 1);
 
 

@@ -148,6 +148,7 @@ REPLACE INTO `concept_answer` (`concept_answer_id`, `concept_id`, `answer_concep
 REPLACE INTO `concept_answer` (`concept_answer_id`, `concept_id`, `answer_concept`, `answer_drug`, `creator`, `date_created`, `uuid`, `sort_weight`) VALUES (9057, 166233, 166529, NULL, 1, '2021-11-09 16:43:55', '4c862a57-b835-4ba1-ab82-70b85bd3521d', 19);
 REPLACE INTO `concept_answer` (`concept_answer_id`, `concept_id`, `answer_concept`, `answer_drug`, `creator`, `date_created`, `uuid`, `sort_weight`) VALUES (9058, 166233, 166530, NULL, 1, '2021-11-09 16:43:55', '8ae18ea0-3262-4800-a19c-ee63e6f3fe0a', 20);
 REPLACE INTO `concept_answer` (`concept_answer_id`, `concept_id`, `answer_concept`, `answer_drug`, `creator`, `date_created`, `uuid`, `sort_weight`) VALUES (9059, 166233, 166531, NULL, 1, '2021-11-09 16:43:55', '951ec43b-51df-423d-9b77-074b4587dcbe', 21);
-
+REPLACE INTO `concept_answer` (`concept_answer_id`, `concept_id`, `answer_concept`, `answer_drug`, `creator`, `date_created`, `uuid`, `sort_weight`) VALUES (9060, 165974, 1065, NULL, 1, '2021-11-09 16:43:55', '14a910d5-8e37-4a19-aa5d-09b070cd7883', 1);
+REPLACE INTO `concept_answer` (`concept_answer_id`, `concept_id`, `answer_concept`, `answer_drug`, `creator`, `date_created`, `uuid`, `sort_weight`) VALUES (9061, 165974, 1066, NULL, 1, '2021-11-09 16:43:55', '11c70cec-1b3c-451c-bfde-2509920c092f', 2);
 
 
