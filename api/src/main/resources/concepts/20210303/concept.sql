@@ -302,6 +302,5 @@ REPLACE INTO `concept` (`concept_id`, `retired`, `short_name`, `description`, `f
 
 
 
-
 REPLACE INTO `concept` (`concept_id`, `retired`, `short_name`, `description`, `form_text`, `datatype_id`, `class_id`, `is_set`, `creator`, `date_created`, `version`, `changed_by`, `date_changed`, `retired_by`, `date_retired`, `retire_reason`, `uuid`) VALUES (166698, 0, NULL, NULL, NULL, 4, 18, 0, 1, '2021-09-02 15:58:15', NULL, 1, '2021-09-02 15:58:15', NULL, NULL, NULL, '66ce7647-4f71-4d7a-852a-a15f6188f270');
 
