@@ -412,6 +412,18 @@
 		]]>
         </sql>
 	</changeSet>
+	
+	<changeSet id="concept_set_20211117162000" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="concepts/20210303/concept_set.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
 
     <changeSet id="nmrsmetadata-2021-11-17-1637136178" author="tobechi">
         <comment>
