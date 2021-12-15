@@ -78,7 +78,7 @@ public class CustomHomeFragmentController {
 		model.addAttribute("extensions", appFrameworkService.getExtensionsForCurrentUser(
 		    ReferenceApplicationConstants.HOME_PAGE_EXTENSION_POINT_ID, contextModel));
 		model.addAttribute("authenticatedUser", Context.getAuthenticatedUser());
-		
+
 		return null;
 	}
 	
