@@ -1,0 +1,4 @@
+REPLACE INTO `concept_numeric` (`concept_id`, `hi_absolute`, `hi_critical`, `hi_normal`, `low_absolute`, `low_critical`, `low_normal`, `units`, `precise`, `display_precision`) VALUES (166691, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+REPLACE INTO `concept_numeric` (`concept_id`, `hi_absolute`, `hi_critical`, `hi_normal`, `low_absolute`, `low_critical`, `low_normal`, `units`, `precise`, `display_precision`) VALUES (166725, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+REPLACE INTO `concept_numeric` (`concept_id`, `hi_absolute`, `hi_critical`, `hi_normal`, `low_absolute`, `low_critical`, `low_normal`, `units`, `precise`, `display_precision`) VALUES (166741, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
+REPLACE INTO `concept_numeric` (`concept_id`, `hi_absolute`, `hi_critical`, `hi_normal`, `low_absolute`, `low_critical`, `low_normal`, `units`, `precise`, `display_precision`) VALUES (166743, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL);
