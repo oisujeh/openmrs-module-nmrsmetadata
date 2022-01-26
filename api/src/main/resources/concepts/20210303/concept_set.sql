@@ -62,11 +62,27 @@ REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166759, 166542, 1, 1, '2022-01-11 12:05:29', 'f0c306d5-8cc0-4d18-b79a-57c122674a94');
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166760, 166542, 2, 1, '2022-01-11 12:05:29', 'd2a86ffa-ec73-42b5-8eea-e706baba97eb');
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166799, 166501, 9, 1, '2022-01-18 13:16:03', '66eed19e-7fd7-4ac9-abcf-6d544ad99f08');
+
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166616, 166447, 3, 1, '2022-01-18 14:43:50', '16ff96fb-e0d1-4062-a722-8e56c1ef64c8');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166826, 166836, 0, 1, '2022-01-26 11:21:47', 'a4d6de5c-0c3c-4b5d-8f11-baeda1c9b71d');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166827, 166836, 1, 1, '2022-01-26 11:21:47', 'ec9fef37-a955-44b0-8b67-12ab971dd41f');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166828, 166836, 2, 1, '2022-01-26 11:21:47', '21541605-b9a8-40e3-96da-1631ee2aa150');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166829, 166836, 3, 1, '2022-01-26 11:21:47', '04e79654-1ca8-4a77-a3a3-b4f3c382a99a');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166830, 166836, 4, 1, '2022-01-26 11:21:47', 'eb9bd2ac-fe22-4994-9a9c-ab7af8447fd5');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166831, 166836, 5, 1, '2022-01-26 11:21:47', '3e34094b-dee9-4ef9-9b6e-4cbacb32e3e6');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166832, 166836, 6, 1, '2022-01-26 11:21:47', 'ba3e1d77-ecab-473c-a327-2ddda60344a5');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166833, 166836, 7, 1, '2022-01-26 11:21:47', '822377a5-bd70-4ce8-86c6-f094e95c5733');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166834, 166836, 8, 1, '2022-01-26 11:21:47', '424158aa-3bb4-483e-b498-986b83056c56');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166835, 166836, 9, 1, '2022-01-26 11:21:47', '229e90f9-c38e-4c69-b98d-5daa6e38c602');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166838, 165728, 6, 1, '2022-01-26 12:19:18', '58ad5aaa-2a22-46cd-9929-e80d62fde6c5');
 
 
 
-
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166673, 166676, 0, 1, '2022-01-26 12:32:46', '7622cba9-c248-408d-be6e-56ce040c5a78');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166674, 166676, 1, 1, '2022-01-26 12:32:46', '7b05b6a9-1790-4a4b-aa5a-f3ad6ae33ea3');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166677, 166676, 2, 1, '2022-01-26 12:32:46', '9f8d1d96-7ea9-45e0-9c37-1f9d7e5c0ee6');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166678, 166676, 3, 1, '2022-01-26 12:32:46', '592cbd17-ff25-4f75-b85e-a14cd63da971');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166664, 166676, 4, 1, '2022-01-26 12:32:46', 'f7636013-8d79-4081-a0f7-ab404a406de5');
 
 
 
