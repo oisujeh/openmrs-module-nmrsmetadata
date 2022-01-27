@@ -265,9 +265,6 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166425, 'Approval Date', 'en', 1, '2021-07-23 12:54:13', 143271, 0, NULL, NULL, NULL, '717368c4-2a53-4bcc-a4f8-f76c5ff92b5d', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166426, 'Numeric Value', 'en', 1, '2021-07-25 23:24:02', 143272, 0, NULL, NULL, NULL, '0df625a6-e563-4a1a-a0f1-6586beae0182', 'SHORT', 0);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166426, 'Numeric Value', 'en', 1, '2021-07-25 23:24:02', 143273, 0, NULL, NULL, NULL, '5f2c5546-0f9f-4e1a-aba0-bb58062a8de4', 'FULLY_SPECIFIED', 1);
-/*
-   Covid 19 Module Concepts name
-*/
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166427, 'Name of data collector', 'en', 1, '2021-09-08 00:34:45', 143274, 0, NULL, NULL, NULL, '7872c191-edb7-4c80-8e2c-bc9aeedbef10', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166428, 'Confirmed', 'en', 1, '2021-09-08 00:49:25', 143275, 0, NULL, NULL, NULL, '47cf51e8-551d-46bb-a5f4-665c2cb67530', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166429, 'Data collector telephone number', 'en', 1, '2021-09-08 00:50:53', 143276, 0, NULL, NULL, NULL, 'bf3d7bea-eed6-462a-bff5-08942c2499fc', 'FULLY_SPECIFIED', 1);
@@ -379,18 +376,13 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166247, 'Covid 19 Outcome Date', 'en', 1, '2021-10-21 18:16:14', 143379, 0, NULL, NULL, NULL, 'de9183b9-9c81-41ee-83ca-eeb9c6e3650b', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166248, 'PMTCT Outcome Date', 'en', 1, '2021-10-21 18:16:14', 143380, 0, NULL, NULL, NULL, 'bf6a19e8-f391-40f0-928c-9c1861e74265', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166249, 'Other pre-existing condition', 'en', 1, '2021-10-21 18:16:14', 143381, 0, NULL, NULL, NULL, 'fcadc0c9-6f62-44be-bb79-8df838d389db', 'FULLY_SPECIFIED', 1);
-
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166250, 'Plateau State Human Virology Research Center.', 'en', 1, '2020-07-03 09:27:00', 143018, 0, NULL, NULL, NULL, '36cfb734-9415-45e7-9723-236e27d6c788', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166251, 'University College Hospital Ibadan', 'en', 1, '2020-07-03 09:27:44', 143019, 0, NULL, NULL, NULL, '5bc41c5c-a0ac-40e5-9b32-95043a4c4914', 'FULLY_SPECIFIED', 1);
-
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166528, 'Other Symptoms Specified', 'en', 1, '2021-10-21 18:16:14', 143382, 0, NULL, NULL, NULL, '3f102db0-ae71-44af-9bfc-f4edd47f0270', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166529, 'Asokoro Laboratory and Training Center', 'en', 1, '2021-10-21 18:16:14', 143383, 0, NULL, NULL, NULL, '930857eb-09b1-4724-9a4c-ddc412964b09', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166530, 'University Of Abuja Teaching Hospital PCR Lab', 'en', 1, '2021-10-21 18:16:14', 143384, 0, NULL, NULL, NULL, '59287dd6-87fe-4529-9a73-8aa7807f2a7c', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166531, 'Aminu Kano Teaching Hopital PCR Lab', 'en', 1, '2021-10-21 18:16:14', 143385, 0, NULL, NULL, NULL, 'f4ce0c94-d8d8-4ca9-969f-74b07bddc4f9', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166532, 'Obafemi Awolowo University Teaching Hospital (OAUTH) Anex - Akure', 'en', 1, '2021-10-21 18:16:14', 143386, 0, NULL, NULL, NULL, '2f5dfa6c-c172-4b7a-a94b-f729dc852a70', 'FULLY_SPECIFIED', 1);
-
-
-/*TB Module Concepts*/
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166533, 'Patient Serial Number', 'en', 1, '2021-10-21 18:16:14', 143387, 0, NULL, NULL, NULL, '5b78ac04-66d6-4c50-9703-cb6f960faab2', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166534, 'Place of Initiation', 'en', 1, '2021-10-21 18:16:14', 143388, 0, NULL, NULL, NULL, 'ba899539-5504-4c3c-8dcb-70b31cb48244', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166535, 'State of requesting Health facility', 'en', 1, '2021-10-21 18:16:14', 143389, 0, NULL, NULL, NULL, '97526d1f-f3fa-4338-b7b8-6a6e58060489', 'FULLY_SPECIFIED', 1);
@@ -403,8 +395,6 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166542, 'LPA(Second line)', 'en', 1, '2021-10-21 18:16:14', 143396, 0, NULL, NULL, NULL, '41947e5b-a618-4955-ad98-4c997b7b80ef', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166543, 'X-Ray done?', 'en', 1, '2021-10-21 18:16:14', 143397, 0, NULL, NULL, NULL, '13c46681-f06a-4258-903a-aa329f999dd5', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166544, 'Result of Smear and Culture Examination during follow up', 'en', 1, '2021-10-21 18:16:14', 143398, 0, NULL, NULL, NULL, '7d01bb1a-370c-4a50-8a1b-b5eed0969599', 'FULLY_SPECIFIED', 1);
---REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166545, 'Month 1 -  Month 27', 'en', 1, '2021-10-21 18:16:14', 143399, 0, NULL, NULL, NULL, 'eb6e5d98-6bae-4191-9b41-f0db9b904828', 'FULLY_SPECIFIED', 1);
---REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166546, 'Smear and Culture result Date', 'en', 1, '2021-10-21 18:16:14', 143400, 0, NULL, NULL, NULL, 'a4819c9a-2e91-49ce-a9f2-53e2f6faf400', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166547, 'Month 1', 'en', 1, '2021-10-21 18:16:14', 143399, 0, NULL, NULL, NULL, 'd44b7e37-9155-4589-b5b1-bfbd2f04fdf9', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166548, 'Month 2', 'en', 1, '2021-10-21 18:16:14', 143400, 0, NULL, NULL, NULL, '7b37a998-d213-46cf-b168-52a11475f957', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166549, 'Month 3', 'en', 1, '2021-10-21 18:16:14', 143401, 0, NULL, NULL, NULL, '484e51ec-3345-44ea-8770-e312137bd562', 'FULLY_SPECIFIED', 1);
@@ -453,8 +443,6 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166592, 'Date AFB sample received', 'en', 1, '2021-10-21 18:16:14', 143444, 0, NULL, NULL, NULL, '92071be1-0031-4973-81fb-331877bc6ff4', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166593, 'AFB Specimen type', 'en', 1, '2021-10-21 18:16:14', 143445, 0, NULL, NULL, NULL, '0116b975-69a7-4cd3-90f3-45e334847e74', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166594, 'AFB Specimen Appearance description', 'en', 1, '2021-10-21 18:16:14', 143446, 0, NULL, NULL, NULL, '227ce79c-3254-4a64-9bbb-10eb5abac538', 'FULLY_SPECIFIED', 1);
-
-/*TB Module concepts name Toyeeb*/
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166595, 'AFB Smear Result', 'en', 1, '2021-10-21 18:16:14', 143447, 0, NULL, NULL, NULL, '5186b755-0f74-459f-b5da-70d93bc4c393', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166596, 'AFB Examined By', 'en', 1, '2021-10-21 18:16:14', 143448, 0, NULL, NULL, NULL, '295b4580-105f-43a5-ac0c-5c98f0d9bb43', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166597, 'AFB Signd By', 'en', 1, '2021-10-21 18:16:14', 143449, 0, NULL, NULL, NULL, '411d67f7-6699-4b5d-ac61-ca473037bcc9', 'FULLY_SPECIFIED', 1);
@@ -533,7 +521,7 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166672, 'Select Outcome', 'en', 1, '2021-10-21 18:16:14', 143522, 0, NULL, NULL, NULL, '55522ee5-5a85-47e7-9cab-695fb5f84dee', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166673, 'Adverse Reaction_1', 'en', 1, '2021-10-21 18:16:14', 143523, 0, NULL, NULL, NULL, '51cf1078-5bff-4e19-bfed-3931b22d23f7', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166674, 'Adverse Reaction_2', 'en', 1, '2021-10-21 18:16:14', 143524, 0, NULL, NULL, NULL, '8c1c35b9-997b-4877-aa4a-7e3da2851d3e', 'FULLY_SPECIFIED', 1);
-REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166675, 'TB outcome Date', 'en', 1, '2021-10-21 18:16:14', 143525, 0, NULL, NULL, NULL, 'd8c91fcd-0ad4-4126-8ef0-9d95bf5a530a', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166675, 'TB Treatment outcome Date', 'en', 1, '2021-10-21 18:16:14', 143525, 0, NULL, NULL, NULL, 'd8c91fcd-0ad4-4126-8ef0-9d95bf5a530a', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166676, 'Adverse Reaction Treatment Type', 'en', 1, '2021-10-21 18:16:14', 143526, 0, NULL, NULL, NULL, '586c0582-dbf0-4b25-9241-b88f47fcb2c6', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166677, 'Adverse Reaction Treatment_1', 'en', 1, '2021-10-21 18:16:14', 143527, 0, NULL, NULL, NULL, 'eed8c389-937a-4a21-88f3-faf8e7efdc3d', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166678, 'Adverse Reaction Treatment_2', 'en', 1, '2021-10-21 18:16:14', 143528, 0, NULL, NULL, NULL, '936fa03d-bfff-4481-9663-8df6278a8e34', 'FULLY_SPECIFIED', 1);
@@ -556,19 +544,7 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166695, 'Is DOT provided by TS?', 'en', 1, '2021-10-21 18:16:14', 143545, 0, NULL, NULL, NULL, '0bba7576-aaf3-4d03-9000-c04f80682668', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166696, 'TB Site of Disease', 'en', 1, '2021-10-21 18:16:14', 143546, 0, NULL, NULL, NULL, '4456770a-1409-4bd2-9156-06fede497631', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166697, 'Other Test (TB-LAM, LF-LAM,etc)', 'en', 1, '2021-10-21 18:16:14', 143547, 0, NULL, NULL, NULL, '820178fa-c706-4fec-aa37-4997a811f809', 'FULLY_SPECIFIED', 1);
-
-
-
-
-
-
-
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166698, 'Covid19 Treatment Service', 'en', 1, '2021-09-02 15:58:15', 143548, 0, NULL, NULL, NULL, '34e48843-f39f-47b8-992a-172794842fb6', 'FULLY_SPECIFIED', 1);
-
-
-
-/*TB Module concepts name Toyeeb*/
-
 REPLACE INTO `concept_name` (`concept_name_id`, `concept_id`, `name`, `locale`, `locale_preferred`, `creator`, `date_created`, `concept_name_type`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`) VALUES (143549, 166699, 'AFB Results', 'en', 1, 1, '2021-12-13 20:57:21', 'FULLY_SPECIFIED', 0, NULL, NULL, NULL, '779dfe70-7121-46fb-8247-45123e243203');
 REPLACE INTO `concept_name` (`concept_name_id`, `concept_id`, `name`, `locale`, `locale_preferred`, `creator`, `date_created`, `concept_name_type`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`) VALUES (143550, 166700, 'AFB Smear Result – Month 0', 'en', 1, 1, '2021-12-13 21:01:50', 'FULLY_SPECIFIED', 0, NULL, NULL, NULL, 'e318850a-1b25-4aca-8fdf-faf6af08b535');
 REPLACE INTO `concept_name` (`concept_name_id`, `concept_id`, `name`, `locale`, `locale_preferred`, `creator`, `date_created`, `concept_name_type`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`) VALUES (143551, 166701, 'AFB Smear Result – Month 2 or 3', 'en', 1, 1, '2021-12-13 21:02:17', 'FULLY_SPECIFIED', 0, NULL, NULL, NULL, '0790affa-e9c3-491d-a3e8-8c84e8e7d6dd');
@@ -670,9 +646,6 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166796, 'Ethambuthol(E)', 'en', 1, '2022-01-10 16:36:14', 143647, 0, NULL, NULL, NULL, '65a8964d-7da1-44e8-a896-b33a26d85fbb', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166797, 'TB Contact Address', 'en', 1, '2022-01-10 16:37:38', 143648, 0, NULL, NULL, NULL, 'db3ee668-2c2a-4c5c-a7e0-8ee3331fe30a', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166798, 'Previously Known HIV Status', 'en', 1, '2022-01-11 10:34:04', 143649, 0, NULL, NULL, NULL, '3681629b-b241-40b4-b569-c1f9a69092e5', 'FULLY_SPECIFIED', 1);
-REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166799, 'Day\'s', 'en', 1, '2022-01-11 11:41:37', 143650, 0, NULL, NULL, NULL, '5dac12a8-c9da-48ff-9f8b-34ad023f4388', 'FULLY_SPECIFIED', 1);
-
-
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166800, 'TB Program Service', 'en', 1, '2022-01-18 12:25:10', 143651, 0, NULL, NULL, NULL, 'bb76bc49-6f0e-4681-bd21-97921084845e', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166801, 'Night Sweat', 'en', 1, '2022-01-18 14:25:46', 143652, 0, NULL, NULL, NULL, '2c95e383-107a-490b-9421-c0c8066238f5', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166802, 'DOTS FO', 'en', 1, '2022-01-18 14:31:19', 143653, 0, NULL, NULL, NULL, 'c1d16574-9f15-4a61-97df-8a1781150c99', 'FULLY_SPECIFIED', 1);
@@ -680,6 +653,43 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166804, 'TB Regimens', 'en', 1, '2022-01-18 14:36:49', 143655, 0, NULL, NULL, NULL, '12145e54-fc5a-461c-a310-08536a55aec1', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166805, 'Other Adverse TB reaction', 'en', 1, '2022-01-18 14:41:10', 143656, 0, NULL, NULL, NULL, '01bd1bac-11c6-4cb5-9f64-3238a6b77f8b', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166806, 'Other TB reasons for referral', 'en', 1, '2022-01-18 14:41:51', 143657, 0, NULL, NULL, NULL, 'eb07b1dc-0bd7-4769-b0d5-f0719db08a3a', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166807, 'Date of Arrival at Referred Facility', 'en', 1, '2022-01-26 10:53:43', 143658, 0, NULL, NULL, NULL, '136669e8-8de8-401f-9b7a-ed91342d4c19', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166808, 'Name of Health Worker at Receiving facility', 'en', 1, '2022-01-26 10:54:14', 143659, 0, NULL, NULL, NULL, '9ac5df4c-e2e8-449c-8472-fea2528ae68d', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166809, 'TB Status Outcome Date', 'en', 1, '2022-01-26 10:54:44', 143660, 0, NULL, NULL, NULL, 'e98f3eb1-0203-4d6a-9c01-ebf4fa75ad1c', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166810, 'Name of STBLCO Patient is Discharged to', 'en', 1, '2022-01-26 10:55:10', 143661, 0, NULL, NULL, NULL, '583fa6b7-39e7-424a-889d-74dec3b157ac', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166811, 'Phone No of STBLCO', 'en', 1, '2022-01-26 10:55:48', 143662, 0, NULL, NULL, NULL, '4a411a53-e110-4340-b3e2-69531cc99d28', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166812, 'Name of State DR-TB Focal Person', 'en', 1, '2022-01-26 10:56:31', 143663, 0, NULL, NULL, NULL, '14e9e15a-785d-4c61-b068-93c307d6855b', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166813, 'Phone No of State DR-TB Focal Person', 'en', 1, '2022-01-26 10:56:58', 143664, 0, NULL, NULL, NULL, '31760194-7c2b-4cf7-8f1f-ad24c90e8fec', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166814, 'Name of Treatment Centre Doctor', 'en', 1, '2022-01-26 10:57:20', 143665, 0, NULL, NULL, NULL, '2d4e4440-3c84-4a61-b475-fa3b36878991', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166815, 'Phone No of Treatment Centre Doctor', 'en', 1, '2022-01-26 10:57:43', 143666, 0, NULL, NULL, NULL, '0e482f35-0ae7-4bf7-ac80-5429b066da56', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166816, 'Name of Treatment Centre Matron', 'en', 1, '2022-01-26 10:59:02', 143667, 0, NULL, NULL, NULL, '4a1b97eb-7c07-4a47-9110-e1a092a035d3', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166817, 'Phone No of Treatment Centre Matron', 'en', 1, '2022-01-26 10:59:35', 143668, 0, NULL, NULL, NULL, 'a3af64a6-3751-4d5c-b313-733fdeaa9682', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166818, 'DR-TB Treatment Centre', 'en', 1, '2022-01-26 11:02:59', 143669, 0, NULL, NULL, NULL, '6d9e95e2-3ded-4e66-87a3-925db6942ebe', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166819, 'DR-TB State', 'en', 1, '2022-01-26 11:03:35', 143670, 0, NULL, NULL, NULL, '28957578-7fa4-4c40-8178-ab5d92c58475', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166820, 'Date DR-TB of Admission', 'en', 1, '2022-01-26 11:04:01', 143671, 0, NULL, NULL, NULL, '7b2a8284-50d2-45ec-8edf-d1a58ba39c7a', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166821, 'Date of DR-TB Discharge', 'en', 1, '2022-01-26 11:05:44', 143672, 0, NULL, NULL, NULL, '10544b58-e903-44c9-831a-29bd62e70fb4', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166822, 'DR-TB Registration No', 'en', 1, '2022-01-26 11:06:09', 143673, 0, NULL, NULL, NULL, '46394286-410e-49c1-9cba-8cbf9fe5b7ce', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166823, 'Date of DR-TB Registration', 'en', 1, '2022-01-26 11:06:51', 143674, 0, NULL, NULL, NULL, '3961f99a-f3fa-4a74-a770-917e397f13bd', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166824, 'Date of Treatment Initiation', 'en', 1, '2022-01-26 11:07:17', 143675, 0, NULL, NULL, NULL, '46f0fb3d-589c-48be-ad8d-1edca42598d1', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166825, 'Health Facility Number', 'en', 1, '2022-01-26 11:07:49', 143676, 0, NULL, NULL, NULL, 'ed032c95-3869-45b9-b98a-97957887ad04', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166826, 'Smear - Month 0', 'en', 1, '2022-01-26 11:09:53', 143677, 0, NULL, NULL, NULL, 'fcda1656-dcf5-41e0-8f5e-b6f12c7cd3ba', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166827, 'Smear - Month 2', 'en', 1, '2022-01-26 11:10:32', 143678, 0, NULL, NULL, NULL, 'e57d81b4-3fd7-46ee-ab87-8ecef49088ff', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166828, 'Smear - Month 3', 'en', 1, '2022-01-26 11:10:55', 143679, 0, NULL, NULL, NULL, '73dcfbcc-822e-4f90-95b3-d31cdc5ebb70', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166829, 'Smear - Month 5', 'en', 1, '2022-01-26 11:11:15', 143680, 0, NULL, NULL, NULL, '85fd905d-00e6-4560-9a12-8f96a85177fb', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166830, 'Smear - Month 6', 'en', 1, '2022-01-26 11:11:40', 143681, 0, NULL, NULL, NULL, 'e4a13ba3-5c20-47d2-adff-f9f0e3b76326', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166831, 'Weight - Month 0', 'en', 1, '2022-01-26 11:12:09', 143682, 0, NULL, NULL, NULL, '02e2c426-d193-4867-8120-3c126cbafa3c', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166832, 'Weight - Month 2', 'en', 1, '2022-01-26 11:12:40', 143683, 0, NULL, NULL, NULL, 'ec58c636-25f5-4d6a-94a8-0fcfab81f442', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166833, 'Weight - Month 3', 'en', 1, '2022-01-26 11:15:11', 143684, 0, NULL, NULL, NULL, '1b7e3f8f-335a-4d69-b89c-6b5d27fa0b12', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166834, 'Weight - Month 5', 'en', 1, '2022-01-26 11:16:29', 143685, 0, NULL, NULL, NULL, '568a0ce6-49c2-4c4b-b3ca-cccd77093ee7', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166835, 'Weight - Month 6', 'en', 1, '2022-01-26 11:16:53', 143686, 0, NULL, NULL, NULL, '17b4e77d-0ae5-4446-99cc-05fee0ef1fc7', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166836, 'Treatment monitoring', 'en', 1, '2022-01-26 11:21:47', 143687, 0, NULL, NULL, NULL, 'ebc821cd-16ef-4811-8548-2d0cfb98a133', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166837, 'Removed from Register', 'en', 1, '2022-01-26 11:22:42', 143688, 0, NULL, NULL, NULL, 'c9f32d17-ab92-4754-873c-96ebe30c8c78', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166838, 'TB Drug Duration', 'en', 1, '2022-01-26 11:23:17', 143689, 0, NULL, NULL, NULL, '34f5966c-d23e-4a5a-b91d-483d0254ae37', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166839, 'Skin rash with or without Itching', 'en', 1, '2022-01-26 11:25:38', 143690, 0, NULL, NULL, NULL, 'd8e05522-9962-4c76-a139-d5860aa8a5dc', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166840, 'Orange or red urine', 'en', 1, '2022-01-26 11:26:15', 143691, 0, NULL, NULL, NULL, 'd51a4af0-547e-4f76-aa34-e28ef2c6dd5f', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166841, 'Flu syndrome', 'en', 1, '2022-01-26 11:26:38', 143692, 0, NULL, NULL, NULL, '6c1e7db2-2d35-4d00-880e-2d9d6f80c8fe', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166842, 'Intermittent dosing of Rifampicin', 'en', 1, '2022-01-26 11:27:41', 143693, 0, NULL, NULL, NULL, 'd5f78ba3-1bd6-4a5c-bc93-2a5bea016fd3', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166843, 'HIGH DOSE ISONIAZID', 'en', 1, '2022-01-26 11:28:03', 143694, 0, NULL, NULL, NULL, 'a5fe4d36-5869-413c-994d-5d67738258d7', 'FULLY_SPECIFIED', 1);
 
 
 
@@ -693,3 +703,61 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (166799, 'Day\'s', 'en', 1, '2022-01-11 11:41:37', 143650, 0, NULL, NULL, NULL, '5dac12a8-c9da-48ff-9f8b-34ad023f4388', 'FULLY_SPECIFIED', 1);

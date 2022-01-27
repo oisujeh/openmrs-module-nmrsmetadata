@@ -85,7 +85,6 @@ UPDATE concept SET datatype_id = 3 WHERE concept_id = 162203;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166499;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 1814;
 UPDATE concept SET datatype_id = 2 WHERE concept_id = 166588;
-
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166717;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166727;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166735;
@@ -93,6 +92,9 @@ UPDATE concept SET datatype_id = 3 WHERE concept_id = 166700;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166701;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166702;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166703;
-UPDATE concept SET datatype_id = 3 WHERE concept_id = 166681;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166681;
+
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 163756;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 160021;
 
 SET FOREIGN_KEY_CHECKS=1;
