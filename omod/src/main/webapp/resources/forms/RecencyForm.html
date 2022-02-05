@@ -1,0 +1,1896 @@
+<htmlform formEncounterType="ecfe9337-5c94-453d-a150-98ddf40cc9d6" formName="Recency Form" formUuid="d4d7a5e2-f114-4da1-84e7-1fd1871533af" formVersion="1.0">
+    <macros>
+        paperFormId = (Fill this in)t headerColor =#2f1c55 fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+        
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+        
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+        
+        .alnleft_f {
+            text-align: left;
+            color: #000000;
+            width: 20%;
+        }
+        
+        .alnleft {
+            text-align: left;
+            color: #000000;
+            width: 25%;
+        }
+        
+        .error {
+            color: red;
+        }
+        
+        td {
+            border: none;
+        }
+        
+        table th,
+        table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+            <!--padding: 5px;
+            -->margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+        
+        form fieldset,
+        .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+        }
+        
+        table th,
+        table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        
+        table tr {
+            border: None;
+        }
+        
+        ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
+            padding: 2px 10px;
+        }
+        
+        form input,
+        form select,
+        form textarea,
+        form ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
+            padding: 2px 10px;
+        }
+        
+        form select,
+        .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var $ = jQuery;
+        var $j = jQuery;
+
+        var path = $(location).attr('pathname').split('/')[1];
+        var baseUrl = '/' + path + '/nigeriaemr/PatientIdTypeSetter';
+
+        $(document).ready(function() {
+
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url: baseUrl + "/getIdentifier.action",
+                data: {
+                    patientId: $('input[name=personId]').val(),
+                    identifierType: 10
+                },
+                cache: false,
+                timeout: 600000,
+                success: function(r) {
+                    if (r.code > 0) {
+                        if (r.identifier.length > 0) {
+                            if (r.preferred === true) {
+                                //$('#preferred_recency').prop("checked", 'checked');
+                            }
+                        }
+                    }
+                },
+                error: function(e) {
+                    console.log("ERROR : ", e);
+                }
+            });
+
+
+            $('#preferred_recency').click(function(e) {
+                var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
+                if (patientIdentifier_recency) {
+                    if (patientIdentifier_recency.trim().length > 0) {
+                        var obj = e.target;
+                        var isPreferred = false;
+                        if ($(obj).prop("checked") == true) {
+                            isPreferred = true;
+                        }
+
+                        var patientId = $('input[name=personId]').val();
+                        var identifierType = $('#pref_type_recency').val();
+
+                        var pid = {
+                            patientId: patientId,
+                            patientIdentifier: patientIdentifier_recency,
+                            identifierType: 10,
+                            isPreferred: isPreferred
+                        };
+                        var link = baseUrl + "/setPidType.action";
+
+                        $.ajax({
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            url: link,
+                            data: pid,
+                            cache: false,
+                            timeout: 600000,
+                            success: function(r) {
+                                if (r.code !== 5) {
+                                    alert(r.message);
+                                }
+                            },
+                            error: function(e) {
+                                console.log("ERROR : ", e);
+                            }
+                        });
+                    } else {
+                        $('#preferred_recency').prop("checked", '');
+                        alert('Please fill in the Participant ID before setting as preferred');
+                    }
+                } else {
+                    $('#preferred_recency').prop("checked", '');
+                    alert('Please fill in the Participant ID before setting as preferred');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('recency_test_date.value') != null) {
+                getField('recency_test_date.value').change(function() {
+
+                    var today = new Date();
+                    var testVal = new Date(getValue('hiv_test_date.value'));
+                    var rctd = new Date(getValue('recency_test_date.value'));
+
+                    if (rctd > today) {
+                        const field = getField('recency_test_date.error');
+                        if (field != null) {
+                            getField('recency_test_date.error').html('Recency Test Date cannot be a future date').show();
+                        }
+                    }
+
+                    if (testVal > rctd) {
+                        const field = getField('recency_test_date.error');
+                        if (field != null) {
+                            getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
+                        }
+
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            $("#vl_result_obs").on("input", function() {
+
+                var vlresultT = getValue('vl_result_clasification.value');
+                var vlresultobs = getValue('vl_result_obs.value');
+                if (vlresultT === "166239") {
+                    if (vlresultobs &lt; 1000) {
+
+                        const field = getField('vl_result_obs.error');
+                        if (field != null) {
+                            getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
+                        }
+                    }
+
+                }
+
+                if (vlresultT === "166238") {
+
+                    if (vlresultobs >= 1000)
+
+                    {
+                        const field = getField('vl_result_obs.error');
+                        if (field != null) {
+                            getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
+                        }
+
+                    }
+
+                }
+
+                if (vlresultT == "166240") {
+
+                    if (vlresultobs != "")
+
+                    {
+                        const field = getField('vl_result_obs.error');
+                        if (field != null) {
+                            getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
+                        }
+
+                    }
+
+                }
+
+
+            });
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('vlsample_value_obs.value') != null) {
+                getField('vlsample_value_obs.value').change(function() {
+
+                    var today = new Date();
+                    var vlsamplev = new Date(getValue('vlsample_value_obs.value'));
+                    var rctd = new Date(getValue('recency_test_date.value'));
+
+                    if (vlsamplev > today) {
+                        const field = getField('vlsample_value_obs.error');
+                        if (field != null) {
+                            getField('vlsample_value_obs.error').html('Sample collection Date cannot be a future date').show();
+                        }
+                    }
+
+                    if (rctd > vlsamplev) {
+                        const field = getField('vlsample_value_obs.error');
+                        if (field != null) {
+                            getField('vlsample_value_obs.error').html('Sample collection Date cannot be earlier than Recency Test Date').show();
+                        }
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('vlpcr_value_obs.value') != null) {
+                getField('vlpcr_value_obs.value').change(function() {
+
+                    var today = new Date();
+                    var vlsamplev = new Date(getValue('vlsample_value_obs.value'));
+                    var vlpcr = new Date(getValue('vlpcr_value_obs.value'));
+
+                    if (vlpcr > today) {
+                        const field = getField('vlpcr_value_obs.error');
+                        if (field != null) {
+                            getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be a future date').show();
+                        }
+                    }
+
+                    if (vlsamplev > vlpcr) {
+                        const field = getField('vlpcr_value_obs.error');
+                        if (field != null) {
+                            getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection Date').show();
+                        }
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+
+    <script>
+        jQuery(function() {
+            if (getField('vl_value_obs.value') != null) {
+                getField('vl_value_obs.value').change(function() {
+
+                    var today = new Date();
+                    var vlvalue = new Date(getValue('vl_value_obs.value'));
+                    var vlpcr = new Date(getValue('vlpcr_value_obs.value'));
+
+                    if (vlvalue > today) {
+                        const field = getField('vl_value_obs.error');
+                        if (field != null) {
+                            getField('vl_value_obs.error').html('Sample Test Date cannot be a future date').show();
+                        }
+                    }
+
+                    if (vlpcr > vlvalue) {
+                        const field = getField('vl_value_obs.error');
+                        if (field != null) {
+                            getField('vl_value_obs.error').html('Sample Test Date cannot be earlier than Date Sample Sent to PCR Lab').show();
+                        }
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+
+
+    <script>
+        jQuery(function() {
+            if (getField('screen_test_value.value') != null) {
+                getField('screen_test_value.value').change(function() {
+
+                    $('#result').hide();
+                    var scntest = getValue('screen_test_value.value');
+
+                    if (scntest == "1229") {
+                        $('#result').show();
+                        setValue('result.value', 664);
+                        $('#result').attr("style", "pointer-events: none;");
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('confirm_test_value.value') != null) {
+                getField('confirm_test_value.value').change(function() {
+
+                    $('#result').hide();
+                    var cfmtest = getValue('confirm_test_value.value');
+                    var scntest = getValue('screen_test_value.value');
+                    if (scntest == "1228") {
+                        if (cfmtest == "1228") {
+                            $('#result').show();
+                            setValue('result.value', 703);
+                            $('#result').attr("style", "pointer-events: none;");
+                            //$('#recency').show();
+                        } else {
+                            $('#result').show();
+                            setValue('result.value', 664);
+                            $('#result').attr("style", "pointer-events: none;");
+                            //$('#recency').hide();
+                        }
+
+
+                    } else {
+                        $('#result').show();
+                        setValue('result.value', 664);
+                        $('#result').attr("style", "pointer-events: none;");
+                    }
+
+                });
+            }
+        });
+    </script>
+
+
+    <script>
+        jQuery(function() {
+            if (getField('tie_test_value.value') != null) {
+                getField('tie_test_value.value').change(function() {
+
+                    $('#result').hide();
+
+                    var tietest = getValue('tie_test_value.value');
+
+                    if (tietest == "1228") {
+                        $('#result').show();
+                        setValue('result.value', 703);
+                        $('#result').attr("style", "pointer-events: none;");
+                        //$('#recency').show();
+                    } else {
+                        $('#result').show();
+                        setValue('result.value', 664);
+                        $('#result').attr("style", "pointer-events: none;");
+                        //$('#recency').hide();
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('tb_optout.value') != null) {
+                getField('tb_optout.value').change(function() {
+
+                    var optoutv = getValue('tb_optout.value');
+
+                    if (optoutv == "1066") {
+                        $('#test_name_dropdown').show();
+                        setValue('test_name_dropdown.value', 166215);
+
+                        if (getField('control_line.error') != null) {
+                            getField('control_line.error').html('*').show();
+                        }
+                        if (getField('verification_line.error') != null) {
+                            getField('verification_line.error').html('*').show();
+                        }
+                        if (getField('longterm_line.error') != null) {
+                            getField('longterm_line.error').html('*').show();
+                        }
+                        if (getField('recency_number_verif_value.error') != null) {
+                            getField('recency_number_verif_value.error').html('*').show();
+                        }
+                        if (getField('recency_test_date.error') != null) {
+                            getField('recency_test_date.error').html('*').show();
+                        }
+                        if (getField('test_name_dropdown.error') != null) {
+                            getField('test_name_dropdown.error').html('*').show();
+                        }
+
+                    }
+
+                });
+            }
+        });
+    </script>
+
+
+    <script>
+        jQuery(function() {
+            if (getField('tb_vl_request.value') != null) {
+                getField('tb_vl_request.value').change(function() {
+
+                    var tbvl = getValue('tb_vl_request.value');
+
+                    if (tbvl == "1065") {
+                        //setValue('final_recency_value.value', 166237);
+
+                    }
+
+
+
+
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+
+            var urll = window.location.href;
+
+            var pattern = /editHtml/;
+
+            //returns true or false...
+            var exists = pattern.test(urll);
+
+            if (exists) {
+
+                //true statement, do whatever
+
+                $('#tb_optout').attr("style", "pointer-events: none;");
+                $('#test_name_dropdown').attr("style", "pointer-events: none;");
+                $('#recency_test_date').attr("style", "pointer-events: none;");
+                $('#test_name').attr("style", "pointer-events: none;");
+                //$('#recency_number_value').attr("style", "pointer-events: none;");
+                //$('#recency_number_verif_value').attr("style", "pointer-events: none;");
+                $('#control_line').attr("style", "pointer-events: none;");
+                $('#verification_line').attr("style", "pointer-events: none;");
+                $('#longterm_line').attr("style", "pointer-events: none;");
+                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+
+
+            } else {
+
+                //false statement..do whatever
+            }
+
+        });
+    </script>
+
+
+
+    <script>
+        jQuery(function() {
+            if (getField('vl_result_clasification.value') != null) {
+                getField('vl_result_clasification.value').change(function() {
+                    var vlresult = getValue('vl_result_clasification.value');
+                    var fnlrecency = getValue('final_recency_test_recent.value');
+                    if (fnlrecency == "165852") {
+                        if (vlresult == "166239") {
+                            setValue('final_recency_value.value', 166236);
+                            $('#final_recency_value').attr("style", "pointer-events: none;");
+                        }
+                        if (vlresult == "166240") {
+                            setValue('final_recency_value.value', 166237);
+                            $('#final_recency_value').attr("style", "pointer-events: none;");
+                            //$('#vl_result_obs').attr("style", "pointer-events: none;");
+                        }
+                        if (vlresult == "166238") {
+                            setValue('final_recency_value.value', 166235);
+                            $('#final_recency_value').attr("style", "pointer-events: none;");
+                        }
+
+
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('vl_result_clasification.value') != null) {
+                getField('vl_result_clasification.value').change(function() {
+                    var vlresult_entered = getValue('vl_result_clasification.value');
+                    if (vlresult_entered != null) {
+                        if (vlresult_entered == "166238") {
+                            setValue('final_recency_value.value', 166235);
+                        }
+                        if (vlresult_entered == "166239") {
+                            setValue('final_recency_value.value', 166236);
+                        }
+                        if (vlresult_entered == "166240") {
+                            setValue('final_recency_value.value', 166237);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (getField('control_line.value') != null) {
+                getField('control_line.value').change(function() {
+                    var ctrln = getValue('control_line.value');
+                    if (ctrln == "1065") {
+                        //setValue('final_recency_test_recent.value', 664);
+                        //$('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                        //$('#tb_vl_request').attr("style", "pointer-events: none;");
+
+                    } else {
+                        //setValue('final_recency_test_recent.value', 163611);
+                        //$('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                        //$('#tb_vl_request').attr("style", "pointer-events: none;");
+
+                    }
+
+                });
+            }
+        });
+    </script>
+
+
+    <script>
+        jQuery(function() {
+            if (getField('longterm_line.value') != null) {
+                getField('longterm_line.value').change(function() {
+                    var vffln = getValue('verification_line.value');
+                    var ctrln = getValue('control_line.value');
+                    var lngln = getValue('longterm_line.value');
+                    if (ctrln == "1065") {
+                        if (vffln == "1066") {
+                            if (lngln == "1065") {
+                                // setValue('final_recency_test_recent.value', 163611);
+                                //$('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                //$('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+
+
+                        } else {
+                            if (lngln == "1065") {
+                                //setValue('final_recency_test_recent.value', 165851);
+                                //$('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                //$('#tb_vl_request').attr("style", "pointer-events: none;");
+                            } else {
+                                // setValue('final_recency_test_recent.value', 165852);
+                                //$('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                //$('#tb_vl_request').attr("style", "pointer-events: auto;");
+                            }
+                        }
+
+
+                    } else {
+                        // setValue('final_recency_test_recent.value', 163611);
+                        //$('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                        //$('#tb_vl_request').attr("style", "pointer-events: none;");
+
+                    }
+
+                });
+            }
+        });
+    </script>
+
+
+    <script>
+        jQuery(function() {
+            if (getField('final_recency_test_recent.value') != null) {
+                getField('final_recency_test_recent.value').change(function() {
+                    var frtr = getValue('final_recency_test_recent.value');
+
+                    if (frtr == "165852") {
+
+                        $('#tb_vl_request').attr("style", "pointer-events: auto;");
+                        //setValue('tb_vl_request.value', 1066);
+
+                    } else {
+                        $('#tb_vl_request').attr("style", "pointer-events: none;");
+                    }
+
+
+                });
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+
+            $('#result').hide();
+
+        });
+    </script>
+
+    <script>
+        window.onload = function() {
+            getField('completed_by.error').html('*').show();
+            getField('date_of_visit.error').html('*').show();
+            getField('signature_date.error').html('*').show();
+            const myrecency_number_value = document.getElementById('recency_number_value');
+            const myrecency_number_verif_value = document.getElementById('recency_number_verif_value');
+            if (myrecency_number_value != null) {
+                myrecency_number_value.onpaste = function(e) {
+                    e.preventDefault();
+                }
+            }
+            if (myrecency_number_verif_value != null) {
+                myrecency_number_verif_value.onpaste = function(e) {
+                    e.preventDefault();
+                }
+            }
+        }
+    </script>
+
+    <script>
+        jQuery(function() {
+            if (document.getElementById("recency_number_value") != null) {
+                document.getElementById("recency_number_value").addEventListener("change", function() {
+                    var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
+                    if (patientIdentifier_recency == "") {
+                        window.alert('Please Participant ID can not be empty')
+                        success.textContent = ""
+                        outrange.textContent = ""
+                        setValue('recency_number_verif_value.value', "")
+                        return false;
+                    } else {
+                        getField('recency_number_verif_value.error').html('This field must be same as Participant ID').show();
+                        success.textContent = ""
+                        outrange.textContent = ""
+                        setValue('recency_number_verif_value.value', "")
+                        return false;
+                    }
+
+                    var userKeyRegExp = /^[A-Z][0-9]{8}$/;
+                    if (patientIdentifier_recency.match(userKeyRegExp)) {
+                        window.alert('Please Participant ID shuold only contain alphanumeric inputs with no special character')
+                        success.textContent = ""
+                        outrange.textContent = ""
+                        setValue('recency_number_verif_value.value', "")
+                        return false;
+                    }
+
+                    var recentID_verify = getValue('recency_number_verif_value.value');
+                    if (recentID_verify != "") {
+                        getField('recency_number_verif_value.error').html('Please confirm the Participant ID again here').show();
+                        setValue('recency_number_verif_value.value', "")
+                        success.textContent = ""
+                        outrange.textContent = ""
+                        return false;
+                    }
+
+                });
+            }
+        });
+
+
+        jQuery(function() {
+            $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+            if (document.getElementById("control_line") != null) {
+                document.getElementById("control_line").addEventListener("change", function() {
+                    var control_line = getValue('control_line.value');
+                    var verification_line = getValue('verification_line.value');
+                    var longterm_line = getValue('longterm_line.value');
+                    if (control_line == "1065") {
+                        if (verification_line == "1065") {
+                            if (longterm_line == "1065") {
+                                setValue('final_recency_test_recent.value', 165851);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1065") {
+                            if (longterm_line == "1066") {
+                                setValue('final_recency_test_recent.value', 165852);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                $('#tb_vl_request').attr("style", "pointer-events: unset;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1066") {
+                            if (longterm_line == "1066") {
+                                setValue('final_recency_test_recent.value', 664);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1066") {
+                            if (longterm_line == "1065") {
+                                setValue('final_recency_test_recent.value', 163611);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1066") {
+                        setValue('final_recency_test_recent.value', 163611);
+                        $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                        setValue('tb_vl_request.value', "");
+                        $('#tb_vl_request').attr("style", "pointer-events: none;");
+
+                    }
+
+                });
+            }
+            if (document.getElementById("verification_line") != null) {
+                document.getElementById("verification_line").addEventListener("change", function() {
+                    var control_line = getValue('control_line.value');
+                    var verification_line = getValue('verification_line.value');
+                    var longterm_line = getValue('longterm_line.value');
+                    if (control_line == "1065") {
+                        if (verification_line == "1065") {
+                            if (longterm_line == "1065") {
+                                setValue('final_recency_test_recent.value', 165851);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1065") {
+                            if (longterm_line == "1066") {
+                                setValue('final_recency_test_recent.value', 165852);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                $('#tb_vl_request').attr("style", "pointer-events: unset;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1066") {
+                            if (longterm_line == "1066") {
+                                setValue('final_recency_test_recent.value', 664);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1066") {
+                            if (longterm_line == "1065") {
+                                setValue('final_recency_test_recent.value', 163611);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1066") {
+                        setValue('final_recency_test_recent.value', 163611);
+                        $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                        setValue('tb_vl_request.value', "");
+                        $('#tb_vl_request').attr("style", "pointer-events: none;");
+
+                    }
+                });
+            }
+            if (document.getElementById("longterm_line") != null) {
+                document.getElementById("longterm_line").addEventListener("change", function() {
+                    var control_line = getValue('control_line.value');
+                    var verification_line = getValue('verification_line.value');
+                    var longterm_line = getValue('longterm_line.value');
+                    if (control_line == "1065") {
+                        if (verification_line == "1065") {
+                            if (longterm_line == "1065") {
+                                setValue('final_recency_test_recent.value', 165851);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1065") {
+                            if (longterm_line == "1066") {
+                                setValue('final_recency_test_recent.value', 165852);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                $('#tb_vl_request').attr("style", "pointer-events: unset;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1066") {
+                            if (longterm_line == "1066") {
+                                setValue('final_recency_test_recent.value', 664);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1065") {
+                        if (verification_line == "1066") {
+                            if (longterm_line == "1065") {
+                                setValue('final_recency_test_recent.value', 163611);
+                                $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                                setValue('tb_vl_request.value', "");
+                                $('#tb_vl_request').attr("style", "pointer-events: none;");
+                            }
+                        }
+                    }
+                    if (control_line == "1066") {
+                        setValue('final_recency_test_recent.value', 163611);
+                        $('#final_recency_test_recent').attr("style", "pointer-events: none;");
+                        setValue('tb_vl_request.value', "");
+                        $('#tb_vl_request').attr("style", "pointer-events: none;");
+                    }
+                });
+            }
+
+        });
+
+
+
+
+        jQuery(function() {
+            if (getField('recency_number_verif_value.value') != null) {
+                getField('recency_number_verif_value.value').change(function() {
+
+                    var recentID_verify2 = getValue('recency_number_verif_value.value');
+                    var rec_num = getValue('recency_number_verif_value.value').length;
+                    // window.alert('rec_num1:- ' +rec_num+' Out of Range');
+                    var outrange = document.getElementById("outrange")
+                    if (rec_num > 10) {
+                        outrange.textContent = "#Participant ID must not be more than 10 characters"
+                        getField('recency_number_verif_value.error').html('Participant ID must not be more than 10 characters').show();
+                        success.textContent = "";
+                        setValue('recency_number_verif_value.value', "");
+                        return false;
+                    }
+
+                    var patientIdentifier_recency2 = $('input:text', '#recency_number_value').eq(0).val();
+                    var success = document.getElementById("success")
+                    if (recentID_verify2 == patientIdentifier_recency2) {
+                        getField('recency_number_verif_value.error').html('Please enter the correct Participant ID again').hide();
+                        success.textContent = "##Participant Recency ID length and format are same"
+                        outrange.textContent = ""
+                        return true;
+                    } else {
+                        window.alert('Please the "Verify Participant ID" does not match the initial Participant ID entered')
+                        success.textContent = ""
+                        outrange.textContent = ""
+                        getField('recency_number_verif_value.error').html('Please enter the correct Participant ID again').show();
+                        setValue('recency_number_verif_value.value', "")
+                        return false;
+                    }
+                });
+            }
+
+        });
+    </script>
+
+
+ 
+
+    <includeIf velocityTest="$patient.getAge($encounter.getEncounterDatetime()) > 14 ">
+
+        <fieldset  name="recency">
+
+
+            <legend class="legend_style">HIV Recency Testing</legend>
+
+
+            <table class="table" width="100%">
+
+
+                <tr>
+                    <td class="alnleft_s" id="test_name_label" name="test_name_label">Test name</td>
+                    <td class="alnleft">
+                        <obs answerConceptIds="166215, 5622" answerLabels="Asante, Others" conceptId="166216" id="test_name_dropdown" name="test_name_dropdown">
+
+                            <controls>
+                                <when thenDisplay="#test_name" value="5622" />
+                            </controls>
+                        </obs>
+                    </td>
+
+                    <td class="alnleft_s" id="recency_test_date_label" name="recency_test_date_label">Test date</td>
+                    <td class="alnleft_s">
+                        <obs allowFutureDates="false" conceptId="165850" id="recency_test_date" name="recency_test_date" />
+                    </td>
+                    <td class="alnright_s"></td>
+                    <td class="alnleft_s"></td>
+
+
+                </tr>
+                <tr>
+
+                    <td class="alnleft_s"></td>
+                    <td class="alnleft_s" id="test_name">
+                        <obs conceptId="165849" />
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td id="recency_warning_label" style="width: 100%; color:red">Participant ID must not be more than 10 characters with atleast 2 Uppercase Alphabets present</td>
+
+                </tr>
+                <tr>
+                    <td id="recency_number_label">Participant ID:</td>
+
+                    <td class="alnleft_s" id="recency_number_value">
+                        <patient field="identifier" id="recency_value" required="false" />
+                    </td>
+
+                    <td style="vertical-align: top;">
+                        <label id="preferred_recency_label" name="preferred_recency_label"> <input id="preferred_recency" name="preferred_recency" type="checkbox" />preferred</label>
+
+                        <input id="pref_value_recency" name="pref_value_recency" type="hidden" />
+                        <input id="pref_type_recency" name="pref_type_recency" type="hidden" value="10" />
+
+                    </td>
+
+                    <td colspan="2"> <span id="outrange" style="width:100%; color:red; font-weight:bold;"></span> </td>
+                </tr>
+
+                <tr>
+                    <td id="recency_number_verif_label">Verify Participant ID</td>
+
+                    <td class="alnleft_s">
+                        <obs conceptId="166210" id="recency_number_verif_value" required="false" />
+                    </td>
+                    <td colspan="2"> <span id="success" style="width:100%; color:green; font-weight:bold;"></span> </td>
+                </tr>
+
+
+
+                <tr>
+                    <td id="control_line_label">Control Line</td>
+                    <td>
+                        <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166212" id="control_line" />
+                    </td>
+
+                    <td id="verification_line_label">Verification Line</td>
+                    <td>
+                        <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166243" id="verification_line" />
+                    </td>
+
+                    <td id="longterm_line_label">Long-Term Line</td>
+                    <td>
+                        <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166211" id="longterm_line" />
+                    </td>
+
+
+                </tr>
+            </table>
+            <table>
+                <tr>
+
+                    <td colspan="2"> </td>
+                </tr>
+            </table>
+            <table id="recency_table">
+
+                <tr>
+                    <td class="alnleft_f"><b>Recency Interpretation</b></td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="165852,165851,664,163611" answerLabels="Recent,Long Term,Negative,Invalid" conceptId="166213" id="final_recency_test_recent">
+                            <controls>
+                                <when thenDisplay="#viral_load_table" value="165852" />
+                            </controls>
+                        </obs>
+                    </td>
+                    <td colspan="3"> </td>
+                </tr>
+
+            </table>
+
+
+            <table>
+
+                <td>Has viral load request been made?</td>
+                <tr>
+                    <td>
+                        <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
+                            <controls>
+                                <when thenDisplay="#vl_label,#vl_value,#vl_value_obs,#vlsample_value_obs,#vl_result,#vl_result_obs,#final_recency_label,#final_recency_value,#vl_dss,#vlpcr_value_obs,#vl_samplet,#sample_type,#vl_rpcr,#vl_rpcrlab,#receiving_lab,#sample_id,#sample_id_label, #vl_result_label,#vl_result_clasification"
+                                    value="1065" />
+                            </controls>
+
+                        </obs>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_f" id="vl_label"><b>Viral load confirmation:</b></td>
+                    <td class="alnleft_f" id="vl_value">Sample collection date</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="159951" id="vlsample_value_obs" name="vlsample_value_obs" />
+                    </td>
+
+
+                    <td id="sample_id_label">Sample Reference Number:</td>
+                    <td>
+                        <obs conceptId="165715" id="sample_id" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td id="vl_samplet">Sample Type</td>
+                    <td>
+                        <obs answerConceptIds="1000,165568" answerLabels="Plasma,DBS" conceptId="162476" id="sample_type" />
+                    </td>
+                </tr>
+
+                <tr>
+
+
+                    <td class="alnleft_f" id="vl_dss">Date Sample Sent to PCR Lab</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165988" id="vlpcr_value_obs" name="vlpcr_value_obs" />
+                    </td>
+
+                    <td class="alnleft_f" id="vl_rpcr">Receiving PCR Lab</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166234,166217,166218,166219,166220,166221,166232,166222,166223,166224,166225,166226,166227,166228,166229,166230,166231" answerLabels="68 NARH Yaba Lagos,Ahmadu Bello University Teaching Hospital (ABUTH),Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH),Rivers State University Hospital (RSUTH),Defence Reference laboratory (DRL) Abuja,Federal Medical Center Makurdi,Federal Medical Center Jalingo,Federal Teaching Hospital (FTH) Gombe,Jos University Teaching Hospital (JUTH) Jos,Lagos State University Teaching Hospital (LASUTH) Lagos,National Reference Laboratory Gaduwa (NRL) Abuja,Nigerian Institute of Medical Research (NIMR) Lagos,Nnamdi Azikiwe University Teaching Hospital (NAUTH),Obafemi Awolowo University Teaching Hospital (OAUTH) Ile-Ife,University of Maiduguri Teaching Hospital (UMTH) Maiduguri,University of Uyo teaching Hospital (UUTH) Uyo,Usman Danfodio University Teaching Hospital (UDUTH)"
+                            conceptId="166233" id="receiving_lab" />
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Sample test date</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Viral Load Result Classification:</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000,Failed VL" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">Result (copies/ml)</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b>Final Recency Result:</b></td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>Information on individuals identified with a recent HIV infection in this group</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">HTS/MRS/EMR Number</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label">Age (years)</td>
+
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Gender (Male/Female)</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Male,Female" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Pregnant</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166240" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Breastfeeding</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166240" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date this form was completed</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Date of Recency Test</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs"/>
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date Confirmed with VL (RITA)</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Viral Load Result</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs"/>
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Final recency result (at the time of site investigation)</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166240" answerLabels="Probable Recent,Confirmed Recent,Long-Term" conceptId="166241" id="vl_result_clasification"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Source documents used for this client</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="165930" answerConceptId="71902" answerLabel="MRS/EMR"/>
+                        <obs conceptId="165930" answerConceptId="782" answerLabel="Recency Register"/>
+                        <obs conceptId="165930" answerConceptId="783" answerLabel="HTS Register"/>
+                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Index Testing Register"/>
+                        <obs conceptId="165930" answerConceptId="782" answerLabel="PNS Register"/>
+                        <obs conceptId="165930" answerConceptId="783" answerLabel="Tracking Register"/>
+                        <obs conceptId="165930" answerConceptId="783" answerLabel="Others"/>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>HIV care and ART services received</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was this client linked HIV care </td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification"/>
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date Linked to care</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was this client initiated on ART</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date of initiation</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">ART Number</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Regimen</td>
+
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>To answer the next 2 questions, return to the site and complete when clinical data is available</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Did this client attend Enhanced Adherence Counselling</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Does the client have a recorded VL in past 12 months</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">VL Result (c/ml)</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Was VLS achieved after 6 months</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,165930" answerLabels="Yes,No,N/A" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>For locations where KP services are implemented in Key and priority Populations</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Has this client been identified as a Key or priority Population (KP)</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,165930" answerLabels="Key Population,Priority Population,General Population" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">If Key Population, which group(s)</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,165930,165930" answerLabels="Sex workers,MSM,PWID,Transgender" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">If Priority Population, which priority population group(s)</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,165930,165930,165930" answerLabels="Adolescent girls,Long-distance truck drivers,People in prisons,Pregnant women,Others" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Investigator’s comments</td>
+
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>Index testing and follow up services</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was the client offered index testing?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Has the client provided contacts for sexual/social/biological partners</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>Information on partners, contacts and social network of every recent HIV infection case</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Age (Years)</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Gender</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Male,Female" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Pregnant (if female)</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Contact information provided</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Source documents used for this client</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Wife/husband/fiancé"/>
+                        <obs conceptId="165930" answerConceptId="782" answerLabel="Friend"/>
+                        <obs conceptId="165930" answerConceptId="783" answerLabel="Co-resident"/>
+                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Occational partner"/>
+                        <obs conceptId="165930" answerConceptId="782" answerLabel="Someone who pays me for sexual relations"/>
+                        <obs conceptId="165930" answerConceptId="783" answerLabel="Someone i pay for sexual relations"/>
+                        <obs conceptId="165930" answerConceptId="783" answerLabel="Someone i share a needle or inject drug with"/>
+                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Unknown partner"/>
+                        <obs conceptId="165930" answerConceptId="782" answerLabel="Other"/>
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Was the partner given HIV self-testing kit?</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Did the partner return for HIV verification testing?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Was the partner tested for HIV?</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Date of HIV test</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Result</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Positive,Negative,Indeterminate" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>If tested new HIV-positive</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was the partner tested for recency?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Recency ID</td>
+
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Date of Recency Test</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Recency result (R/LT/I/N)</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Recent,Long-Term,Invalid,Negative" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was this client linked HIV care</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date linked to care</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was this client initiated on ART</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date of initiation</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>If tested new HIV-negative</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Was the partner referred for PrEP?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Yes,No,Not Applicable,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Did the partner initiate PrEP?</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Is the partner scheduled for repeat HIV test?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Yes,No,Not Applicable,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">If yes, returned for repeat HIV test</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Repeat HIV test date</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label"></td>
+                    <td class="alnleft_f"></td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">
+                        <h4><b>If did not test or don't know</b></h4></td>
+                    <td class="alnleft_f">
+                    </td>
+
+                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+
+                    <td class="alnleft_f">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">What was the reason for the partner not testing or not knowing if tested?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Previous Known HIV-positive Diagnosis,Refused,Not Located,Outside State LGA or Catchment Area, Deceased,Otherw2" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Is the partner engaged in HIV care and on ART?</td>
+
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Current ART regimen</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Date of latest recorded VL</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">VL Result</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Achieved VLS within last 6 months? </td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Did the partner attend Enhanced Adherence Counselling?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Has the partner been evaluated for switch in ART regimen?</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </table>
+ <hr style="border: solid 0.5px gray;" />
+            <table>
+                <tr>
+                <td class="alnleft_s"  name="recency_test_date_label"> Is Patient Referred from Another facility?</td>
+                    <td> 
+                        <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="patientReferred">
+                            <!-- replace 166244 with a new concept-->
+                            <controls>
+                                <when thenDisplay="#patient_referred"
+                                    value="1065" />
+                            </controls>
+
+                        </obs>
+                    </td>
+                </tr>
+                <tr id="patient_referred">
+                    <td class="alnleft_s"  name="recency_test_date_label">
+                        Facility Patient Was Referred From: 
+                    </td>
+                    <td>
+                        <obs conceptId="160535" answerLabel="Hello" />
+                        <!-- replace 160535 with a new concept-->
+                    </td>
+                </tr>
+            </table>
+    <br />
+    <br />
+   
+            <table>
+                <tr>
+                    <td id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
+                </tr>
+
+            </table>
+
+
+        </fieldset>
+
+    </includeIf>
+    <script type="text/javascript">
+        beforeSubmit.push(function() {
+            
+            //var recency_number_value= getValue('recency_number_value.value');
+            // var recency_number_value = $('input:text', '#recency_number_value').eq(0).val();
+            var recency_number_verif_value = getValue('recency_number_verif_value.value');
+            var control_line = getValue('control_line.value');
+            var verification_line = getValue('verification_line.value');
+            var longterm_line = getValue('longterm_line.value');
+            var final_recency_test_recent = getValue('final_recency_test_recent.value');
+            var final_recency_value = getValue('final_recency_value.value');
+            var recency_test_date = getValue('recency_test_date.value');
+            var test_name_dropdown = getValue('test_name_dropdown.value');
+            //var vl_result_obs = getValue('vl_result_obs.value');
+            //var longterm_line = getValue('longterm_line.value');
+
+            
+
+                //var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
+                //var recencyNum= getValue('recency_number_value.value');
+
+                //var recencyNum= $('input:text', '#recency_number_value').eq(0).val();
+                var recencyVer = getValue('recency_number_verif_value.value');
+
+                var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
+                var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
+
+                var vlresultT = getValue('vl_result_clasification.value');
+                var vlresultobs = getValue('vl_result_obs.value');
+                if (vlresultT === "166239") {
+                    if (vlresultobs &lt; 1000) {
+                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
+                        return false;
+                    }
+                }
+                if (vlresultT === "166238") {
+                    if (vlresultobs >= 1000) {
+                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
+                        return false;
+                    }
+                }
+                if (vlresultT === "166240") {
+                    if (vlresultobs != "") {
+                        getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
+                        return false;
+                    }
+                }
+
+                if (test_name_dropdown === "") {
+                    getField('test_name_dropdown.error').html('Recency Test Name cannot be empty').show();
+                    return false;
+                }
+
+                if (recency_test_date === "") {
+                    getField('recency_test_date.error').html('Recency Test Date cannot be empty').show();
+                    return false;
+                }
+
+                if (recency_number_verif_value === "") {
+                    getField('recency_number_verif_value.error').html('Participant ID Verification cannot be empty').show();
+                    return false;
+                }
+
+                if (control_line === "") {
+                    getField('control_line.error').html('Control Line cannot be empty').show();
+                    return false;
+                }
+
+                if (verification_line === "") {
+                    getField('verification_line.error').html('Verification Line cannot be empty').show();
+                    return false;
+                }
+
+                if (longterm_line == "") {
+                    getField('longterm_line.error').html('Long Term cannot be empty').show();
+                    return false;
+                }
+
+                if (final_recency_test_recent == "") {
+                    getField('final_recency_test_recent.error').html('Recency Interpretation cannot be empty').show();
+                    return false;
+                }
+
+                var testVal = new Date(getValue('hiv_test_date.value'));
+                var rctd = new Date(getValue('recency_test_date.value'));
+
+                if (testVal > rctd) {
+                    getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
+                    return false;
+                }
+
+
+                var rctdd = new Date(getValue('recency_test_date.value'));
+                var vlpcr = new Date(getValue('vlpcr_value_obs.value'));
+
+                var vlvalue = new Date(getValue('vl_value_obs.value'));
+                var vlsamplev = new Date(getValue('vlsample_value_obs.value'));
+
+                if (rctd > vlsamplev) {
+                    getField('vlsample_value_obs.error').html('Sample collection date cannot be earlier than Recency Test Date').show();
+                    return false;
+                }
+
+                if (vlsamplev > vlpcr) {
+                    getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection date').show();
+                    return false;
+                }
+
+                if (vlpcr > vlvalue) {
+                    getField('vl_value_obs.error').html('Sample test date cannot be earlier than Date Sample Sent to PCR Lab').show();
+                    return false;
+                }
+
+                var vlresultT = getValue('vl_result_clasification.value');
+                var vlresultobs = getValue('vl_result_obs.value');
+                if (vlresultT == "166239") {
+                    if (vlresultobs &lt; 1000) {
+                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
+                        return false;
+                    }
+                }
+                if (vlresultT == "166238") {
+                    if (vlresultobs > 1000) {
+                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be greater than 1000 if Viral Load Result Classification is less than 1000').show();
+                        return false;
+                    }
+                }
+
+                if (confirm("Have you verified the correctness of all fields from the paper form? Are you sure you want to submit?")) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+                return true;
+        });
+    </script>
+
+    <fieldset>
+        <legend class="legend_style">Signature and date</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft">Date:</td>
+                <td class="alnleft">
+                    <obs allowFutureDates="false" conceptId="166242" id="signature_date" showTime="false" />
+                </td>
+                <td class="alnleft">Completed by:</td>
+                <td class="alnleft">
+                    <encounterProvider id="completed_by" name="completed_by" />
+                </td>
+                <td>Location:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
+
+</htmlform>
