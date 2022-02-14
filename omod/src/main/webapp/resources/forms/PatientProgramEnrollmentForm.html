@@ -49,6 +49,7 @@
             href_hei=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId=&amp;formUuid=5fc9a1f0-39b7-4e18-a220-4d34dc6b6368&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
             href_otz=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId=&amp;formUuid=5dfc3ea6-9783-44a3-a3fd-7249f4e313bc&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
             href_covid19=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=80a9de9b-f8ec-4d96-b9ac-bbeac167cba2&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
+			href_recency=baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+$.urlParam('visitId')+"&amp;formUuid=d4d7a5e2-f114-4da1-84e7-1fd1871533af&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
 
 
@@ -69,6 +70,9 @@
 
             var covid19_form = $('#covid19_form')
             covid19_form.attr("href", href_covid19)
+            
+            var recency_form = $('#recency_form')
+            recency_form.attr("href", href_recency)
         });
 
     </script>
@@ -144,6 +148,15 @@
                             <i class=" icon-asterisk"></i>
 
                             Covid 19
+                        </a>
+                        
+                         <a id="recency_form"
+                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=d4d7a5e2-f114-4da1-84e7-1fd1871533af&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                           class="button app big art">
+
+                            <i class="icon-user"></i>
+
+                            Recency
                         </a>
                     </div>
 
