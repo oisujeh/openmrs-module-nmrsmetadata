@@ -10,7 +10,7 @@
             text-align: left;
             margin-bottom: 1em;
         }
-        
+
         .sectionHeader {
             background-color: #2f1c55;
             color: white;
@@ -18,55 +18,55 @@
             padding: 2px;
             font-weight: bold;
         }
-        
+
         table tr:nth-child(even) {
             background: #ffffff;
         }
-        
+
         .alnright {
             text-align: right;
             color: #000000;
             width: 25%;
         }
-        
+
         .alnright_s {
             text-align: right;
             color: #000000;
             width: 13%;
         }
-        
+
         .alnleft_s {
             text-align: left;
             color: #000000;
             width: 13%;
         }
-        
+
         .alnleft_f {
             text-align: left;
             color: #000000;
             width: 20%;
         }
-        
+
         .alnleft {
             text-align: left;
             color: #000000;
             width: 25%;
         }
-        
+
         .error {
             color: red;
         }
-        
+
         td {
             border: none;
         }
-        
+
         table th,
         table td {
             padding: 5px 10px;
             border: None;
         }
-        
+
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
@@ -79,24 +79,24 @@
             border-bottom-left-radius: 2px;
             text-transform: initial;
         }
-        
+
         form fieldset,
         .form fieldset {
             min-width: 98%;
             border: none;
             border-top: 1px solid #305a72;
         }
-        
+
         table th,
         table td {
             padding: 5px 10px;
             /* border: 1px solid #DDD; */
         }
-        
+
         table tr {
             border: None;
         }
-        
+
         ul.select,
         .form input,
         .form select,
@@ -104,7 +104,7 @@
         .form ul.select {
             padding: 2px 10px;
         }
-        
+
         form input,
         form select,
         form textarea,
@@ -115,18 +115,18 @@
         .form ul.select {
             padding: 2px 10px;
         }
-        
+
         form select,
         .form select {
             max-width: 200px;
             min-width: 150px;
         }
-        
+
         .standard {
             max-width: 200px;
             min-width: 150px;
         }
-        
+
         body {
             font-family: "OpenSans", Arial, sans-serif;
             color: #363463;
@@ -974,7 +974,7 @@
     </script>
 
 
- 
+
 
     <includeIf velocityTest="$patient.getAge($encounter.getEncounterDatetime()) > 14 ">
 
@@ -1101,12 +1101,12 @@
                         <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
                             <controls>
                                 <when thenDisplay="#vl_label,#vl_value,#vl_value_obs,#vlsample_value_obs,#vl_result,#vl_result_obs,#final_recency_label,#final_recency_value,#vl_dss,#vlpcr_value_obs,#vl_samplet,#sample_type,#vl_rpcr,#vl_rpcrlab,#receiving_lab,#sample_id,#sample_id_label, #vl_result_label,#vl_result_clasification,
-                                #section_3a_1,#section_empty,#hts_mrs_emr_number,#age_,#age_obs,#gender_,#gender_obs,#pregnant_,#pregnant_obs,#breastfeeding_,#breastfeeding_obs,#date_form_was_completed,#date_form_was_completed_obs,#final_recency_result_obs,#source_documents_for_this_client,#section_3a_12,#was_client_linked_to_hiv_care,#was_client_linked_to_hiv_care_obs,#date_linked_to_care,#date_linked_to_care_obs,#was_client_initiated_on_art,#was_client_initiated_on_art_obs,#date_of_initiation,#date_of_initiation_obs,#art_number,#art_number_obs,#regimen,#regimen_obs,#section_3a_14,#client_attend_enhanced_adherence_counselling,#client_attend_enhanced_adherence_counselling_obs,#does_client_have_recorded_vl_in_12_months,#does_client_have_recorded_vl_in_12_months_obs,#vl_value,#vl_result_obs,#vls_achieved_after_6_months,#vls_achieved_after_6_months_obs,#section_3a_16,#client_been_identified_key_priority_population,
-                            #client_been_identified_key_priority_population_obs,#key_population_group,#key_population_group_obs,#priority_population_priority_population_group,#priority_population_priority_population_group_obs,#investigation_comments,#investigation_comments_obs,#section_3a_20,#section_empty,#client_offered_index_testing,#client_offered_index_testing_obs,#has_client_provided_contacts_for_sexual,#has_client_provided_contacts_for_sexual_obs,#section_3a_22,#age_partner,#age_partner_obs,#gender_partner,#gender_partner_obs,#gender_pregnant,#gender_pregnant_obs,#contact_provided_partner,#contact_provided_partner_obs,#source_documents_for_this_client_,#partner_given_hiv_self_testing_kit,#partner_given_hiv_self_testing_kit_obs,#partner_return_for_hiv_verification_testing,#partner_return_for_hiv_verification_testing_obs,#partner_tested_for_hiv,#partner_tested_for_hiv_obs,#partner_date_of_hiv_test,#partner_date_of_hiv_test_obs,
-                            #result_partner_,#result_partner_obs,#section_3a_32,#partner_tested_for_recency_,#partner_tested_for_recency_obs,#partner_recency_id,#partner_recency_id_obs,#partner_date_of_recency_test,#partner_date_of_recency_test_obs,#partner_recency_result,#partner_recency_result_obs,#was_client_linked_to_hiv_care_partner,#was_client_linked_to_hiv_care_partner_obs,#date_partner_linked_to_care,#date_partner_linked_to_care_obs,#was_client_initiated_on_art_partner_,#was_client_initiated_on_art_partner_obs,#date_of_initiation_client,#was_client_initiated_on_art_partner_obs,#date_of_initiation_client,#date_of_initiation_client_obs,#section_3a_38,#was_partner_referred_for_prep,#was_partner_referred_for_prep_obs,#did_partner_initiate_prep_,#did_partner_initiate_prep_obs,#partner_scheduled_repeat_hiv_test_,#partner_scheduled_repeat_hiv_test_obs,#partner_returned_for_repeat_hiv_test,#partner_returned_for_repeat_hiv_test_obs,
-                            #partner_repeat_hiv_test_date,#partner_repeat_hiv_test_date_obs,#section_3a_41,#reason_for_partner_not_testing_or_not_knowing_if_tested,#reason_for_partner_not_testing_or_not_knowing_if_tested_obs,#Is_the_partner_engaged_in_HIV_care_and_on_ART,#Is_the_partner_engaged_in_HIV_care_and_on_ART_obs,#current_art_regiment_partner_not_testing,#current_art_regiment_partner_not_testing_obs,#Date_of_latest_recorded_vl,#Date_of_latest_recorded_vl_obs,#vl_result_partner_not_testing,#vl_result_partner_not_testing_obs,#achieved_vls_within_last_6_months_partner_not_testing,#achieved_vls_within_last_6_months_partner_not_testing_obs,#partner_attend_enhanced_adherence_counselling_not_testing,#partner_attend_enhanced_adherence_counselling_not_testing_obs,#partner_been_evaluated_for_switch_in_art_regimen,#partner_been_evaluated_for_switch_in_art_regimen_obs,#date_recency_test,#partner_date_of_recency_test_obs,
-                            #date_confirmed_with_vl_rita,#date_confirmed_with_vl_rita_obs,#viral_load_result_obs,#viral_load_result,#final_recency_result,#hts_mrs_emr_number,#hts_mrs_emr_number_obs,#date_recency_test,#date_recency_test_obs"
-                                    value="1065"/>
+                                    #section_3a_1,#section_empty,#hts_mrs_emr_number,#age_,#age_obs,#gender_,#gender_obs,#pregnant_,#pregnant_obs,#breastfeeding_,#breastfeeding_obs,#date_form_was_completed,#date_form_was_completed_obs,#final_recency_result_obs,#source_documents_for_this_client,#section_3a_12,#was_client_linked_to_hiv_care,#was_client_linked_to_hiv_care_obs,#date_linked_to_care,#date_linked_to_care_obs,#was_client_initiated_on_art,#was_client_initiated_on_art_obs,#date_of_initiation,#date_of_initiation_obs,#art_number,#art_number_obs,#regimen,#regimen_obs,#section_3a_14,#client_attend_enhanced_adherence_counselling,#client_attend_enhanced_adherence_counselling_obs,#does_client_have_recorded_vl_in_12_months,#does_client_have_recorded_vl_in_12_months_obs,#vl_value,#vl_result_obs,#vls_achieved_after_6_months,#vls_achieved_after_6_months_obs,#section_3a_16,#client_been_identified_key_priority_population,
+                                #client_been_identified_key_priority_population_obs,#key_population_group,#key_population_group_obs,#priority_population_priority_population_group,#priority_population_priority_population_group_obs,#investigation_comments,#investigation_comments_obs,#section_3a_20,#section_empty,#client_offered_index_testing,#client_offered_index_testing_obs,#has_client_provided_contacts_for_sexual,#has_client_provided_contacts_for_sexual_obs,#section_3a_22,#age_partner,#age_partner_obs,#gender_partner,#gender_partner_obs,#gender_pregnant,#gender_pregnant_obs,#contact_provided_partner,#contact_provided_partner_obs,#source_documents_for_this_client_,#partner_given_hiv_self_testing_kit,#partner_given_hiv_self_testing_kit_obs,#partner_return_for_hiv_verification_testing,#partner_return_for_hiv_verification_testing_obs,#partner_tested_for_hiv,#partner_tested_for_hiv_obs,#partner_date_of_hiv_test,#partner_date_of_hiv_test_obs,
+                                #result_partner_,#result_partner_obs,#section_3a_32,#partner_tested_for_recency_,#partner_tested_for_recency_obs,#partner_recency_id,#partner_recency_id_obs,#partner_date_of_recency_test,#partner_date_of_recency_test_obs,#partner_recency_result,#partner_recency_result_obs,#was_client_linked_to_hiv_care_partner,#was_client_linked_to_hiv_care_partner_obs,#date_partner_linked_to_care,#date_partner_linked_to_care_obs,#was_client_initiated_on_art_partner_,#was_client_initiated_on_art_partner_obs,#date_of_initiation_client,#was_client_initiated_on_art_partner_obs,#date_of_initiation_client,#date_of_initiation_client_obs,#section_3a_38,#was_partner_referred_for_prep,#was_partner_referred_for_prep_obs,#did_partner_initiate_prep_,#did_partner_initiate_prep_obs,#partner_scheduled_repeat_hiv_test_,#partner_scheduled_repeat_hiv_test_obs,#partner_returned_for_repeat_hiv_test,#partner_returned_for_repeat_hiv_test_obs,
+                                #partner_repeat_hiv_test_date,#partner_repeat_hiv_test_date_obs,#section_3a_41,#reason_for_partner_not_testing_or_not_knowing_if_tested,#reason_for_partner_not_testing_or_not_knowing_if_tested_obs,#Is_the_partner_engaged_in_HIV_care_and_on_ART,#Is_the_partner_engaged_in_HIV_care_and_on_ART_obs,#current_art_regiment_partner_not_testing,#current_art_regiment_partner_not_testing_obs,#Date_of_latest_recorded_vl,#Date_of_latest_recorded_vl_obs,#vl_result_partner_not_testing,#vl_result_partner_not_testing_obs,#achieved_vls_within_last_6_months_partner_not_testing,#achieved_vls_within_last_6_months_partner_not_testing_obs,#partner_attend_enhanced_adherence_counselling_not_testing,#partner_attend_enhanced_adherence_counselling_not_testing_obs,#partner_been_evaluated_for_switch_in_art_regimen,#partner_been_evaluated_for_switch_in_art_regimen_obs,#date_recency_test,#partner_date_of_recency_test_obs,
+                                #date_confirmed_with_vl_rita,#date_confirmed_with_vl_rita_obs,#viral_load_result_obs,#viral_load_result,#final_recency_result,#hts_mrs_emr_number,#hts_mrs_emr_number_obs,#date_recency_test,#date_recency_test_obs"
+                                      value="1065"/>
                             </controls>
 
                         </obs>
@@ -1144,7 +1144,7 @@
                     <td class="alnleft_f" id="vl_rpcr">Receiving PCR Lab</td>
                     <td class="alnleft_f">
                         <obs answerConceptIds="166234,166217,166218,166219,166220,166221,166232,166222,166223,166224,166225,166226,166227,166228,166229,166230,166231" answerLabels="68 NARH Yaba Lagos,Ahmadu Bello University Teaching Hospital (ABUTH),Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH),Rivers State University Hospital (RSUTH),Defence Reference laboratory (DRL) Abuja,Federal Medical Center Makurdi,Federal Medical Center Jalingo,Federal Teaching Hospital (FTH) Gombe,Jos University Teaching Hospital (JUTH) Jos,Lagos State University Teaching Hospital (LASUTH) Lagos,National Reference Laboratory Gaduwa (NRL) Abuja,Nigerian Institute of Medical Research (NIMR) Lagos,Nnamdi Azikiwe University Teaching Hospital (NAUTH),Obafemi Awolowo University Teaching Hospital (OAUTH) Ile-Ife,University of Maiduguri Teaching Hospital (UMTH) Maiduguri,University of Uyo teaching Hospital (UUTH) Uyo,Usman Danfodio University Teaching Hospital (UDUTH)"
-                            conceptId="166233" id="receiving_lab" />
+                             conceptId="166233" id="receiving_lab" />
                     </td>
                 </tr>
 
@@ -1173,7 +1173,7 @@
 
                     <td class="alnleft_f">
                         <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
-                        
+
                     </td>
 
                 </tr>
@@ -1379,7 +1379,7 @@
                     <td class="alnleft_f">
                         <obs answerConceptIds="166881,162198,166880,166887,5256" answerLabels="Adolescent girls,Long-distance truck drivers,People in prisons,Pregnant women,Others" conceptId="166878" id="priority_population_priority_population_group_obs" />
                     </td>
-                    <td class="alnleft_f" id="investigation_comments">Investigator’s comments</td>
+                    <td class="alnleft_f" id="investigation_comments">Investigatorâ€™s comments</td>
 
                     <td class="alnleft_f">
                         <obs conceptId="166917" id="vl_result_obs" name="investigation_comments_obs" />
@@ -1446,7 +1446,7 @@
                 <tr id="source_documents_for_this_client">
                     <td class="alnleft_f" id="source_documents_for_this_client">Source documents used for this client</td>
                     <td class="alnleft_f">
-                        <obs conceptId="165930" answerConceptId="166923" answerLabel="Wife/husband/fiancé"/>
+                        <obs conceptId="165930" answerConceptId="166923" answerLabel="Wife/husband/fiancÃ©"/>
                         <obs conceptId="165930" answerConceptId="5618" answerLabel="Friend"/>
                         <obs conceptId="165930" answerConceptId="166924" answerLabel="Co-resident"/>
                         <obs conceptId="165930" answerConceptId="166925" answerLabel="Occational partner"/>
@@ -1544,7 +1544,7 @@
 
                     <td class="alnleft_f">
                         <obs allowFutureDates="false" conceptId="166941" id="date_of_initiation_client_obs" name="date_of_initiation_client_obs" />
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -1677,16 +1677,16 @@
 
 
             </table>
- <hr style="border: solid 0.5px gray;" />
+            <hr style="border: solid 0.5px gray;" />
             <table>
                 <tr>
-                <td class="alnleft_s"  name="recency_test_date_label"> Is Patient Referred from Another facility?</td>
-                    <td> 
+                    <td class="alnleft_s"  name="recency_test_date_label"> Is Patient Referred from Another facility?</td>
+                    <td>
                         <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="patientReferred">
                             <!-- replace 166244 with a new concept-->
                             <controls>
                                 <when thenDisplay="#patient_referred"
-                                    value="1065" />
+                                      value="1065" />
                             </controls>
 
                         </obs>
@@ -1694,7 +1694,7 @@
                 </tr>
                 <tr id="patient_referred">
                     <td class="alnleft_s"  name="recency_test_date_label">
-                        Facility Patient Was Referred From: 
+                        Facility Patient Was Referred From:
                     </td>
                     <td>
                         <obs conceptId="160535" answerLabel="Hello" />
@@ -1702,9 +1702,9 @@
                     </td>
                 </tr>
             </table>
-    <br />
-    <br />
-   
+            <br />
+            <br />
+
             <table>
                 <tr>
                     <td id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
@@ -1718,7 +1718,7 @@
     </includeIf>
     <script type="text/javascript">
         beforeSubmit.push(function() {
-            
+
             //var recency_number_value= getValue('recency_number_value.value');
             // var recency_number_value = $('input:text', '#recency_number_value').eq(0).val();
             var recency_number_verif_value = getValue('recency_number_verif_value.value');
@@ -1732,125 +1732,125 @@
             //var vl_result_obs = getValue('vl_result_obs.value');
             //var longterm_line = getValue('longterm_line.value');
 
-            
 
-                //var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
-                //var recencyNum= getValue('recency_number_value.value');
 
-                //var recencyNum= $('input:text', '#recency_number_value').eq(0).val();
-                var recencyVer = getValue('recency_number_verif_value.value');
+            //var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
+            //var recencyNum= getValue('recency_number_value.value');
 
-                var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
-                var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
+            //var recencyNum= $('input:text', '#recency_number_value').eq(0).val();
+            var recencyVer = getValue('recency_number_verif_value.value');
 
-                var vlresultT = getValue('vl_result_clasification.value');
-                var vlresultobs = getValue('vl_result_obs.value');
-                if (vlresultT === "166239") {
-                    if (vlresultobs &lt; 1000) {
-                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
-                        return false;
-                    }
-                }
-                if (vlresultT === "166238") {
-                    if (vlresultobs >= 1000) {
-                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
-                        return false;
-                    }
-                }
-                if (vlresultT === "166240") {
-                    if (vlresultobs != "") {
-                        getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
-                        return false;
-                    }
-                }
+            var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
+            var userKeyRegExp = /^[A-Z][A-Z][0-9]{8}$/;
 
-                if (test_name_dropdown === "") {
-                    getField('test_name_dropdown.error').html('Recency Test Name cannot be empty').show();
+            var vlresultT = getValue('vl_result_clasification.value');
+            var vlresultobs = getValue('vl_result_obs.value');
+            if (vlresultT === "166239") {
+                if (vlresultobs &lt; 1000) {
+                    getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                     return false;
                 }
-
-                if (recency_test_date === "") {
-                    getField('recency_test_date.error').html('Recency Test Date cannot be empty').show();
+            }
+            if (vlresultT === "166238") {
+                if (vlresultobs >= 1000) {
+                    getField('vl_result_obs.error').html('Result (copies/ml) cannot be  1000 or greater if Viral Load Result Classification is less than 1000').show();
                     return false;
                 }
-
-                if (recency_number_verif_value === "") {
-                    getField('recency_number_verif_value.error').html('Participant ID Verification cannot be empty').show();
+            }
+            if (vlresultT === "166240") {
+                if (vlresultobs != "") {
+                    getField('vl_result_obs.error').html('Result (copies/ml) should be empty if Viral Load Result Classification is Failed VL').show();
                     return false;
                 }
+            }
 
-                if (control_line === "") {
-                    getField('control_line.error').html('Control Line cannot be empty').show();
+            if (test_name_dropdown === "") {
+                getField('test_name_dropdown.error').html('Recency Test Name cannot be empty').show();
+                return false;
+            }
+
+            if (recency_test_date === "") {
+                getField('recency_test_date.error').html('Recency Test Date cannot be empty').show();
+                return false;
+            }
+
+            if (recency_number_verif_value === "") {
+                getField('recency_number_verif_value.error').html('Participant ID Verification cannot be empty').show();
+                return false;
+            }
+
+            if (control_line === "") {
+                getField('control_line.error').html('Control Line cannot be empty').show();
+                return false;
+            }
+
+            if (verification_line === "") {
+                getField('verification_line.error').html('Verification Line cannot be empty').show();
+                return false;
+            }
+
+            if (longterm_line == "") {
+                getField('longterm_line.error').html('Long Term cannot be empty').show();
+                return false;
+            }
+
+            if (final_recency_test_recent == "") {
+                getField('final_recency_test_recent.error').html('Recency Interpretation cannot be empty').show();
+                return false;
+            }
+
+            var testVal = new Date(getValue('hiv_test_date.value'));
+            var rctd = new Date(getValue('recency_test_date.value'));
+
+            if (testVal > rctd) {
+                getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
+                return false;
+            }
+
+
+            var rctdd = new Date(getValue('recency_test_date.value'));
+            var vlpcr = new Date(getValue('vlpcr_value_obs.value'));
+
+            var vlvalue = new Date(getValue('vl_value_obs.value'));
+            var vlsamplev = new Date(getValue('vlsample_value_obs.value'));
+
+            if (rctd > vlsamplev) {
+                getField('vlsample_value_obs.error').html('Sample collection date cannot be earlier than Recency Test Date').show();
+                return false;
+            }
+
+            if (vlsamplev > vlpcr) {
+                getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection date').show();
+                return false;
+            }
+
+            if (vlpcr > vlvalue) {
+                getField('vl_value_obs.error').html('Sample test date cannot be earlier than Date Sample Sent to PCR Lab').show();
+                return false;
+            }
+
+            var vlresultT = getValue('vl_result_clasification.value');
+            var vlresultobs = getValue('vl_result_obs.value');
+            if (vlresultT == "166239") {
+                if (vlresultobs &lt; 1000) {
+                    getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
                     return false;
                 }
-
-                if (verification_line === "") {
-                    getField('verification_line.error').html('Verification Line cannot be empty').show();
+            }
+            if (vlresultT == "166238") {
+                if (vlresultobs > 1000) {
+                    getField('vl_result_obs.error').html('Result (copies/ml) cannot be greater than 1000 if Viral Load Result Classification is less than 1000').show();
                     return false;
                 }
+            }
 
-                if (longterm_line == "") {
-                    getField('longterm_line.error').html('Long Term cannot be empty').show();
-                    return false;
-                }
-
-                if (final_recency_test_recent == "") {
-                    getField('final_recency_test_recent.error').html('Recency Interpretation cannot be empty').show();
-                    return false;
-                }
-
-                var testVal = new Date(getValue('hiv_test_date.value'));
-                var rctd = new Date(getValue('recency_test_date.value'));
-
-                if (testVal > rctd) {
-                    getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
-                    return false;
-                }
-
-
-                var rctdd = new Date(getValue('recency_test_date.value'));
-                var vlpcr = new Date(getValue('vlpcr_value_obs.value'));
-
-                var vlvalue = new Date(getValue('vl_value_obs.value'));
-                var vlsamplev = new Date(getValue('vlsample_value_obs.value'));
-
-                if (rctd > vlsamplev) {
-                    getField('vlsample_value_obs.error').html('Sample collection date cannot be earlier than Recency Test Date').show();
-                    return false;
-                }
-
-                if (vlsamplev > vlpcr) {
-                    getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection date').show();
-                    return false;
-                }
-
-                if (vlpcr > vlvalue) {
-                    getField('vl_value_obs.error').html('Sample test date cannot be earlier than Date Sample Sent to PCR Lab').show();
-                    return false;
-                }
-
-                var vlresultT = getValue('vl_result_clasification.value');
-                var vlresultobs = getValue('vl_result_obs.value');
-                if (vlresultT == "166239") {
-                    if (vlresultobs &lt; 1000) {
-                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be less than 1000 if Viral Load Result Classification is greater than 1000').show();
-                        return false;
-                    }
-                }
-                if (vlresultT == "166238") {
-                    if (vlresultobs > 1000) {
-                        getField('vl_result_obs.error').html('Result (copies/ml) cannot be greater than 1000 if Viral Load Result Classification is less than 1000').show();
-                        return false;
-                    }
-                }
-
-                if (confirm("Have you verified the correctness of all fields from the paper form? Are you sure you want to submit?")) {
-                    return true;
-                } else {
-                    return false;
-                }
-
+            if (confirm("Have you verified the correctness of all fields from the paper form? Are you sure you want to submit?")) {
                 return true;
+            } else {
+                return false;
+            }
+
+            return true;
         });
     </script>
 
