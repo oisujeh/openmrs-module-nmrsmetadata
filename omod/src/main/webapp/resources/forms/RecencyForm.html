@@ -1,3 +1,4 @@
+<!-- <htmlform formEncounterType="ecfe9337-5c94-453d-a150-98ddf40cc9d6" formName="Recency Form" formUuid="ec4371c2-9e8d-49cb-a998-6eb2ab69d0fe" formVersion="1.0"> -->
 <htmlform formEncounterType="ecfe9337-5c94-453d-a150-98ddf40cc9d6" formName="Recency Form" formUuid="d4d7a5e2-f114-4da1-84e7-1fd1871533af" formVersion="1.0">
     <macros>
         paperFormId = (Fill this in)t headerColor =#2f1c55 fontOnHeaderColor = white
@@ -69,8 +70,9 @@
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
-            <!--padding: 5px;
-            -->margin: 0px left;
+            /* Attempted Comment here*/
+            padding: 5px;
+            margin: 0px left;
             box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
             border-radius: 2px;
             border: 1px solid #305a72;
@@ -988,7 +990,7 @@
                 <tr>
                     <td class="alnleft_s" id="test_name_label" name="test_name_label">Test name</td>
                     <td class="alnleft">
-                        <obs answerConceptIds="166215, 5622" answerLabels="Asante, Others" conceptId="166216" id="test_name_dropdown" name="test_name_dropdown">
+                        <obs answerConceptIds="166215, 5256" answerLabels="Asante, Others" conceptId="166216" id="test_name_dropdown" name="test_name_dropdown">
 
                             <controls>
                                 <when thenDisplay="#test_name" value="5622" />
@@ -1098,8 +1100,13 @@
                     <td>
                         <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
                             <controls>
-                                <when thenDisplay="#vl_label,#vl_value,#vl_value_obs,#vlsample_value_obs,#vl_result,#vl_result_obs,#final_recency_label,#final_recency_value,#vl_dss,#vlpcr_value_obs,#vl_samplet,#sample_type,#vl_rpcr,#vl_rpcrlab,#receiving_lab,#sample_id,#sample_id_label, #vl_result_label,#vl_result_clasification"
-                                    value="1065" />
+                                <when thenDisplay="#vl_label,#vl_value,#vl_value_obs,#vlsample_value_obs,#vl_result,#vl_result_obs,#final_recency_label,#final_recency_value,#vl_dss,#vlpcr_value_obs,#vl_samplet,#sample_type,#vl_rpcr,#vl_rpcrlab,#receiving_lab,#sample_id,#sample_id_label, #vl_result_label,#vl_result_clasification,
+                                #section_3a_1,#section_empty,#hts_mrs_emr_number,#age_,#age_obs,#gender_,#gender_obs,#pregnant_,#pregnant_obs,#breastfeeding_,#breastfeeding_obs,#date_form_was_completed,#date_form_was_completed_obs,#final_recency_result_obs,#source_documents_for_this_client,#section_3a_12,#was_client_linked_to_hiv_care,#was_client_linked_to_hiv_care_obs,#date_linked_to_care,#date_linked_to_care_obs,#was_client_initiated_on_art,#was_client_initiated_on_art_obs,#date_of_initiation,#date_of_initiation_obs,#art_number,#art_number_obs,#regimen,#regimen_obs,#section_3a_14,#client_attend_enhanced_adherence_counselling,#client_attend_enhanced_adherence_counselling_obs,#does_client_have_recorded_vl_in_12_months,#does_client_have_recorded_vl_in_12_months_obs,#vl_value,#vl_result_obs,#vls_achieved_after_6_months,#vls_achieved_after_6_months_obs,#section_3a_16,#client_been_identified_key_priority_population,
+                            #client_been_identified_key_priority_population_obs,#key_population_group,#key_population_group_obs,#priority_population_priority_population_group,#priority_population_priority_population_group_obs,#investigation_comments,#investigation_comments_obs,#section_3a_20,#section_empty,#client_offered_index_testing,#client_offered_index_testing_obs,#has_client_provided_contacts_for_sexual,#has_client_provided_contacts_for_sexual_obs,#section_3a_22,#age_partner,#age_partner_obs,#gender_partner,#gender_partner_obs,#gender_pregnant,#gender_pregnant_obs,#contact_provided_partner,#contact_provided_partner_obs,#source_documents_for_this_client_,#partner_given_hiv_self_testing_kit,#partner_given_hiv_self_testing_kit_obs,#partner_return_for_hiv_verification_testing,#partner_return_for_hiv_verification_testing_obs,#partner_tested_for_hiv,#partner_tested_for_hiv_obs,#partner_date_of_hiv_test,#partner_date_of_hiv_test_obs,
+                            #result_partner_,#result_partner_obs,#section_3a_32,#partner_tested_for_recency_,#partner_tested_for_recency_obs,#partner_recency_id,#partner_recency_id_obs,#partner_date_of_recency_test,#partner_date_of_recency_test_obs,#partner_recency_result,#partner_recency_result_obs,#was_client_linked_to_hiv_care_partner,#was_client_linked_to_hiv_care_partner_obs,#date_partner_linked_to_care,#date_partner_linked_to_care_obs,#was_client_initiated_on_art_partner_,#was_client_initiated_on_art_partner_obs,#date_of_initiation_client,#was_client_initiated_on_art_partner_obs,#date_of_initiation_client,#date_of_initiation_client_obs,#section_3a_38,#was_partner_referred_for_prep,#was_partner_referred_for_prep_obs,#did_partner_initiate_prep_,#did_partner_initiate_prep_obs,#partner_scheduled_repeat_hiv_test_,#partner_scheduled_repeat_hiv_test_obs,#partner_returned_for_repeat_hiv_test,#partner_returned_for_repeat_hiv_test_obs,
+                            #partner_repeat_hiv_test_date,#partner_repeat_hiv_test_date_obs,#section_3a_41,#reason_for_partner_not_testing_or_not_knowing_if_tested,#reason_for_partner_not_testing_or_not_knowing_if_tested_obs,#Is_the_partner_engaged_in_HIV_care_and_on_ART,#Is_the_partner_engaged_in_HIV_care_and_on_ART_obs,#current_art_regiment_partner_not_testing,#current_art_regiment_partner_not_testing_obs,#Date_of_latest_recorded_vl,#Date_of_latest_recorded_vl_obs,#vl_result_partner_not_testing,#vl_result_partner_not_testing_obs,#achieved_vls_within_last_6_months_partner_not_testing,#achieved_vls_within_last_6_months_partner_not_testing_obs,#partner_attend_enhanced_adherence_counselling_not_testing,#partner_attend_enhanced_adherence_counselling_not_testing_obs,#partner_been_evaluated_for_switch_in_art_regimen,#partner_been_evaluated_for_switch_in_art_regimen_obs,#date_recency_test,#partner_date_of_recency_test_obs,
+                            #date_confirmed_with_vl_rita,#date_confirmed_with_vl_rita_obs,#viral_load_result_obs,#viral_load_result,#final_recency_result,#hts_mrs_emr_number,#hts_mrs_emr_number_obs,#date_recency_test,#date_recency_test_obs"
+                                    value="1065"/>
                             </controls>
 
                         </obs>
@@ -1162,104 +1169,106 @@
                         <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b>Final Recency Result:</b></td>
+                    <td class="alnleft_f" id="final_recency_label">Final Recency Result:</td>
 
                     <td class="alnleft_f">
                         <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
+                        
                     </td>
+
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="section_3a_1">
                         <h4><b>Information on individuals identified with a recent HIV infection in this group</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">HTS/MRS/EMR Number</td>
+                    <td class="alnleft_f" id="hts_mrs_emr_number">HTS/MRS/EMR Number</td>
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        <obs conceptId="166892" id="hts_mrs_emr_number_obs" name="hts_mrs_emr_number_obs" />
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label">Age (years)</td>
+                    <td conceptId="5910" class="alnleft_f" id="age_">Age (years)</td>
 
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Gender (Male/Female)</td>
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Male,Female" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Pregnant</td>
-
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166240" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Breastfeeding</td>
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166240" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Date this form was completed</td>
-
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs conceptId="856" id="age_obs" name="age_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Date of Recency Test</td>
+                    <td class="alnleft_f" id="gender_">Gender (Male/Female)</td>
                     <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs"/>
+                        <obs answerConceptIds="165184,165185" answerLabels="Male,Female" conceptId="166960" id="gender_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Date Confirmed with VL (RITA)</td>
+                    <td class="alnleft_f" id="pregnant_">Pregnant</td>
 
                     <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="pregnant_obs" />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="breastfeeding_">Breastfeeding</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Not Applicable" conceptId="166896" id="breastfeeding_obs" />
+                    </td>
+                    <td class="alnleft_f" id="date_form_was_completed">Date this form was completed</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="166897" id="date_form_was_completed_obs" name="date_form_was_completed_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Viral Load Result</td>
+                    <td class="alnleft_f" id="date_recency_test">Date of Recency Test</td>
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs"/>
+                        <obs allowFutureDates="false" conceptId="165850" id="date_recency_test_obs" name="date_recency_test_obs"/>
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Final recency result (at the time of site investigation)</td>
+                    <td class="alnleft_f" id="date_confirmed_with_vl_rita">Date Confirmed with VL (RITA)</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166240" answerLabels="Probable Recent,Confirmed Recent,Long-Term" conceptId="166241" id="vl_result_clasification"/>
+                        <obs allowFutureDates="false" conceptId="166898" id="date_confirmed_with_vl_rita_obs" name="date_confirmed_with_vl_rita_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Source documents used for this client</td>
+                    <td class="alnleft_f" id="viral_load_result">Viral Load Result</td>
                     <td class="alnleft_f">
-                        <obs conceptId="165930" answerConceptId="71902" answerLabel="MRS/EMR"/>
-                        <obs conceptId="165930" answerConceptId="782" answerLabel="Recency Register"/>
-                        <obs conceptId="165930" answerConceptId="783" answerLabel="HTS Register"/>
-                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Index Testing Register"/>
-                        <obs conceptId="165930" answerConceptId="782" answerLabel="PNS Register"/>
-                        <obs conceptId="165930" answerConceptId="783" answerLabel="Tracking Register"/>
-                        <obs conceptId="165930" answerConceptId="783" answerLabel="Others"/>
+                        <obs conceptId="856" id="viral_load_result_obs" name="viral_load_result_obs"/>
+                    </td>
+                    <td class="alnleft_f" id="final_recency_result">Final recency result (at the time of site investigation)</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166237,166236,166211" answerLabels="Probable Recent,Confirmed Recent,Long-Term" conceptId="166214" id="final_recency_result_obs"/>
+                    </td>
+                </tr>
+
+                <tr id="source_documents_for_this_client_">
+                    <td class="alnleft_f" id="source_documents_for_this_client_">Source documents used for this client</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="166934" answerConceptId="71902" answerLabel="MRS/EMR"/>
+                        <obs conceptId="166934" answerConceptId="166899" answerLabel="Recency Register"/>
+                        <obs conceptId="166934" answerConceptId="166851" answerLabel="HTS Register"/>
+                        <obs conceptId="166934" answerConceptId="166852" answerLabel="Index Testing Register"/>
+                        <obs conceptId="166934" answerConceptId="166900" answerLabel="PNS Register"/>
+                        <obs conceptId="166934" answerConceptId="166901" answerLabel="Tracking Register"/>
+                        <obs conceptId="166934" answerConceptId="5256" answerLabel="Others"/>
                     </td>
                     <td></td>
                     <td></td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="section_3a_12">
                         <h4><b>HIV care and ART services received</b></h4></td>
                     <td class="alnleft_f">
                     </td>
@@ -1271,62 +1280,61 @@
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Was this client linked HIV care </td>
+                    <td class="alnleft_f" id="was_client_linked_to_hiv_care">Was this client linked HIV care </td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification"/>
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166241" id="was_client_linked_to_hiv_care_obs"/>
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Date Linked to care</td>
+                    <td class="alnleft_f" id="date_linked_to_care">Date Linked to care</td>
 
                     <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Was this client initiated on ART</td>
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Date of initiation</td>
-
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs allowFutureDates="false" conceptId="165854" id="date_linked_to_care_obs" name="date_linked_to_care_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">ART Number</td>
+                    <td class="alnleft_f" id="was_client_initiated_on_art">Was this client initiated on ART</td>
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166904" id="was_client_initiated_on_art_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Regimen</td>
+                    <td class="alnleft_f" id="date_of_initiation">Date of initiation</td>
 
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        <obs allowFutureDates="false" conceptId="165854" id="date_of_initiation_obs" name="date_of_initiation_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="art_number">ART Number</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="166905" id="art_number_obs" name="art_number_obs" />
+                    </td>
+                    <td class="alnleft_f" id="regimen">Regimen</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="166906" id="regimen_obs" name="regimen_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="section_3a_14">
                         <h4><b>To answer the next 2 questions, return to the site and complete when clinical data is available</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Did this client attend Enhanced Adherence Counselling</td>
+                    <td class="alnleft_f" id="client_attend_enhanced_adherence_counselling">Did this client attend Enhanced Adherence Counselling</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166907" id="client_attend_enhanced_adherence_counselling_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Does the client have a recorded VL in past 12 months</td>
+                    <td class="alnleft_f" id="does_client_have_recorded_vl_in_12_months">Does the client have a recorded VL in past 12 months</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166908" id="does_client_have_recorded_vl_in_12_months_obs" />
                     </td>
                 </tr>
 
@@ -1335,339 +1343,313 @@
                     <td class="alnleft_f">
                         <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Was VLS achieved after 6 months</td>
+                    <td class="alnleft_f" id="vls_achieved_after_6_months">Was VLS achieved after 6 months</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,165930" answerLabels="Yes,No,N/A" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1175" answerLabels="Yes,No,N/A" conceptId="166909" id="vls_achieved_after_6_months_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="section_3a_16">
                         <h4><b>For locations where KP services are implemented in Key and priority Populations</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Has this client been identified as a Key or priority Population (KP)</td>
+                    <td class="alnleft_f" id="client_been_identified_key_priority_population">Has this client been identified as a Key or priority Population (KP)</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,165930" answerLabels="Key Population,Priority Population,General Population" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="166910,166911,166912" answerLabels="Key Population,Priority Population,General Population" conceptId="166913" id="client_been_identified_key_priority_population_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">If Key Population, which group(s)</td>
+                    <td class="alnleft_f" id="key_population_group">If Key Population, which group(s)</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,165930,165930" answerLabels="Sex workers,MSM,PWID,Transgender" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">If Priority Population, which priority population group(s)</td>
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,165930,165930,165930" answerLabels="Adolescent girls,Long-distance truck drivers,People in prisons,Pregnant women,Others" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Investigatorâ€™s comments</td>
-
-                    <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        <obs answerConceptIds="160579,160578,166286,166287" answerLabels="Sex workers,MSM,PWID,Transgender" conceptId="166877" id="key_population_group_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="priority_population_priority_population_group">If Priority Population, which priority population group(s)</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166881,162198,166880,166887,5256" answerLabels="Adolescent girls,Long-distance truck drivers,People in prisons,Pregnant women,Others" conceptId="166878" id="priority_population_priority_population_group_obs" />
+                    </td>
+                    <td class="alnleft_f" id="investigation_comments">Investigator’s comments</td>
+
+                    <td class="alnleft_f">
+                        <obs conceptId="166917" id="vl_result_obs" name="investigation_comments_obs" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_f" id="section_3a_20">
                         <h4><b>Index testing and follow up services</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
-
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Was the client offered index testing?</td>
+                    <td class="alnleft_f" id="client_offered_index_testing">Was the client offered index testing?</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166918" id="client_offered_index_testing_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Has the client provided contacts for sexual/social/biological partners</td>
+                    <td class="alnleft_f" id="has_client_provided_contacts_for_sexual">Has the client provided contacts for sexual/social/biological partners</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166919" id="has_client_provided_contacts_for_sexual_obs" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="section_3a_22">
                         <h4><b>Information on partners, contacts and social network of every recent HIV infection case</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Age (Years)</td>
+                    <td class="alnleft_f" id="age_partner">Age (Years)</td>
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        <obs conceptId="166920" id="age_partner_obs" name="age_partner_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Gender</td>
+                    <td class="alnleft_f" id="gender_partner">Gender</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Male,Female" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Pregnant (if female)</td>
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Contact information provided</td>
-
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="165184,165185" answerLabels="Male,Female" conceptId="165857" id="gender_partner_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Source documents used for this client</td>
+                    <td class="alnleft_f" id="gender_pregnant">Pregnant (if female)</td>
                     <td class="alnleft_f">
-                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Wife/husband/fiancÃ©"/>
-                        <obs conceptId="165930" answerConceptId="782" answerLabel="Friend"/>
-                        <obs conceptId="165930" answerConceptId="783" answerLabel="Co-resident"/>
-                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Occational partner"/>
-                        <obs conceptId="165930" answerConceptId="782" answerLabel="Someone who pays me for sexual relations"/>
-                        <obs conceptId="165930" answerConceptId="783" answerLabel="Someone i pay for sexual relations"/>
-                        <obs conceptId="165930" answerConceptId="783" answerLabel="Someone i share a needle or inject drug with"/>
-                        <obs conceptId="165930" answerConceptId="71902" answerLabel="Unknown partner"/>
-                        <obs conceptId="165930" answerConceptId="782" answerLabel="Other"/>
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166921" id="gender_pregnant_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Was the partner given HIV self-testing kit?</td>
+                    <td class="alnleft_f" id="contact_provided_partner">Contact information provided</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166922" id="contact_provided_partner_obs" />
+                    </td>
+                </tr>
+
+                <tr id="source_documents_for_this_client">
+                    <td class="alnleft_f" id="source_documents_for_this_client">Source documents used for this client</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="165930" answerConceptId="166923" answerLabel="Wife/husband/fiancé"/>
+                        <obs conceptId="165930" answerConceptId="5618" answerLabel="Friend"/>
+                        <obs conceptId="165930" answerConceptId="166924" answerLabel="Co-resident"/>
+                        <obs conceptId="165930" answerConceptId="166925" answerLabel="Occational partner"/>
+                        <obs conceptId="165930" answerConceptId="166926" answerLabel="Someone who pays me for sexual relations"/>
+                        <obs conceptId="165930" answerConceptId="166927" answerLabel="Someone i pay for sexual relations"/>
+                        <obs conceptId="165930" answerConceptId="166928" answerLabel="Someone i share a needle or inject drug with"/>
+                        <obs conceptId="165930" answerConceptId="166929" answerLabel="Unknown partner"/>
+                        <obs conceptId="165930" answerConceptId="5256" answerLabel="Other"/>
+                    </td>
+                    <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Did the partner return for HIV verification testing?</td>
+                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Was the partner tested for HIV?</td>
+                    <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Date of HIV test</td>
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Result</td>
-
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Positive,Negative,Indeterminate" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                    </td>
+                    <td class="alnleft_f" id="result_partner_">Result</td>
+
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="703,664,166935" answerLabels="Positive,Negative,Indeterminate" conceptId="166936" id="result_partner_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="section_3a_32">
                         <h4><b>If tested new HIV-positive</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Was the partner tested for recency?</td>
+                    <td class="alnleft_f" id="partner_tested_for_recency_">Was the partner tested for recency?</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166937" id="partner_tested_for_recency_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Recency ID</td>
+                    <td class="alnleft_f" id="partner_recency_id">Recency ID</td>
 
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Date of Recency Test</td>
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Recency result (R/LT/I/N)</td>
-
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Recent,Long-Term,Invalid,Negative" conceptId="166241" id="vl_result_clasification" />
+                        <obs conceptId="166209" id="partner_recency_id_obs" name="partner_recency_id_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Was this client linked HIV care</td>
+                    <td class="alnleft_f" id="partner_date_of_recency_test">Date of Recency Test</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_recency_test_obs" name="partner_date_of_recency_test_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Date linked to care</td>
+                    <td class="alnleft_f" id="partner_recency_result">Recency result (R/LT/I/N)</td>
 
                     <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs answerConceptIds="165852,165851,163611,664" answerLabels="Recent,Long-Term,Invalid,Negative" conceptId="166213" id="partner_recency_result_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Was this client initiated on ART</td>
+                    <td class="alnleft_f" id="was_client_linked_to_hiv_care_partner">Was this client linked HIV care</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239" answerLabels="Yes,No" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166938" id="was_client_linked_to_hiv_care_partner_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Date of initiation</td>
+                    <td class="alnleft_f" id="date_partner_linked_to_care">Date linked to care</td>
 
                     <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs allowFutureDates="false" conceptId="166939" id="date_partner_linked_to_care_obs" name="date_partner_linked_to_care_obs" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="was_client_initiated_on_art_partner_">Was this client initiated on ART</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="166940" id="was_client_initiated_on_art_partner_obs" />
+                    </td>
+                    <td class="alnleft_f" id="date_of_initiation_client">Date of initiation</td>
+
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="166941" id="date_of_initiation_client_obs" name="date_of_initiation_client_obs" />
                         
                     </td>
                 </tr>
-
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="section_3a_38">
                         <h4><b>If tested new HIV-negative</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Was the partner referred for PrEP?</td>
+                    <td class="alnleft_f" id="was_partner_referred_for_prep">Was the partner referred for PrEP?</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Yes,No,Not Applicable,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1175,1067" answerLabels="Yes,No,Not Applicable,Don't Know" conceptId="166942" id="was_partner_referred_for_prep_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Did the partner initiate PrEP?</td>
+                    <td class="alnleft_f" id="did_partner_initiate_prep_">Did the partner initiate PrEP?</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166943" id="did_partner_initiate_prep_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Is the partner scheduled for repeat HIV test?</td>
+                    <td class="alnleft_f" id="partner_scheduled_repeat_hiv_test_">Is the partner scheduled for repeat HIV test?</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Yes,No,Not Applicable,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1175,1067" answerLabels="Yes,No,Not Applicable,Don't Know" conceptId="166944" id="partner_scheduled_repeat_hiv_test_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">If yes, returned for repeat HIV test</td>
+                    <td class="alnleft_f" id="partner_returned_for_repeat_hiv_test">If yes, returned for repeat HIV test</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Don't Know" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166945" id="partner_returned_for_repeat_hiv_test_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Repeat HIV test date</td>
+                    <td class="alnleft_f" id="partner_repeat_hiv_test_date">Repeat HIV test date</td>
                     <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs allowFutureDates="false" conceptId="166946" id="partner_repeat_hiv_test_date_obs" name="partner_repeat_hiv_test_date_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label"></td>
+                    <td class="alnleft_f" id="section_empty"></td>
                     <td class="alnleft_f"></td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_result">
+                    <td class="alnleft_f" id="section_3a_41">
                         <h4><b>If did not test or don't know</b></h4></td>
                     <td class="alnleft_f">
                     </td>
 
-                    <td class="alnleft_f" id="final_recency_label"><b></b></td>
+                    <td class="alnleft_f" id="section_empty"><b></b></td>
 
                     <td class="alnleft_f">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">What was the reason for the partner not testing or not knowing if tested?</td>
+                    <td class="alnleft_f" id="reason_for_partner_not_testing_or_not_knowing_if_tested">What was the reason for the partner not testing or not knowing if tested?</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239,166239" answerLabels="Previous Known HIV-positive Diagnosis,Refused,Not Located,Outside State LGA or Catchment Area, Deceased,Otherw2" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="166947,166948,166949,166950,5256" answerLabels="Previous Known HIV-positive Diagnosis,Refused,Not Located,Outside State LGA or Catchment Area, Deceased,Others" conceptId="166951" id="reason_for_partner_not_testing_or_not_knowing_if_tested_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Is the partner engaged in HIV care and on ART?</td>
+                    <td class="alnleft_f" id="Is_the_partner_engaged_in_HIV_care_and_on_ART">Is the partner engaged in HIV care and on ART?</td>
 
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Current ART regimen</td>
-                    <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Date of latest recorded VL</td>
-
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                        <obs conceptId="166959" id="vl_result_obs" name="Is_the_partner_engaged_in_HIV_care_and_on_ART_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">VL Result</td>
+                    <td class="alnleft_f" id="current_art_regiment_partner_not_testing">Current ART regimen</td>
                     <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        <obs conceptId="166958" id="current_art_regiment_partner_not_testing_obs" name="current_art_regiment_partner_not_testing_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Achieved VLS within last 6 months? </td>
+                    <td class="alnleft_f" id="Date_of_latest_recorded_vl">Date of latest recorded VL</td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                        <obs allowFutureDates="false" conceptId="166957" id="Date_of_latest_recorded_vl_obs" name="Date_of_latest_recorded_vl_obs" />
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="alnleft_f" id="vl_value">Did the partner attend Enhanced Adherence Counselling?</td>
+                    <td class="alnleft_f" id="vl_result_partner_not_testing">VL Result</td>
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                        <obs conceptId="166956" id="vl_result_partner_not_testing_obs" name="vl_result_partner_not_testing_obs" />
                     </td>
-                    <td class="alnleft_f" id="vl_result_label">Has the partner been evaluated for switch in ART regimen?</td>
+                    <td class="alnleft_f" id="achieved_vls_within_last_6_months_partner_not_testing">Achieved VLS within last 6 months? </td>
 
                     <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166239" answerLabels="Yes,No,Not Applicable" conceptId="166241" id="vl_result_clasification" />
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Not Applicable" conceptId="166955" id="achieved_vls_within_last_6_months_partner_not_testing_obs" />
                     </td>
                 </tr>
+                <tr>
+                    <td class="alnleft_f" id="partner_attend_enhanced_adherence_counselling_not_testing">Did the partner attend Enhanced Adherence Counselling?</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Not Applicable" conceptId="166954" id="partner_attend_enhanced_adherence_counselling_not_testing_obs" />
+                    </td>
+                    <td class="alnleft_f" id="partner_been_evaluated_for_switch_in_art_regimen">Has the partner been evaluated for switch in ART regimen?</td>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Not Applicable" conceptId="166953" id="partner_been_evaluated_for_switch_in_art_regimen_obs" />
+                    </td>
+                </tr>
 
 
 
@@ -1878,7 +1860,7 @@
             <tr>
                 <td class="alnleft">Date:</td>
                 <td class="alnleft">
-                    <obs allowFutureDates="false" conceptId="166242" id="signature_date" showTime="false" />
+                    <encounterDate allowFutureDates="false" showTime="false" />
                 </td>
                 <td class="alnleft">Completed by:</td>
                 <td class="alnleft">
