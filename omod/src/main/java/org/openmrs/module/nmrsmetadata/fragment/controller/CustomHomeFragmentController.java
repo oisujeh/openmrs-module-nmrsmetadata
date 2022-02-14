@@ -83,8 +83,9 @@ public class CustomHomeFragmentController {
 	}
 	
 	public String getRecencyCount(@SpringBean("obsService") ObsService service) {
-		questions.add(new Concept(166214));
-		answers.add(new Concept(166236));
+		questions.add(new Concept(166213));
+		answers.add(new Concept(165852));
+
 		String response = "";
 //		List<Obs> obsList = service.getObservations(null, null, null, null, null, null, null, null, null,
 //		    null, null, false);

@@ -36,8 +36,8 @@ public class RecentCasesFragmentController {
 	List<Integer> age, patientUUID, visitID;
 	
 	public String getPatientRecentCases(@SpringBean("obsService") ObsService service) {
-		questions.add(new Concept(166214));
-		answers.add(new Concept(166236));
+		questions.add(new Concept(166213));
+		answers.add(new Concept(165852));
 		int count = 0;
 		recencyResponse = new RecencyResponse();
 		String response = "";
