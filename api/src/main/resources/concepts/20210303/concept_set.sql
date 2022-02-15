@@ -83,4 +83,5 @@ REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166982, 166983, 1, 1, '2022-02-14 12:29:56', 'dd447137-1a76-4182-acd9-af5fa4b9fe99');
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166981, 166984, 0, 1, '2022-02-14 12:31:01', '3112a8e4-5d81-43a6-9c14-7373cef15a0e');
 REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (166982, 166984, 1, 1, '2022-02-14 12:31:01', '1b25926c-c34a-40e8-8dbf-d84dde92e17c');
+REPLACE INTO `concept_set` (`concept_id`, `concept_set`, `sort_weight`, `creator`, `date_created`, `uuid`) VALUES (167002, 166676, 5, 1, '2022-02-15 21:47:38', '0effd4f1-1de8-4fb5-b7c3-e1ebe1a3e8ca');
 
