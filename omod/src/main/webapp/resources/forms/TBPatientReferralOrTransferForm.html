@@ -1,4 +1,446 @@
 <htmlform formUuid="69449ea9-72b1-4067-a3ed-4406ac55e129" formName="TB Patient Referral or Transfer Form" formEncounterType="80146a7f-027b-4779-8d30-5c73b7aeaabb" formVersion="1.0">
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
 
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_j {
+            text-align: left;
+            color: #000000;
+            width: 20%;
+        }
+
+        .alnleft {
+            text-align: left;
+            color: #000000;
+            width: 25%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        td {
+            border: none;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!-- padding: 5px; -->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+
+        table tr {
+            border: None;
+        }
+
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form
+        ul.select {
+            padding: 2px 10px;
+        }
+
+        form select, .form select {
+            max-width: 150px;
+            min-width: 100px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+
+        .alnVertical {
+            vertical-align: top;
+        }
+        .td_overwrote {
+            border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        beforeSubmit.push(function() {
+            var val_encounterDate = getValue('encounterDate.value');
+            var val_next_appointment = getValue('next_appointment.value');
+            if (val_encounterDate > val_next_appointment) {
+                getField('next_appointment.error').html('Next appointment date has to be later than visit date').show();
+                return false;
+            }
+
+            return true;
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        var $ = jQuery;
+        $(document).ready(function () {
+            $('.hasDatepicker').attr('readonly', true);
+        });
+        $(document).ready(function ()
+        {
+            $('#height').keyup(calBMI);
+            $('#weight').keyup(calBMI);
+            $('#length').keyup(calBMI);
+
+            $('#lmp').change(function(e) {
+                calEDD();
+            });
+
+            $('#ge').keyup(function(e) {
+                calEDDwithGe();
+            });
+        });
+
+        function getCustomDate(date){
+            console.log("Date:" + date);
+            var dd = date.getDate();
+            var mm = date.getMonth() + 1;
+            var yyyy = date.getFullYear();
+            console.log("Day: " + dd);
+            console.log(mm);
+            console.log(yyyy);
+            var d= dd;
+            var m = mm;
+            if(!isNaN(dd)){
+                if (10 > dd) {
+                    d = "0" + dd;
+                }
+                if(!isNaN(mm)){
+                    if (10 > mm) {
+                        m = "0" + mm;
+                    }
+                }
+                return yyyy + "-" + m + "-" + d;
+            }
+        }
+        function calEDDwithGe(){
+            setValue("edd.value", "");
+            if(!isNaN(getValue("ge.value"))) {
+                var rWeeks = 40 - getValue("ge.value");
+                var edd = new Date();
+                var lmp = new Date();
+                edd = edd.setDate(edd.getDate() + (rWeeks * 7));
+                lmp = lmp.setDate(lmp.getDate() - (getValue("ge.value") * 7));
+                setValue('edd.value', getCustomDate(new Date(edd)));
+                setValue('lmp.value', getCustomDate(new Date(lmp)));
+            }else{
+                setValue("ge.value", "");
+            }
+        }
+        function calEDD() {
+            var lmp = new Date(getValue('lmp.value'));
+            if (lmp != null) {
+                lmp = lmp.setDate(lmp.getDate() + 280);
+                var Difference_In_Time = new Date().getTime() - new Date(getValue('lmp.value')).getTime();
+                var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                setValue("ge.value", Math.round(Difference_In_Days / 7));
+                console.log(lmp);
+//setValue('edd.value', null);
+                setValue('edd.value', getCustomDate(new Date(lmp)));
+            }
+        }
+
+        function calBMI(){
+            var height_val = getValue('height.value');
+            var weight_val = getValue('weight.value');
+            var length_val = getValue('length.value');
+            if(height_val == 0){
+                height_val = 1;
+            }
+            if(weight_val == 0){
+                weight_val = 1;
+            }
+            var height_num = parseFloat(height_val);
+            var weight_num = parseFloat(weight_val);
+            var length_num = parseFloat(length_val);
+
+            if(!isNaN(height_num)){
+                if(!isNaN(weight_num)){
+                    height_num = height_num/100;
+                    var bmi_val = weight_num / (height_num * height_num);
+                    if(!isNaN(bmi_val)){
+                        if(height_val == 1){
+                            setValue('bmi.value',0);
+                        }else if(weight_val == 1){
+                            setValue('bmi.value',0);
+                        }else{
+                            setValue('bmi.value',bmi_val.toFixed(2));
+                        }
+                    }
+                }else{
+                }
+            }else if(!isNaN(length_num)){
+                if(!isNaN(weight_num)){
+                    length_num  = length_num/100;
+                    var bmi_val = weight_num / (length_num* length_num);
+                    if(!isNaN(bmi_val)){
+                        if(height_val == 1){
+                            setValue('bmi.value',0);
+                        }else if(weight_val == 1){
+                            setValue('bmi.value',0);
+                        }else if(length_val == 1){
+                            setValue('bmi.value',0);
+                        }else{
+                            setValue('bmi.value',bmi_val.toFixed(2));
+                        }
+                    }
+                }else{
+
+                }
+            }else {
+
+            }
+
+            if(height_val.length > 0){
+                setValue('length.value', "");
+                $('#length').hide(200);
+            }else{
+                $('#length').show(200);
+            }
+
+            if(length_val.length > 0){
+                setValue('height.value', "");
+                $('#height').hide(200);
+            }else{
+                $('#height').show(200);
+            }
+        }
+    </script>
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr>
+            <th style="text-align: center">TB Patient Referral or Transfer Form</th>
+        </tr>
+        </thead>
+    </table>
+
+
+    <!-- <fieldset style="border: 1px solid #305a72; min-width: 90%; margin-left: 5%; padding: 6px; margin-bottom: 2%; border-radius: 12px;"  >
+        <legend class="legend_style">Last Clinical Parameters</legend>
+        <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
+
+            <tr><td><b>Weight: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('5089').valueNumeric" /></font>kg <lookup expression="fn.latestObs('5089').obsDatetime" /></td><td><b>Height: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('5090').valueNumeric" /></font> cm <lookup expression="fn.latestObs('5090').obsDatetime" /></td><td><b>CD4 Count: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('5497').valueNumeric" /></font> c/mm <sup>3</sup> <lookup expression="fn.latestObs('5497').obsDatetime" /></td></tr>
+            <tr>
+                <excludeIf velocityTest="$fn.latestObs('856').obsDatetime == ''">
+                    <includeIf velocityTest="!$fn.latestObs('166422').valueCoded">
+                        <td><b>Viral Load: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font> copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td>
+                    </includeIf>
+                    <includeIf velocityTest="$fn.latestObs('166422').valueCoded">
+                        <includeIf velocityTest="$fn.latestObs('166422').valueCoded == 'Concept #166426'">
+                            <td><b>Viral Load: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('856').valueNumeric" /></font> copies/ml <lookup expression="fn.latestObs('856').obsDatetime" /></td>
+                        </includeIf>
+
+                        <includeIf velocityTest="$fn.latestObs('166422').valueCoded != 'Concept #166426'">
+                            <td><b>Viral Load: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('166422').valueCoded.name" /></font> <lookup expression="fn.latestObs('166422').obsDatetime" /></td>
+                        </includeIf>
+
+                    </includeIf>
+                </excludeIf>
+
+                <td><b>Regimen: </b></td><td><b>ART Start Date: </b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(159599).getValueDatetime()" /></font>
+            </td>
+            </tr>
+        </table>
+    </fieldset> -->
+    <!--    dusted 01:05 Nov 22 2021-->
+
+    <table>
+        <tr>
+            <td class="alnright">Visit Date</td>
+            <td>
+                <encounterDate  id="encounterDate" showTime="false" allowFutureDates="false" required="true" />
+            </td>
+            <td class="alnleft_s">Choose appropriate category:</td><!--Used reason for transfer here -->
+
+            <td className="alnleft_s">
+                <obs conceptId="166782" answerConceptIds="166752,166753,1285,1696" answerLabels="DSTB,DRTB,Transfer, Refer " />
+            </td>
+
+            <td class="alnleft_s">Health facility no:</td>
+            <td class="alnleft_s"><span><obs conceptId="5937" /></span></td><!--Concepts might be created -->
+
+            <td class="alnleft_s">LGA TB No (If applicable)</td>
+            <td class="alnleft_s"><span ><obs conceptId="166015" /></span></td>
+
+        </tr>
+    </table>
+
+
+
+    <!-- check point -->
+    <fieldset>
+        <legend class="legend_style">Referring From</legend>
+        <table>
+            <tr>
+
+
+                <td class="alnleft_s">Facility Name:</td>
+                <td class="alnleft_s"><span><obs conceptId="161550" /></span></td>
+
+                <td class="alnleft_s">LGA </td>
+                <td class="alnleft_s"><span ><obs conceptId="166536" /></span></td>
+
+                <td class="alnleft_s">State </td>
+                <td class="alnleft_s"><span ><obs conceptId="166779" /></span></td>
+
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Referring To</legend><!--Referred Facility -->
+        <table>
+            <tr>
+
+                <td class="alnleft_s">Facility Name:</td>
+                <td class="alnleft_s"><span><obs conceptId="165483" /></span></td>
+
+                <td class="alnleft_s">LGA </td>
+                <td class="alnleft_s"><span ><obs conceptId="166781" /></span></td>
+
+                <td class="alnleft_s">State </td>
+                <td class="alnleft_s"><span ><obs conceptId="166780" /></span></td>
+
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <table>
+            <tr>
+                <td class="alnleft_s">Type of Patient (initial classification):</td>
+                <td class="alnleft_s"><span><obs conceptId="166687" answerConceptIds="165773,160033,166641,166642,166643,166644,160563" answerLabels="New, Relapse, Treatment after failure , Treatment after loss to follow-up,
+                 Other previously treated patients,  Unknown previous TB treatment Hx,Transfer in"  /></span></td>
+
+                <td class="alnleft_s">Reason for Referral</td>
+                <td class="alnleft_s"><span><obs conceptId="166458" answerConceptIds="166753,5256" answerLabels="DR-TB Treatment, Other" id="reasonForReferral">
+                    <controls>
+                        <when value="5256" thenDisplay=".showReasonForReferral"></when>
+                    </controls>
+                </obs>
+                </span></td>
+
+                <td class="alnleft_s showReasonForReferral" >Specify ( Others reason for referral)</td>
+                <td class="alnleft_s showReasonForReferral"><span><obs conceptId="165912" /></span></td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+    <fieldset>
+        <legend class="legend_style">Laboratory Results</legend>
+        <table>
+
+            <tr>
+                <td class="alnleft_s">Specimen ID NO:</td>
+                <td class="alnleft_s"><span><obs conceptId="159968" /></span></td>
+
+                <td class="alnleft_s">Smear </td>
+                <td class="alnleft_s"><span ><obs conceptId="166580" /></span></td>
+            </tr>
+
+        </table>
+        <table>
+            <tr>
+
+                <td class="alnleft_s">Xpert MTB/R if assay </td>
+                <td class="alnleft_s"><span ><obs conceptId="162203" /></span></td>
+
+                <td class="alnleft_s">Culture </td>
+                <td class="alnleft_s"><span ><obs conceptId="166783" /></span></td>
+
+            </tr>
+            <tr>
+                <td class="alnleft_s">Others</td>
+                <td class="alnleft_s"><span ><obs conceptId="166743" /></span></td>
+                <td class="alnleft_s"></td>
+                <td class="alnleft_s"></td>
+            </tr>
+        </table>
+
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnright_s">Enrolled by:</td>
+                <td class="alnleft_s">
+                    <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" />
+                </td>
+
+                <td class="alnleft_s">
+                    <label>Encounter:</label>
+                    <encounterDate id="encounterDate" />
+                </td>
+                <td class="alnright_s">Facility:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                </td>
+
+            </tr>
+        </table>
+    </fieldset>
+    <submit />
 
 </htmlform>

@@ -1,4 +1,260 @@
-<htmlform formUuid="9b85dff5-bd7a-4dfe-803a-c64da260b232" formName="TB Referral for Community and Facility Form" formEncounterType="7880771d-5762-41b9-8597-46bfdea47948" formVersion="1.0">
+<htmlform formUuid="9b85dff5-bd7a-4dfe-803a-c64da260b232" formName="TB Referral For Community and Facility"
+          formEncounterType="7880771d-5762-41b9-8597-46bfdea47948" formVersion="2018"
+          xmlns="http://www.w3.org/1999/html">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        /* The checkbox Style */
+        input.larger {
+            width: 50px;
+            height: 50px;
+        }
 
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        .alnright{
+            text-align: right;
+            color:#000000;
+            width: 25%;
+        }
+        .alnright_s{
+            text-align: right;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_s{
+            text-align: left;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_f{
+            text-align: left;
+            color:#000000;
+            width: 20%;
+        }
+        .alnleft{
+            text-align: left;
+            color:#000000;
+            width: 25%;
+        }
+        .error{
+            color:red;
+        }
+        td {
+            border: none;
+        }
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!--padding: 5px;-->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
+
+        }
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+
+        }
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        table tr {
+            border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form select, .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+        <!--table.baseline-aligned td {-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
+    </style>
+    <script type="text/javascript">
+        beforeSubmit.push(function() {
+            var val_encounterDate = getValue('encounter_Date.value');
+            var val_ArtStartDate = getValue('ArtStartDate.value');
+            if ( val_ArtStartDate > val_encounterDate) {
+                getField('encounter_Date.error').html('Visit date has to be later than Art Start date').show();
+                return false;
+            }
+
+            return true;
+        });
+
+        var $ = jQuery;
+        $(document).ready(function ()
+        {
+            $('.hasDatepicker').attr('readonly', true);
+        });
+
+    </script>
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr><th  style="text-align: center">TB Referral For Community and Facility</th></tr>
+        </thead>
+    </table>
+    <!--Referral Session A-->
+
+
+    <fieldset>
+        <legend class="legend_style">Section A: Referring Facility</legend>
+        <table >
+            <tr>
+                <td class="alnleft_s"> Name of Referring Facility </td>
+                <td class="alnleft_s" width="100%" colspan="11"> <obs conceptId="161550" required="true" /> </td>
+            </tr>
+            <tr>
+                <td class="alnleft_s"> Date of Referral  </td>
+                <td class="alnleft_s"><obs conceptId="163181" allowTime="false"/></td>
+                <td class="alnleft_s">Address of Referring Facility </td>
+                <td class="alnleft_s"><obs conceptId="165482" /></td>
+            </tr>
+            <tr>
+
+                <td class="alnleft_s">Name of Person Making Referral<br/>
+                <td class="alnleft_s"><obs conceptId="161103" /></td>
+                </td>
+                <td class="alnleft_s">Contact Phone of Referring Facility<br/>
+                <td class="alnleft_s"><obs conceptId="165487" /></td>
+                </td>
+            </tr>
+            <tr>
+                <td class="alnleft_s" >Reason for Referral:</td>
+                <td class="alnleft_s">
+                    <obs  conceptId="1887" answerConceptIds="161356,1185,155006,1887" answerLabel="Diagnosis,Treatment,AdverseReactiontoDrug,OtherReferralReason" id="ReasonReferral">
+                        <controls><when value="1887" thenDisplay="#ReasonReferralSpecified"/></controls>
+                    </obs>
+                </td>
+                <td class="alnleft_s" id="ReasonReferralSpecified" colspan="2">
+                    Specify<obs conceptId="166663" />
+                </td>
+
+            </tr>
+            <tr>
+                <td class="alnleft_s" >Profile of person making TB Referral:</td>
+                <td class="alnleft_s">
+                    <obs  conceptId="166681" answerConceptIds="166634,166633,166639,166134,166392,1575,166457,166682" answerLabels="Community TB Worker,Community Volunteer,Community Informant,Community Pharmacist,Patent Medicine Vendor,Tradional Birth Attendance,Laboratory Health Worker,Other Provider Making TB Referral" id="PersonReferral">
+                        <controls><when value="166682" thenDisplay="#PersonMakingReferral"/></controls>
+                    </obs>
+                </td>
+                <!-- change name of person concept datatype of 166681 -->
+                <td class="alnleft_s" id="PersonMakingReferral" colspan="2">
+                    Specify<obs conceptId="166682" />
+                </td>
+
+            </tr>
+        </table>
+        <table>
+
+            <!-- Person making Referral -->
+
+        </table>
+    </fieldset>
+    <!--Referral Session B-->
+    <fieldset>
+        <legend class="legend_style">Section B:Receiving Facility</legend>
+        <table border="0" width="100%">
+            <tr>
+                <td class="alnleft_s"> Name of Receiving Facility</td>
+                <td class="alnleft_s" width="100%" colspan="11"><obs conceptId="165508" required="true" /></td>
+            </tr>
+            <tr>
+                <!--Concept change -->
+
+                <td class="alnleft_s">Date of Arrival at Referred Facility </td>
+                <td class="alnleft_s"><obs conceptId="163181" allowTime="false"/></td>
+
+                <!--Concept change -->
+                <td class="alnleft_s">Name of Health Worker at Receiving facility</td>
+                <td class="alnleft_s"><obs conceptId="164141" /></td>
+            </tr>
+
+            <tr>
+                <td class="alnleft_s" >Outcome of Referral:</td>
+                <td class="alnleft_s" ><obs  conceptId="166685" answerConceptIds="166683,166684" answerLabel="TB Confirmed,TB Not Confirmed" /></td>
+
+                <td class="alnleft_s">Contact Phone of Receiving Facility<br/> </td>
+                <td class="alnleft_s"><obs conceptId="165486" /></td>
+            </tr>
+            <tr>
+                <!-- Concept change -->
+                <td class="alnleft_s">Outcome Date</td>
+                <td class="alnleft_s"><obs conceptId="166675" /></td>
+
+                <td class="alnleft_s">Date TB Treatment Started</td>
+                <td class="alnleft_s"><obs conceptId="1113" /></td>
+
+            </tr>
+        </table>
+
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnright_s">Visit Date:</td>
+                <td class="alnleft_s">
+                    <encounterDate id="encounter_Date " showTime="false" allowFutureDates="false"/>
+                </td>
+
+                <td class="alnleft_s">Provider's Name:</td>
+                <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
+
+                <td class="alnright_s">Facility:</td>
+                <td class="alnleft_s">
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
+                </td>
+
+
+            </tr>
+        </table>
+    </fieldset>
+
+    <submit/>
 
 </htmlform>

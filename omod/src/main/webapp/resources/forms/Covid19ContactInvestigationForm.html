@@ -166,8 +166,15 @@
     </fieldset>
 
     <fieldset>
-        <legend class="legend_style">Interview respondent information (if the person providing the information is not the contact)</legend>
-        <table width="100%">
+        <legend class="legend_style">Interview respondent information</legend>
+        <table>
+            <tr>
+                <td>
+                    <obs conceptId="166519" style="checkbox" value="false" labelText="Check if the persons providing the information is not the patient" toggle="{id: 'personsProvidingInformationNotPatient', style: 'dim'}" />
+                </td>
+            </tr>
+        </table>
+        <table width="100%" id="personsProvidingInformationNotPatient">
 
             <tr>
                 <td class="alnleft_s">First name</td>
@@ -176,7 +183,7 @@
                 <td class="alnleft_s">Surname / Family name</td>
                 <td class="alnleft_s"><obs conceptId="166432" /></td>
 
-                <td class="alnleft_s">Sex*</td>
+                <td class="alnleft_s">Sex</td>
                 <td class="alnleft_s"><obs conceptId="1533" answerConceptIds="1534,1535" answerLabels="Male, Female" style="radio"/></td>
 
             </tr>
@@ -184,7 +191,7 @@
                 <td class="alnleft_s">Date of Birth (dd/mm/yyyy)</td>
                 <td class="alnleft_s"><obs conceptId="164129" allowFutureDate="false"/></td>
 
-                <td class="alnleft_s">Age* (years, months)</td>
+                <td class="alnleft_s">Age (years, months)</td>
                 <td class="alnleft_s"><obs conceptId="5910" /></td>
 
                 <td class="alnleft_s">Relationship to patient</td>
@@ -321,18 +328,34 @@
                 </td>
 
                 <td class="alnleft_s">If Other, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="whenOccupationIsOthersSpecified"/></td>
+                <td class="alnleft_s"><obs conceptId="166522" id="whenOccupationIsOthersSpecified"/></td>
 
                 <td class="alnleft_s">For each occupation, please specify location or facility</td>
-                <td class="alnleft_s"><obs conceptId="165966" /></td>
+                <td class="alnleft_s"><obs conceptId="162724" /></td>
             </tr>
 
         </table>
+
     </fieldset>
 
-    <fieldset>
-        <legend class="legend_style">Exposure information (if the close contact is a Health Care Worker )</legend>
-        <table width="100%">
+    <fieldset >
+        <legend class="legend_style">Exposure information</legend>
+
+        <table>
+            <tr>
+                <td class="alnleft_s">Is the close contact is a Health Care Worker</td>
+                <td class="alnleft_s">
+                    <obs conceptId="166475" answerConceptIds="1065,1066" answerLabels="Yes,No" id="contactaHealthCareWorker" required="true">
+                        <controls>
+                            <when value="1065" thenDisplay="#contactIsaHealthCareWorker"/>
+                            <when value="1066" thenDisplay="#contactIsNotaHealthCareWorker"/>
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" id="contactIsaHealthCareWorker">
             <tr>
                 <td class="alnleft_s">Job title</td>
                 <td class="alnleft_s">
@@ -355,7 +378,7 @@
                     <obs conceptId="162632" answerConceptIds="1065,1066" answerLabels="Yes,No" /> <!--datatype is text in the database -->
                 </td>
 
-                <td class="alnleft_s">Has the HCW had a prolonged face-to-face contact (≥15 minutes) with a symptomatic confirmed case in the health facility	</td>
+                <td class="alnleft_s">Has the HCW had a prolonged face-to-face contact (&#8805;15 minutes) with a symptomatic confirmed case in the health facility	</td>
                 <td class="alnleft_s">
                     <obs conceptId="166475" answerConceptIds="1065,1066" answerLabels="Yes,No" id="faceToFaceContactQuestion">
                         <controls>
@@ -383,7 +406,7 @@
                 <td class="alnleft_s"><obs conceptId="160715" class="contactPresentWhileAnyAerosolResponses" /></td>
 
                 <td class="alnleft_s">Procedure: </td>
-                <td class="alnleft_s"><obs conceptId="165966" class="contactPresentWhileAnyAerosolResponses" /></td><!-- Temporary concept 166725 was created -->
+                <td class="alnleft_s"><obs conceptId="166521" class="contactPresentWhileAnyAerosolResponses" /></td><!-- Temporary concept 166725 was created -->
 
             </tr>
             <tr>
@@ -391,11 +414,9 @@
                 <td class="alnleft_s"><obs conceptId="166482" answerConceptIds="164243,166477,166478,1107" answerLabels="Surgical/medical, NIOSH Certified N95 or An EU standard FFP2, FFP3,None" /></td>
             </tr>
         </table>
-    </fieldset>
 
-    <fieldset>
-        <legend class="legend_style">Exposure information (if the close contact is a NOT Health Care Worker)</legend>
-        <table width="100%">
+        <!--<legend class="legend_style">Exposure information (if the close contact is a NOT Health Care Worker)</legend>-->
+        <table width="100%" id="contactIsNotaHealthCareWorker">
             <!-- To be added many times as wished -->
             <tr>
                 <td class="alnleft_s">Type of contact</td>
@@ -438,13 +459,13 @@
 
                     <td class="alnleft_s">Setting</td>
                     <td class="alnleft_s">
-                        <obs conceptId="165966"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings11" >
+                        <obs conceptId="165839"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings11" >
                             <controls>
                                 <when value="5256" thenDisplay="#otherTypeOfContact2Response1" />
                             </controls>
                         </obs>
                     </td>
-                    <td class="alnleft_s">If Other, specify</td>
+                    <td class="alnleft_s">If Other, specify </td>
                     <td class="alnleft_s"><obs conceptId="165966" id="otherTypeOfContact2Response1" /></td>
                 </obsgroup>
             </tr>
@@ -459,7 +480,7 @@
 
                     <td class="alnleft_s">Setting</td>
                     <td class="alnleft_s">
-                        <obs conceptId="165966"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings12" >
+                        <obs conceptId="165839"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings12" >
                             <controls>
                                 <when value="5256" thenDisplay="#otherTypeOfContact2Response2" />
                             </controls>
@@ -480,7 +501,7 @@
 
                     <td class="alnleft_s">Setting</td>
                     <td class="alnleft_s">
-                        <obs conceptId="165966"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings13" >
+                        <obs conceptId="165839"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings13" >
                             <controls>
                                 <when value="5256" thenDisplay="#otherTypeOfContact2Response3" />
                             </controls>
@@ -502,7 +523,7 @@
 
                     <td class="alnleft_s">Setting</td>
                     <td class="alnleft_s">
-                        <obs conceptId="165966"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings14" >
+                        <obs conceptId="165839"  answerConceptIds="1536, 1589, 164406, 166486, 5256" answerLabels="Home/household, Hospital/health care,Workplace,Tour group,Other" id="otherSettings14" >
                             <controls>
                                 <when value="5256" thenDisplay="#otherTypeOfContact2Response4" />
                             </controls>
@@ -526,6 +547,7 @@
             <!-- end of To be added many times as wished -->
         </table>
     </fieldset>
+
 
     <fieldset>
         <legend class="legend_style">Symptoms in contact</legend>
@@ -672,7 +694,7 @@
             </tr>
             <tr>
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="OtherNeurologicalSignsResponse" /></td>
+                <td class="alnleft_s"><obs conceptId="165908" id="OtherNeurologicalSignsResponse" /></td>
 
                 <td class="alnleft_s">Other symptoms</td>
                 <td class="alnleft_s">
@@ -683,35 +705,54 @@
                     </obs>
                 </td>
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="OtherSymtoms3Response" /></td>
+                <td class="alnleft_s"><obs conceptId="166528" id="OtherSymtoms3Response" /></td>
             </tr>
         </table>
     </fieldset>
 
     <fieldset>
         <legend class="legend_style">Outcome/status of contact (only complete if contact has been ill or currently ill)</legend>
-        <table width="100%">
+
+        <table>
+            <tr>
+                <td>
+                    <obs conceptId="166520" style="checkbox" value="false" labelText="Check if contact currently ill" toggle="{id: 'contactCurrently_ill', style: 'dim'}" />
+                </td>
+            </tr>
+        </table>
+        <table width="100%" id="contactCurrently_ill">
             <tr>
                 <td class="alnleft_s">Status</td>
-                <td class="alnleft_s"><obs conceptId="166491" answerConceptIds="166492,166489,160432,1067" answerLabels="Recovered,Still ill,Dead,Unknown/loss to follow up" /></td>
+                <td class="alnleft_s"><obs conceptId="166491" answerConceptIds="166492,166489,160432,1067" answerLabels="Recovered,Still ill,Dead,Unknown/loss to follow up" id="patientStatus" >
+                    <controls>
+                        <when value="160432" thenDisplay="#patientStatusDead , #patientStatusCaueseOfDead, #patientStatusPostMortem , #patientStatusCovid19related"/><!--Dead-->
+                        <when value="166492" thenDisplay="#patientStatusRecoved"/><!--Recovered-->
+                    </controls>
+                </obs>
+                </td>
 
                 <td class="alnleft_s">if recovered specify the date symptom resolved</td>
-                <td class="alnleft_s"><obs conceptId="165869" allowFutureDates="false" /></td>
+                <td class="alnleft_s"><obs conceptId="165869" allowFutureDates="false" id="patientStatusRecoved"/></td>
 
                 <td class="alnleft_s">if yes specify date of deaths </td>
-                <td class="alnleft_s"><obs conceptId="1543" allowFutureDates="false" /></td>
+                <td class="alnleft_s"><obs conceptId="1543" allowFutureDates="false" id="patientStatusDead"/></td>
             </tr>
 
             <tr>
                 <td class="alnleft_s">Hospitalization ever required</td>
-                <td class="alnleft_s"><obs conceptId="166493" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="166493" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" id="everHospitalized">
+                    <controls>
+                        <when value="1065" thenDisplay="#everHospitalizedDate , #everHospitalizedDischarge"/>
+                    </controls>
+                </obs>
+                </td>
 
 
                 <td class="alnleft_s">If yes, date of hospitalization</td>
-                <td class="alnleft_s"><obs conceptId="166494" allowFutureDates="false" /></td>
+                <td class="alnleft_s"><obs conceptId="166494" allowFutureDates="false" id="everHospitalizedDate"/></td>
 
                 <td class="alnleft_s"> If yes, date of discharged</td>
-                <td class="alnleft_s"><obs conceptId="1641" allowFutureDates="false" /></td>
+                <td class="alnleft_s"><obs conceptId="1641" allowFutureDates="false" id="everHospitalizedDischarge"/></td>
             </tr>
             <tr>
                 <td colspan="5"><small>(NB, If the information below is not currently available, please leave blank and send through an update as soon as results are available))</small></td>
@@ -719,17 +760,24 @@
             </tr>
             <tr>
                 <td class="alnleft_s">If dead, contribution of 2019-nCoV to death</td>
-                <td class="alnleft_s"><obs conceptId="166496" answerConceptIds="159943,159944,166497,1067" answerLabels="Underlying/primary,Contributing/secondary, No contribution to deaths,Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="166496" answerConceptIds="159943,159944,166497,1067" answerLabels="Underlying/primary,Contributing/secondary, No contribution to deaths,Unknown" id="patientStatusCovid19related"/></td>
 
                 <td class="alnleft_s">If dead, was post-mortem performed?</td>
-                <td class="alnleft_s"><obs conceptId="166498" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="166498" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" id="patientStatusPostMortem">
+                    <controls>
+                        <when value="1065" thenDisplay="#postmortemResult"/>
+                    </controls>
+                </obs>
+                </td>
 
-                <td class="alnleft_s">If dead, cause of death on the Death certificate (specify)</td>
-                <td class="alnleft_s"><obs conceptId="1814" answerConceptIds="1065,1066" answerLabels="Yes,No" /></td>
+                <td class="alnleft_s">If yes, results of post-mortem's report where available</td>
+                <td class="alnleft_s"><obs conceptId="166499" answerConceptIds="1065,1066" answerLabels="Yes,No" id="postmortemResult"/></td>
             </tr>
             <tr>
-                <td class="alnleft_s">If yes, results of post-mortem’s report where available</td>
-                <td class="alnleft_s"><obs conceptId="166499" answerConceptIds="1065,1066" answerLabels="Yes,No" /></td>
+                <td class="alnleft_s">If dead, cause of death on the Death certificate (specify)</td>
+
+                <td class="alnleft_s"><obs conceptId="1814" answerConceptIds="1065,1066" answerLabels="Yes,No" id="patientStatusCaueseOfDead"/></td>
+
             </tr>
 
         </table>
@@ -740,10 +788,15 @@
         <table width="100%">
             <tr>
                 <td class="alnleft_s">Pregnancy</td>
-                <td class="alnleft_s"><obs conceptId="5272" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="5272" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" id="pre_pregnancy" >
+                    <controls>
+                        <when value="1065" thenDisplay="#pre_pregnancyResponse"/>
+                    </controls>
+                </obs>
+                </td>
 
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="160665" answerConceptIds="1721,1722,1723" answerLabels="First,Second,Third" /></td>
+                <td class="alnleft_s"><obs conceptId="160665" answerConceptIds="1721,1722,1723" answerLabels="First,Second,Third" id="pre_pregnancyResponse" /></td>
 
                 <td class="alnleft_s">Obesity</td>
                 <td class="alnleft_s"><obs conceptId="115115" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" /></td>
@@ -777,14 +830,20 @@
                 <td class="alnleft_s"><obs conceptId="147064" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" /></td>
 
                 <td class="alnleft_s">Other pre-existing condition (s)</td>
-                <td class="alnleft_s"><obs conceptId="166495" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="166495" answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Unknown" id="specifyPreexisitingCondition">
+                    <controls>
+                        <when value="1065" thenDisplay="#specifyPreexisitingConditionAnswer"/>
+                    </controls>
+
+                </obs>
+                </td>
             </tr>
             <tr>
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" /></td>
+                <td class="alnleft_s"><obs conceptId="166527" id="specifyPreexisitingConditionAnswer"/></td>
 
                 <td class="alnleft_s">Comments if appropriate</td>
-                <td class="alnleft_s"><obs conceptId="165966" /></td>
+                <td class="alnleft_s"><obs conceptId="161011" /></td><!-- Used free Text comment concept ID "161011" for this section -->
             </tr>
         </table>
     </fieldset>
