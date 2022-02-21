@@ -47,7 +47,7 @@
         for(i=0; i < data.firstname.length; i++){
             console.log(data.firstname[i]);
             console.log(data.lastname[i]);
-            content += "<tr><td>"+data.firstname[i]+"</td><td>"+data.lastname[i]+"</td><td>"+data.sex[i]+"</td><td>"+data.age[i]+"</td><td><a href=\"/${ contextPath }/htmlformentryui/htmlform/viewEncounterWithHtmlForm.page?patient="+data.patientUUID[i]+"&encounter="+data.visitID[i]+"\" class=\"button\"> View  </a></td></tr>";
+            content += "<tr><td>"+data.firstname[i]+"</td><td>"+data.lastname[i]+"</td><td>"+data.sex[i]+"</td><td>"+data.age[i]+"</td><td><a href=\"/${ contextPath }/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+data.patientUUID[i]+"&visitId=0&formUuid=d4d7a5e2-f114-4da1-84e7-1fd1871533af\" class=\"button\"> Fill RRT  </a></td></tr>";
             console.log(data.visitID[i]);
         }
 

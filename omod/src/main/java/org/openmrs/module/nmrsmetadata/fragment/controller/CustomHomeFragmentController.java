@@ -53,6 +53,7 @@ public class CustomHomeFragmentController {
 
 	List<Concept> questions = new LinkedList<Concept>();
 	List<Concept> answers = new LinkedList<Concept>();
+	List<Concept> questions_rrt = new LinkedList<Concept>();
 	Range<Integer> RangeQ1, RangeQ2, RangeQ3, RangeQ4;
 	String startDate1 = "";
 	String endDate1 = "";
@@ -114,8 +115,10 @@ public class CustomHomeFragmentController {
 //			}
 //		}
 
-
-		recencyResponse.setTotalCount(service.getObservationCount(null,null,questions,answers,null,null,null,startDate,endDate,false));
+		questions_rrt.add(new Concept(166892));
+		int total_rrt = service.getObservationCount(null,null,questions_rrt,null,null,null,null,startDate,endDate, false);
+		int total_rtri = service.getObservationCount(null,null,questions,answers,null,null,null,startDate,endDate,false);
+		recencyResponse.setTotalCount(total_rtri-total_rrt);
 		recencyResponse.setQuaterStatus(quaterStatus);
 		response = gson.toJson(recencyResponse);
 		return response;
