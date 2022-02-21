@@ -154,7 +154,7 @@
 
 
     <fieldset>
-        <legend class="legend_style">Enrolmenet Details*:</legend>
+        <legend class="legend_style">Enrolment Details*:</legend>
         <table width="100%">
             <tr>
                 <td class="alnleft_s" colspan="4"><br />Epid Number/Unique Case ID*:</td>
@@ -217,8 +217,15 @@
 
 
     <fieldset>
-        <legend class="legend_style">Interview respondent information (if the persons providing the information is not the patient)</legend>
-        <table width="100%">
+        <legend class="legend_style">Interview respondent information </legend>
+        <table>
+            <tr>
+                <td>
+                    <obs conceptId="166519" style="checkbox" value="false" labelText="Check if the persons providing the information is not the patient" toggle="{id: 'personsProvidingInformationNotPatient', style: 'dim'}" />
+                </td>
+            </tr>
+        </table>
+        <table width="100%" id="personsProvidingInformationNotPatient">
             <tr>
                 <td class="alnleft_s">First name</td>
                 <td class="alnleft_s"><obs conceptId="166432"  /></td>
@@ -257,10 +264,10 @@
 
     <fieldset>
         <legend class="legend_style">Patient symptoms (from disease onset)*</legend>
-        <small>Ask the suspected case about each of the following symptoms within the last 2 weeks. </small>
+
         <table width="100%">
             <tr>
-                <td class="alnleft_s">Fever (≥38 °C) or history of fever,
+                <td class="alnleft_s">Fever (&#8805; 38 &#176;C) or history of fever,
                 </td>
                 <td class="alnleft_s"><obs conceptId="140238" answerConceptIds="1065,1066, 1067" answerLabels="Yes,No, Unknown" /></td>
 
@@ -314,12 +321,16 @@
             </tr>
             <tr>
                 <td class="alnleft_s">Any other symptom?</td>
-                <td class="alnleft_s"><obs conceptId="165613" answerConceptIds="1065,1066, 1067" answerLabels="Yes,No, Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="165613" answerConceptIds="1065,1066, 1067" answerLabels="Yes,No, Unknown" id="anyOthersymptomquestion">
+                    <when value="1065" thenDisplay="#anyOthersymptomAnswer" />
+                </obs>
+                </td>
 
                 <td class="alnleft_s">If yes, specify symptom</td>
-                <td class="alnleft_s"><obs conceptId="165966" answerConceptIds="1065,1066, 1067" answerLabels="Yes,No, Unknown" /></td>
+                <td class="alnleft_s"><obs conceptId="165966" answerConceptIds="1065,1066, 1067" answerLabels="Yes,No, Unknown" id="anyOthersymptomAnswer"/></td>
+
                 <td class="alnleft_s">Date of first symptom onset (dd/mm/yyyy)</td><!-- concept to be changed to date -->
-                <td class="alnleft_s"><obs conceptId="163260" /></td><!--<obs  conceptId="1067" style="checkbox" answerLabel="Unknown"/></td>-->
+                <td class="alnleft_s"><obs conceptId="1730" /></td><!--<obs  conceptId="1067" style="checkbox" answerLabel="Unknown"/></td>-->
             </tr>
 
         </table>
@@ -332,14 +343,15 @@
             <tr>
                 <td class="alnleft_s" width="25%" >Have you been vaccinated</td>
                 <td class="alnleft_s" width="25%" >
-                    <obs id="HaveYouBeenVaccinatedControl" conceptId="160699" answerConceptIds="1065,1066" answerLabels="Yes,No" >
+                    <obs id="HaveYouBeenVaccinatedControl" conceptId="160699" answerConceptIds="1065,1066" answerLabels="Yes,No" required="true">
                         <controls>
                             <when value="1065" thenDisplay=".HaveYouBeenVaccinatedShow" />
                         </controls>
                     </obs>
                 </td>
                 <td class="alnleft_s" width="25%" >Specify the dose</td><!-- No concept provided -->
-                <td class="alnleft_s" width="25%" ><span class="HaveYouBeenVaccinatedShow" ><obs  conceptId="160699" answerConceptIds="166434, 166435, 166436, 1410" answerLabels="first dose, second dose, Name of Vaccine, Date of Vaccination" /></span></td>
+                <!-- <td class="alnleft_s" width="25%" ><span class="HaveYouBeenVaccinatedShow" ><obs  conceptId="160699" answerConceptIds="166434, 166435, 166436, 1410" answerLabels="first dose, second dose, Name of Vaccine, Date of Vaccination" /></span></td>-->
+                <td class="alnleft_s" width="25%" ><span class="HaveYouBeenVaccinatedShow" ><obs  conceptId="160699" answerConceptIds="166434, 166435,166766" answerLabels="First dose, Second dose, Booster dose" /></span></td>
             </tr>
             <tr>
                 <td class="alnleft_s" width="25%" >Name of Vaccine</td><!-- No concept provided -->
@@ -422,18 +434,48 @@
                         </controls>
                     </obs>
                 </td>
-                <td class="alnleft_s">Dates of travel from</td>
-                <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="domesticTravelQuestionShow" /></td>
+
+
 
             </tr>
-            <tr>
-                <td class="alnleft_s">Dates of travel to</td>
-                <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446"  class="domesticTravelQuestionShow" /></td>
-                <td class="alnleft_s">state(s) visited</td>
-                <td class="alnleft_s"><obs conceptId="166447" class="domesticTravelQuestionShow" /></td>
-                <td class="alnleft_s">Cities/ town visited</td>
-                <td class="alnleft_s"><obs conceptId="166448" class="domesticTravelQuestionShow" /></td>
+            <tr class="domesticTravelQuestionShow"><td>Dates of travel from</td><td>Dates of travel to</td><td>state(s) visited</td><td>Cities/ town visited</td></tr>
+            <tr class="domesticTravelQuestionShow">
+                <obsgroup groupingConceptId="166447">
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="domesticTravelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446"  class="domesticTravelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="166616" class="domesticTravelQuestionShow" /></td><!-- Temporrary Concept -->
+
+                    <td class="alnleft_s"><obs conceptId="166448" class="domesticTravelQuestionShow" /></td>
+                </obsgroup>
             </tr>
+
+            <tr class="domesticTravelQuestionShow">
+                <obsgroup groupingConceptId="166447">
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="domesticTravelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446"  class="domesticTravelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="166616" class="domesticTravelQuestionShow" /></td><!-- Temporrary Concept -->
+
+                    <td class="alnleft_s"><obs conceptId="166448" class="domesticTravelQuestionShow" /></td>
+                </obsgroup>
+            </tr>
+
+            <tr class="domesticTravelQuestionShow">
+                <obsgroup groupingConceptId="166447">
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="domesticTravelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446"  class="domesticTravelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="166616" class="domesticTravelQuestionShow" /></td><!-- Temporrary Concept -->
+
+                    <td class="alnleft_s"><obs conceptId="166448" class="domesticTravelQuestionShow" /></td>
+                </obsgroup>
+            </tr>
+
+
             <tr>
                 <td class="alnleft_s">Have you travelled within the last 14 days internationally?
                 </td>
@@ -447,16 +489,48 @@
                     </obs>
                 </td>
 
-                <td class="alnleft_s">Dates of travel from</td>
-                <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="internationalTralvelQuestionShow" /></td>
-                <td class="alnleft_s">Dates of travel to</td>
-                <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446" class="internationalTralvelQuestionShow" /></td>
             </tr>
+
+            <tr class="internationalTralvelQuestionShow"><td>Dates of travel from</td><td>Dates of travel to</td><td>Countries(s) visited</td><td>Cities/ town visited</td></tr>
+            <tr class="internationalTralvelQuestionShow">
+                <obsgroup groupingConceptId="166450">
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="162604" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="166448" class="internationalTralvelQuestionShow" /></td>
+                </obsgroup>
+            </tr>
+
+            <tr class="internationalTralvelQuestionShow">
+                <obsgroup groupingConceptId="166450">
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="162604" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="166448" class="internationalTralvelQuestionShow" /></td>
+                </obsgroup>
+            </tr>
+
+            <tr class="internationalTralvelQuestionShow">
+                <obsgroup groupingConceptId="166450">
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166445" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs allowFutureDates="false" conceptId="166446" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="162604" class="internationalTralvelQuestionShow" /></td>
+
+                    <td class="alnleft_s"><obs conceptId="166448" class="internationalTralvelQuestionShow" /></td>
+                </obsgroup>
+            </tr>
+        </table>
+        <table width="100%">
             <tr>
-                <td class="alnleft_s">Countries(s) visited</td>
-                <td class="alnleft_s"><obs conceptId="166450" class="internationalTralvelQuestionShow" /></td>
-                <td class="alnleft_s">Cities/ town visited</td>
-                <td class="alnleft_s"><obs conceptId="166448" class="internationalTralvelQuestionShow" /></td>
+
 
                 <td class="alnleft_s">In the past 14 days, have you had contact with anyone with suspected or confirmed COVID-19 (corona/coronavirus)?
                 </td>
@@ -484,7 +558,7 @@
                 </td>
 
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="attendedWeddingQuestionShow" /></td>
+                <td class="alnleft_s"><obs conceptId="166523" id="attendedWeddingQuestionShow" /></td>
 
             </tr>
             <tr>
@@ -498,7 +572,7 @@
                 </td>
 
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="patientAdmitedShow"/></td>
+                <td class="alnleft_s"><obs conceptId="162724" id="patientAdmitedShow"/></td>
 
             </tr>
             <tr>
@@ -512,7 +586,7 @@
                 </td>
 
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="patientVisitOutpatientShow" /></td>
+                <td class="alnleft_s"><obs conceptId="162724" id="patientVisitOutpatientShow" /></td>
 
             </tr>
             <tr>
@@ -526,7 +600,7 @@
                 </td>
 
                 <td class="alnleft_s">If yes, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="visitedTraditionalHealerShow" /></td>
+                <td class="alnleft_s"><obs conceptId="166524" id="visitedTraditionalHealerShow" /></td>
 
                 <td class="alnleft_s">Patient occupation (specify location/facility)</td>
                 <td class="alnleft_s">
@@ -541,7 +615,7 @@
             </tr>
             <tr>
                 <td class="alnleft_s">If Others, specify</td>
-                <td class="alnleft_s"><obs conceptId="165966" id="otherOccupationShow" /></td>
+                <td class="alnleft_s"><obs conceptId="166522" id="otherOccupationShow" /></td>
             </tr>
 
 
@@ -565,10 +639,10 @@
                 </td>
 
                 <td class="alnleft_s">If no or partially, reason:</td>
-                <td class="alnleft_s"><span id="Form-Completed-showReasonField"><obs conceptId="166461" /></span></td>
+                <td class="alnleft_s"><span id="Form-Completed-showReasonField"><obs conceptId="166525" /></span></td>
 
                 <td class="alnleft_s">If Other, specify:</td>
-                <td class="alnleft_s"><span id="Form-Completed-showOtherField"><obs conceptId="165966" /></span></td>
+                <td class="alnleft_s"><span id="Form-Completed-showOtherField"><obs conceptId="166526" /></span></td>
             </tr>
 
         </table>

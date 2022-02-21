@@ -1,4 +1,222 @@
 <htmlform formUuid="7d42e759-4e3e-4ccd-b70d-45aa12671955" formName="TB Index Patient Contact Investigation Form" formEncounterType="b345da4c-71ae-4bbb-a90d-b856cecea71b" formVersion="1.0">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        .alnright{
+            text-align: right;
+            color:#000000;
+            width: 25%;
+        }
+        .alnright_s{
+            text-align: right;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_s{
+            text-align: left;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_f{
+            text-align: left;
+            color:#000000;
+            width: 20%;
+        }
+        .alnleft{
+            text-align: left;
+            color:#000000;
+            width: 25%;
+        }
+        .error{
+            color:red;
+        }
+        td {
+            border: none;
+        }
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!--padding: 5px;-->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
+            border-color:darkgreen;
+        }
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
 
+        }
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        table tr {
+            border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form select, .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+        .inline_s{
+            float:left;
+        }
+        <!--table.baseline-aligned td {-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
+    </style>
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr><th  style="text-align: center; color:darkgreen;">TB INDEX PATIENT CONTACT INVESTIGATION FORM</th></tr>
+        </thead>
+    </table>
+    <fieldset>
+        <legend class="legend_style">Part A: Contact Investigator Information</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Name of TB Contact Investigator: </td>
+                <td class="alnleft_s"><obs conceptId="166715" /></td>
+                <td class="alnleft_s">Designation of TB Contact Investigator: </td>
+                <td class="alnleft_s"><obs conceptId="166733" answerConceptIds="166803,166802" /></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Phone Number: </td>
+                <td class="alnleft_s"><obs conceptId="166717" /></td>
+                <td class="alnleft_s">Date of Contact Tracing: </td>
+                <td class="alnleft_s"><obs conceptId="166718" /></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Part B: Index Case Information</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">LGA TB Reg. No. of Index case: </td>
+                <td class="alnleft_s"><obs conceptId="166688" /></td>
+                <td class="alnleft_s">Number of Household Contacts: </td>
+                <td class="alnleft_s"><obs conceptId="166720" /></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Type of TB: </td>
+                <td class="alnleft_s"><obs conceptId="166723" /></td>
+                <td class="alnleft_s">Consent for contact tracing: </td>
+                <td class="alnleft_s"><obs conceptId="166721" answerLabels="Agreed,Declined"/></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Part C: Contacts Information</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Name (Surname First): </td>
+                <td class="alnleft_s"><obs conceptId="166724" /></td>
+                <td class="alnleft_s">Age: </td>
+                <td class="alnleft_s"><obs conceptId="166725" /></td>
+                <td class="alnleft_s">Sex: </td>
+                <td class="alnleft_s"><obs conceptId="166726" /></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Phone: </td>
+                <td class="alnleft_s"><obs conceptId="166727" /></td>
+                <td class="alnleft_s">Relationship with Index Case: </td>
+                <td class="alnleft_s"><obs conceptId="166728" /></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Part D: TB Symptom Checklist (Yes/No)</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Cough ≥ 2wks: </td>
+                <td class="alnleft_s"><obs conceptId="166729" /></td>
+                <td class="alnleft_s">Weight Loss: </td>
+                <td class="alnleft_s"><obs conceptId="1858" answerConceptIds="1065,1066" /></td>
+                <td class="alnleft_s">Night Sweats: </td>
+                <td class="alnleft_s"><obs conceptId="166801" /></td>
+                <td class="alnleft_s">Fever: </td>
+                <td class="alnleft_s"><obs conceptId="140238" answerConceptIds="1065,1066" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend class="legend_style">Part E: Contact investigation Outcome and Actions</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Presumptive TB Case Identified: </td>
+                <td class="alnleft_s"><obs conceptId="166731" /></td>
+                <td class="alnleft_s">Presumptive TB case referred for diagnosis: </td>
+                <td class="alnleft_s"><obs conceptId="166732" /></td>
+            </tr>
+            <tr>
+                <td class="alnleft_s">Sputum samples collected: </td>
+                <td class="alnleft_s"><obs conceptId="166733" answerConceptIds="1065,1066" /></td>
+                <td class="alnleft_s">Tuberculosis Diagnosed: </td>
+                <td class="alnleft_s"><obs conceptId="166734" answerConceptIds="1065,1066" /></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Visit Date:</td>
+                <td class="alnleft_s"><encounterDate  allowFutureDates="false" required="true" /></td>
+
+                <td class="alnleft_s">Facility Name:</td>
+                <td class="alnleft_s"><encounterLocation default="GlobalProperty:default_location"/></td>
+
+                <td class="alnleft_s">Provider's Name:</td>
+                <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
 
 </htmlform>

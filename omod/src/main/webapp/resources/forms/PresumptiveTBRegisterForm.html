@@ -1,4 +1,313 @@
 <htmlform formUuid="bf6cff55-f393-499e-b24f-8c870f70d849" formName="Presumptive TB Register Form" formEncounterType="7055d09f-d5db-4ba7-91a1-8fd002d916ef" formVersion="1.0">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        .alnright{
+            text-align: right;
+            color:#000000;
+            width: 25%;
+        }
+        .alnright_s{
+            text-align: right;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_s{
+            text-align: left;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_f{
+            text-align: left;
+            color:#000000;
+            width: 20%;
+        }
+        .alnleft{
+            text-align: left;
+            color:#000000;
+            width: 25%;
+        }
+        .error{
+            color:red;
+        }
+        td {
+            border: none;
+        }
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!--padding: 5px;-->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
+            border-color:darkgreen;
+        }
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
 
+        }
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        table tr {
+            border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form select, .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+        .inline_s{
+            float:left;
+        }
+        <!--table.baseline-aligned td {-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
+    </style>
+    <script>
+        $(function() {
+            $('#TB_started').hide();
+            $('#w50').change(function(){
+                if($('#w50').val() == '166752' || $('#w50').val() == '166753') {
+                    $('#TB_started').show();
+                } else {
+                    $('#TB_started').hide();
+                }
+            });
+        });
+    </script>
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr><th  style="text-align: center; color:darkgreen;">Presumptive TB Register</th></tr>
+        </thead>
+    </table>
+
+    <table class="table" width="100%">
+        <tr>
+            <td class="alnleft_s">Specimen Identification Number:</td>
+            <td class="alnleft_s"><obs conceptId="166735"  required="true" /></td>
+            <td class="alnleft_s">Type of Presumptive TB:</td>
+            <td class="alnleft_s"><obs conceptId="166723" /></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td class="alnleft_s">Is client a health worker?</td>
+            <td class="alnleft_s"><obs conceptId="166736" /></td>
+            <td class="alnleft_s">Who referred this client?</td>
+            <td class="alnleft_s"><obs conceptId="165847" /></td>
+        </tr>
+    </table>
+    <fieldset>
+        <legend class="legend_style">Specimen Processing Period</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Site of Disease</td>
+                <td class="alnleft_s"><obs conceptId="160040" answerConceptIds="42,156204" answerLabels="Pulmonary,Extra Pulmonary" /></td>
+                <td class="alnleft_s">Date of Specimen Collection: </td>
+                <td class="alnleft_s"><obs conceptId="166737" /></td>
+                <td class="alnleft_s">Date specimen was sent to Laboratory: </td>
+                <td class="alnleft_s"><obs conceptId="166738" /></td>
+                <td class="alnleft_s">Date Result released: </td>
+                <td class="alnleft_s"><obs conceptId="166740" /></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Result of Bacteriological Tests</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Xpert/MTB/RIF Result</td>
+                <td class="alnleft_s">
+                    <!--  <obs conceptId="162202" answerConceptIds="165974,165973,163611" id="MTB" >
+                          <controls>
+                              <when value="165973" thenDisplay="#MTB_Detected" />
+                          </controls>
+                      </obs>-->
+
+                    <obs conceptId="162202" answerConceptIds="664,165973,163611" id="MTB" >
+                        <controls>
+                            <when value="165973" thenDisplay="#MTB_Detected" />
+                        </controls>
+                    </obs>
+
+                </td>
+                <td class="alnleft_s" id="MTB_Detected">
+                    MTB: <obs conceptId="165973" answerConceptIds="162204,162203,164104" answerLabels="RIF Resistance not Detected,RIF Resistance Detected,RIF Resistance Indeterminate"/>
+                </td>
+                <td class="alnleft_s">AFB Result: </td>
+                <td class="alnleft_s"><obs conceptId="166741" /></td>
+            </tr>
+            <tr><td><p></p></td></tr>
+        </table>
+        <table>
+            <obsGroup obsGroupingId="166712">
+                <tr>
+                    <th class="alnleft_s" colspan="4">Other tests(e.g TB-Lamp, LF-LAM, etc)</th>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Test Type: </td>
+                    <td class="alnleft_s"><obs conceptId="166742" /></td>
+                    <td class="alnleft_s">Result: </td>
+                    <td class="alnleft_s"><obs conceptId="166743" /></td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Test Type: </td>
+                    <td class="alnleft_s"><obs conceptId="166742" /></td>
+                    <td class="alnleft_s">Result: </td>
+                    <td class="alnleft_s"><obs conceptId="166743" /></td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Test Type: </td>
+                    <td class="alnleft_s"><obs conceptId="166742" /></td>
+                    <td class="alnleft_s">Result: </td>
+                    <td class="alnleft_s"><obs conceptId="166743" /></td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Test Type: </td>
+                    <td class="alnleft_s"><obs conceptId="166742" /></td>
+                    <td class="alnleft_s">Result: </td>
+                    <td class="alnleft_s"><obs conceptId="166743" /></td>
+                </tr>
+            </obsGroup>
+        </table>
+    </fieldset>
+    <!-- Section off -->
+    <!-- Section off -->
+    <!-- Section off -->
+    <table class="table" width="100%">
+        <tr>
+            <td class="alnleft_s">X-Ray Result</td><td class="alnleft_s"><obs conceptId="165972" /></td>
+            <td class="alnleft_s">Clinically Diagnosed?: </td><td class="alnleft_s"><obs conceptId="166744" /></td>
+        </tr>
+        <tr><td><p></p><p></p></td></tr>
+    </table>
+    <fieldset>
+        <legend class="legend_style">HIV Activities</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Previously Known HIV Status</td>
+                <td class="alnleft_s">
+                    <obs conceptId="166798" answerConceptIds="703,664,1067" />
+                </td>
+                <td class="alnleft_s">Tested for HIV?</td>
+                <td class="alnleft_s">
+                    <obs id="checkHIVTest" conceptId="164401" answerConceptIds="1065,1066">
+                        <controls>
+                            <when value="1065" thenDisplay="#showHIVTest" />
+                        </controls>
+                    </obs>
+                </td>
+                <td id="showHIVTest">HIV Test Result:
+                    <obs id="HIVStartCheck" conceptId="159427" answerConceptIds="703,664">
+                        <controls>
+                            <when value="703" thenDisplay="#HIVStart" />
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <hr style="border:solid 0.5px green;" />
+
+    <table>
+        <tr>
+            <td class="alnleft_s">Outcome of TB Investigation</td>
+            <td class="alnleft_s">
+                <obs id="TBOutcome" conceptId="166745" answerConceptIds="166752,166753,166754" />
+            </td>
+            <td class="alnleft_s"></td><td class="alnleft_s"></td>
+        </tr>
+    </table>
+    <table id="TB_started">
+        <tr>
+            <td class="alnleft_s">TB Treatment Started? </td>
+            <td class="alnleft_s">
+                <obs id="TB_Treatment_Started" conceptId="1270" answerConceptIds="1065,1066">
+                    <controls>
+                        <when value="1065" thenDisplay="#TB_Treatment_Yes" />
+                        <when value="1066" thenDisplay="#TB_Treatment_No" />
+                    </controls>
+                </obs>
+            </td>
+            <td class="alnleft_s" id="TB_Treatment_Yes">LGA TB Number:
+                <obs conceptId="166688" />
+            </td>
+            <td class="alnleft_s" id="TB_Treatment_No">Write reason why patient was not started on TB treatment:
+                <obs conceptId="166746" style="textarea" />
+            </td>
+            <td class="alnleft_s"></td><td class="alnleft_s"></td>
+
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="alnleft_s">Remarks</td>
+            <td><obs conceptId="166714"  style="textarea"/></td>
+            <td class="alnleft_s"></td><td class="alnleft_s"></td><td class="alnleft_s"></td>
+        </tr>
+    </table>
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Visit Date:</td>
+                <td class="alnleft_s"><encounterDate  allowFutureDates="false" required="true" /></td>
+
+                <td class="alnleft_s">Facility Name:</td>
+                <td class="alnleft_s"><encounterLocation default="GlobalProperty:default_location"/></td>
+
+                <td class="alnleft_s">Provider's Name:</td>
+                <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
 
 </htmlform>

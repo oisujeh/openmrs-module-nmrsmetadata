@@ -1,4 +1,307 @@
 <htmlform formUuid="d163707d-5ce7-4913-b62f-ba6d261daca2" formName="Specimen Examination Request Form" formEncounterType="27e834a7-a8bb-4f9d-8082-6400ad7a239c" formVersion="1.0">
 
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $ headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_f {
+            text-align: left;
+            color: #000000;
+            width: 20%;
+        }
+
+        .alnleft {
+            text-align: left;
+            color: #000000;
+            width: 25%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        td {
+            border: none;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!-- padding: 5 px;
+        --> margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+
+        }
+
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+
+        table tr {
+            border: None;
+        }
+
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form select, .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+
+        <!--
+        table.baseline-aligned td {
+        --> <!-- vertical-align: baseline;
+        --> <!--
+        }
+
+        -->
+    </style>
+
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr>
+            <th style="text-align: center">Specimen Examination Request Form</th>
+        </tr>
+        </thead>
+    </table>
+
+
+    <fieldset>
+        <legend className="legend_style">Specimen Details</legend>
+        <table>
+            <tr>
+                <td className="alnleft_s">Date of Specimen Collection</td>
+                <td className="alnleft_s">
+                    <obs conceptId="159951" allowFutureDates="false"/>
+                </td>
+                <td className="alnleft_s">Specimen Identification N0:</td>
+                <td className="alnleft_s">
+                    <obs conceptId="166735"/>
+                </td>
+                <td className="alnleft_s">LGA/TB N0:</td>
+                <td className="alnleft_s">
+                    <obs conceptId="166688"/>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+
+            <tr>
+                <!-- <td className="alnleft_s">Sex</td>
+                 <td className="alnleft_s">
+                     <obs conceptId="1533" answerConceptIds="1534,1535" answerLabels="Male, Female" />
+                 </td>-->
+
+                <td className="alnleft_s">Type of Presumptive TB(Tick One Only)</td>
+                <td className="alnleft_s">
+                    <obs conceptId="166586" answerConceptIds="166752,166753" answerLabels="DS-TB, DR-TB" />
+                </td>
+
+                <td className="alnleft_s">Site of Disease</td>
+                <td className="alnleft_s">
+                    <obs conceptId="166696" answerConceptIds="831,156204" answerLabels="Pulmonary TB, Extra Pulmonary TB"
+                    />
+                </td>
+
+                <td className="alnleft_s">Is The Patient a Health Care Worker?</td>
+                <td className="alnleft_s">
+                    <obs conceptId="166736" answerConceptIds="1065,1066" answerLabels="Yes, NO" />
+                </td>
+            </tr>
+            <tr>
+
+
+
+                <td className="alnleft_s">HIV Status</td>
+                <td className="alnleft_s">
+                    <obs conceptId="159576" answerConceptIds="664,138571, 1067"
+                         answerLabels="Negative, Positive, Unknown"/>
+                </td>
+
+                <td className="alnleft_s">HIV Test Requested?</td>
+                <td className="alnleft_s">
+                    <obs conceptId="165819" answerConceptIds="1065,1066" answerLabels="Yes, NO" />
+                </td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend className="legend_style">Diagnosis details</legend>
+        <table className="table" width="100%">
+            <tr>
+
+                <td className="alnleft_s">Tick reason for examination:<br />
+                    <obs conceptId="164082" answerConceptIds="166777,166777" answerLabels="Diagnose, Follow up" id="monthOfFollowup" >
+                        <controls>
+                            <when value="166777" thenDisplay="#showMonthofFollowup"></when>
+                        </controls>
+                    </obs>
+                </td>
+
+                <td className="alnleft_s" id="showMonthofFollowup">Indicate month of follow up: <br />
+                    <obs conceptId="164433"/>
+                </td>
+
+                <td className="alnleft_s">Test Type request: <br />
+                    <obs id="otherTestType" conceptId="165879" answerConceptIds="162202,165423,166767,166768,166769,166770,166542,1465,166771,166772,166742"
+                         answerLabels="Xpert/MTB/RIF, Smear for AFB, TB LAMP, TB LAM, Quantiferon/TST,1st line LPA, 2nd line LPA, Culture, Phenotypic 1st line DST,  Phenotypic 2nd line DST, Others " >
+                        <controls>
+                            <when value="166742" thenDisplay="#showOtherTestType"></when>
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+            <tr>
+
+                <td className="alnleft_s" id="showOtherTestType">Others specify:<br/>
+                    <obs conceptId="166663"/>
+                </td>
+
+                <td className="alnleft_s">Type of specimen:<br/>
+                    <obs conceptId="166764"/>
+                </td>
+                <td className="alnleft_s">Number sent to laboratory:<br/>
+                    <obs conceptId="166773"/>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td className="alnleft_s">Date of collection of 1st sample:<br/>
+                    <obs conceptId="164986" allowFutureDates="false" />
+                </td>
+
+                <td className="alnleft_s">Date of collection of 2nd sample:<br/>
+                    <obs conceptId="165007" allowFutureDates="false" />
+                </td>
+
+                <td className="alnleft_s">Name of person requesting examination:<br/>
+                    <obs conceptId="166775"/>
+                </td>
+
+            </tr>
+
+        </table>
+        <table>
+            <tr>
+                <td className="alnleft_s">E-mail:<br/>
+                    <obs conceptId="166430"/>
+                </td>
+
+                <td className="alnleft_s">Phone No.:<br/>
+                    <obs conceptId="159635"/>
+                </td>
+
+                <td className="alnleft_s">Name of Health facility:<br/>
+                    <obs conceptId="162724"/>
+                </td>
+                <td className="alnleft_s">State:<br/>
+                    <obs conceptId="166779"/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+    <fieldset>
+
+        <table className="table" width="100%">
+            <tr>
+                <td className="alnleft_s">Visit Date:</td>
+                <td className="alnleft_s">
+                    <encounterDate id="encounter_Date" allowFutureDates="false" required="true"/>
+                </td>
+
+                <td className="alnleft_s">Facility Name:</td>
+                <td className="alnleft_s">
+                    <encounterLocation default="GlobalProperty:default_location"/>
+                </td>
+
+                <td className="alnleft_s">Provider's Name:</td>
+                <td className="alnleft_s">
+                    <encounterProvider default="currentUser"/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <submit />
 
 </htmlform>

@@ -1,4 +1,405 @@
 <htmlform formUuid="1094c1fe-65d1-4d33-95f4-fc9849828404" formName="Specimen Examination Result Form" formEncounterType="0f654a8d-5e5f-4b7f-8595-e55a602e5974" formVersion="1.0">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#009d8e
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        form input[type="checkbox"], form input[type="radio"], .form input[type="checkbox"], .form input[type="radio"] {
+            float: none;
+            display: inline-block;
+        }
+
+        form label, .form label {
+            display: inline-block;
+        }
+    </style>
+
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        .hidden_obs{
+            display:none !important;
+        }
+
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft {
+            text-align: left;
+            color: #000000;
+            width: 25%;
+        }
+
+        td {
+            border: none;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!-- padding: 5px; -->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+
+        table tr {
+            border: None;
+        }
+
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form select, .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+            max-width: 1200px !important;
+        }
+    </style>
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr><th colspan='5' style="text-align: center">Specimen Examination Result Form</th></tr>
+        </thead>
+    </table>
+    <fieldset>
+        <!-- Specimen Identification No-->
+        <table width="100%">
+            <tr>
+
+                <td class="alnleft_s">Name of requesting Health facility: <br /><span ><obs conceptId="161550" /></span></td>
+
+
+                <td class="alnleft_s">State of requesting Health facility:  <br /><span ><obs conceptId="166535" /></span></td>
+
+
+                <td class="alnleft_s">LGA/TB No : <br /><span ><obs conceptId="166688" /></span></td>
+
+
+                <td class="alnleft_s">Name of laboratory: <br />><span ><obs conceptId="164422" /></span></td>
+
+
+                <td class="alnleft_s">Laboratory Serial No :<br /><span ><obs conceptId="164409" /></span></td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+
+
+    <fieldset>
+        <legend class="legend_style">Results of Xpert MTB/RIF Test</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">MTB Not Detected? : </td>
+                <td class="alnleft_s"><span ><obs conceptId="165974"  answerConceptIds="1065, 1066" answerLabels="Yes, No" id="mtbdetected">
+                    <controls>
+                        <when value="1066" thenDisplay=".showselectmtbdetected" />
+                    </controls>
+                </obs>
+                </span></td>
+
+                <td class="alnleft_s showselectmtbdetected" >Select Detected MTB : </td>
+                <td class="alnleft_s showselectmtbdetected" ><span ><obs conceptId="165973" answerConceptIds="162203, 162204, 164104" answerLabels="RIF Resistance Detected, RIF Resistance Not Detected, RIF Resistance Intermedite" /></span></td><!-- Show MTD detected options here -->
+
+                <td class="alnleft_s">Other Test <small>(specify type of test)</small> :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166655" /></span></td>
+
+                <td class="alnleft_s">Results of other Test : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166657"  answerConceptIds="703, 664, 166784" answerLabels="Positive, Negative, Intermediate"/></span></td>
+
+            </tr>
+
+        </table>
+    </fieldset>
+    <!-- revisit this section -->
+    <fieldset>
+        <legend class="legend_style">AFB Smear Microscopy Result</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Date sample received : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166592" allowTime="false" allowFutureDates="false" /></span></td>
+
+                <td class="alnleft_s">Specimen : </td>
+                <td class="alnleft_s"><span > <obs conceptId="162476" answerConceptIds="165282,165283" answerLabels="1,2" /></span></td>
+
+
+
+                <td class="alnleft_s">Appearance :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166594" /></span></td>
+
+            </tr>
+
+        </table>
+
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Result :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166785" answerConceptIds="664,159985, 1362,1363,1364" answerLabels="Negative, Scanty(1-9, 1+, 2+, 3+" /></span></td>
+
+                <td class="alnleft_s">Examined by : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166596" /></span></td>
+                <!--<td class="alnleft_s">Sign : </td>
+                <td class="alnleft_s"><span ><obs conceptId="165973" /></span></td>-->
+                <td class="alnleft_s">Date :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166651" allowTime="false" allowFutureDates="false" /></span></td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+
+    <fieldset>
+        <legend class="legend_style">Results of Culture</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Type of Culture Result : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166599" answerConceptIds="1065, 1065, 1065" answerLabels="Baseline Culture, Follow-up, Month of Follow-up"/></span></td><!-- Awaiting concept -->
+
+                <td class="alnleft_s">Date sample received : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166600" allowTime="false" allowFutureDates="false" /></span></td>
+
+                <td class="alnleft_s">Specimen :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166601" /></span></td>
+
+            </tr>
+
+        </table>
+
+
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Solid culture result :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166602" answerConceptIds="664,159985,1362,1363,1364,161919" answerLabels="Negative, Scanty(1-9), 1+, 2+, 3+,Contaminated" /></span></td>
+
+                <td class="alnleft_s">Liquid culture result : </td>
+                <td class="alnleft_s"><span ><obs conceptId="162476" answerConceptIds="664,703, 161919" answerLabels="Negative, Positive, Contaminated" /></span></td>
+
+                <td class="alnleft_s">Result of confirmatory test for MTB : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166604" /></span></td>
+
+            </tr>
+
+        </table>
+
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Examined by :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166605" /></span></td>
+
+                <td class="alnleft_s">Date :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166606" allowTime="false" /></span></td>
+
+                <!-- <td class="alnleft_s">Sign :</td>
+                 <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>-->
+
+            </tr>
+
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">Results of LPA and DST</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Type of LPA or DST method used: </td>
+                <td class="alnleft_s"><span ><obs conceptId="166607" answerConceptIds="166789,166790, 166791" answerLabels="LPA, Solid Culture DST, Liquid Culture DST" /></span></td>
+
+                <td class="alnleft_s">Date sample received : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166608" allowFutureDates="false" /></span></td>
+
+                <td class="alnleft_s">Specimen :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166609" answerConceptIds="165282,165283" answerLabels="1,2" /></span></td>
+
+
+            </tr>
+
+        </table>
+
+        <table width="100%">
+
+            <tr>
+                <td class="alnleft_s">LPA Results : </td>
+                <td class="alnleft_s"><span ><obs conceptId="166610" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate"  /></span></td>
+
+                <td class="alnleft_s">LPA Drugs : </td>
+                <td class="alnleft_s"><span ><obs conceptId="162476" style = "checkbox" answerConceptIds="767, 656, 162303,166794, 166795" answerLabels="Rifampicin(R),Isoniazid(H),Fluoroquilinone,Aminoglycoside /Cyclic, Low level kanamycin(KM)"  /></span>
+                    <obs conceptId="162476" style="checkbox" answerConceptId="767" answerLabel="Rifampicin(R)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="656" answerLabel="Isoniazid(H)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="162303" answerLabel="Fluoroquilinone" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="166794" answerLabel="Aminoglycoside /Cyclic" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="166795" answerLabel="Low level kanamycin(KM)" />
+                </td>
+
+                <td class="alnleft_s">DST Results :</td>
+                <td class="alnleft_s">
+                    <span ><obs conceptId="159984" answerConceptIds="166792,166793, 161919" answerLabels="Resistant, Susceptible, Contaminated"  />
+                </span>
+                </td><!-- overide the existing concept answers with the ones specified -->
+
+
+
+
+            </tr>
+            <tr>
+                <td class="alnleft_s">DST Drugs :</td>
+                <td class="alnleft_s">
+                    <span ><obs
+                            conceptId="162476" style="checkbox"
+                            answerConceptIds="767, 656, 166796,82900, 166795,71060,72794,755, 955,82772,74123,163101"
+                            answerLabels="Rifampicin(R), Isoniazid(H),Ethambuthol(E),Pyrazinamide(Z),Kanamycin(Km),Amikacin(Am),Capreomycin(Cm),Levofloxacin(Lfx),Moxifloxacin(Mfx),Protionamide(Pto)/Etionamide(Eto),Cycloserine(Cs)/Terizidone(Trd), Other drug"  />
+                        <!-- 166795(concept of low level kanamycin instead kanamycin -->
+                </span>
+                    <obs conceptId="162476" style="checkbox" answerConceptId="767" answerLabel="Rifampicin(R)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="656" answerLabel="Isoniazid(H)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="166796" answerLabel="Ethambuthol(E)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="82900" answerLabel="Pyrazinamide(Z)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="166795" answerLabel="Kanamycin(Km)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="71060" answerLabel="Capreomycin(Cm)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="72794" answerLabel="Amikacin(Am)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="755" answerLabel="Levofloxacin(Lfx)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="955" answerLabel="Moxifloxacin(Mfx)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="82772" answerLabel="Protionamide(Pto)/Etionamide(Eto)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="74123" answerLabel="Cycloserine(Cs)/Terizidone(Trd)" />
+                    <obs conceptId="162476" style="checkbox" answerConceptId="163101" answerLabel="Other drug" />
+                </td><!-- overide the existing concept answers with the ones specified -->
+                <td class="alnleft_s">Examined by :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166611" /></span></td>
+
+                <td class="alnleft_s">Date :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166608" allowFutureDates="false" /></span></td>
+
+            </tr>
+
+        </table>
+
+        <table width="100%">
+            <tr>
+
+
+                <td class="alnleft_s">Remark (indicate if a repeat sample is needed from the patient) :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166714" /></span></td>
+
+                <td class="alnleft_s">HIV test Result :</td>
+                <td class="alnleft_s"><span ><obs conceptId="159427" /></span></td>
+
+                <td class="alnleft_s">HIV test Result Date :</td>
+                <td class="alnleft_s"><span ><obs conceptId="160082" allowFutureDates="false"/></span></td>
+
+                <td class="alnleft_s">Result checked and released by :</td>
+                <td class="alnleft_s"><span ><obs conceptId="166612" /></span></td>
+            </tr>
+
+        </table>
+
+        <!-- <table width="100%">
+             <tr>
+                 <td class="alnleft_s">Sign :</td>
+                 <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>
+
+                 <td class="alnleft_s">Date :</td>
+                 <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>
+
+                 <td class="alnleft_s">Remark :</td>
+                 <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>
+             </tr>
+
+         </table>-->
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table width="100%">
+            <tr>
+                <td class="alnright_s">Enrolled by:</td>
+                <td class="alnleft_s">
+                    <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" />
+                </td>
+
+                <td class="alnleft_s">
+                    <label>Encounter:</label>
+                    <encounterDate id="encounterDate" />
+                </td>
+                <td class="alnright_s">Facility:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                </td>
+
+            </tr>
+        </table>
+    </fieldset>
+    <submit />
+    <script type="text/javascript">
+
+    </script>
 
 
 </htmlform>

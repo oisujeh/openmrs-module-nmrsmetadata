@@ -32,10 +32,6 @@
         }
 
 
-
-
-
-
     </style>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
@@ -77,14 +73,45 @@
         </tr>
         <tr>
             <td>
+                <!--<includeIf velocityTest="$fn.latestObs('166247').obsDatetime">  Date of covid 19 outcome concept
+                    <p> Previous Covid 19 Contact Monitoring was ended </p>
+                    <p>Ebuka 1<lookup class="value" expression="fn.latestObs('166247').obsDatetime"/></p>
+                    <p>Ebuka 2<lookup class="value" expression="fn.latestObs('160699').obsDatetime"/></p>
+                    <p>Ebuka 2<lookup class="value" expression="#if($a==1)true enough#elseno way!#end"/></p>
+
+                    <p><lookup class="value" expression='date.difference("25/Oct/2021" , dateTool.getDate()).days'/></p>
+
+                    <includeIf velocityTest="$date.difference($fn.latestObs('160699').obsDatetime, $fn.latestObs('166247').obsDatetime).days() &lt; -1 ">
+
+
+                        <p>Logicc 11111 </p>
+                    </includeIf>
+
+                    <includeIf velocityTest="$date.difference($fn.latestObs('160699').obsDatetime, $fn.latestObs('166247').obsDatetime).days() &gt; -1 ">
+
+                        <p>Logicc 11111 </p>
+                    </includeIf>
+
+                    <includeIf velocityTest="$date.difference($fn.latestObs('160699').obsDatetime, $fn.latestObs('166247').obsDatetime).days() &gt;= 0 ">
+
+                        <p>Logicc 11111 </p>
+                    </includeIf>
+
+                    <includeIf velocityTest="$fn.latestObs('166247').obsDatetime &amp;&amp; $date.difference($fn.latestObs('160699').obsDatetime, $fn.latestObs('166247').obsDatetime) &gt; 0 ">
+                        <p> Contact Monitoring has ended </p>
+                    </includeIf>
+                </includeIf> -->
+
+
+                <!--<includeIf velocityTest="!$fn.latestObs('166247').obsDatetime">-->
                 <div id="home-container">
                     <div id="apps">
-                        <a id="case"
-                           href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=9b93a6e5-eaad-48f5-ae87-555a71bc8950&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
-                           class="button app big">
-                            <i class="icon-calendar"></i>
-                            Covid19 Case Investigation Form
-                        </a>
+                        <!-- <a id="case"
+                            href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=9b93a6e5-eaad-48f5-ae87-555a71bc8950&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
+                            class="button app big">
+                             <i class="icon-calendar"></i>
+                             Covid19 Case Investigation Form
+                         </a>-->
 
                         <a id="contact"
                            href="/baseUrl/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId=&amp;visitId=&amp;formUuid=857771ba-23a3-4f86-aff1-df542946086d&amp;returnUrl=%2F+domain+%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3Db050b4b9-6786-4e69-93b6-82b641cc4fc0%26encounterId%3D1242%26encounterId%3D1258%26"
@@ -106,6 +133,7 @@
 
                     </div>
                 </div>
+                <!--</includeIf>-->
             </td>
         </tr>
     </table>

@@ -1,4 +1,468 @@
 <htmlform formUuid="ab0f6d1d-b559-48de-aa5f-0a913eb97245" formName="TB Screening Form" formEncounterType="e7cee2cb-9cb4-4361-b216-3d1e461cc769" formVersion="1.0">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_j {
+            text-align: left;
+            color: #000000;
+            width: 15%;
+        }
+
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_f {
+            text-align: left;
+            color: #000000;
+            width: 20%;
+        }
+
+        .alnleft {
+            text-align: left;
+            color: #000000;
+            width: 25%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        td {
+            border: none;
+        }
+
+        table th,
+        table td {
+            padding: 5px 10px;
+            border: None;
+        }
+
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!--padding: 5px;
+        -->margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+
+        form fieldset,
+        .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+            padding: 0px;
+        }
+
+        table th,
+        table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+
+        table tr {
+            border: None;
+        }
+
+        ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form input,
+        form select,
+        form textarea,
+        form ul.select,
+        .form input,
+        .form select,
+        .form textarea,
+        .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form select,
+        .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        var $ = jQuery;
+        var $j = jQuery;
+
+        var path = $(location).attr('pathname').split('/')[1];
+        var baseUrl = '/' + path + '/nigeriaemr/PatientIdTypeSetter';
+
+        $(document).ready(function() {
+
+            $('.hasDatepicker').attr('readonly', true)
+
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url: baseUrl + "/getIdentifier.action",
+                data: {
+                    patientId: $('input[name=personId]').val(),
+                    identifierType: $('#pref_type').val()
+                },
+                cache: false,
+                timeout: 600000,
+                success: function(r) {
+                    if (r.code > 0) {
+                        if (r.identifier.length > 0) {
+                            if (r.preferred === true) {
+                                //$('#preferred').prop("checked", 'checked');
+                            }
+                        }
+                    }
+                },
+                error: function(e) {
+                    console.log("ERROR : ", e);
+                }
+            });
+
+
+            $('#preferred').click(function(e) {
+                var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
+                if (patientIdentifier) {
+                    if (patientIdentifier.trim().length > 0) {
+                        var obj = e.target;
+                        var isPreferred = false;
+                        if ($(obj).prop("checked") == true) {
+                            isPreferred = true;
+                        }
+
+                        var patientId = $('input[name=personId]').val();
+                        var identifierType = $('#pref_type').val();
+
+                        var pid = {
+                            patientId: patientId,
+                            patientIdentifier: patientIdentifier,
+                            identifierType: identifierType,
+                            isPreferred: isPreferred
+                        };
+                        var link = baseUrl + "/setPidType.action";
+
+                        $.ajax({
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            url: link,
+                            data: pid,
+                            cache: false,
+                            timeout: 600000,
+                            success: function(r) {
+                                if (r.code !== 5) {
+                                    alert(r.message);
+                                }
+                            },
+                            error: function(e) {
+                                console.log("ERROR : ", e);
+                            }
+                        });
+                    } else {
+                        $('#preferred').prop("checked", '');
+                        alert('Please fill in the Client Code before setting as preferred');
+                    }
+                } else {
+                    $('#preferred').prop("checked", '');
+                    alert('Please fill in the Client Code before setting as preferred');
+                }
+            });
+        });
+
+        var get_tb_current_cough = 0;
+        var get_tb_weight_loss = 0;
+        var get_tb_fever = 0;
+        var get_tb_night_sweats = 0;
+        var get_contact_with_TB = 0;
+        var get_total_tb_val = 0;
+
+
+        $j(function() {
+
+            jQuery('#get_total_tb_val').find("input").attr("disabled", true);
+
+            if (getField('tb_current_cough.value') != null) {
+                getField('tb_current_cough.value').change(function() {
+                    if (getValue('tb_current_cough.value') == "1065") {
+                        get_tb_current_cough = 1;
+                    } else {
+                        get_tb_current_cough = 0;
+                    }
+                    sum_tb_func();
+                });
+            }
+
+            if (getField('tb_weight_loss.value') != null) {
+                getField('tb_weight_loss.value').change(function() {
+                    if (getValue('tb_weight_loss.value') == "true") {
+                        get_tb_weight_loss = 1;
+                    } else {
+                        get_tb_weight_loss = 0;
+                    }
+                    sum_tb_func();
+                });
+            }
+
+
+            if (getField('tb_fever.value') != null) {
+                getField('tb_fever.value').change(function() {
+                    if (getValue('tb_fever.value') == "1065") {
+                        get_tb_fever = 1;
+                    } else {
+                        get_tb_fever = 0;
+                    }
+                    sum_tb_func();
+                });
+            }
+
+            if (getField('tb_night_sweats.value') != null) {
+                getField('tb_night_sweats.value').change(function() {
+                    if (getValue('tb_night_sweats.value') == "true") {
+                        get_tb_night_sweats = 1;
+                    } else {
+                        get_tb_night_sweats = 0;
+                    }
+                    sum_tb_func();
+                });
+            }
+
+
+            if (getField('contact_with_TB.value') != null) {
+                getField('contact_with_TB.value').change(function() {
+                    if (getValue('contact_with_TB.value') == "1065") {
+                        get_contact_with_TB = 1;
+                    } else {
+                        get_contact_with_TB = 0;
+                    }
+                    sum_tb_func();
+                });
+            }
+
+
+        })
+
+
+        function sum_tb_func() {
+            total_tb_val = (get_contact_with_TB + get_tb_night_sweats + get_tb_fever + get_tb_weight_loss + get_tb_current_cough);
+
+            setValue('get_total_tb_val.value', total_tb_val);
+            if (total_tb_val >= 1) {
+                $j('#tb_action_message').text('test for sputum AFB or refer to TB service');
+            } else {
+                $j('#tb_action_message').text('');
+            }
+        }
+
+
+
+
+        /*
+        $j(function(){
+        if(getField('rapid.value') != null){
+        getField('rapid.value').change(function(){
+        if(getValue('rapid.value')=="165851"){
+        setValue('final_recency_test.value',"165851")
+        }
+        });
+        }
+        });
+        */
+
+        /*
+        $j(function(){
+            $j('#setting_name_pitc').hide();
+            $j('#setting_pitc').hide();
+            $j('#setting_vtc').hide();
+            if($j('#kind_of_hts') != null){
+                $j('#kind_of_hts').change(function(){
+                    if($j('#kind_of_hts').val() == "Voluntary"){
+                        console.log("This is voluntary");
+                        $j('#setting_vtc').show();
+                        $j('#setting_name_vtc').show();
+                        $j('#setting_name_pitc').hide();
+                        $j('#setting_pitc').hide();
+                    }else if($j('#kind_of_hts').val() == "PITC") {
+                        console.log("This is pitc");
+                        $j('#setting_name_pitc').show();
+                        $j('#setting_pitc').show();
+                        $j('#setting_vtc').hide();
+                        $j('#setting_name_vtc').hide();
+                    }
+                });
+            }
+        });
+
+
+        $j(function() {
+            $j('#no_wives_label').hide();
+            $j('#no_wives').hide();
+            $j('#recency').hide();
+        }); */
+    </script>
+    <!--  <script>
+          jQuery(function() {
+              if (getField('date_of_visit.value') != null) {
+                  getField('date_of_visit.value').change(function() {
+
+                      var today = new Date();
+                      var visitDate = new Date(getValue('date_of_visit.value'));
+
+                      if (visitDate > today) {
+                          const field = getField('date_of_visit.error');
+                          if (field != null) {
+                              getField('date_of_visit.error').html('Visit date cannot be a future date').show();
+                          }
+                      }
+
+
+                  });
+              }
+          });
+      </script> -->
+
+
+
+    <table style="margin-bottom: 20px">
+        <thead>
+        <tr>
+            <th style="text-align: center">TB SCREENING FORM</th>
+        </tr>
+        </thead>
+    </table>
+    <table class="table" width="100%">
+        <tr>
+            <td class="alnleft_s">Date of Visit</td>
+            <td class="alnleft_j">
+                <encounterDate allowFutureDates="false" id="date_of_visit" name="date_of_visit" required="true" showTime="false" />
+                <enrollInProgram programId="7" showDate="false" />
+            </td>
+            <td class="alnleft_j" >TB Registration Id</td>
+
+            <td class="alnleft_j" id="identifer-td">
+                <patient field="identifier" identifierTypeId="14" required="true" />
+            </td>
+            <td style="vertical-align: top;">
+                <label> <input id="preferred" name="preferred" type="checkbox" />preferred</label>
+                <input id="pref_value" name="pref_value" type="hidden" />
+                <input id="pref_type" name="pref_type" type="hidden" value="14" />
+            </td>
+            <td></td>
+
+        </tr>
+    </table>
+    <fieldset style="margin: 25px 0px 10px 0px">
+        <legend class="legend_style">Client Screening</legend>
+    </fieldset>
+    <table class="table" width="100%">
+
+        <tr >
+            <td class="alnleft_s">Current Cough</td>
+            <td>
+                <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="143264" id="tb_current_cough" />
+            </td>
+            <td class="alnleft_s">Weight Loss</td>
+            <td>
+                <obs conceptId="832" id="tb_weight_loss" style="no_yes_dropdown" />
+            </td>
+            <td class="alnleft_s">Fever</td>
+            <td>
+                <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="140238" id="tb_fever" />
+            </td>
+        </tr>
+        <tr>
+
+            <td class="alnleft_s">Night sweats</td>
+            <td>
+                <obs conceptId="133027" id="tb_night_sweats" style="no_yes_dropdown" />
+            </td>
+            <td class="alnleft">Contact with TB+ patient</td>
+            <td>
+                <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="124068" id="contact_with_TB" />
+            </td>
+            <td class="alnleft"><b>TB Screening Score</b></td>
+            <td>
+                <obs conceptId="165808" id="get_total_tb_val" />
+            </td>
+        </tr>
+
+    </table>
+
+
+    <fieldset style="margin: 25px 0px">
+        <legend class="legend_style">Signature</legend>
+        <table class="table"  style="margin-top: 10px">
+            <tr>
+                <td class="alnleft_j">Completed by:</td>
+                <td class="alnleft_s">
+                    <encounterProvider id="completed_by" name="completed_by" required="true"/>
+                </td>
+                <td class="alnleft">Location:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                </td>
+                <td class="alnleft"></td><td class="alnleft"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit />
 
 
 </htmlform>
