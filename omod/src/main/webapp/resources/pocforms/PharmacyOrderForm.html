@@ -412,43 +412,44 @@ beforeSubmit.push(function() {
 			</table>
 		</td>
 
-		<td>
-			<table id="Facility_Dispensing" class="table" width="100%">
-				<tr>
-					<td>
-						<label>Facility Dispensing </label>
-						<obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic"/>
-					</td>
-				</tr>
-			</table>
-		</td>
+		   <td>
+                <table id="Facility_Dispensing" class="table" width="100%">
+                    <tr>
+                        <td>
+                            <label>Facility Dispensing </label>
+                            <obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
 
-		<td>
-			<table id="ddd_Dispensing" class="table" width="100%">
-				<tr>
-					<td>
-						<label>DDD Dispensing </label>
-						<obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group, Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">		
-							<controls>
-								<when value="5622" thenDisplay="#others_dispensary"/>
-							</controls>
-						</obs>
-							<obs conceptId="166367" id="others_dispensary"/>
-					</td>
-				</tr>
-			</table>
-		</td>
+            <td>
+                <table id="ddd_Dispensing" class="table" width="100%">
+                    <tr>
+                        <td>
+                            <label>DDD Dispensing </label>
+                            <obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group, Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">
+                                <controls>
+                                    <when value="5622" thenDisplay="#others_dispensary" />
+                                </controls>
+                            </obs>
+                            <obs conceptId="166367" id="others_dispensary" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
 
-		<td>
-			<table id="Multi_Month_Dispensing" class="table" width="100%">
-				<tr>
-					<td>
-						<label>Multi-Month Dispensing (MMD)</label>
-						<obs conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt;= 3, MMD 3 to 5, MMD &gt;= 6"/>
-					</td>
-				</tr>
-			</table>
-		</td>
+  <td>
+                <table id="Multi_Month_Dispensing" class="table" width="100%">
+                    <tr>
+                        <td>
+                            <label>Multi-Month Dispensing (MMD)</label>
+                            <obs id="mmd_Dispensings" conceptId='166278' answerConceptIds="166281,166282,166283" answerLabels="MMD &lt;= 3, MMD 3 to 5, MMD &gt;= 6" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
 
 	</table>
 </fieldset>

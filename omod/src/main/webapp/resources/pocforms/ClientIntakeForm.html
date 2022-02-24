@@ -1948,19 +1948,16 @@
                     <td id="recency_warning_label" style="width: 100%; color:red">Participant ID must not be more than 10 characters with atleast 2 Uppercase Alphabets present</td>
 
                 </tr>
-                <tr>
+               <tr>
                     <td id="recency_number_label">Participant ID:</td>
 
                     <td class="alnleft_s" id="recency_number_value">
-                        <patient field="identifier" id="recency_value" required="false" />
+                        <patient field="identifier" required="false" />
                     </td>
-
                     <td style="vertical-align: top;">
-                        <label id="preferred_recency_label" name="preferred_recency_label"> <input id="preferred_recency" name="preferred_recency" type="checkbox" />preferred</label>
-
-                        <input id="pref_value_recency" name="pref_value_recency" type="hidden" />
-                        <input id="pref_type_recency" name="pref_type_recency" type="hidden" value="10" />
-
+                        <label id="preferred_recency_label" name="preferred_recency_label"> 
+                          <input id="preferred_recency" name="preferred_recency" type="checkbox" />preferred
+                      </label>          
                     </td>
 
                     <td colspan="2"> <span id="outrange" style="width:100%; color:red; font-weight:bold;"></span> </td>

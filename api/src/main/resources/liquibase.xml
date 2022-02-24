@@ -770,4 +770,16 @@
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
     
+    <changeSet id="concept_numeric_202201181411" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="concepts/20210303/concept_numeric.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
 </databaseChangeLog>

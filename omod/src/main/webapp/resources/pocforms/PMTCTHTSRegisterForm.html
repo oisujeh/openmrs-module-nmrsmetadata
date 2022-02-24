@@ -133,64 +133,49 @@
             <tr><th  style="text-align: center">National PMTCT HTS Register</th></tr>
         </thead>
     </table>
-    <table class="table" width="100%">
-        
-		
-        <tr>
-            
-            
-            <td class="alnleft_s">Entry Point</td>
-            <td class="alnleft_s"><obs conceptId="166025" /></td>
-			<td></td>
-			<td></td>
-			<td></td>
-            
-        </tr>
-
-       
-    </table>
+   
 
     <br/>
 
-    <fieldset>
+     <fieldset>
         <!-- <legend class="legend_style">Pregnant Women HTS and or Hapetitis Screening</legend> -->
-		<legend class="legend_style">Pregnant Women HTS Screening</legend>
+        <legend class="legend_style">Pregnant Women HTS Screening</legend>
         <table class="table" width="100%">
             <tr>
                 <td class ="alnleft_s"> Date</td>
                 <td class="alnright_s"><obs conceptId="166029"/></td>
                 <td class="alnleft_s">Previously Known HIV+ Result</td>
-				<td class="alnright_s"><obs id="preresult" conceptId="166030" answerConceptIds="1065,1066" answerLabels="Yes,No" > 
-				<controls>
-					      <when value="1065" thenDisplay ="#hiv_positive_date_label,#hiv_positive_date_value"/>
-			    </controls></obs></td>
-				<td id="hiv_positive_date_label" class="alnleft_s">Date Previously Tested Positive</td>
-				<td id="hiv_positive_date_value" class="alnright_s"><obs  conceptId="166031"/></td>
-			
+                <td class="alnright_s"><obs id="preresult" conceptId="166030" answerConceptIds="1065,1066" answerLabels="Yes,No" >
+                    <controls>
+                        <when value="1065" thenDisplay ="#hiv_positive_date_label,#hiv_positive_date_value"/>
+                    </controls></obs></td>
+                <td id="hiv_positive_date_label" class="alnleft_s">Date Previously Tested Positive</td>
+                <td id="hiv_positive_date_value" class="alnright_s"><obs  conceptId="166031"/></td>
+
             </tr>
-			
+
 
             <tr>
                 <td class="alnleft_s">Accepted HIV Testing</td>
                 <td class="alnright_s"><obs conceptId="164167" /></td>
                 <td class="alnleft_s">HIV Test Result</td>
-	        <td class="alnright_s"><obs id="hivTestResult" conceptId="159427"  answerConceptIds="664,703" answerLabels="Negative,Positive" >
-                            <controls>
-					      <when value="703" thenDisplay ="#recency"/>
-			    </controls>
-</obs> </td>
-				
-            </tr>  
-			<tr>
-			    <td> Received HIV Result?</td>
-				<td> <obs conceptId="164848" answerConceptIds="1066,1065" answerLabels="No,Yes"/></td>
-				<td>HIV Re-Testing</td>
-				<td> <obs conceptId="166033"/></td>
-			</tr>
+                <td class="alnright_s"><obs id="hivTestResult" conceptId="159427"  answerConceptIds="664,703" answerLabels="Negative,Positive" >
+                    <controls>
+                        <when value="703" thenDisplay ="#recency"/>
+                    </controls>
+                </obs> </td>
+
+            </tr>
+            <tr>
+                <td> Received HIV Result?</td>
+                <td> <obs conceptId="164848" answerConceptIds="1066,1065" answerLabels="No,Yes"/></td>
+                <td>HIV Re-Testing</td>
+                <td> <obs conceptId="166033"/></td>
+            </tr>
         </table>
 
     </fieldset><br/>
-<fieldset id="recency">
+    <fieldset id="recency">
         <legend class="legend_style">HIV Recency Testing</legend>
         <table class="table" width="100%">
             <tr>
@@ -233,112 +218,112 @@
         </table>
     </fieldset>
 
-<fieldset>
-<legend class="legend_style">TB Screening</legend>
-     <table class="table" width="100%">
-          <tr>
+    <fieldset>
+        <legend class="legend_style">TB Screening</legend>
+        <table class="table" width="100%">
+            <tr>
                 <td colspan="2"><b>Client TB Screening</b></td>
             </tr>
             <tr>
                 <td>Current Cough</td>
                 <td><obs id="tb_current_cough" conceptId="143264" answerConceptIds="1066,1065" answerLabels="No,Yes"/></td>
-                
+
             </tr>
 
             <tr>
                 <td>Weight Loss</td>
                 <td><obs id="tb_weight_loss" conceptId="832" style="no_yes_dropdown"/></td>
-                
+
             </tr>
             <tr>
                 <td>Fever</td>
                 <td><obs id="tb_fever" conceptId="140238" answerConceptIds="1066,1065" answerLabels="No,Yes"/></td>
-                
+
             </tr>
             <tr>
                 <td>Night sweats</td>
                 <td><obs id="tb_night_sweats" conceptId="133027" style="no_yes_dropdown"/></td>
-                
+
             </tr>
             <tr>
                 <td>Contact with TB+ patient</td>
                 <td><obs id="contact_with_TB" conceptId="124068" answerConceptIds="1066,1065" answerLabels="No,Yes"/></td>
-                
+
             </tr>
-	    <tr>
+            <tr>
                 <td>TB Screening Score</td>
                 <td><obs id="get_total_tb_val" conceptId="165808"/></td>
-           </tr>
-			<tr>
-			<td></td>
-			<td><span id="tb_action_message" style="font-style:italic"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span id="tb_action_message" style="font-style:italic"></span></td>
 
-			</tr>
+            </tr>
         </table>
 
-</fieldset>
+    </fieldset>
 
 
 
-	<fieldset>
+    <fieldset>
         <legend class="legend_style">Hepatitis Testing</legend>
         <table class="table" width="100%">
-		    <tr>
-			     <td class="alnleft_s">Tested For Hepatitis B?</td>
-				 
-				 <td class="alnright_s"><obs id="hbresult" conceptId="165514" answerConceptIds="1065,1066" answerLabels="Yes,No" > 
-				<controls>
-				   <when value="1065" thenDisplay ="#hepatitis_b_result_label,#hepatitis_b_result_dropdown"/>
-				</controls></obs></td>	
-				
-				<td id="hepatitis_b_result_label" class="alnleft_s">Hepatitis B Test Result</td>
-				<td id="hepatitis_b_result_dropdown" class="alnright_s"> <obs  conceptId="166036"/></td>
-				 <td></td>
-				 <td></td>
-			</tr>
-			 
-			 
-			<tr>
-			     <td class="alnleft_s">Tested For Hepatitis C?</td>
-				 
-				 <td class="alnright_s"><obs id="hcresult" conceptId="165515" answerConceptIds="1065,1066" answerLabels="Yes,No" > 
-				<controls>
-				   <when value="1065" thenDisplay ="#hepatitis_c_result_label,#hepatitis_C_result_dropdown"/>
-				</controls></obs></td>	
-				
-				
-				<td id="hepatitis_c_result_label" class="alnleft_s">Hepatitis C Test Result</td>
-				<td id="hepatitis_C_result_dropdown" class="alnright_s"> <obs conceptId="166037"/></td>
-				 <td></td>
-				 <td></td>
-			</tr> 
-			 
-			 <tr>
-			    <td class="alnleft_s"> HIV/HBV Coinfected </td>
-				<td class="alnright_s"><obs conceptId="166038"/> </td>
-				<td class="alnleft_s"> HIV/HCV Coinfected  </td>
-				<td class="alnright_s"><obs conceptId="166039"/> </td>
-				<td class="alnleft_s">Agreed To Partner Notification</td>
+            <tr>
+                <td class="alnleft_s">Tested For Hepatitis B?</td>
+
+                <td class="alnright_s"><obs id="hbresult" conceptId="165514" answerConceptIds="1065,1066" answerLabels="Yes,No" >
+                    <controls>
+                        <when value="1065" thenDisplay ="#hepatitis_b_result_label,#hepatitis_b_result_dropdown"/>
+                    </controls></obs></td>
+
+                <td id="hepatitis_b_result_label" class="alnleft_s">Hepatitis B Test Result</td>
+                <td id="hepatitis_b_result_dropdown" class="alnright_s"> <obs  conceptId="166036"/></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+                <td class="alnleft_s">Tested For Hepatitis C?</td>
+
+                <td class="alnright_s"><obs id="hcresult" conceptId="165515" answerConceptIds="1065,1066" answerLabels="Yes,No" >
+                    <controls>
+                        <when value="1065" thenDisplay ="#hepatitis_c_result_label,#hepatitis_C_result_dropdown"/>
+                    </controls></obs></td>
+
+
+                <td id="hepatitis_c_result_label" class="alnleft_s">Hepatitis C Test Result</td>
+                <td id="hepatitis_C_result_dropdown" class="alnright_s"> <obs conceptId="166037"/></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td class="alnleft_s"> HIV/HBV Coinfected </td>
+                <td class="alnright_s"><obs conceptId="166038"/> </td>
+                <td class="alnleft_s"> HIV/HCV Coinfected  </td>
+                <td class="alnright_s"><obs conceptId="166039"/> </td>
+                <td class="alnleft_s">Agreed To Partner Notification</td>
                 <td class="alnright_s"><obs conceptId="	164954" /></td>
-				
-			 </tr>
-			 
-			 
-			 
-			 
-			 
-		</table>
+
+            </tr>
+
+
+
+
+
+        </table>
     </fieldset>
-    
-   
-    
+
+
+
     <fieldset>
         <legend class="legend_style">Signature</legend>
         <table width="100%">
             <tr>
                 <td class="alnright_s">Visit Date:</td>
                 <td class="alnleft_s">
-                    <encounterDate default="now" id="encounter_Date " showTime="false" allowFutureDates="false"/>
+                    <encounterDate id="encounter_Date " showTime="false" allowFutureDates="false"/>
                 </td>
                 <td class="alnright_s">Enrolled by:</td>
                 <td class="alnleft_s">

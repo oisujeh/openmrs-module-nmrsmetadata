@@ -73,7 +73,28 @@ UPDATE concept_name SET voided = 1, voided_by = 1, date_voided = '2021-10-21 11:
 UPDATE concept SET datatype_id = 6 WHERE concept_id = 160715;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 165613;
 UPDATE concept SET datatype_id = 2 WHERE concept_id = 165613;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 5528;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 1072;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 165974;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 165973;
+UPDATE concept SET datatype_id = 2, class_id = 10, is_set = 1 WHERE concept_id = 166450;
+UPDATE concept SET datatype_id = 2, class_id = 10, is_set = 1 WHERE concept_id = 166447;
+UPDATE concept SET datatype_id = 2, class_id = 10, is_set = 1 WHERE concept_id = 166485;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166609;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 162203;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166499;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 1814;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166588;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166717;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166727;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166735;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166700;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166701;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166702;
+UPDATE concept SET datatype_id = 3 WHERE concept_id = 166703;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 166681;
 
-SET FOREIGN_KEY_CHECKS=1;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 163756;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 160021;
 
 SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,292 @@
+<htmlform formUuid="6712afd4-8dba-47e3-ad19-79b8aafe9461" formName="LGA-Health Facility TB Central Register Form" formEncounterType="664465bf-e18d-416c-b154-c595324ec4e7" formVersion="1.0">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        .alnright{
+            text-align: right;
+            color:#000000;
+            width: 25%;
+        }
+        .alnright_s{
+            text-align: right;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_s{
+            text-align: left;
+            color:#000000;
+            width: 13%;
+        }
+        .alnleft_f{
+            text-align: left;
+            color:#000000;
+            width: 20%;
+        }
+        .alnleft{
+            text-align: left;
+            color:#000000;
+            width: 25%;
+        }
+        .error{
+            color:red;
+        }
+        td {
+            border: none;
+        }
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!--padding: 5px;-->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
+            border-color:darkgreen;
+        }
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+
+        }
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+        table tr {
+            border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+        form select, .form select {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        .standard {
+            max-width: 200px;
+            min-width: 150px;
+        }
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+        .inline_s{
+            float:left;
+        }
+        <!--table.baseline-aligned td {-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
+    </style>
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr><th  style="text-align: center; color:darkgreen;">LGA Health Facility TB Central Register</th></tr>
+        </thead>
+    </table>
+
+    <table class="table" width="100%">
+        <tr>
+            <td class="alnleft_s">Date Registered:</td>
+            <td class="alnleft_s"><obs conceptId="166686"  required="true" /></td>
+            <td class="alnleft_s">Type of Patient:</td>
+            <td class="alnleft_s">
+                <obs conceptId="166687" answerConceptIds="159878,159875,159873,166708,166709,166710,166711" answerLabels="New,Relapse,Treatment after default,Treatment after LTFU,Others previously treated,Unknown previous TB,Transferred-In TB" />
+            </td>
+        </tr>
+        <tr>
+            <td><p></p></td><td><p></p></td>
+        </tr>
+    </table>
+    <fieldset>
+        <legend class="legend_style">Registration Number</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">LGA TB Number: </td>
+                <td class="alnleft_s"><obs conceptId="166688" /></td>
+                <td class="alnleft_s">E-TB Manger Unique Number: </td>
+                <td class="alnleft_s"><obs conceptId="166689" /></td>
+                <td class="alnleft_s"><span></span></td><td class="alnleft_s"><span></span></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <hr style="border:solid 0.5px green;" />
+    <table class="table" width="100%">
+        <tr>
+            <td class="alnleft_s">Facility where Patient Started Treatment: </td>
+            <td class="alnleft_s"><obs conceptId="166690" /></td>
+            <td class="alnleft_s">Weight at the start of treatment: </td>
+            <td class="alnleft_s"><obs conceptId="166691" /></td>
+            <td class="alnleft_s">Treatment Regimen</td>
+            <td class="alnleft_s"><obs conceptId="166804" answerConceptIds="78385,72794,656,82772,955,73581,745,5829,78879,163143,163144," /></td>
+        </tr>
+        <tr>
+            <td class="alnleft_s">Date Treatment Started</td>
+            <td class="alnleft_s"><obs conceptId="166692"  required="true" /></td>
+            <td class="alnleft_s">Referred from community?</td>
+            <td class="alnleft_s"><obs conceptId="166693"  answerConceptIds="1065,1066" /></td>
+        </tr>
+        <tr>
+            <td class="alnleft_s">Referred from PPM Site?</td>
+            <td class="alnleft_s"><obs conceptId="166694"  answerConceptIds="1065,1066" /></td>
+            <td class="alnleft_s">Is DOT provided by TS?</td>
+            <td class="alnleft_s"><obs conceptId="166695"  answerConceptIds="1065,1066" /></td>
+            <td class="alnleft_s">Site of Disease</td>
+            <td class="alnleft_s"><obs conceptId="166696"  answerLabels="Pulmonary,Extrapulmonary"/></td>
+        </tr>
+        <tr><td><p></p><p></p></td></tr>
+    </table>
+    <fieldset>
+        <legend class="legend_style">Bacteriological Result of Specimen</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Xpert MTB/RIF: </td>
+                <td class="alnleft_s"><obs conceptId="162202" answerConceptIds="165973,165974" /></td>
+                <td class="alnleft_s">Other Test (TB-LAM, LF-LAM,etc) </td>
+                <td class="alnleft_s"><obs conceptId="166697" /></td>
+                <td class="alnleft_s"><span></span></td><td class="alnleft_s"><span></span></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">AFB</legend>
+        <table class="table" width="100%">
+            <obsGroup obsGroupingId="166699">
+                <tr>
+                    <th class="alnleft_s">Month 0</th><th class="alnleft_s">Month 2 or 3</th><th class="alnleft_s">Month 5</th><th class="alnleft_s">Month 6</th>
+                </tr>
+                <tr>
+                    <td>Smear Result: <obs conceptId="166700" /></td>
+                    <td>Smear Result: <obs conceptId="166701" /></td>
+                    <td>Smear Result: <obs conceptId="166702" /></td>
+                    <td>Smear Result: <obs conceptId="166703" /></td>
+                </tr>
+                <tr>
+                    <td>Date: <obs conceptId="166704" /></td>
+                    <td>Date: <obs conceptId="166704" /></td>
+                    <td>Date: <obs conceptId="166704" /></td>
+                    <td>Date: <obs conceptId="166704" /></td>
+                </tr>
+            </obsGroup>
+        </table>
+    </fieldset>
+    <hr style="border:solid 0.5px darkgreen;" />
+    <table class="table" width="0%">
+        <tr>
+            <td class="alnleft_s">X-Ray Result</td><td class="alnleft_s"><obs conceptId="165972" /></td>
+            <td class="alnleft_s">Biopsy Result</td><td class="alnleft_s"><obs conceptId="166705" /></td>
+            <td><p></p></td><td><p></p></td>
+        </tr>
+    </table>
+    <p></p><p></p>
+    <!--<hr style="border:solid 0.5px darkgreen;" />-->
+
+    <fieldset>
+        <legend class="legend_style">Treatment Outcome</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Choose Outcome </td>
+                <td class="alnleft_s"><obs conceptId="159786" answerConceptIds="159791,1663,159874,160034,5240,160737,164424" answerLabels="Cured,Treatment Completed,Treatment Failed,Died,Lost to Follow Up,Not Evaluated,Removed from Register" /></td>
+                <td class="alnleft_s">Outcome Date</td>
+                <td class="alnleft_s"><obs conceptId="166675" /></td>
+                <td><p></p></td><td><p></p></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend class="legend_style">TB/HIV Activities</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Previously Known HIV Status</td>
+                <td class="alnleft_s">
+                    <obs conceptId="166798" answerConceptIds="703,664,1067" />
+                </td>
+                <td class="alnleft_s">Tested for HIV?</td>
+                <td class="alnleft_s">
+                    <obs id="checkHIVTest" conceptId="164401" answerConceptIds="1065,1066">
+                        <controls>
+                            <when value="1065" thenDisplay="#showHIVTest" />
+                        </controls>
+                    </obs>
+                </td>
+                <td id="showHIVTest">HIV Test Result:
+                    <obs id="HIVStartCheck" conceptId="159427" answerConceptIds="703,664">
+                        <controls>
+                            <when value="703" thenDisplay="#HIVStart" />
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+            <tr><td><p></p><p></p></td></tr>
+        </table>
+        <table id="HIVStart">
+            <tr>
+                <th colspan="2" class="alnleft_s">HIV Care and Support</th>
+            </tr>
+            <tr>
+                <td class="alnleft_s">ART Start Date: <obs conceptId="159599" /></td>
+                <td class="alnleft_s">IPT Start Date<obs conceptId="165994" /></td>
+                <th class="alnleft_s">HIV Status at End of TB Treatment</th><td class="alnleft_s"><obs conceptId="166706" /></td>
+            </tr>
+        </table>
+        <hr style="border:solid 0.5px green;" />
+        <table>
+            <tr>
+                <td class="alnleft_s">Remarks:</td>
+                <td class="alnleft_s"> <obs conceptId="166714" style="textarea" /></td>
+                <td><span></span></td><td><span></span></td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft_s">Visit Date:</td>
+                <td class="alnleft_s"><encounterDate  allowFutureDates="false" required="true" /></td>
+
+                <td class="alnleft_s">Facility Name:</td>
+                <td class="alnleft_s"><encounterLocation default="GlobalProperty:default_location"/></td>
+
+                <td class="alnleft_s">Provider's Name:</td>
+                <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
+
+</htmlform>
