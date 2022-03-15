@@ -1353,7 +1353,7 @@
 
     
                     <tr>                       
-                        <td class="alnleft_f" id="investigation_comments">Investigator’s comments</td>    
+                        <td class="alnleft_f" id="investigation_comments">Investigators comments</td>    
                         <td class="alnleft_f">
                             <obs conceptId="166917" id="vl_result_obs" name="investigation_comments_obs" />
                         </td>
@@ -1408,7 +1408,7 @@
                     <tr id="source_documents_for_this_client">
                         <td class="alnleft_f" id="source_documents_for_this_client">What is the partners relationship with index</td>
                         <td class="alnleft_f">
-                            <obs conceptId="166931" answerConceptId="166923" answerLabel="Wife/husband/fiancé"/>
+                            <obs conceptId="166931" answerConceptId="166923" answerLabel="Wife/husband/fiance"/>
                             <obs conceptId="166931" answerConceptId="5618" answerLabel="Friend"/>
                         </td>
                         <td class="alnleft_f">
@@ -1741,16 +1741,19 @@
                         getField('vlsample_value_obs.error').html('Sample collection date cannot be earlier than Recency Test Date').show();
                         return false;
                     }
-    
+                    
                     if (vlsamplev > vlpcr) {
                         getField('vlpcr_value_obs.error').html('Date Sample Sent to PCR Lab cannot be earlier than Sample collection date').show();
                         return false;
                     }
-    
-                    if (vlpcr > vlvalue) {
-                        getField('vl_value_obs.error').html('Sample test date cannot be earlier than Date Sample Sent to PCR Lab').show();
-                        return false;
-                    }
+                    
+                    // if((vlpcr != null) || (vlvalue != null)){
+                    //     if (vlpcr > vlvalue) {
+                    //         getField('vl_value_obs.error').html('Sample test date cannot be earlier than Date Sample Sent to PCR Lab').show();
+                    //         return false;
+                    //     }
+                    // }
+                   
     
                     var vlresultT = getValue('vl_result_clasification.value');
                     var vlresultobs = getValue('vl_result_obs.value');
