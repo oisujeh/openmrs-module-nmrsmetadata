@@ -151,6 +151,19 @@ $('.hasDatepicker').attr('readOnly', true)
 
     <fieldset>
         <table>
+            <tr>             
+                <td class="alnleft">
+                    Lab Registration Number
+                </td>
+                <td>
+                    <obs conceptId="165394" />
+                </td>
+                
+                <td class="alnleft">Indication</td>
+                <td>
+                    <obs conceptId="167079" answerConceptIds="162080,162081" answerLabels="Baseline,Repeat" />
+                </td>
+            </tr>
             <tr>
                 <th class="alnleft"><label>Order</label></th>
                 <th><label>Results</label></th>
@@ -170,13 +183,23 @@ $('.hasDatepicker').attr('readOnly', true)
                 </td>
             </tr>
             <tr>
+                <td>
+                    <obs conceptId="167085" style="checkbox" value="false" labelText="CD4 LFA" toggle="CD4LFA" />
+                </td>
+                <td><obs conceptId="167088" answerConceptIds="167086,167087" answerLabels="&lt;200,&gt;=200" /></td>
                 <td class="alnleft">
-                    <obs conceptId="165732" style="checkbox" value="false" />WBC (x10<sup>9</sup> c/L)</td>
+                    <obs conceptId="165732" style="checkbox" value="false" />WBC (x10<sup>9</sup> c/L)
+                </td>
                 <td>
                     <obs conceptId="678" />
                 </td>
-                <td colspan="2"> </td>
             </tr>
+            <tr id="CD4LFA"> 
+                <td>Time CD4 LFA sample collected</td>
+                <td><obs conceptId="167091" /></td>
+                <td>Time CD4 LFA result received</td>
+                <td><obs conceptId="167092" /></td>
+            </tr> 
             <tr>
                 <td class="alnleft">
                     <obs conceptId="165749" style="checkbox" value="false" />Polymorphs (/mm<sup>3</sup>)</td>
@@ -382,9 +405,6 @@ $('.hasDatepicker').attr('readOnly', true)
                 <excludeIf velocityTest="$patient.gender == 'M' ">
                     <td class="alnleft">
                         <obs conceptId="165747" style="checkbox" value="false" />Pregnancy</td>
-
-
-
                     <td>
                         <obs conceptId="45" answerConceptIds="703,664" answerLabels="Positive,Negative" />
                     </td>
@@ -396,7 +416,65 @@ $('.hasDatepicker').attr('readOnly', true)
                     <obs conceptId="32" answerConceptIds="664,703" answerLabels="Positive,Negative" />
                 </td>
             </tr>
+
+            <tr>
+                <td class="alnleft">
+                    <obs conceptId="167080" style="checkbox" value="false" />TB LF LAM </td>
+                <td>
+                    <obs conceptId="166697" answerConceptIds="703,664" answerLabels="Positive,Negative" />
+                </td>
+                <td class="alnleft">
+                    <obs conceptId="167095" style="checkbox" value="false" />Urinalysis</td>
+                <td>
+                    <obs conceptId="160987" />
+                </td>
+            </tr>
+           
+           
         </table>
+
+        <fieldset id="additional" style="border: 1px solid #305a72; min-width: 98%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+            <table>
+                <tr>
+                    <td>
+                        <obs conceptId="167089" style="checkbox" value="false" labelText="Serology for CrAg" toggle="SerologyforCrAg" />
+                    </td>
+                    <td><obs conceptId="167090" answerConceptIds="703,664" answerLabels="Positive,Negative" /></td>
+                    <td class="alnleft">
+                        <obs conceptId="167081" style="checkbox" value="false" />CSF for CrAg</td>
+                    <td>
+                        <obs conceptId="167082" answerConceptIds="703,664" answerLabels="Positive,Negative" />
+                    </td>
+                </tr>
+                <tr id="SerologyforCrAg"> 
+                        <td>Time Serology for CrAg sample collected</td>
+                        <td><obs conceptId="167093" /></td>
+                        <td>Time Serology for CrAg result received</td>
+                        <td><obs conceptId="167094" /></td>
+                </tr>  
+                <tr>
+                    <td class="alnleft">
+                        <obs conceptId="167083" style="checkbox" value="false" />CSF for M/C/S</td>
+                    <td>
+                        <obs conceptId="167084" />
+                    </td>                   
+                </tr>
+            </table>           
+        </fieldset>      
+        <fieldset id="additional" style="border: 1px solid #305a72; min-width: 90%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+            <table>
+                <tr>
+                    <b>Additional tests</b> (only be performed by laboratory if exact clinical indication is specified and signed by clinician)              
+                </tr>
+            </table>
+            <fieldset id="in"  style="min-width: 100%; padding: 0px; "></fieldset>
+            <table>
+                <tr>
+                    <td class="alnleft"><b>Specify exact clinical indication for requested tests:</b></td>
+                    <td><obs conceptId="165717" /></td>
+                </tr>
+            </table>
+        </fieldset>
     </fieldset>
 
     <fieldset>
@@ -518,6 +596,7 @@ $('.hasDatepicker').attr('readOnly', true)
             </tr>
         </table>
     </fieldset>
+
     <fieldset>
         <legend class="legend_style">Signatures</legend>
         <table>

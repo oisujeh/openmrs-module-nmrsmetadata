@@ -927,24 +927,27 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167074, 'NRTI and NNRTI', 'en', 1, '2022-03-07 11:02:34', 143925, 0, NULL, NULL, NULL, '91a21ca1-77ca-4400-8e43-66152357d182', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167075, 'NRTI, NNRTI, and PI', 'en', 1, '2022-03-07 11:02:56', 143926, 0, NULL, NULL, NULL, '24032802-f601-4488-8ae9-f9cfb3130486', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167076, 'Classes of ARVs Affected', 'en', 1, '2022-03-07 11:04:27', 143927, 0, NULL, NULL, NULL, '96f184a9-dad5-457a-92b5-09bc12df210b', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167077, 'Number of Partners', 'en', 1, '2022-04-05 16:05:44', 143928, 0, NULL, NULL, NULL, 'ae615bd5-7c6b-4573-ab9c-ba6a0eb03508', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167078, 'Information on Partners', 'en', 1, '2022-04-06 13:14:03', 143929, 0, NULL, NULL, NULL, '5816752a-3157-4b6e-be39-0e34d0ec4a04', 'FULLY_SPECIFIED', 1);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167079, 'Indication for AHD', 'en', 1, '2022-05-04 22:10:27', 143930, 0, NULL, NULL, NULL, '4e9ebe10-0c72-4cfb-b153-c8a0adfbee41', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167080, 'TB LF LAM Order', 'en', 1, '2022-05-04 22:31:50', 143931, 0, NULL, NULL, NULL, 'b9debc91-f5fa-43a7-80dc-ad12603792cd', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167081, 'CSF for CrAg Order', 'en', 1, '2022-05-04 22:35:56', 143932, 0, NULL, NULL, NULL, '1377c0ed-f381-4c42-876f-fd898f41cc8d', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167082, 'CSF for CrAg', 'en', 1, '2022-05-04 22:37:58', 143933, 0, NULL, NULL, NULL, 'ec19b43a-45b9-4b3f-b3f2-16ac8b0230c8', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167083, 'CSF for MCS', 'en', 1, '2022-05-04 22:39:34', 143934, 0, NULL, NULL, NULL, '729cacd4-c963-4f56-a09e-e37406f84b2c', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167084, 'CSF for MCS Result', 'en', 1, '2022-05-04 22:44:24', 143935, 0, NULL, NULL, NULL, '7ee3c0ce-d456-4585-878c-fd94a5f3768e', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167085, 'CD4 LFA Order', 'en', 1, '2022-05-04 22:51:13', 143936, 0, NULL, NULL, NULL, '3a88bdb5-3292-4190-9d5d-e29f09b346aa', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167086, 'LessThan200', 'en', 1, '2022-05-04 22:53:42', 143937, 0, NULL, NULL, NULL, 'cf62a5a2-88e0-4c56-9fd1-2318afb6d1e5', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167087, 'GreaterTE200', 'en', 1, '2022-05-04 22:54:36', 143938, 0, NULL, NULL, NULL, 'a1a49ca9-acd0-4991-aae8-00aa7437f56f', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167088, 'CD4 LFA RESULT', 'en', 1, '2022-05-04 22:56:31', 143939, 0, NULL, NULL, NULL, '85a58b64-98a2-4686-8fee-78bb3d6e5220', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167089, 'Serology for CrAg Order', 'en', 1, '2022-05-04 22:58:00', 143940, 0, NULL, NULL, NULL, 'ad3cebd4-3753-4599-81f0-845d41d50d5f', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167090, 'Serology for CrAg Result', 'en', 1, '2022-05-04 23:03:34', 143941, 0, NULL, NULL, NULL, '3047a4f4-8d5b-4aef-8145-eeabdff65914', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167091, 'Time CD4 LFA sample collected', 'en', 1, '2022-05-04 23:07:44', 143942, 0, NULL, NULL, NULL, 'c825c861-5a89-4629-aae9-ad06926b8f63', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167092, 'Time CD4 LFA result received', 'en', 1, '2022-05-04 23:09:24', 143943, 0, NULL, NULL, NULL, 'bd9b95c4-f2c5-4135-bf30-ae30d794dd46', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167093, 'Time Serology for CrAg sample collected', 'en', 1, '2022-05-04 23:10:44', 143944, 0, NULL, NULL, NULL, 'f8b9c761-93eb-4d29-9444-1636477f0254', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167094, 'Time Serology for CrAg result received', 'en', 1, '2022-05-04 23:13:30', 143945, 0, NULL, NULL, NULL, '8a30e8c8-79eb-43f9-9bd0-75d0fd4c8e7b', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167095, 'Urinalysis Lab Order', 'en', 1, '2022-05-07 17:03:32', 143946, 0, NULL, NULL, NULL, 'fd34dd28-0ddc-4bf1-b00e-8f42fb8df6f4', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167096, 'Covid Vaccination Dose', 'en', 1, '2022-05-18 17:08:58', 143947, 0, NULL, NULL, NULL, 'f17ddc91-d8f4-44a5-8dae-c9a98646ea64', 'FULLY_SPECIFIED', 1);
 
 
 

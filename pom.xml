@@ -10,7 +10,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>nmrsmetadata</artifactId>
-	<version>1.0.3.4R</version>
+	<version>1.0.3.4-RV1</version>
 	<packaging>pom</packaging>
 	<name>NMRS Metatadata Module </name>
 	<description>This module will install everything that has to do with NMRS</description>
