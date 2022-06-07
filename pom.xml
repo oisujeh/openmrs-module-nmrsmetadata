@@ -10,7 +10,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>nmrsmetadata-poc</artifactId>
-	<version>1.0.2-RV1</version>
+	<version>1.0.2.1</version>
 	<packaging>pom</packaging>
 	<name>NMRS Metatadata POC Module </name>
 	<description>This module will install everything that has to do with NMRS</description>
