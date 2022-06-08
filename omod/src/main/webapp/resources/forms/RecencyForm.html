@@ -1544,14 +1544,18 @@
                             </tr>
                     
                             <tr>
-                                <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
+                                <td class="alnleft_f" id="partner_given_hiv_self_testing_kitp1">Was the partner given HIV self-testing kit?</td>
                     
                                 <td class="alnleft_f">
-                                    <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                    <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp1">
+                                     <controls>
+                                        <when thenDisplay="#partner_return_for_hiv_verification_testingp1,#partner_return_for_hiv_verification_testingT0001p1" value="1065" />
+                                    </controls>
+                                </obs>
                                 </td>
-                                <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                <td class="alnleft_f">
-                                    <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp1">Did the partner return for HIV verification testing?</td>
+                                <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p1">
+                                    <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp1" />
                                 </td>
                             </tr>
                     
@@ -1559,15 +1563,19 @@
                                 <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                     
                                 <td class="alnleft_f">
-                                    <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                    <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp1">
+                                    <controls>
+                                        <when thenDisplay="#partner_date_of_hiv_testp1,#partner_date_of_hiv_testT0001p1,#result_partnerT0001p1" value="1065" />
+                                    </controls>     
+                                    </obs>                           
                                 </td>
-                                <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                <td class="alnleft_f">
+                                <td class="alnleft_f" id="partner_date_of_hiv_testp1">Date of HIV test</td>
+                                <td class="alnleft_f" id="partner_date_of_hiv_testT0001p1">
                                     <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
                                 </td>
                             </tr>
                     
-                            <tr>                       
+                            <tr id="result_partnerT0001p1">                       
                                 <td class="alnleft_f" id="result_partner_">Result</td>
                     
                                 <td class="alnleft_f">
@@ -1577,10 +1585,10 @@
                                             <when thenDisplay="#res_neg" value="664" />   
                                             <when thenDisplay="#res_ind" value="166935" />   
                                         </controls>
-                                    </obs> 
-                            
+                                    </obs>                             
                                 </td>
                             </tr>
+                            
                         </table>          
                         <fieldset id="res_pos">
                             <legend class="legend_style">New HIV-Positive</legend>
@@ -1803,10 +1811,14 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs">
+	                                     <controls>
+	                                        <when thenDisplay="#partner_return_for_hiv_verification_testingP2001,#partner_return_for_hiv_verification_testingP2002" value="1065" />
+	                                    </controls>            
+	                                    </obs>                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingP2001">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingP2002">
                                         <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
                                     </td>
                                 </tr>
@@ -1815,15 +1827,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs">
+                                     	<controls>
+	                                        <when thenDisplay="#partner_date_of_hiv_testP2003,#partner_date_of_hiv_testP2004,#result_partnerP2005" value="1065" />
+	                                    </controls>            
+	                                    </obs>    
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testP2003">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testP2004">
                                         <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerP2005">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -2058,11 +2074,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp22">
+	                                    <controls>
+	                                        <when thenDisplay="#partner_return_for_hiv_verification_testingp22,#partner_return_for_hiv_verification_testingT0001p22" value="1065" />
+	                                    </controls>
+	                                    </obs>                                    
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp22">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p22">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp22" />
                                     </td>
                                 </tr>
                         
@@ -2070,19 +2090,23 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp22">
+                                        <controls>
+	                                        <when thenDisplay="#partner_date_of_hiv_testp22,#partner_date_of_hiv_testp22F,#result_partner_p22" value="1065" />
+	                                    </controls>     
+	                                    </obs>  
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp22">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp22F">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obsp22" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partner_p22">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="703,664,166935" answerLabels="Positive,Negative,Indeterminate" conceptId="166936" id="result_partner_o">
+                                        <obs answerConceptIds="703,664,166935" answerLabels="Positive,Negative,Indeterminate" conceptId="166936" id="result_partner_op22">
                                             <controls>
                                                 <when thenDisplay="#res_pos22" value="703" />   
                                                 <when thenDisplay="#res_neg22" value="664" />   
@@ -2315,11 +2339,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp31">
+	                                     <controls>
+	                                        <when thenDisplay="#partner_return_for_hiv_verification_testingp31,#partner_return_for_hiv_verification_testingT0001p31" value="1065" />
+	                                    </controls>
+	                                    </obs>                                    
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp31">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p31">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp31" />
                                     </td>
                                 </tr>
                         
@@ -2327,15 +2355,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp31">
+                                         <controls>
+	                                        <when thenDisplay="#partner_date_of_hiv_testp31,#partner_date_of_hiv_testT0001p31,#result_partnerT0001p31" value="1065" />
+	                                    </controls>     
+	                                    </obs>     
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp31">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p31">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp31" name="partner_date_of_hiv_test_obsp31" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p31">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -2570,11 +2602,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp32">
+                                     	<controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp32,#partner_return_for_hiv_verification_testingT0001p32" value="1065" />
+                                    	</controls>
+                                    	</obs>                                    
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp32">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p32">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp32" />
                                     </td>
                                 </tr>
                         
@@ -2582,15 +2618,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp32">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp32,#partner_date_of_hiv_testT0001p32,#result_partnerT0001p32" value="1065" />
+                                    	</controls>     
+                                    	</obs>                                           
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp32">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p32">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp32" name="partner_date_of_hiv_test_obsp32" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p32">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -2825,11 +2865,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp33">
+                                        <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp33,#partner_return_for_hiv_verification_testingT0001p33" value="1065" />
+                                    	</controls>
+                                    	</obs>                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp33">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p33">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp33" />
                                     </td>
                                 </tr>
                         
@@ -2837,15 +2881,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp33">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp33,#partner_date_of_hiv_testT0001p33,#result_partnerT0001p33" value="1065" />
+                                    	</controls>     
+                                    	</obs>  
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp33">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p33">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp33" name="partner_date_of_hiv_test_obsp33" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr  id="result_partnerT0001p33">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -3082,27 +3130,34 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp41">
+                                    	<controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp41,#partner_return_for_hiv_verification_testingT0001p41" value="1065" />
+                                    	</controls>
+                                    	</obs>                                    
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
-                                    </td>
-                                </tr>
-                        
-                                <tr>                       
-                                    <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
-                        
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
-                                    </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp41">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p41">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp41" />
                                     </td>
                                 </tr>
                         
                                 <tr>                       
+                                    <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>                        
+                                    <td class="alnleft_f">
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp41">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp41,#partner_date_of_hiv_testT0001p41,#result_partnerT0001p41" value="1065" />
+                                    	</controls>     
+                                    	</obs>                                           
+                                    </td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp41">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p41">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp41" name="partner_date_of_hiv_test_obsp41" />
+                                    </td>
+                                </tr>
+                        
+                                <tr id="result_partnerT0001p41">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -3337,11 +3392,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp42">
+                                        <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp42,#partner_return_for_hiv_verification_testingT0001p42" value="1065" />
+                                    	</controls>
+                                    	</obs>                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp42">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p42">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp42" />
                                     </td>
                                 </tr>
                         
@@ -3349,15 +3408,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp42">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp42,#partner_date_of_hiv_testT0001p42,#result_partnerT0001p42" value="1065" />
+                                    	</controls>     
+                                    	</obs>                                           
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp42">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p42">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp42" name="partner_date_of_hiv_test_obsp42" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p42">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -3592,11 +3655,16 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp43">
+                                    	<controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp43,#partner_return_for_hiv_verification_testingT0001p43" value="1065" />
+                                    	</controls>
+                                    	</obs>                                   
+                                    
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp43">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p43">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp43" />
                                     </td>
                                 </tr>
                         
@@ -3604,15 +3672,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp43">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp43,#partner_date_of_hiv_testT0001p43,#result_partnerT0001p43" value="1065" />
+                                    	</controls>     
+                                    	</obs>                                          
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp43">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p43">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp43" name="partner_date_of_hiv_test_obsp43" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p43">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -3847,11 +3919,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp44">
+                                    	<controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp44,#partner_return_for_hiv_verification_testingT0001p44" value="1065" />
+                                    	</controls>
+                                    	</obs>                                    
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp44">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p44">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp44" />
                                     </td>
                                 </tr>
                         
@@ -3859,15 +3935,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp44">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp44,#partner_date_of_hiv_testT0001p44,#result_partnerT0001p44" value="1065" />
+                                    	</controls>     
+                                    	</obs>                                           
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp44">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p44">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp44" name="partner_date_of_hiv_test_obsp44" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p44">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -4104,11 +4184,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp51">
+                                        <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp51,#partner_return_for_hiv_verification_testingT0001p51" value="1065" />
+                                    	</controls>
+                                    	</obs>
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp51">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p51">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp51" />
                                     </td>
                                 </tr>
                         
@@ -4116,15 +4200,20 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp51">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp51,#partner_date_of_hiv_testT0001p51,#result_partnerT0001p51" value="1065" />
+                                    	</controls>     
+                                    	</obs>  
+                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp51">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p51">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp51" name="partner_date_of_hiv_test_obsp51" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p51">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -4359,11 +4448,16 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp52">
+                                         <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp52,#partner_return_for_hiv_verification_testingT0001p52" value="1065" />
+                                    	 </controls>
+                                    	</obs>
+                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp52">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p52">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp52" />
                                     </td>
                                 </tr>
                         
@@ -4371,15 +4465,20 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp52">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp52,#partner_date_of_hiv_testT0001p52,#result_partnerT0001p52" value="1065" />
+                                    	</controls>     
+                                    	</obs>   
+                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp52">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p52">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp52" name="partner_date_of_hiv_test_obsp52" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p52">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -4614,11 +4713,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp53">
+                                        <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp53,#partner_return_for_hiv_verification_testingT0001p53" value="1065" />
+                                    	</controls>
+                                    	</obs>                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp53">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p53">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp53" />
                                     </td>
                                 </tr>
                         
@@ -4626,15 +4729,20 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp53">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp53,#partner_date_of_hiv_testT0001p53,#result_partnerT0001p53" value="1065" />
+                                    	</controls>     
+                                    	</obs>  
+                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp53">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p53">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp53" name="partner_date_of_hiv_test_obsp53" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p53">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -4869,11 +4977,16 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp54">
+                                        <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp54,#partner_return_for_hiv_verification_testingT0001p54" value="1065" />
+                                    	</controls>
+                                    	</obs>
+                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp54">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p54">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp54" />
                                     </td>
                                 </tr>
                         
@@ -4881,15 +4994,20 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp54">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp54,#partner_date_of_hiv_testT0001p54,#result_partnerT0001p54" value="1065" />
+                                    	</controls>     
+                                    	</obs>  
+                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp54">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p54">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp54" name="partner_date_of_hiv_test_obsp54" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p54">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
@@ -5124,11 +5242,15 @@
                                     <td class="alnleft_f" id="partner_given_hiv_self_testing_kit">Was the partner given HIV self-testing kit?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="166933" id="partner_given_hiv_self_testing_kit_obsp55">
+                                        <controls>
+                                        	<when thenDisplay="#partner_return_for_hiv_verification_testingp55,#partner_return_for_hiv_verification_testingT0001p55" value="1065" />
+                                    	</controls>
+                                    	</obs>                                        
                                     </td>
-                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testing">Did the partner return for HIV verification testing?</td>
-                                    <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obs" />
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingp55">Did the partner return for HIV verification testing?</td>
+                                    <td class="alnleft_f" id="partner_return_for_hiv_verification_testingT0001p55">
+                                        <obs answerConceptIds="1065,1066" answerLabels="Yes,No" conceptId="165976" id="partner_return_for_hiv_verification_testing_obsp55" />
                                     </td>
                                 </tr>
                         
@@ -5136,15 +5258,19 @@
                                     <td class="alnleft_f" id="partner_tested_for_hiv">Was the partner tested for HIV?</td>
                         
                                     <td class="alnleft_f">
-                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obs" />
+                                        <obs answerConceptIds="1065,1066,1067" answerLabels="Yes,No,Don't Know" conceptId="161557" id="partner_tested_for_hiv_obsp55">
+                                        <controls>
+                                        	<when thenDisplay="#partner_date_of_hiv_testp55,#partner_date_of_hiv_testT0001p55,#result_partnerT0001p55" value="1065" />
+                                    	</controls>     
+                                    	</obs>  
                                     </td>
-                                    <td class="alnleft_f" id="partner_date_of_hiv_test">Date of HIV test</td>
-                                    <td class="alnleft_f">
-                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obs" name="partner_date_of_hiv_test_obs" />
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testp55">Date of HIV test</td>
+                                    <td class="alnleft_f" id="partner_date_of_hiv_testT0001p55">
+                                        <obs allowFutureDates="false" conceptId="165850" id="partner_date_of_hiv_test_obsp55" name="partner_date_of_hiv_test_obsp55" />
                                     </td>
                                 </tr>
                         
-                                <tr>                       
+                                <tr id="result_partnerT0001p55">                       
                                     <td class="alnleft_f" id="result_partner_">Result</td>
                         
                                     <td class="alnleft_f">
