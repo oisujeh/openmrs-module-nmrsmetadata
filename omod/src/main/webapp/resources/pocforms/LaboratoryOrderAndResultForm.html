@@ -516,54 +516,45 @@
 	        </tr>           
             <tr>                                
                 <includeIf velocityTest="$user.hasRole('Lab') || $user.hasRole('Clinician')">
-                    <td class="alnleft_s">Sample ID.</td>
-                	<td><div><obs conceptId="165715"/></div></td>
-                    <td class="alnleft_s">Sample Type</td>
-                    <td><div><obs conceptId="162476" answerConceptIds="1000,1002,165568" answerLabels="Whole Blood,Plasma,DBS" /></div></td>                            
-                    <td class="alnleft_s">Indication for Viral Load</td>
-                    <td><div><obs id="viral_load" conceptId="164980" answerConceptIds="162080,161236,162082,162081,163523,160566, 165978" answerLabels="Baseline (6 months after ART initiation), Routine (every 12 months), Confirmation (3-6 months after intense adherence counselling), Repeat test, Clinical failure, Immunological failure, PMTCT 32-36 weeks gestation">
+                    <td class="alnleft_s" colspan="2">Sample ID.
+                	<div><obs conceptId="165715"/></div></td>
+                    <td class="alnleft_s" colspan="2">Sample Type
+                    <div><obs conceptId="162476" answerConceptIds="1000,1002,165568,166615" answerLabels="Whole Blood,Plasma,DBS,Plasma separation card(PSC)" /></div></td>                          
+                    <td class="alnleft_s" colspan="2">Indication for Viral Load
+                    <div><obs id="viral_load" conceptId="164980" answerConceptIds="162080,161236,162082,162081,163523,160566, 165978" answerLabels="Baseline (6 months after ART initiation), Routine (every 12 months), Confirmation (3-6 months after intense adherence counselling), Repeat test, Clinical failure, Immunological failure, PMTCT 32-36 weeks gestation">
                         <controls>
                             <when value="162081" thenDisplay="#repeat_id"/>
                         </controls>
                     </obs>
-                    </div>
-                    </td>
+                    </div></td>                    
                 </includeIf>
             </tr>
 
             <includeIf velocityTest="$user.hasRole('Lab')">
-                <tr>
-                    <td colspan="2" id="repeat_id">
-                        <table>
-                            <tr>
-                                <td class="alnleft_s">Reason for Repeat</td>
-                                <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165831"/></div></td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td class="alnleft_s">Sample collection date</td>
-                    <td><div class="enable_lab_control"  style="pointer-events: none"><obs conceptId="159951"/></div></td>
-                    <td class="alnleft_s">Date sample sent to PCR Lab</td>
-                    <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165988" /></div></td>
-                    <td class="alnleft_s">Date sample received at PCR Lab</td>
-                    <td><div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165716"/></div></td>
-                </tr>
+             <tr>                
+                    <td class="alnleft_s" colspan="2">Sample collection date
+                    <div class="enable_lab_control"  style="pointer-events: none"><obs conceptId="159951"/></div></td>
+                    <td class="alnleft_s" colspan="2">Date sample sent to PCR Lab
+                    <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165988" /></div></td>
+                    <td class="alnleft_s" colspan="2">Date sample received at PCR Lab
+                    <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165716"/></div></td>
+               </tr>
                <tr>
 												  
 
-												  <td class="alnleft_s">Date result was sent from PCR Lab
+												  <td class="alnleft_s" colspan="2">Date result was sent from PCR Lab
 												  <p>
 													<obs conceptId="165989" allowFutureDates="false" />
 												  </p>
 												  </td>
 
-												  <td class="alnleft_s">Date result was received at the facility
+												  <td class="alnleft_s" colspan="2">Date result was received at the facility
 												  <p>
 													<obs conceptId="165987" allowFutureDates="false" />
 												  </p>
 												</td>
 
-												 <td class="alnleft_s">Result Date
+												 <td class="alnleft_s" colspan="2">Result Date
 												  <p>
 													<obs conceptId="166423" allowFutureDates="false" />
 												  </p>
@@ -572,20 +563,20 @@
 												</tr>
 												<tr>
 
-													   <td class="alnleft_s">Assay Date
+													   <td class="alnleft_s" colspan="2">Assay Date
 												  <p>
 													<obs conceptId="166424" allowFutureDates="false" />
 												  </p>
 												  </td>
 
-												   <td class="alnleft_s">Approval Date
+												   <td class="alnleft_s" colspan="2">Approval Date
 												  <p>
 													<obs conceptId="166425" allowFutureDates="false" />
 												  </p>
 												  </td>
 													 <!-- Id "viralLoadResultTest" Added by Ebuka" -->
 
-												  <td class="alnleft_s">Alphanumeric Viral Load Result
+												  <td class="alnleft_s" colspan="2">Alphanumeric Viral Load Result
 												  <p><obs id="AlphanumericViralLoadResult" conceptId="166422" answerConceptIds="166407, 166408, 166409, 166410,166411,166412,166413,166414,166415,166416,166417,166418,166419,163611, 166420, 166421, 166426" answerLabels="&lt;20 , &lt;29 , &lt;40 , &lt;400 , &lt;80 , &gt;10 000 000 ,  Aborted, Double entry, Duplicate , Failed , Failed twice , Incomplete number , Incorrect entry , Invalid , Target Not Detected , Wrong entry, Numeric Value  " /></p>
 
 												  </td>
@@ -595,12 +586,15 @@
 
 												</tr>
 												<tr id="NumericViralLoadResult">
-												  <td colspan="2"></td>
-												  <td class="alnleft_s">Viral Load test result
-												  <p>
-													<obs conceptId="856" labelText="" id="viralLoadResultTest" />copies/ml
-												  </p>
-												</td>
+								                    <td class="alnleft_s" id="repeat_id" colspan="2">Reason for Repeat
+								                         <div class="enable_lab_control" style="pointer-events: none"><obs conceptId="165831"/></div>								                        
+								                    </td>
+												  	
+												  	<td class="alnleft_s" colspan="2">Viral Load test result
+													  <p>
+														<obs conceptId="856" labelText="" id="viralLoadResultTest" />copies/ml
+													  </p>
+													</td>
 												  </tr>
 
             </includeIf>
