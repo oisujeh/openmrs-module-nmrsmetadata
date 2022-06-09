@@ -151,6 +151,19 @@ $('.hasDatepicker').attr('readOnly', true)
 
     <fieldset>
         <table>
+            <tr>             
+                <td class="alnleft">
+                    Lab Registration Number
+                </td>
+                <td>
+                    <obs conceptId="165394" />
+                </td>
+                
+                <td class="alnleft">Indication for AHD</td>
+                <td>
+                    <obs conceptId="167079" answerConceptIds="162080,162081" answerLabels="Baseline,Repeat" />
+                </td>
+            </tr>
             <tr>
                 <th class="alnleft"><label>Order</label></th>
                 <th><label>Results</label></th>
@@ -170,13 +183,23 @@ $('.hasDatepicker').attr('readOnly', true)
                 </td>
             </tr>
             <tr>
+                <td>
+                    <obs conceptId="167085" style="checkbox" value="false" labelText="CD4 LFA" toggle="CD4LFA" />
+                </td>
+                <td><obs conceptId="167088" answerConceptIds="167086,167087" answerLabels="&lt;200,&gt;=200" /></td>
                 <td class="alnleft">
-                    <obs conceptId="165732" style="checkbox" value="false" />WBC (x10<sup>9</sup> c/L)</td>
+                    <obs conceptId="165732" style="checkbox" value="false" />WBC (x10<sup>9</sup> c/L)
+                </td>
                 <td>
                     <obs conceptId="678" />
                 </td>
-                <td colspan="2"> </td>
             </tr>
+            <tr id="CD4LFA"> 
+                <td>Time CD4 LFA sample collected</td>
+                <td><obs conceptId="167091" /></td>
+                <td>Time CD4 LFA result received</td>
+                <td><obs conceptId="167092" /></td>
+            </tr> 
             <tr>
                 <td class="alnleft">
                     <obs conceptId="165749" style="checkbox" value="false" />Polymorphs (/mm<sup>3</sup>)</td>
@@ -382,9 +405,6 @@ $('.hasDatepicker').attr('readOnly', true)
                 <excludeIf velocityTest="$patient.gender == 'M' ">
                     <td class="alnleft">
                         <obs conceptId="165747" style="checkbox" value="false" />Pregnancy</td>
-
-
-
                     <td>
                         <obs conceptId="45" answerConceptIds="703,664" answerLabels="Positive,Negative" />
                     </td>
@@ -396,7 +416,65 @@ $('.hasDatepicker').attr('readOnly', true)
                     <obs conceptId="32" answerConceptIds="664,703" answerLabels="Positive,Negative" />
                 </td>
             </tr>
+
+            <tr>
+                <td class="alnleft">
+                    <obs conceptId="167080" style="checkbox" value="false" />TB LF LAM </td>
+                <td>
+                    <obs conceptId="166697" answerConceptIds="703,664" answerLabels="Positive,Negative" />
+                </td>
+                <td class="alnleft">
+                    <obs conceptId="167095" style="checkbox" value="false" />Urinalysis</td>
+                <td>
+                    <obs conceptId="160987" />
+                </td>
+            </tr>
+           
+           
         </table>
+
+        <fieldset id="additional" style="border: 1px solid #305a72; min-width: 98%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+            <table>
+                <tr>
+                    <td>
+                        <obs conceptId="167089" style="checkbox" value="false" labelText="Serology for CrAg" toggle="SerologyforCrAg" />
+                    </td>
+                    <td><obs conceptId="167090" answerConceptIds="703,664" answerLabels="Positive,Negative" /></td>
+                    <td class="alnleft">
+                        <obs conceptId="167081" style="checkbox" value="false" />CSF for CrAg</td>
+                    <td>
+                        <obs conceptId="167082" answerConceptIds="703,664" answerLabels="Positive,Negative" />
+                    </td>
+                </tr>
+                <tr id="SerologyforCrAg"> 
+                        <td>Time Serology for CrAg sample collected</td>
+                        <td><obs conceptId="167093" /></td>
+                        <td>Time Serology for CrAg result received</td>
+                        <td><obs conceptId="167094" /></td>
+                </tr>  
+               <!-- - <tr>
+                    <td class="alnleft">
+                        <obs conceptId="167083" style="checkbox" value="false" />CSF for M/C/S</td>
+                    <td>
+                        <obs conceptId="167084" />
+                    </td>                   
+                </tr> -->
+            </table>           
+        </fieldset>      
+        <fieldset id="additional" style="border: 1px solid #305a72; min-width: 90%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+            <table>
+                <tr>
+                    <b>Additional tests</b> (only be performed by laboratory if exact clinical indication is specified and signed by clinician)              
+                </tr>
+            </table>
+            <fieldset id="in"  style="min-width: 100%; padding: 0px; "></fieldset>
+            <table>
+                <tr>
+                    <td class="alnleft"><b>Specify exact clinical indication for requested tests:</b></td>
+                    <td><obs conceptId="165717" /></td>
+                </tr>
+            </table>
+        </fieldset>
     </fieldset>
 
     <fieldset>
@@ -404,12 +482,12 @@ $('.hasDatepicker').attr('readOnly', true)
         <table>
             <tr>
                 <td class="alnright">
-                    <obs conceptId="165765" style="checkbox" value="false" labelText="Viral Load Test" toggle="viralLoad" />
+                    <obs conceptId="165765" style="checkbox"  labelText="Viral Load Test"  toggle="viralLoad"  />
                 </td>
             </tr>
         </table>
 
-        <table id="viralLoad">
+        <table id="viralLoad" style="display:none;">
             <tr>
                 <td class="alnleft_s">Sample ID.
                     <p>
@@ -518,6 +596,144 @@ $('.hasDatepicker').attr('readOnly', true)
             </tr>
         </table>
     </fieldset>
+
+    <!-- Added by Sunday -->
+    <fieldset>
+        <legend class="legend_style">HIV Drug Resistance</legend>
+        <table>
+            <tr>
+                <td class="alnright">
+                    <obs conceptId="167004" style="checkbox"  labelText="Sample Selected for HIVDR Study"  toggle="showHIVDR"  />
+                </td>
+            </tr>
+        </table>
+        <div id="showHIVDR" style="display:none;">
+            <table>
+                <tr>
+                    <td class="alnleft_s">HIVDR Study ID.
+                        <obs conceptId="167005" />
+                    </td>
+                    <td class="alnleft_s">Date of sample Sent to genotyping laboratory
+                        <obs conceptId="167006" />
+                    </td>
+                    <td class="alnleft_s">Date of sample Arrival at genotyping laboratory
+                        <obs conceptId="167007" />
+                    </td>
+                    <td class="alnleft_s">Date of genotyping testing
+                        <obs conceptId="167008" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <hr style="width:100%; border-color:lightgray;"/>
+            <br />
+            <table>
+                <tr>
+                    <th colspan="10" class="alnleft_s">Resistance Mutations Detected</th>
+                </tr>
+                <tr>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167009 " answerLabel="M41L"/>
+                        <obs conceptId="167070"  answerConceptId="167010 " answerLabel="K65R"/>
+                        <obs conceptId="167070"  answerConceptId="167011 " answerLabel="D67N"/>
+                        <obs conceptId="167070"  answerConceptId="167012 " answerLabel="D67G"/>
+                        <obs conceptId="167070"  answerConceptId="167013 " answerLabel="T69D"/>
+                        <obs conceptId="167070"  answerConceptId="167014 " answerLabel="K70R"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167015 " answerLabel="K70E"/>
+                        <obs conceptId="167070"  answerConceptId="167016 " answerLabel="L74V"/>
+                        <obs conceptId="167070"  answerConceptId="167017 " answerLabel="L74I"/>
+                        <obs conceptId="167070"  answerConceptId="167018 " answerLabel="V75M"/>
+                        <obs conceptId="167070"  answerConceptId="167019 " answerLabel="F77L"/>
+                        <obs conceptId="167070"  answerConceptId="167020 " answerLabel="Y115F"/>
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167021 " answerLabel="F116Y"/>
+                        <obs conceptId="167070"  answerConceptId="167022 " answerLabel="Q151M"/>
+                        <obs conceptId="167070"  answerConceptId="167023 " answerLabel="M184V"/>
+                        <obs conceptId="167070"  answerConceptId="167024 " answerLabel="M184I"/>
+                        <obs conceptId="167070"  answerConceptId="167025 " answerLabel="L210W"/>
+                        <obs conceptId="167070"  answerConceptId="167026 " answerLabel="T215Y"/>
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167027 " answerLabel="T215F"/>
+                        <obs conceptId="167070"  answerConceptId="167028 " answerLabel="T215I"/>
+                        <obs conceptId="167070"  answerConceptId="167029 " answerLabel="T215S"/>
+                        <obs conceptId="167070"  answerConceptId="167030 " answerLabel="T215C"/>
+                        <obs conceptId="167070"  answerConceptId="167031 " answerLabel="T215E"/>
+                        <obs conceptId="167070"  answerConceptId="167032 " answerLabel="K219Q"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167033 " answerLabel="K219E"/>
+                        <obs conceptId="167070"  answerConceptId="167034 " answerLabel="K219N"/>
+                        <obs conceptId="167070"  answerConceptId="167035 " answerLabel="K219R"/>
+                        <obs conceptId="167070"  answerConceptId="167036 " answerLabel="L100I"/>
+                        <obs conceptId="167070"  answerConceptId="167037 " answerLabel="K101E"/>
+                        <obs conceptId="167070"  answerConceptId="167038 " answerLabel="K101P"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167039 " answerLabel="K103N"/>
+                        <obs conceptId="167070"  answerConceptId="167040 " answerLabel="K103S"/>
+                        <obs conceptId="167070"  answerConceptId="167041 " answerLabel="V106M"/>
+                        <obs conceptId="167070"  answerConceptId="167042 " answerLabel="V106A"/>
+                        <obs conceptId="167070"  answerConceptId="167043 " answerLabel="Y181C"/>
+                        <obs conceptId="167070"  answerConceptId="167044 " answerLabel="Y181V"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167045 " answerLabel="Y188L"/>
+                        <obs conceptId="167070"  answerConceptId="167046 " answerLabel="Y188H"/>
+                        <obs conceptId="167070"  answerConceptId="167047 " answerLabel="Y188C"/>
+                        <obs conceptId="167070"  answerConceptId="167048 " answerLabel="G190A"/>
+                        <obs conceptId="167070"  answerConceptId="167049 " answerLabel="G190S"/>
+                        <obs conceptId="167070"  answerConceptId="167050 " answerLabel="G190E"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167051 " answerLabel="P225H"/>
+                        <obs conceptId="167070"  answerConceptId="167052 " answerLabel="M230L"/>
+                        <obs conceptId="167070"  answerConceptId="167053 " answerLabel="L24I"/>
+                        <obs conceptId="167070"  answerConceptId="167054 " answerLabel="M46I"/>
+                        <obs conceptId="167070"  answerConceptId="167055 " answerLabel="M46L"/>
+                        <obs conceptId="167070"  answerConceptId="167056 " answerLabel="I50V"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167057 " answerLabel="I50L"/>
+                        <obs conceptId="167070"  answerConceptId="167058 " answerLabel="F53L"/>
+                        <obs conceptId="167070"  answerConceptId="167059 " answerLabel="I54V"/>
+                        <obs conceptId="167070"  answerConceptId="167060 " answerLabel="I54L"/>
+                        <obs conceptId="167070"  answerConceptId="167061 " answerLabel="G73S"/>
+                        <obs conceptId="167070"  answerConceptId="167062 " answerLabel="L76V"/>
+
+                    </td>
+                    <td class="alnVertical">
+                        <obs conceptId="167070"  answerConceptId="167063 " answerLabel="V82A"/>
+                        <obs conceptId="167070"  answerConceptId="167064 " answerLabel="V82F"/>
+                        <obs conceptId="167070"  answerConceptId="167065 " answerLabel="V82S"/>
+                        <obs conceptId="167070"  answerConceptId="167066 " answerLabel="V82M"/>
+                        <obs conceptId="167070"  answerConceptId="167067 " answerLabel="N83D"/>
+                        <obs conceptId="167070"  answerConceptId="167068 " answerLabel="I84V"/>
+                        <obs conceptId="167070"  answerConceptId="167069 " answerLabel="L90M"/>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="alnleft_s">Class(es) of ARVs Affected
+                        <obs conceptId="167076" />
+                    </td>
+                    <td class="alnleft_s"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Added by Ebuka -->
+    </fieldset>
+
     <fieldset>
         <legend class="legend_style">Signatures</legend>
         <table>
@@ -570,9 +786,31 @@ $('.hasDatepicker').attr('readOnly', true)
         </table>
     </fieldset>
     <submit/>
-
     <script type="text/javascript">
-
+var $ = jQuery;
+$(function () {
+        $("#w182").click(function () {
+            if ($(this).is(":checked")) {
+                $("#showHIVDR").show();
+            } else {
+                $("#showHIVDR").hide();
+            }
+        });
+    });
+</script>
+    <script type="text/javascript">
+var $ = jQuery;
+$(function () {
+        $("#w152").click(function () {
+            if ($(this).is(":checked")) {
+                $("#viralLoad").show();
+            } else {
+                $("#viralLoad").hide();
+            }
+        });
+    });
+</script>
+    <script type="text/javascript">
 jQuery(function() {
 getField('viralLoadResultTest.value').change(function() {
 var viralLoadInput = getValue('viralLoadResultTest.value');
