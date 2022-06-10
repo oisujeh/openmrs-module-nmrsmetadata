@@ -2024,82 +2024,108 @@
                     <td>
                         <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
                             <controls>
-                                <when thenDisplay="#vl_label,#vl_value,#vl_value_obs,#vlsample_value_obs,#vl_result,#vl_result_obs,#final_recency_label,#final_recency_value,#vl_dss,#vlpcr_value_obs,#vl_samplet,#sample_type,#vl_rpcr,#vl_rpcrlab,#receiving_lab,#sample_id,#sample_id_label, #vl_result_label,#vl_result_clasification"
+                                <when thenDisplay="#new_tag"
                                     value="1065" />
                             </controls>
 
                         </obs>
                     </td>
                 </tr>
+            </table>
+            
+             	
+             <table id="new_tag">
+                	 <tr>
+                        <td class="alnleft_f" id="vl_value"><b>Viral load confirmation</b></td>
+                        <td colspan="3"></td>                       
+                    </tr>
+                	
+                    <tr>
+                        <td class="alnleft_f" id="vl_value">Sample collection date</td>
+                        <td class="alnleft_f">
+                            <obs allowFutureDates="false" conceptId="159951" id="vlsample_value_obs" name="vlsample_value_obs" />
+                        </td>
+                        <td id="sample_id_label">Sample Reference Number:</td>
+                        <td>
+                            <obs conceptId="165715" id="sample_id" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="vl_samplet">Sample Type</td>
+                        <td>
+                            <obs answerConceptIds="1002,165568" answerLabels="Plasma,DBS" conceptId="162476" id="sample_type" />
+                        </td>
+                        <td class="alnleft_f" id="vl_dss">Date Sample Sent to PCR Lab</td>
+                        <td class="alnleft_f">
+                            <obs allowFutureDates="false" conceptId="165988" id="vlpcr_value_obs" name="vlpcr_value_obs" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="vl_samplet">Date sample received at PCR Lab</td>
+                        <td class="alnleft_f">
+                            <obs allowFutureDates="false" conceptId="165716" />
+                        </td>
+                        <td class="alnleft_f" id="vl_dss">Date result was sent from PCR Lab</td>
+                        <td class="alnleft_f">
+                            <obs allowFutureDates="false" conceptId="165989" />
+                        </td>
+                    </tr>
+     				<tr>
+		                <td class="alnleft_s">Date Sample Ordered</td>
+		                <td>
+		                    <obs conceptId="164989" allowFutureDates="false" />
+		                </td>
+		                <td class="alnleft_s">Date result was received at the facility</td>
+		                <td>
+		                    <obs conceptId="165987" allowFutureDates="false" />
+		                </td>
+					</tr>
+                    <tr>
+                        <td class="alnleft_f" id="vl_rpcr">Receiving PCR Lab</td>
+                        <td class="alnleft_f">
+                            <obs answerConceptIds="166234,166217,166218,166219,166220,166221,166232,166222,166223,166224,166225,166226,166227,166228,166229,166230,166231" answerLabels="68 NARH Yaba Lagos,Ahmadu Bello University Teaching Hospital (ABUTH),Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH),Rivers State University Hospital (RSUTH),Defence Reference laboratory (DRL) Abuja,Federal Medical Center Makurdi,Federal Medical Center Jalingo,Federal Teaching Hospital (FTH) Gombe,Jos University Teaching Hospital (JUTH) Jos,Lagos State University Teaching Hospital (LASUTH) Lagos,National Reference Laboratory Gaduwa (NRL) Abuja,Nigerian Institute of Medical Research (NIMR) Lagos,Nnamdi Azikiwe University Teaching Hospital (NAUTH),Obafemi Awolowo University Teaching Hospital (OAUTH) Ile-Ife,University of Maiduguri Teaching Hospital (UMTH) Maiduguri,University of Uyo teaching Hospital (UUTH) Uyo,Usman Danfodio University Teaching Hospital (UDUTH)"
+                                conceptId="166233" id="receiving_lab" />
+                        </td>
+                        <td class="alnleft_f" id="vl_result_label">Viral Load Result Classification:</td>
+                        <td class="alnleft_f">
+                            <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000,Failed VL" conceptId="166241" id="vl_result_clasification" />
+                        </td>
+                    </tr>
+    
+                    <tr>        
+                        <td class="alnleft_f" id="vl_result">Result (copies/ml)</td>
+                        <td class="alnleft_f">
+                            <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                        </td>
+                        <td class="alnleft_f" id="final_recency_label">Final Recency Result:</td>
+                        <td class="alnleft_f">
+                            <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
+                            
+                        </td>
+                    </tr>
+                     <tr>
+			                <td class="alnleft_f">Assay Date</td>
+                            <td class="alnleft_f">
+                                <obs conceptId="166424" allowFutureDates="false" />
+                            </td>   
+                            <td class="alnleft_f">Approval Date</td>
+                            <td class="alnleft_f">
+                                <obs conceptId="166425" allowFutureDates="false" />
+                            </td> 
+                     </tr>
+                     <tr>
+                        <td class="alnleft_f">Result Date</td>
+                        <td class="alnleft_f">
+                            <obs conceptId="166423" allowFutureDates="false" />
+                        </td>  
+                        <td class="alnleft_f" id="vl_value">Sample test date</td>
+                    	<td class="alnleft_f">
+                        	<obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    	</td>
+                     </tr>
+                 
                 <tr>
-                    <td class="alnleft_f" id="vl_label"><b>Viral load confirmation:</b></td>
-                    <td class="alnleft_f" id="vl_value">Sample collection date</td>
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="159951" id="vlsample_value_obs" name="vlsample_value_obs" />
-                    </td>
-
-
-                    <td id="sample_id_label">Sample Reference Number:</td>
-                    <td>
-                        <obs conceptId="165715" id="sample_id" />
-                    </td>
-
-                </tr>
-                <tr>
-                    <td id="vl_samplet">Sample Type</td>
-                    <td>
-                        <obs answerConceptIds="1000,165568" answerLabels="Plasma,DBS" conceptId="162476" id="sample_type" />
-                    </td>
-                </tr>
-
-                <tr>
-
-
-                    <td class="alnleft_f" id="vl_dss">Date Sample Sent to PCR Lab</td>
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165988" id="vlpcr_value_obs" name="vlpcr_value_obs" />
-                    </td>
-
-                    <td class="alnleft_f" id="vl_rpcr">Receiving PCR Lab</td>
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166234,166217,166218,166219,166220,166221,166232,166222,166223,166224,166225,166226,166227,166228,166229,166230,166231" answerLabels="68 NARH Yaba Lagos,Ahmadu Bello University Teaching Hospital (ABUTH),Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH),Rivers State University Hospital (RSUTH),Defence Reference laboratory (DRL) Abuja,Federal Medical Center Makurdi,Federal Medical Center Jalingo,Federal Teaching Hospital (FTH) Gombe,Jos University Teaching Hospital (JUTH) Jos,Lagos State University Teaching Hospital (LASUTH) Lagos,National Reference Laboratory Gaduwa (NRL) Abuja,Nigerian Institute of Medical Research (NIMR) Lagos,Nnamdi Azikiwe University Teaching Hospital (NAUTH),Obafemi Awolowo University Teaching Hospital (OAUTH) Ile-Ife,University of Maiduguri Teaching Hospital (UMTH) Maiduguri,University of Uyo teaching Hospital (UUTH) Uyo,Usman Danfodio University Teaching Hospital (UDUTH)"
-                            conceptId="166233" id="receiving_lab" />
-                    </td>
-
-
-
-                </tr>
-
-
-
-                <tr>
-                    <td class="alnleft_f" id="vl_value">Sample test date</td>
-                    <td class="alnleft_f">
-                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
-                    </td>
-                    <td class="alnleft_f" id="vl_result_label">Viral Load Result Classification:</td>
-
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000,Failed VL" conceptId="166241" id="vl_result_clasification" />
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td class="alnleft_f" id="vl_result">Result (copies/ml)</td>
-                    <td class="alnleft_f">
-                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
-                    </td>
-
-                    <td class="alnleft_f" id="final_recency_label"><b>Final Recency Result:</b></td>
-
-                    <td class="alnleft_f">
-                        <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
+                    <td colspan="4" id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
                 </tr>
 
             </table>
