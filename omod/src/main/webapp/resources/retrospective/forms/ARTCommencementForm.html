@@ -1,0 +1,348 @@
+<htmlform formUuid="38d688ed-a569-4868-b5b2-a2f204a2e572" formName="ART Commencement Form" formEncounterType="21a8459c-8578-4649-931c-0cf565ee161b" formVersion="2018">
+	<macros>
+	        paperFormId = (Fill this in)
+	        headerColor =#2f1c55
+	        fontOnHeaderColor = white
+	    </macros>
+	    <style>
+	        .section {
+	        border: 1px solid $headerColor;
+	        padding: 2px;
+	        text-align: left;
+	        margin-bottom: 1em;
+	        }
+	        .sectionHeader {
+	        background-color: #2f1c55;
+	        color: white;
+	        /* display: block; */
+	        padding: 2px;
+	        font-weight: bold;
+	        }
+	        table tr:nth-child(even) {
+	        background: #ffffff;
+	        }
+	        .alnright{
+	        text-align: right;
+	        color:#000000;
+	        width: 25%;
+	        }
+	        .alnright_s{
+	        text-align: right;
+	        color:#000000;
+	        width: 13%;
+	        }
+	        .alnleft_s{
+	        text-align: left;
+	        color:#000000;
+	        width: 13%;
+	        }
+	        .alnleft_f{
+	        text-align: left;
+	        color:#000000;
+	        width: 20%;
+	        }
+	        .alnleft{
+	        text-align: left;
+	        color:#000000;
+	        width: 25%;
+	        }
+                 .error{
+                 color:red;
+                 }
+	        td {
+	        border: none;
+	        }
+	        table th, table td {
+	        padding: 5px 10px;
+	        border: None;
+	        }
+	        .legend_style {
+	        max-width: 35%;
+	        background: #FAFAFA;
+	        <!--padding: 5px;-->
+	        margin: 0px left;
+	        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+	        border-radius: 2px;
+	        border: 1px solid #305a72;
+	        border-bottom-left-radius: 2px;
+	        text-transform:initial;
+
+	        }
+	        form fieldset, .form fieldset {
+	        min-width: 98%;
+	        border: none;
+	        border-top: 1px solid #305a72;
+
+	        }
+	        table th, table td {
+	        padding: 5px 10px;
+	        /* border: 1px solid #DDD; */
+	        }
+	        table tr {
+	        border: None;
+	        }
+	        ul.select, .form input, .form select, .form textarea, .form ul.select {
+	        padding: 2px 10px;
+	        }
+	        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+	        padding: 2px 10px;
+	        }
+	        form select, .form select {
+	        max-width: 200px;
+	        min-width: 150px;
+	        }
+	        .standard {
+	        max-width: 200px;
+	        min-width: 150px;
+	        }
+	        body {
+	        font-family: "OpenSans", Arial, sans-serif;
+	        color: #363463;
+	        font-size: 14px;
+	        }
+	        <!--table.baseline-aligned td {-->
+	        <!--vertical-align: baseline;-->
+	        <!--}-->
+	    </style>
+<script type="text/javascript">
+        beforeSubmit.push(function() {
+        var val_encounterDate = getValue('encounter_Date.value');
+        var val_ArtStartDate = getValue('ArtStartDate.value');
+        if ( val_ArtStartDate > val_encounterDate) {
+        getField('encounter_Date.error').html('Visit date has to be later than Art Start date').show();
+        return false;
+        }
+
+        return true;
+        });
+
+var $ = jQuery;
+	$(document).ready(function ()
+	{
+	   $('.hasDatepicker').attr('readonly', true);
+	});
+
+       </script>
+
+	<table style="margin-bottom: 20px;">
+	        <thead>
+	            <tr><th  style="text-align: center">ART Commencement Form</th></tr>
+	        </thead>
+	</table>
+
+	<fieldset>
+		<legend class="legend_style">Clinical parameters at start of ART</legend>
+				<table cellspacing="10" cellpadding="5">
+                                                <tr>
+                                                        <td class="alnleft_s"> <b>ART Start Date</b><br/>
+							<obs conceptId="159599"  /></td>
+
+                                                </tr>
+						<tr>
+								<td class="alnleft_s">
+										<b> Clinical Stage at Start of ART</b><br/>
+										<obs conceptId="5356" answerConceptIds="1204,1205,1206,1207" answerLabels="1,2,3,4" />
+								</td>
+
+								<td class="alnleft_s">
+										<b>CD4 Count at start of ART</b><br/>
+										<obs conceptId="164429" labelText=""/>
+								</td>
+						</tr>
+						<tr>
+								<td class="alnleft_s">
+										<b>Weight</b><br/><obs conceptId="165582" labelText="" id="weight"/><b>Kg</b>
+								</td>
+								<td class="alnleft_s">
+										<b>Height</b><br/><obs conceptId="165581" labelText="" id="height"/><b>(cm)</b>
+								</td>
+						</tr>
+						<tr>
+								<td class="alnleft_s"><b>MUAC</b><br/><obs conceptId="1343"/></td>
+								<td class="alnleft_s"><b> Functional Status</b><br/><obs conceptId="165039"  answerConceptIds="159468,160026,162752" answerLabels="Working,Ambulatory,Bedridden"/></td>
+						</tr>
+                                                <includeIf velocityTest="$patient.gender == 'F' ">
+						<tr id="preg">
+								<td class="alnleft_s"><b>Pregnancy status</b><br/><obs conceptId="165050" answerConceptIds="165048,165047,165049"/></td>								
+						</tr>
+                                                </includeIf>
+                        <tr>
+                            <td>BMI</td>
+                            <td><obs conceptId="1342" id="bmi"/></td>
+                        </tr>
+				</table>
+	</fieldset>
+	<fieldset>
+		 <legend class="legend_style">Eligibility Information</legend>
+      <table cellspacing="10" cellpadding="5">
+      		<tr>
+							<td><b> Date Medically Eligible:</b></td><td><obs conceptId="162227" labelText="" allowFutureDates="false"/></td>
+					</tr>
+							<tr>
+									<td><b> Why Eligible</b></td>
+									<td>
+							<obs conceptId="162225" answerConceptId="164426" answerLabel="Clinically Only" /><br/>
+		                    <obs conceptId="162225" answerConceptId="5497" answerLabel="CD4" /><br/>
+		                    <obs conceptId="162225" answerConceptId="730" answerLabel="CD4%" /><br/>
+		                    <obs conceptId="162225" answerConceptId="164427" answerLabel="TLC" />
+								 </td>
+				  	</tr>
+      </table>
+</fieldset>
+<fieldset>
+		<legend class="legend_style">Regimen information at start of ART</legend>
+		<table cellspacing="10" cellpadding="5">
+		                        <tr>
+							<td><b>Date Initial Adherence Counselling Completed</b></td><td><obs conceptId="165038"/></td>
+					</tr>
+                                        <!-- <tr>
+							<td><b>  Date ART Started</b></td>
+							<td><obs conceptId="159599"/><font color="red" id="ArtStartDate" allowFutureDates="false" required="true">**</font></td>
+                                        
+					</tr> -->
+		                	<tr>
+							<td><b> First ART Regimen Line</b></td>
+							<td>
+		          		<obs id="regimenline" conceptId="165708" answerConceptIds="164506,164513,165702,164507,164514,165703">
+		                  <controls>
+		                       <when value="164506" thenDisplay="#adult1stline"/>
+		                       <when value="164513" thenDisplay="#adult2ndline"/>
+		                        <when value="165702" thenDisplay="#adult3rdline"/>
+		                       <when value="164507" thenDisplay="#child1stline"/>
+		                       <when value="164514" thenDisplay="#child2ndline"/>
+		                       <when value="165703" thenDisplay="#child3rdline"/>
+		                  </controls>
+               </obs></td>
+			 	</tr>
+				<tr id="adult1stline">
+						<td><b>Adult 1st Line Regimen</b></td>
+						<td> <obs conceptId="164506" answerLabel=""/></td>
+				</tr>
+				<tr id="adult2ndline">
+						<td><b>Adult 2nd Line Regimen</b></td>
+						<td>
+						    <obs conceptId="164513" answerLabel=""/>
+						</td>
+				</tr>
+				<tr id="adult3rdline">
+						<td> <b>Adult 3rd Line Regimen</b></td>
+						<td><obs conceptId="165702" answerLabel=""/></td>
+				</tr>
+				<tr id="child1stline">
+			      <td><b>Child 1st Line Regimen</b></td>
+			      <td><obs conceptId="164507" answerLabel=""/></td>
+				</tr>
+				<tr id="child2ndline">
+			      <td><b>Child 2nd Line Regimen</b></td>
+			      <td><obs conceptId="164514" answerLabel=""/></td>
+				</tr>
+				<tr id="child3rdline">
+				     <td><b>Child 3rd Line</b></td>
+				     <td><obs conceptId="165703" answerLabel=""/></td>
+				</tr>
+		</table>
+		</fieldset>
+		<fieldset>
+				<legend class="legend_style">For ART Register Report</legend>
+				<table cellspacing="10" cellpadding="5">
+						<tr>
+								<td><b>Parameter</b></td>
+								<td><b>Start Date</b></td>
+								<td><b>Stop Date</b></td>
+						</tr>
+						<tr><td ><b>INH</b></td>
+						 		<td ><obs conceptId="164852"/></td><td><obs conceptId="166096"/></td>
+						</tr>
+				        <tr><td><b>CTX</b></td><td ><obs conceptId="164977"/></td><td ><obs conceptId="164362"/></td></tr>
+				        <tr>  
+                                           
+                                                 <td ><b>TB Treatment</b><br/>
+                                                 
+                                              <!--<obs conceptId="162309" id="tb_treatment"  answerConceptIds="1066,1065,1067">
+                                                  <controls>
+                                                    <when value ="1065" thenDisplay="#startdate, #stopdate"/>
+                                                  </controls>
+                                              </obs>-->
+                                              </td>
+                                           
+                                                   <td id="startdate"><obs conceptId="1113"/></td> 
+                                      
+                                                   <td id ="stopdate"><obs conceptId="159431"/></td>
+                                        
+                                       </tr>
+                                        <tr><td><b>OTZ (Operation Triple Zero)</b></td><td><obs conceptId="166156"/></td><td><obs conceptId="166158"/></td></tr>
+				</table>
+</fieldset>
+<fieldset>
+		<legend class="legend_style">Encounter at ART start and Signature</legend>
+		<table class="table" width="100%">
+		      <tr>
+			        <td class="alnleft_s">Visit Date:</td>
+			        <td class="alnleft_s"><encounterDate id="encounter_Date" allowFutureDates="false" required="true" /></td>
+
+			        <td class="alnleft_s">Facility Name:</td>
+			        <td class="alnleft_s"><encounterLocation default="GlobalProperty:default_location"/></td>
+
+			        <td class="alnleft_s">Provider's Name:</td>
+			        <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
+		      </tr>
+	    </table>
+</fieldset>
+<submit/>
+<ifMode mode="EDIT" include="false">
+	 <lookup complexExpression="
+			 #set( $encounter = 0 )
+			 #set( $encounter = $fn.latestEncounter('21a8459c-8578-4649-931c-0cf565ee161b'))
+			 #if( $encounter != 0 )
+					 &lt;script type=&quot;text/javascript&quot;>
+									 if (window.location.href.indexOf('/module/htmlformentry/htmlForm.form') == -1) {
+											 window.location.href = window.location.protocol + &quot;//&quot; + window.location.host + &quot;/&quot;+ OPENMRS_CONTEXT_PATH +
+											 &quot;/htmlformentryui/htmlform/editHtmlFormWithStandardUi.page?visitId=$encounter.visit.visitId&amp;formUuid=38d688ed-a569-4868-b5b2-a2f204a2e572
+&amp;patientId=$patient.patientId&amp;encounterId=$encounter.encounterId&amp;returnUrl=%2F&quot; + OPENMRS_CONTEXT_PATH +
+											 &quot;%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D$patient.patientId&quot;;
+									 }
+
+					 &lt;/script>
+		 #end"/>
+</ifMode>
+<script>
+    $(document).ready(function ()
+	{
+	   $('#height').keyup(calBMI);
+       $('#weight').keyup(calBMI); 
+	});
+function calBMI(){
+    var height_val = getValue('height.value');
+    var weight_val = getValue('weight.value');
+    var height_num = parseFloat(height_val);
+    var weight_num = parseFloat(weight_val);
+    if(!isNaN(height_num)){
+        if(!isNaN(weight_num)){
+            height_num = height_num/100;
+            var bmi_val = weight_num / (height_num * height_num);
+            setValue('bmi.value',bmi_val.toFixed(2));
+        }
+        else{
+            setValue('bmi.value', "");
+        }
+    }
+    else{
+        setValue('bmi.value', "");
+    }
+}
+
+ /* 'Systolic Data' : function (formName, formFieldValues, patient) {
+    var patientGender = patient['gender'];
+
+    if (patientGender == 'F') {
+        return {
+            enable: ["#preg"]
+        }
+    } else {
+        return {
+            disable: ["#preg"]
+        }
+    }
+} */
+</script>
+</htmlform>

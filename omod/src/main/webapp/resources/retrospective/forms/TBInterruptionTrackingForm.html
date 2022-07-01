@@ -1,0 +1,271 @@
+<htmlform formUuid="58a23772-9f74-49a0-8b92-27378ab1bfb3" formName="TB Interruption Tracking Form"
+          formEncounterType="150e3441-67f4-46c3-99e7-61578d9ca221" formVersion="2016">
+    <style>
+        .section {
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .sectionHeader {
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #ffffff;
+        }
+
+        .alnright {
+            text-align: right;
+            color: #000000;
+            width: 25%;
+        }
+
+        .alnright_s {
+            text-align: right;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_s {
+            text-align: left;
+            color: #000000;
+            width: 13%;
+        }
+
+        .alnleft_j {
+            text-align: left;
+            color: #000000;
+            width: 20%;
+        }
+
+        .alnleft {
+            text-align: left;
+            color: #000000;8
+        width: 25%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        td {
+            border: none;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            border: None;
+        }
+
+        .legend_style {
+            max-width: 35%;
+            background: #FAFAFA;
+        <!-- padding: 5px; -->
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform: initial;
+        }
+
+        form fieldset, .form fieldset {
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
+            padding: 10px 0px;
+        }
+
+        table th, table td {
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
+        }
+
+        table tr {
+            border: None;
+        }
+
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+            padding: 2px 10px;
+        }
+
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form
+        ul.select {
+            padding: 2px 10px;
+        }
+
+        form select, .form select {
+            max-width: 150px;
+            min-width: 100px;
+        }
+
+        body {
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
+        }
+
+        .alnVertical {
+            vertical-align: top;
+        }
+        .td_overwrote {
+            border: 1px solid black;
+        }
+
+        .new {
+            font-size: 15px;
+            font-weight: 100;
+            background-color: #2f1157;
+            color:#ffffff;
+            border: 0px solid; float:none; align-content: center; clear-;
+            margin: 0px auto;
+        }
+
+        */
+
+    </style>
+
+
+
+    <table style="margin-bottom: 20px;">
+        <thead>
+        <tr>
+            <th style="text-align: center">TB Interruption Tracking Form</th>
+        </tr>
+        </thead>
+
+
+    </table>
+
+
+
+    <fieldset style="border: 1px solid #305a72; min-width: 90%; margin-left:5%; padding: 6px; margin-bottom: 2%; border-radius: 9px;">
+        <legend class="legend_style">Summary of Last Visit</legend>
+        <table id="dashboard" cellspacing="10" cellpadding="5" align="center">
+
+            <tr>
+                <td><b>Last Tracking Attempt:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('166618').valueCoded.name" /></font></td>
+
+                <td><b>Date of Last drug Intake:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs(166623).ValueCoded.Datetime" /></font></td>
+
+            </tr>
+            <tr>
+                <td><b>Last reason for Absence:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('166625').valueCoded.name" /></font> </td>
+                <td><b>Last Tracking Outcome:</b><font color='blue' style="font-weight: bold"><lookup expression="fn.latestObs('166627').valueCoded.name" /></font></td>
+
+            </tr>
+        </table>
+    </fieldset>
+
+
+
+    <!--Tracking Attempts-->
+    <table>
+        <tr>
+            <td class="alnleft">Date of Tracking</td>
+
+            <td>
+                <encounterDate showTime="false" allowFutureDates="false" required="true"/>
+            </td>
+            <td class="alnleft">Tracking Attempts</td>
+            <td>
+                <obs id="arv_exposure"  conceptId="166618" required="true" answerConceptIds="166619,166728,166721" answerLabels="First Attempt, Second Attempt, Third Attempt"/>
+            </td>
+        </tr>
+    </table>
+
+
+    <fieldset>
+
+
+
+        <legend class="legend_style new clearfix::after" > Tracking Details </legend>
+        <table>
+
+            <tr>
+                <td width="25%">Date of Last Drug Intake:</td>
+                <td width="25%"><obs conceptId="166623" allowFutureDates="false"/></td>
+                <td width="25%">Mode of Tracking</td>
+                <td width="25%"> <obs conceptId="166622" answerConceptIds="165791,166293" answerLabels="Home Visit, Phone Calls" /></td>
+            </tr>
+
+
+        </table>
+
+        <br />
+        <fieldset></fieldset>
+
+        <table>
+            <tr>
+                <td width="25%">Was Patient Contacted</td>
+                <td style="float: left">
+                    <obs id="missed_med1" conceptId="166624" answerConceptIds="1065,1066" answerLabel="Yes,No">
+                        <controls>
+                            <when value="1066" thenDisplay="#no"/>
+                        </controls>
+                    </obs>
+                </td>
+            </tr>
+            <br />
+            <br />
+            <tr id="no">
+                <td class="alnleft" style="float: left; margin-top: 5px"> Who did you contact ?</td>
+                <td><obs conceptId="165466" answerConceptIds="160639,161642" answerLabels="Guardian, Treatment Supporter" /></td>
+            </tr>
+
+            <tr>
+                <td size="25">Reason for Absence:</td>
+                <td colspan="3">
+                    <obs conceptId="166625" id="reason_for_defaulting" answerConceptIds="165031,1737,159492,162192,160586,165896,165897,165898,5841,5622" answerLabels="Was sick, No transport fare, Transferred to new site, Forgot, Felt better, Not permitted to leave work, Lost appointment card, Still had drugs, Taking herbal treatment, Others(Specify)">
+                        <controls>
+                            <when value="5622" thenDisplay="#other_reason_for_defaulting" />
+                        </controls>
+                    </obs>
+                </td>
+                <td> <obs conceptId="166139" id="other_reason_for_defaulting" /></td>
+                <td>What is the solution for the Absence</td>
+                <td><obs id="texting" conceptId="166626"/></td>
+            </tr>
+            <tr>
+                <td>Outcomes of Tracking</td>
+                <td><obs conceptId="166627" answerConceptIds="164929,164928" answerLabels="Patient in care,loss to follow up" /></td>
+            </tr>
+
+
+        </table>
+
+    </fieldset>
+
+    <br />
+    <fieldset>
+        <legend class="legend_style">Signature</legend>
+        <table>
+            <tr>
+
+                <td>Initials of the caller:</td>
+                <td colspan="3"> <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" required="true" /></td>
+                <td width="25%">Facility:</td>
+                <td>
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />
+                </td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <submit submitClass="confirm left" submitCode="general.save" />
+            <!--  <button type="button" class="cancel">
+                  <uimessage code="general.cancel" />
+              </button> -->
+        </div>
+    </ifMode>
+</htmlform>

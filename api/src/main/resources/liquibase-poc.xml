@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+ 	<!-- POC CHANGESETS  -->
+
+    <changeSet id="poc_locations" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/poc_locations.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter=";"/>
+    </changeSet>
+
+    <changeSet id="location_tag" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/location_tag.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter=";"/>
+    </changeSet>
+
+    <changeSet id="location_tag_map" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/location_tag_map.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter=";"/>
+    </changeSet>
+
+    <changeSet id="appointment_schedule_type_update" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/appointmentscheduling_appointment_type.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+
+    <changeSet author="toyeeb" id="update15102020540">
+        <delete tableName="concept_answer">
+            <where>concept_answer_id='8908'</where>
+        </delete>
+    </changeSet>
+    <changeSet id="update141020200830" author="wande">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE uuid='555d447e-d18e-4a2e-832b-4b790dc03b27';
+            </sqlCheck>
+        </preConditions>
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8908"/>
+            <column name="concept_id" value="165725"/>
+            <column name="answer_concept" value="166044"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-13 10:55:05"/>
+            <column name="uuid" value="555d447e-d18e-4a2e-832b-4b790dc03b27"/>
+            <column name="sort_weight" value="31"/>
+        </insert>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201157" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='4'</where>
+        </delete>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201158" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='5'</where>
+        </delete>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201159" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='6'</where>
+        </delete>
+    </changeSet>
+    <changeSet author="toyeeb" id="delete161020201160" runOnChange="true">
+        <delete tableName="location_tag_map">
+            <where>location_id='7'</where>
+        </delete>
+    </changeSet>
+    
+     <changeSet id="poc_role" author="toyeeb" runOnChange="true">
+
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/pocsql/role/role.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/> 
+
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    <changeSet id="poc_role_role" author="toyeeb" runOnChange="true">
+
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/pocsql/role/role_role.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    <changeSet id="poc_role_privilege" author="toyeeb" runOnChange="true">
+
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/pocsql/role/role_privilege.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="patient_missed_appointment_flag_update" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/patient_missed_appointment_flag.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+    
+    <changeSet id="patient_missed_appointment_flag_tag_update" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/patient_missed_appointment_flag_tag.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter="/0xd"/>
+    </changeSet>
+
+    <changeSet id="concept_202103081056" author="wande" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="poc_related/concepts/20210303/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_description.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="patientqueueing_202103232156" author="toyeeb" runOnChange="true">
+
+        <sqlFile path="poc_related/pocsql/patientqueing_globalproperty.sql"
+                 stripComments="false"
+                 splitStatements="true"
+                 endDelimiter=";"/>
+    </changeSet>
+    
+     <changeSet id="concept_202104181022" author="Bright" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="poc_related/concepts/20210418/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="poc_related/concepts/20210418/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sqlFile path="poc_related/concepts/20210418/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
+ <changeSet id="concept_update_201010071131" author="wande">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_answer_id='8906';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept">
+            <column name="concept_id" value="166253"/>
+            <column name="retired" value="0"/>
+            <column name="datatype_id" value="2"/>
+            <column name="class_id" value="11"/>
+            <column name="is_set" value="0"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_changed" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="df90bdce-5566-46d7-a8b4-aa8371e4e08b"/>
+        </insert>
+        <insert tableName="concept">
+            <column name="concept_id" value="166252"/>
+            <column name="retired" value="0"/>
+            <column name="datatype_id" value="6"/>
+            <column name="class_id" value="11"/>
+            <column name="is_set" value="0"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="changed_by" value="1"/>
+            <column name="date_changed" valueDate="2020-10-06 16:59:54"/>
+            <column name="uuid" value="b7ddf181-40eb-4f5f-93c7-0527db87bcbb"/>
+        </insert>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8906"/>
+            <column name="concept_id" value="166253"/>
+            <column name="answer_concept" value="1065"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="4904221f-5faa-4225-a00a-b6ae931144fe"/>
+            <column name="sort_weight" value="1"/>
+        </insert>
+        <insert tableName="concept_answer">
+            <column name="concept_answer_id" value="8907"/>
+            <column name="concept_id" value="166253"/>
+            <column name="answer_concept" value="1066"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="80dd7a31-1fa0-42a9-b762-e79697f86f89"/>
+            <column name="sort_weight" value="2"/>
+        </insert>
+        <insert tableName="concept_description">
+            <column name="concept_description_id" value="18644"/>
+            <column name="concept_id" value="166252"/>
+            <column name="description" value="Date of Antenatal registration"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="uuid" value="de590347-df80-45ad-9616-e58d02c3a43c"/>
+        </insert>
+        <insert tableName="concept_description">
+            <column name="concept_description_id" value="18645"/>
+            <column name="concept_id" value="166253"/>
+            <column name="description" value="Consent given for index elicitation and contact"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="uuid" value="7bd3bd0d-b1d5-45aa-93b0-8ed6e4432442"/>
+        </insert>
+        <insert tableName="concept_name">
+            <column name="concept_id" value="166252"/>
+            <column name="name" value="Antenatal registration date"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 16:59:54"/>
+            <column name="concept_name_id" value="143020"/>
+            <column name="voided" value="0"/>
+            <column name="uuid" value="9c7eedc1-25c8-48d4-ae09-888f6bd431e9"/>
+            <column name="concept_name_type" value="FULLY_SPECIFIED"/>
+            <column name="locale_preferred" value="1"/>
+        </insert>
+        <insert tableName="concept_name">
+            <column name="concept_id" value="166253"/>
+            <column name="name" value="Index elicitation consent"/>
+            <column name="locale" value="en"/>
+            <column name="creator" value="1"/>
+            <column name="date_created" valueDate="2020-10-06 17:04:57"/>
+            <column name="concept_name_id" value="143021"/>
+            <column name="voided" value="0"/>
+            <column name="uuid" value="17d24ba6-08e7-458f-b7fd-eff4fc8474d2"/>
+            <column name="concept_name_type" value="FULLY_SPECIFIED"/>
+            <column name="locale_preferred" value="1"/>
+        </insert>
+    </changeSet>
+
+ <changeSet id="inslude_ABC-3TC-LPV/r_2020-09-15-14:16" author="tega" runOnChange="true">
+ 		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_id='164507';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept_answer">
+            <column name="concept_id" valueNumeric="164507"/>
+            <column name="answer_concept" valueNumeric="162200"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="uuid" value="7huveyx5-d050-4e99-4826-ccddc456b8rf"/>
+            <column name="sort_weight" valueNumeric="15"/>
+        </insert>
+    </changeSet>
+    <changeSet id="update_form_resource_table_longtext_202012080400" author="wande">
+        <sql>
+            ALTER TABLE form_resource
+            CHANGE COLUMN value_reference value_reference LONGTEXT NULL DEFAULT NULL ;
+        </sql>
+    </changeSet>
+
+    <changeSet id="add_pmtcthts_encounter_type_202101050223" author="wande">
+     	<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE uuid='136e629b-78b6-4cdb-b76a-01c598d6a173';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="PMTCT HIV Testing"/>
+            <column name="description" value="PMTCT HIV Testing"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="136e629b-78b6-4cdb-b76a-01c598d6a173"/>
+        </insert>
+    </changeSet>
+
+ 	<changeSet id="include_AZT-3TC-LPV/r_202101241029" author="wande" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM concept_answer WHERE concept_id='164507' AND  answer_concept='162561';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="concept_answer">
+            <column name="concept_id" valueNumeric="164507"/>
+            <column name="answer_concept" valueNumeric="162561"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="uuid" value="133caea0-4dca-4767-98e2-ab2ff2022c48"/>
+            <column name="sort_weight" valueNumeric="16"/>
+        </insert>
+    </changeSet>
+
+ 	<changeSet id="update_setting_concept_202102191156" author="wande">
+        <sql>
+            UPDATE obs SET value_coded = 160545 WHERE concept_id = 165839 AND value_coded = 165788 ;
+            UPDATE obs SET value_coded = 160546 WHERE concept_id = 165839 AND value_coded = 160548 ;
+        </sql>
+    </changeSet>
+    <changeSet id="add_risk_stratification_adult_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='a8939d83-59d7-4f3c-aa80-029d7e4d8095';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Adult"/>
+            <column name="description" value="Risk Stratification Adult"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="a8939d83-59d7-4f3c-aa80-029d7e4d8095"/>
+        </insert>
+    </changeSet>
+
+ <changeSet id="add_risk_stratification_pediatrics_encounter_type_202102220223" author="arinze">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE UUID='723f8ea2-8708-4a68-a557-d5f232c8b45c';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="encounter_type">
+            <column name="name" value="Risk Stratification Pediatrics"/>
+            <column name="description" value="Risk Stratification Pediatrics"/>
+            <column name="creator" valueNumeric="1"/>
+            <column name="date_created" valueDate="now()"/>
+            <column name="retired" valueNumeric="0"/>
+            <column name="uuid" value="723f8ea2-8708-4a68-a557-d5f232c8b45c"/>
+        </insert>
+    </changeSet>
+
+	<changeSet author="Toyeeb" id="20042021104930" runOnChange="true">
+       <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/forms/forms/encounter_type.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>    
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>              
+    </changeSet>        
+    
+    <changeSet id="20042021105430" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+         <sqlFile path="poc_related/forms/forms/form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>        
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+    
+    <changeSet id="20042021134230" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+         <sqlFile path="poc_related/forms/htmlformentry/htmlformentry_html_form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>  
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+
+	<changeSet id="20210523195530" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+				'{\"id\":\"patientDashboard.overallActions.form.60\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"ART (antiretroviral therapy) Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=175749fc-bd5e-4046-b4c3-fda5c0a8e358\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"hasMemberWithProperty (patientPrograms, \'uuid\', \'9083deaa-f37f-44b3-9046-b87b134711a1\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 60;
+				SET FOREIGN_KEY_CHECKS = 1;
+		 	]]>
+	    </sql>
+    </changeSet>
+    
+    <changeSet id="20210602175730" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+    			'{\"id\":\"patientDashboard.overallActions.form.62\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"HEI (HIV Exposed Infant) Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=d86d3fdd-935e-4391-9f29-58f2bbdb2c53\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"hasMemberWithProperty (patientPrograms, \'uuid\', \'a0a9b9a2-6c18-4a5e-af74-aca2860001cd\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 62;
+				SET FOREIGN_KEY_CHECKS = 1;
+		 	]]>
+	    </sql>
+    </changeSet>
+     <changeSet id="20210602175830" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+				'{\"id\":\"patientDashboard.overallActions.form.61\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"HTS Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=aa50cb4e-05ee-43e5-a00b-589c3c12d03b\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"hasMemberWithProperty (patientPrograms, \'uuid\', \'14d6f977-7952-41cd-b243-1c3bcc4a9213\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 61;
+				SET FOREIGN_KEY_CHECKS = 1;
+			]]>
+	    </sql>
+    </changeSet>
+
+	 <changeSet id="20210602175930" author="Toyeeb" runOnChange="true">
+		<sql>
+		    <![CDATA[
+		        SET FOREIGN_KEY_CHECKS = 0;
+				UPDATE `form_resource` SET `value_reference` =
+				'{\"id\":\"patientDashboard.overallActions.form.63\",\"appId\":null,\"extensionPointId\":\"patientDashboard.overallActions\",\"type\":\"link\",\"label\":\"PMTCT Programs\",\"url\":\"htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}&formUuid=6c7dad1b-ebfa-4a70-a1c1-6e5908eb0b0d\",\"icon\":\"icon-file\",\"order\":15,\"requiredPrivilege\":\"\",\"featureToggle\":null,\"require\":\"patient.person.gender==\'F\' && hasMemberWithProperty  (patientPrograms, \'uuid\', \'c3ae2d33-97d3-4cc4-9206-8a8160593648\')\",\"script\":null,\"extensionParams\":{\"displayStyle\":\"Standard\"}}'
+				WHERE `form_id` = 63;
+				SET FOREIGN_KEY_CHECKS = 1;
+			]]>
+	    </sql>
+    </changeSet>
+
+	 <changeSet id="2021042894218" author="Toyeeb" runOnChange="true">
+         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+         <sqlFile path="poc_related/program/program.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>  
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
+    </changeSet>
+    
+     <changeSet id="20210506133523" author="Toyeeb" runOnChange="true">
+        <sql>
+        	SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept SET datatype_id = 3 WHERE concept_id = 166288;
+            SET FOREIGN_KEY_CHECKS=1;
+        </sql>
+    </changeSet>
+    
+     <changeSet author="toyeeb" id="20210505142424" runOnChange="true">
+     	<sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+        <delete tableName="form">
+            <where>form_id='74'</where>
+        </delete>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet author="toyeeb" id="20210506145024" runOnChange="true">
+     	<sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
+        <delete tableName="htmlformentry_html_form">
+            <where>form_id='74'</where>
+        </delete>
+         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="20210506164130" author="Toyeeb" runOnChange="true">
+         <sqlFile path="poc_related/forms/forms/form_update.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>                   
+    </changeSet>
+    
+     <changeSet id="update_concept_name_13052021105050" author="Toyeeb">
+        <sql>
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept_description SET description = "MMD greater than or equal to 6" WHERE concept_id = 166283;
+            UPDATE concept_name SET name = "MMD greater than or equal to 6" WHERE concept_name_id = 143054 AND concept_id = 166283;
+       		SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+
+     <changeSet id="14052021084627" author="Toyeeb" runOnChange="true">
+        <sql>
+         <![CDATA[
+        	SET FOREIGN_KEY_CHECKS=0;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166276;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166363;
+            UPDATE concept SET datatype_id = 3 WHERE concept_id = 166367;
+            UPDATE concept SET datatype_id = 2 WHERE concept_id = 166278;
+            SET FOREIGN_KEY_CHECKS=1;
+        ]]>
+        </sql>
+    </changeSet>
+    
+    <changeSet id="20210516115130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept_description SET description = "MMD greater than or equal to 6" WHERE concept_id = 166283;
+            UPDATE concept_name SET name = "MMD greater than or equal to 6" WHERE concept_name_id = 143054 AND concept_id = 166283;
+       		SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210521100130" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 10 WHERE concept_id = 166284;
+          	UPDATE concept SET class_id = 7 WHERE concept_id = 166284;
+          	SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+
+   	<changeSet id="Resolve_INHB6_Wrong_TB_Maping_202104241156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE obs SET value_coded = 656 WHERE concept_id =165304 AND value_coded =1679;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+    
+	<changeSet id="resolve_lga_mapping_202105271156" author="temiye" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE address_hierarchy_entry SET user_generated_id = 520 WHERE address_hierarchy_entry_id =5481;
+			UPDATE address_hierarchy_entry SET user_generated_id = 521 WHERE address_hierarchy_entry_id =7258;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+
+    <changeSet id="2021060300001" author="Melody" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/apps/tracking_results.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="2021072800001" author="Melody" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/apps/dashboardmodification.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="export_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM privilege WHERE privilege='Apps: Export Module Privilege';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+        	REPLACE INTO `privilege` (`privilege`, `description`, `uuid`) VALUES ('Apps: Export Module Privilege', NULL, 'a06d59be-7e19-4c65-8e70-a18092048ff7');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="lims_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM privilege WHERE privilege='Apps: LIMS Module Privilege';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+        	REPLACE INTO `privilege` (`privilege`, `description`, `uuid`) VALUES ('Apps: LIMS Module Privilege', NULL, '7279a651-dc76-4288-8e1c-74e28d417405');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+    
+	<changeSet id="update_custom_report_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM appframework_user_app WHERE app_id='customReport';
+            </sqlCheck>
+        </preConditions>		
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n    \"id\": \"customReport\",\r\n    \"description\": \"OpenMRS System Administration\",\r\n    \"order\": 0,\r\n    \"extensions\": [\r\n        {\r\n            \"id\": \"demoapp.homepageLink\",\r\n            \"extensionPointId\": \"org.openmrs.referenceapplication.homepageLink\",\r\n            \"type\": \"link\",\r\n            \"label\": \"NMRS Export\",\r\n            \"url\": \"nigeriaemr/customreport.page\",\r\n            \"icon\": \"icon-upload-alt \",\r\n            \"requiredPrivilege\": \"Apps: Export Module Privilege\"\r\n        },\r\n       {\r\n            \"id\": \"demoapp.homepageLink\",\r\n            \"extensionPointId\": \"org.openmrs.referenceapplication.homepageLink\",\r\n            \"type\": \"link\",\r\n            \"label\": \"Database Backup\",\r\n            \"url\": \"module/databasebackup/backup.form\",\r\n            \"icon\": \"icon-download-alt \",\r\n            \"requiredPrivilege\": \"App: reportingui.reports\"\r\n        }\r\n    ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'customReport';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="update_lims_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM appframework_user_app WHERE app_id='EMR-LIMS-Exchange';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n \"id\": \"LIMS-EMR\",\r\n \"description\": \"LIMS-EMR Integration module\",\r\n \"order\": 0,\r\n \"extensions\": [\r\n {\r\n \"id\": \"demoapp.homepageLink\",\r\n \"extensionPointId\": \"org.openmrs.referenceapplication.homepageLink\",\r\n \"type\": \"link\",\r\n \"label\": \"EMR-LIMS Exchange\",\r\n \"url\": \"limsemrops/limsemr.page\",\r\n \"icon\": \"icon-exchange\",\r\n \"requiredPrivilege\": \"Apps: LIMS Module Privilege\"\r\n }\r\n ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'EMR-LIMS-Exchange';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="clinical_mgt_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM privilege WHERE privilege='Task: clinicalManagement';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+        	REPLACE INTO `privilege` (`privilege`, `description`, `uuid`) VALUES ('Task: clinicalManagement', NULL, 'fddc804a-adb6-436f-b76a-c6e017c88e7c');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	
+	
+	<changeSet id="update_nmrsClinicalMgt_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM appframework_user_app WHERE app_id='nmrsClinicalManagement';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n \"id\": \"nmrsClinicalManagement\",\r\n \"description\": \"OpenMRS System Administration\",\r\n \"order\": 1,\r\n \"extensions\": [\r\n {\r\n \"id\": \"nmrsClinicalManagement\",\r\n \"extensionPointId\": \"patientDashboard.overallActions\",\r\n \"type\": \"link\",\r\n \"label\": \"Clinical Management\",\r\n \"url\": \"nmrsclinicals/PatientVisual.page?patientId={{patient.uuid}}\",\r\n \"icon\": \"icon-link\",\r\n \"order\": 1,\r\n \"requiredPrivilege\": \"Task: clinicalManagement\"\r\n }\r\n ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'nmrsClinicalManagement';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="update_role_privilege" author="Toyeeb" runOnChange="true">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			REPLACE INTO `role_privilege` (`role`,`privilege`)  VALUES ('Clinician','Task: clinicalManagement');
+			REPLACE INTO `role_privilege` (`role`,`privilege`)  VALUES ('MandE','Task: clinicalManagement');
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="update_pastEncounters_app_id_privilege" author="Toyeeb" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM appframework_user_app WHERE app_id='nmrsClinicalManagement';
+            </sqlCheck>
+        </preConditions>	
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE `appframework_user_app` SET `json` = '{\r\n \"id\": \"patientEncountersByType\",\r\n \"description\": \"Patient Encounter by Type\",\r\n \"order\": 7,\r\n \"extensions\": [\r\n {\r\n \"id\": \"patientEncountersByType\",\r\n \"extensionPointId\": \"patientDashboard.overallActions\",\r\n \"type\": \"link\",\r\n \"label\": \"Past Encounters\",\r\n \"url\": \"nmrsclinicals/encounterbytype.page?patientId={{patient.uuid}}\",\r\n \"icon\": \"icon-hand-down \",\r\n \"order\": 1,\r\n \"requiredPrivilege\": \"Task: clinicalManagement\"\r\n }\r\n ]\r\n}' WHERE `appframework_user_app`.`app_id` = 'patientEncountersByType';
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+		</sql>
+	</changeSet>
+
+
+
+
+
+	<changeSet id="2021080209061" author="Melody" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="apps/dashboardmodification.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
+	<changeSet id="patient_identifier_types_020920211640" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/patient_identifier_types/patient_identifier_types.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
+	 <changeSet author="Toyeeb" id="070920211233000000" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/forms/forms/form_resource.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
+	 <changeSet author="Toyeeb" id="0809202119110000" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="poc_related/concepts/20210303/concept_update.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+
+ 	<changeSet id="20210521100138" author="Toyeeb" runOnChange="true">
+        <sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+            UPDATE concept SET datatype_id = 10 WHERE concept_id = 166284;
+          	UPDATE concept SET class_id = 7 WHERE concept_id = 166284;
+          	SET FOREIGN_KEY_CHECKS = 1;
+       	]]>
+        </sql>
+    </changeSet>
+    
+    <changeSet id="update_maternal_cohort_encountertype" author="Toyeeb">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			UPDATE form SET encounter_type = 45 WHERE form_id = 48;
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
+	
+	<changeSet id="concept_set_20211117162000" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_set.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+    <changeSet id="concept_numeric_202201181411" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_numeric.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+    
+ 	<changeSet id="concept_202215060412" author="Toyeeb" runOnChange="true">
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+
+        <sqlFile path="poc_related/concepts/20210303/concept.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_description.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_name.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sqlFile path="poc_related/concepts/20210303/concept_answer.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+   
+    
+    
+    
+    
+    
+</databaseChangeLog>

@@ -3,7 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
-
+    
+    <!-- Retrospective CHANGESETS  -->
+    
     <changeSet id="concept_update_201010071131" author="wande">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
@@ -181,25 +183,25 @@
     <changeSet id="concept_202103081056" author="wande" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
 
-        <sqlFile path="concepts/20210303/concept.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
                  endDelimiter=";"/>
 
-        <sqlFile path="concepts/20210303/concept_description.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept_description.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
                  endDelimiter=";"/>
 
-        <sqlFile path="concepts/20210303/concept_name.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept_name.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
                  endDelimiter=";"/>
 
-        <sqlFile path="concepts/20210303/concept_answer.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept_answer.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -210,17 +212,17 @@
     
     <changeSet id="concept_202104181022" author="Bright" runOnChange="true">
          <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-         <sqlFile path="concepts/20210418/concept.sql"
+         <sqlFile path="retrospective_related/concepts/20210418/concept.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
                  endDelimiter=";"/>
-         <sqlFile path="concepts/20210418/concept_answer.sql"
+         <sqlFile path="retrospective_related/concepts/20210418/concept_answer.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
                  endDelimiter=";"/>
-         <sqlFile path="concepts/20210418/concept_name.sql"
+         <sqlFile path="retrospective_related/concepts/20210418/concept_name.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -230,7 +232,7 @@
     
     <changeSet author="Toyeeb" id="20042021104930" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-        <sqlFile path="forms/forms/encounter_type.sql"
+        <sqlFile path="retrospective_related/forms/forms/encounter_type.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -240,7 +242,7 @@
     
     <changeSet id="20042021105430" author="Toyeeb" runOnChange="true">
          <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-         <sqlFile path="forms/forms/form.sql"
+         <sqlFile path="retrospective_related/forms/forms/form.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -250,7 +252,7 @@
     
     <changeSet id="20042021134230" author="Toyeeb" runOnChange="true">
          <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
-         <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"
+         <sqlFile path="retrospective_related/forms/htmlformentry/htmlformentry_html_form.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -260,7 +262,7 @@
     
      <changeSet id="2021042894218" author="Toyeeb" runOnChange="true">
          <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
-         <sqlFile path="program/program.sql"
+         <sqlFile path="retrospective_related/program/program.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -292,7 +294,7 @@
          <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
      <changeSet id="20210506164130" author="Toyeeb" runOnChange="true">
-         <sqlFile path="forms/forms/form_update.sql"
+         <sqlFile path="retrospective_related/forms/forms/form_update.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -365,7 +367,7 @@
 
     <changeSet id="2021080209061" author="Melody" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-        <sqlFile path="apps/dashboardmodification.sql"
+        <sqlFile path="retrospective_related/apps/dashboardmodification.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -375,7 +377,7 @@
 
     <changeSet id="patient_identifier_types_020920211640" author="Toyeeb" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-        <sqlFile path="patient_identifier_types/patient_identifier_types.sql"
+        <sqlFile path="retrospective_related/patient_identifier_types/patient_identifier_types.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -385,7 +387,7 @@
 
     <changeSet author="Toyeeb" id="070920211233000000" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-        <sqlFile path="forms/forms/form_resource.sql"
+        <sqlFile path="retrospective_related/forms/forms/form_resource.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -395,7 +397,7 @@
 
     <changeSet author="Toyeeb" id="0809202119110000" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
-        <sqlFile path="concepts/20210303/concept_update.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept_update.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -416,7 +418,7 @@
 	<changeSet id="concept_set_20211117162000" author="Toyeeb" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
 
-        <sqlFile path="concepts/20210303/concept_set.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept_set.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"
@@ -428,7 +430,7 @@
     <changeSet id="concept_numeric_202201181411" author="Toyeeb" runOnChange="true">
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
 
-        <sqlFile path="concepts/20210303/concept_numeric.sql"
+        <sqlFile path="retrospective_related/concepts/20210303/concept_numeric.sql"
                  stripComments="true"
                  splitStatements="true"
                  encoding="UTF-8"

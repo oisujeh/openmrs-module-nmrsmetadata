@@ -1,0 +1,316 @@
+<htmlform formUuid="8191c83b-2bee-4b50-8f15-bac832e0a2c7" formName="Client Referral Form" formEncounterType="9462d434-8008-47d8-8531-e98e6e3897ae" formVersion="2018">
+    <macros>
+        paperFormId = (Fill this in)
+        headerColor =#2f1c55
+        fontOnHeaderColor = white
+    </macros>
+    <style>
+        .section {
+        border: 1px solid $headerColor;
+        padding: 2px;
+        text-align: left;
+        margin-bottom: 1em;
+        }
+        .sectionHeader {
+        background-color: #2f1c55;
+        color: white;
+        /* display: block; */
+        padding: 2px;
+        font-weight: bold;
+        }
+        table tr:nth-child(even) {
+        background: #ffffff;
+        }
+        .alnright{
+        text-align: right;
+        color:#000000;
+        width: 25%;
+        }
+        .alnright_s{
+        text-align: right;
+        color:#000000;
+        width: 13%;
+        }
+        .alnleft_s{
+        text-align: left;
+        color:#000000;
+        width: 13%;
+        }
+		.alnleft_f{
+        text-align: left;
+        color:#000000;
+        width: 20%;
+        }
+        .alnleft{
+        text-align: left;
+        color:#000000;
+        width: 25%;
+        }
+        td {
+        border: none;
+        }
+        table th, table td {
+        padding: 5px 10px;
+        border: None;
+        }
+        .legend_style {
+        max-width: 35%;
+        background: #FAFAFA;
+        margin: 0px left;
+        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+        border-radius: 2px;
+        border: 1px solid #305a72;
+        border-bottom-left-radius: 2px;
+        text-transform:initial;
+
+        }
+        form fieldset, .form fieldset {
+        min-width: 98%;
+        border: none;
+        border-top: 1px solid #305a72;
+
+        }
+        table th, table td {
+        padding: 5px 10px;
+        /* border: 1px solid #DDD; */
+        }
+        table tr {
+        border: None;
+        }
+        ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
+        padding: 2px 10px;
+        }
+        form select, .form select {
+        max-width: 200px;
+        min-width: 150px;
+        }
+        .standard {
+        max-width: 200px;
+        min-width: 150px;
+        }
+        body {
+        font-family: "OpenSans", Arial, sans-serif;
+        color: #363463;
+        font-size: 14px;
+        }
+    </style>
+   
+    <table style="margin-bottom: 20px;">
+        <thead>
+            <tr><th  style="text-align: center">Client Referral Form</th></tr>
+        </thead>
+    </table>
+          <table class="table" width="100%">
+         
+
+            <tr>                
+               		<td class="alnleft_s">Unit/Department Referred from</td>
+                <td class="alnleft_s">
+                    <obs conceptId="166023" required="true" />
+                </td>
+            </tr>
+            
+            <tr>
+                  <td class="alnleft_s">Name of referring organization</td>
+                <td class="alnleft_s">
+                    <obs conceptId="166014" required="true" />
+                </td>
+               
+            </tr>
+            
+            <tr>
+                <td class="alnleft_s">Address of  referring organization</td>
+                <td class="alnleft_s">
+                    <obs conceptId="161103" />
+                </td>  
+            </tr>
+            
+            <tr>
+               <td class="alnleft_s">Phone number of referring organization</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165487" />
+                </td>  
+            </tr>
+            
+            <tr>
+              <td class="alnleft_s">Name of person referring/Contact person</td>
+                <td class="alnleft_s">
+                    <obs conceptId="161103" />
+                </td>  
+            </tr>
+          </table>
+            <section></section>
+        <table class="table" width="100%">
+           <tr>               
+                <td class="alnleft_s">Unit/Department Referred to</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165483" required="true" />
+                </td>
+           </tr>
+           
+           <tr>
+               <td class="alnleft_s">Name of receiving organization</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165508" required="true" />
+                </td>  
+           </tr>
+           
+                   <tr>
+                 <td class="alnleft_s">Address of  receiving organization</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165485" />
+                 </td>
+              </tr>
+           
+           <tr>
+               <td class="alnleft_s">Phone number of receiving organization</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165486" />
+                </td>  
+           </tr>
+           
+              <tr>
+                 <td class="alnleft_s">Name of contact person</td>
+                <td class="alnleft_s">
+                    <obs conceptId="165484" />
+                </td> 
+               </tr>
+             
+
+               <tr>
+                  <td class="alnleft_s">Comments</td>
+                <td class="alnleft_s">
+                    <obs rows="3" conceptId="166013" />
+                </td>   
+  
+               </tr>
+               
+        </table>
+       
+        <fieldset>
+          <legend class="legend_style">Services Needed</legend>
+          <table class="table" width="100%" >
+              <tr>
+                   <td style="width:25%" class="alnVertical">
+                     Community Pharmacy <obs conceptId="165501" answerConceptId="166134" answerLabel=""/><br/>
+                     Community ART <obs  conceptId="165501" answerConceptId="166135"  answerLabel=""/><br/>
+                     OTZ Program <obs conceptId="165501" answerConceptId="166159"  answerLabel="" /><br/> 
+                         Oncology
+                    <obs conceptId="165501" answerConceptId="165497" answerLabel=""/>
+                    <br/>
+                     Pharmacy
+                    <obs conceptId="165501" answerConceptId="1744" answerLabel=""/>
+                    <br/>
+                    
+                    
+                    
+                  </td>
+                  
+                  <td style="width:25%" class="alnVertical">  
+                      Food Support
+                    <obs conceptId="165501" answerConceptId="165492" answerLabel=""/>
+                    <br/>     
+                     Phychosocial Support
+                    <obs conceptId="165501" answerConceptId="5490" answerLabel=""/>
+                    <br/>
+                        Education / Schooling
+                    <obs conceptId="165501" answerConceptId="165491" answerLabel=""/>
+                    <br/>
+                     Nutrition Counselling
+                    <obs conceptId="165501" answerConceptId="165123" answerLabel=""/>
+                    <br/>
+                      Antiretroviral Theraphy
+                    <obs conceptId="165501" answerConceptId="1610" answerLabel=""/>
+                    <br/>
+                     Financial
+                    <obs conceptId="165501" answerConceptId="162717" answerLabel=""/>
+                    <br/> 
+                     Adherence counselling 
+                    <obs conceptId="165501" answerConceptId="5488" answerLabel=""/>
+                    <br/>       
+                      
+                    
+                    
+                    
+                     
+                  </td>
+                  
+                  
+                  <td style="width:25%" class="alnVertical">
+                     Child Care
+                     <obs conceptId="165501" answerConceptId="165489" answerLabel=""/>
+                    <br/>
+                      PLHIV Support
+                    <obs conceptId="165501" answerConceptId="165458" answerLabel=""/>
+                    <br/>
+                       STI Services
+                    <obs conceptId="165501" answerConceptId="163559" answerLabel=""/>
+                     PEP Services
+                    <obs conceptId="165501" answerConceptId="165496" answerLabel=""/>
+                    <br/>
+                        Clinical Care
+                    <obs conceptId="165501" answerConceptId="165490" answerLabel=""/>
+                    
+                    
+                    
+                   </td>
+                   <td style="width:25%" class="alnVertical">
+                     
+                     Spiritual Support
+                    <obs conceptId="165501" answerConceptId="165042" answerLabel=""/>
+                    <br/>
+                     HIV Testing Services
+                    <obs conceptId="165501" answerConceptId="1370" answerLabel=""/>
+                      Tuberculosis Services
+                    <obs conceptId="165501" answerConceptId="5487" answerLabel=""/>
+                    <br/>
+                      OB/GYN Services
+                    <obs conceptId="165501" answerConceptId="165495" answerLabel=""/>
+                     Legal Support
+                    <obs conceptId="165501" answerConceptId="165494" answerLabel=""/>
+                    <br/>
+                       Home Based Care
+                    <obs conceptId="165501" answerConceptId="165493" answerLabel=""/>
+                        <br/>
+                    Family Planning
+                    <obs conceptId="165501" answerConceptId="5483" answerLabel=""/>
+                    <br/> 
+                      Social Services
+                    <obs conceptId="165501" answerConceptId="5486" answerLabel=""/>
+                  
+                   </td>
+                 
+       
+                 
+              </tr> 
+              <tr>                   
+                <td class="alnleft_s">
+                    Others Specify
+                    <obs conceptId="165912" />
+                </td>
+              </tr>                           
+          </table>  
+          
+        </fieldset> 
+
+ <br/>
+
+   
+   
+	<fieldset>
+	<legend class="legend_style">Signature and date</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft">Completed by:</td>
+                <td class="alnleft"><encounterProvider default="currentUser" /></td>
+                <td class="alnleft">Date:</td>
+                <td class="alnleft"><encounterDate default="now" showTime="false" allowFutureDates="false"/></td>
+            </tr>
+        </table>
+    </fieldset>
+    <submit/>
+
+</htmlform>
