@@ -17,13 +17,13 @@ import com.google.gson.Gson;
 import org.apache.commons.lang3.Range;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.Concept;
-import org.openmrs.Obs;
+import org.openmrs.*;
 import org.openmrs.api.ObsService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appframework.context.AppContextModel;
 import org.openmrs.module.appframework.service.AppFrameworkService;
 import org.openmrs.module.appui.UiSessionContext;
+import org.openmrs.module.nmrsmetadata.dbmanager.NdrDBManager;
 import org.openmrs.module.nmrsmetadata.model.RecencyResponse;
 import org.openmrs.module.referenceapplication.ReferenceApplicationConstants;
 import org.openmrs.ui.framework.annotation.SpringBean;
@@ -59,6 +59,8 @@ public class CustomHomeFragmentController {
 	String endDate1 = "";
 	String quaterStatus="";
 	Date startDate = null, endDate = null;
+	List<EncounterType> encounterTypes = new ArrayList<>();
+	List<EncounterType> encounterTypes2 = new ArrayList<>();
 	
 	protected final Log log = LogFactory.getLog(getClass());
 	
@@ -84,12 +86,11 @@ public class CustomHomeFragmentController {
 	}
 	
 	public String getRecencyCount(@SpringBean("obsService") ObsService service) {
+		NdrDBManager ndr = new NdrDBManager();
 		questions.add(new Concept(166213));
 		answers.add(new Concept(165852));
 
 		String response = "";
-//		List<Obs> obsList = service.getObservations(null, null, null, null, null, null, null, null, null,
-//		    null, null, false);
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd", Locale.ENGLISH);
 		calculateQuarterDates();
@@ -100,24 +101,38 @@ public class CustomHomeFragmentController {
 		catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		//		Gson gson = new Gson();
-		//		RecencyResponse recencyResponse = new RecencyResponse();
-		
-//		rovingObs = new Obs();
-//		int totalCount = 0;
-//		rovingObs = extractObs(166214, obsList);
-//		if (rovingObs != null && rovingObs.getValueCoded() != null) {
-//			String recentValue = getMappedAnswerValue(rovingObs.getValueCoded().getConceptId());
-//
-//			if (recentValue.equals("166236")) {
-//				totalCount++;
-//			}
-//		}
 
-		questions_rrt.add(new Concept(166892));
-		int total_rrt = service.getObservationCount(null,null,questions_rrt,null,null,null,null,startDate,endDate, false);
-		int total_rtri = service.getObservationCount(null,null,questions,answers,null,null,null,startDate,endDate,false);
+
+//		encounterTypes.add(new EncounterType(39));
+//		List <Encounter> listEncounter =  Context.getEncounterService().getEncounters(null, null, null, null, null, encounterTypes, null,null, null, false);
+//
+//		questions_rrt.add(new Concept(166210));
+//		int total_rrt = service.getObservationCount(null,listEncounter,questions_rrt,null,null,null,null,startDate,endDate, false);
+//
+//		encounterTypes2.add(new EncounterType(20));
+//		List <Encounter> listEncounter2 =  Context.getEncounterService().getEncounters(null, null, null, null, null, encounterTypes2, null,null, null, false);
+//		int total_rtri = service.getObservationCount(null,listEncounter2,questions,answers,null,null,null,startDate,endDate,false);
+		int total_rtri =0,total_rrt=0;
+		try {
+			ndr.openConnection();
+			 total_rtri = ndr.getTotalRecentCasesByQtr(startDate1,endDate1);
+			ndr.closeConnection();
+		}
+		catch (Exception ex) {
+			System.out.println(ex);
+		}
+
+		try {
+			ndr.openConnection();
+			total_rrt = ndr.getTotalRRByQtr(startDate1,endDate1);
+			ndr.closeConnection();
+		}
+		catch (Exception ex) {
+			System.out.println(ex);
+		}
+
+
+
 		recencyResponse.setTotalCount(total_rtri-total_rrt);
 		recencyResponse.setQuaterStatus(quaterStatus);
 		response = gson.toJson(recencyResponse);
