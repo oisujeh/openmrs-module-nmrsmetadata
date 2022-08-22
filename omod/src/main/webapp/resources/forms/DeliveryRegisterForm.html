@@ -198,6 +198,61 @@
                         </controls>
                     </obs>
                 </td>
+                
+                
+                <td>Age Range:</td>
+                <td>
+                    <lookup complexExpression="
+                #if( $patient.age &gt; 50 || $patient.age == 50)
+                    50+ yrs
+                #end
+                #if($patient.age &lt; 50)
+                #if($patient.age &gt; 45 || $patient.age == 45)
+                    45 - 49 yrs
+                #end
+                #end
+                #if($patient.age &lt; 45)
+                #if($patient.age &gt; 40 || $patient.age == 40)
+                40 - 44 yrs
+                #end
+                #end
+                #if($patient.age &lt; 40)
+                #if($patient.age &gt; 35 || $patient.age == 35)
+                    35 - 39 yrs
+                #end
+                #end
+                #if($patient.age &lt; 35)
+                #if($patient.age &gt; 30 || $patient.age == 30)
+                    30 - 34 yrs
+                #end
+                #end
+                #if($patient.age &lt; 30)
+                #if($patient.age &gt; 25 || $patient.age == 25)
+                    25 - 29 yrs
+                #end
+                #end
+                #if($patient.age &lt; 25)
+                #if($patient.age &gt; 20 || $patient.age == 20)
+                20 - 24 yrs
+                #end
+                #end
+                #if($patient.age &lt; 20)
+                #if($patient.age &gt; 15 || $patient.age == 15)
+                    15 - 19 yrs
+                #end
+                #end
+                #if($patient.age &lt; 15)
+                #if($patient.age &gt; 10 || $patient.age == 10)
+                    10 - 14 yrs
+                #end
+                #end
+                #if($patient.age &lt; 10)
+                &lt; 10 yrs
+                #end
+                    "/>
+
+                </td>
+                
                 <td id="labour" class="alnright_s">
                     <table>
                         <tr>

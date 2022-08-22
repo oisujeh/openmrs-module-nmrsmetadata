@@ -136,6 +136,18 @@
                 <td><obs conceptId="165940"/></td>
             </tr>
             <tr>
+                <td class="alnright">Mother's Address:</td>
+                <td class="value"><lookup complexExpression="#foreach ( $relationship in $relationshipList )
+        #if( $relationship.relationshipType.bIsToA == 'Child' )
+        #if( !($relationship.personA.patientId == $patient.patientId ))
+        #if( $relationship.personA.gender == 'F' )
+        $relationship.personA.personAddress.address2
+        #end
+        #end
+        #end
+        #end "/></td>
+            </tr>
+            <tr>
                 <td class="alnright_s">Hepatitis B Status:</td>
                 <td  class="value"><lookup complexExpression="$fn.latestObs(159430).valueCoded.name"/></td>
                 <td class="alnright_s">Hepatitis c Status:</td>
