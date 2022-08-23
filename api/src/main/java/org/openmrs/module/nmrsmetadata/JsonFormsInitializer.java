@@ -5,18 +5,14 @@ import org.apache.commons.logging.LogFactory;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openmrs.Form;
 import org.openmrs.FormResource;
-import org.openmrs.api.DatatypeService;
 import org.openmrs.api.FormService;
 import org.openmrs.api.context.Context;
-import org.openmrs.api.impl.DatatypeServiceImpl;
-import org.openmrs.module.htmlformentry.HtmlFormEntryService;
-import org.openmrs.module.htmlformentryui.HtmlFormUtil;
 import org.openmrs.ui.framework.resource.ResourceFactory;
 import org.openmrs.ui.framework.resource.ResourceProvider;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -46,11 +42,21 @@ public class JsonFormsInitializer implements Initializer {
 				// Save form
 				try {
 					String json = resourceFactory.getResourceAsString(providerName, formPath);
+					
 					if (json != null) {
 						Map valueReference = new ObjectMapper().readValue(json, Map.class);
+						
 						Form form = formService.getFormByUuid((String) valueReference.get("uuid"));
+						
 						if (form != null) {
-							FormResource formResource = formService.getFormResource(form, form.getName());
+							Collection<FormResource> formResource2 = formService.getFormResourcesForForm(form);
+							
+							FormResource formResourceL = new FormResource();
+							for (FormResource e : formResource2)
+								formResourceL = e;
+							
+							FormResource formResource = formService.getFormResource(formResourceL.getFormResourceId());
+							
 							if (formResource == null) {
 								formResource = new FormResource();
 								formResource.setForm(form);
