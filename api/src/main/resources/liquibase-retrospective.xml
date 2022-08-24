@@ -116,6 +116,11 @@
     </changeSet>
 
     <changeSet id="add_pmtcthts_encounter_type_202101050223" author="wande">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM encounter_type WHERE uuid='136e629b-78b6-4cdb-b76a-01c598d6a173';
+            </sqlCheck>
+        </preConditions>        
         <insert tableName="encounter_type">
             <column name="name" value="PMTCT HIV Testing"/>
             <column name="description" value="PMTCT HIV Testing"/>
@@ -440,6 +445,18 @@
     </changeSet>
     
  
-    
+    <changeSet id="consolidated" author="Toyeeb">
+		<sql>
+        <![CDATA[
+        	SET FOREIGN_KEY_CHECKS = 0;
+			CREATE TABLE IF NOT EXISTS `consolidated` (
+			  `id` int(11) NOT NULL AUTO_INCREMENT,
+			  `test` varchar(5) NOT NULL,
+			  PRIMARY KEY (`id`)
+			);
+			SET FOREIGN_KEY_CHECKS = 1;
+		]]>
+        </sql>
+	</changeSet>
    
 </databaseChangeLog>
