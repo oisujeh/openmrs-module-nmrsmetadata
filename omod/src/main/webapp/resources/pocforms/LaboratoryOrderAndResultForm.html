@@ -849,21 +849,25 @@ setValue('viralLoadResultTest.value', 40);
 
 var $ = jQuery;
 $(document).ready(function(){
-getField('viralLoadResultTest.value')[0].disabled = 'disabled';
+if(getValue('AlphanumericViralLoadResult.value') == 166426){
+getField('viralLoadResultTest.value')[0].readOnly = false;
+}else{
+getField('viralLoadResultTest.value')[0].readOnly = true;
+}
 });
 jQuery(function() {
 getField('AlphanumericViralLoadResult.value').change(function() {
 var viralLoadInput = getValue('AlphanumericViralLoadResult.value');
-getField('viralLoadResultTest.value')[0].disabled = 'disabled';
+getField('viralLoadResultTest.value')[0].readOnly = true;
 
 if(viralLoadInput == 166426){
-getField('viralLoadResultTest.value')[0].disabled = '';
+getField('viralLoadResultTest.value')[0].readOnly = false;
 getField('viralLoadResultTest.value')[0].placeholder = 'Please enter interger value only';
 
-//check if value entered i greater than 10 000 000, else return false with prompt
+//check if value entered is greater than 10 000 000, else return false with prompt
 
 }else{
-getField('viralLoadResultTest.value')[0].disabled = 'disabled';
+getField('viralLoadResultTest.value')[0].readOnly = true;
 //getField('viralLoadResultTest.value')[0].required = '';
 }
 if (viralLoadInput == 166407) {
