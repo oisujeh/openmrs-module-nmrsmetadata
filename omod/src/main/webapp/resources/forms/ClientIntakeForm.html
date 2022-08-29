@@ -1291,6 +1291,16 @@
 
                 });
             }
+            $('#recency_number_value').keypress(function (e) {
+                var regex = new RegExp("^[a-zA-Z0-9]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
         });
 
 
@@ -1583,11 +1593,11 @@
             </td>
             <td class="alnleft_s">Type of Session</td>
             <td class="alnleft_s">
-                <obs answerConceptIds="165792,165789,165885" answerLabels="Individual, Couple, Previously self tested" conceptId="165793" />
+                <obs answerConceptIds="165792,165789,165885" answerLabels="Individual, Couple, Previously self tested" conceptId="165793" required="true"/>
             </td>
             <td class="alnleft_s">Referred from</td>
             <td class="alnleft_s">
-                <obs answerConceptIds="978,160529,160546,5271,160542,161629,165788,5622" answerLabels="Self,TB,STI,FP,OPD,Ward,Blood Bank,Others" conceptId="165480" />
+                <obs answerConceptIds="978,160529,160546,5271,160542,161629,165788,5622" answerLabels="Self,TB,STI,FP,OPD,Ward,Blood Bank,Others" conceptId="165480" required="true"/>
             </td>
         </tr>
         <tr id="marital_setting">
@@ -2500,6 +2510,7 @@
                     return false;
                 }
             }
+
 
             var tb_optout = getValue('tb_optout.value');
 
