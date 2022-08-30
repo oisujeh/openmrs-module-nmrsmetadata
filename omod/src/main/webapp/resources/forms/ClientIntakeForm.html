@@ -1618,7 +1618,7 @@
 
             <td class="alnleft_s" id="no_children_label">No. of own children &lt; 5</td>
             <td class="alnleft_s" id="no_children">
-                <obs conceptId="160312" />
+                <obs conceptId="160312" id="no_children_less_than_5" />
             </td>
             <td class="alnleft_s" id="no_wives_label">Numbers of wives/Co-wives</td>
             <td class="alnleft_s" id="no_wives">
@@ -1827,6 +1827,24 @@
             </tr>
         </table>
     </fieldset><br/>
+    <fieldset id="cd4_test">
+        <legend class="legend_style">Baseline CD4 Test Results</legend>
+        <table class="table" width="100%">
+            <tr>
+                <td class="alnleft">
+                    <obs conceptId="165731" style="checkbox" value="false" />CD4+ cell count (cells/mm3)</td>
+                <td>
+                    <obs conceptId="5497" />
+                </td>
+                <td class="alnleft">
+                    <obs conceptId="165748" style="checkbox" value="false" />CD4 (%)</td>
+                <td>
+                    <obs conceptId="730" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <br/>
     <fieldset id="hiv_result">
         <legend class="legend_style">HIV Test Results</legend>
         <table class="table" width="100%">
@@ -2511,6 +2529,14 @@
                 }
             }
 
+            var no_children_less_than_5 = getValue('no_children_less_than_5.value');
+
+            if(no_children_less_than_5){
+                if(no_children_less_than_5 &lt; 0){
+                    getField('no_children_less_than_5.error').html("Number of children less than 5 years can not be a negative number.").show();
+                    return false;
+                }
+            }
 
             var tb_optout = getValue('tb_optout.value');
 
@@ -2675,10 +2701,11 @@
                 var testVal = new Date(getValue('hiv_test_date.value'));
                 var rctd = new Date(getValue('recency_test_date.value'));
 
-                if (getField('recency_test_date.error') != null &amp; testVal > rctd) {
-                    getField('recency_test_date.error').html('RecencyTest Date cannot be earlier than Screening Test Date').show();
-                    return false;
-                }
+                if (getField('recency_test_date.error') != null)
+                    if(testVal > rctd) {
+                        getField('recency_test_date.error').html('RecencyTest Date cannot be earlier than Screening Test Date').show();
+                        return false;
+                    }
 
                 var confirmVal = new Date(getValue('confirm_test_date.value'));
                 var visitVal = new Date(getValue('date_of_visit.value'));
