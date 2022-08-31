@@ -1293,11 +1293,10 @@
             }
             $('#recency_number_value').keypress(function (e) {
                 var regex = new RegExp("^[a-zA-Z0-9]+$");
-                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                var str = String.fromCharCode(!e.charCode ? e.key : e.charCode);
                 if (regex.test(str)) {
                     return true;
                 }
-
                 e.preventDefault();
                 return false;
             });
@@ -1504,7 +1503,15 @@
                     }
                 });
             }
-
+            $('#recency_number_value').keypress(function (e) {
+                var regex = new RegExp("^[a-zA-Z0-9]+$");
+                var str = String.fromCharCode(!e.charCode ? e.key : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+                e.preventDefault();
+                return false;
+            });
         });
     </script>
 
@@ -1622,7 +1629,7 @@
             </td>
             <td class="alnleft_s" id="no_wives_label">Numbers of wives/Co-wives</td>
             <td class="alnleft_s" id="no_wives">
-                <obs conceptId="5557" />
+                <obs conceptId="5557" id="no_wives_obs" />
             </td>
         </tr>
         <tr>
@@ -1636,10 +1643,10 @@
             </td>
             <td class="alnleft_s" id="index_type_label">Index Type</td>
             <td class="alnleft_s" id="index_type_name">
-                <obs answerConceptIds="165796,165797,165795" answerLabels="Biological,Sexual,Social (needle sharing)" conceptId="165798" /> </td>
+                <obs answerConceptIds="165796,165797,165795" answerLabels="Biological,Sexual,Social (needle sharing)" conceptId="165798" id="index_type_name_obs" /> </td>
             <td class="alnleft_s" id="index_id_label">Index Client ID</td>
             <td class="alnleft_s" id="index_id_text">
-                <obs conceptId="165859" /> </td>
+                <obs conceptId="165859" id="index_client_id_obs" /> </td>
         </tr>
         <tr>
             <td class="alnleft_s">Is client retesting for result verification?</td>
@@ -2533,7 +2540,37 @@
 
             if(no_children_less_than_5){
                 if(no_children_less_than_5 &lt; 0){
-                    getField('no_children_less_than_5.error').html("Number of children less than 5 years can not be a negative number.").show();
+                    getField('no_children_less_than_5.error').html("Number of children less than 5 years cannot be a negative number.").show();
+                    return false;
+                }
+            }
+            if(no_children_less_than_5){
+                if(no_children_less_than_5 &gt; 19){
+                    getField('no_children_less_than_5.error').html("Number must be between 1-20.").show();
+                    return false;
+                }
+            }
+
+            var no_wives_obs = getValue('no_wives_obs.value');
+            if(no_wives_obs &lt; 0){
+                getField('no_wives_obs.error').html('Number of wives cannot be a negative number').show();
+                return false;
+            }
+            if(no_wives_obs &gt; 19){
+                getField('no_wives_obs.error').html('Number must be between 1-20').show();
+                return false;
+            }
+
+            var index = getValue('index.value');
+            var index_type_name_obs = getValue('index_type_name_obs.value');
+            var index_client_id_obs = getValue('index_client_id_obs.value');
+            if (index === "1065") {
+                if (index_type_name_obs === "") {
+                    getField('index_type_name_obs.error').html('Index Type cannot be empty').show();
+                    return false;
+                }
+                if (index_client_id_obs === "") {
+                    getField('index_client_id_obs.error').html('Index Client ID cannot be empty').show();
                     return false;
                 }
             }
