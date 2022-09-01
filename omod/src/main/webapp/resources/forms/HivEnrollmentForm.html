@@ -115,9 +115,35 @@
     </style>
     <script type="text/javascript">
         beforeSubmit.push(function () {
+            var dob = '<lookup expression="patient.birthdate" />';
             var val_comfirmed = getValue('date_confirmed_hiv.value');
             var val_enrolled = getValue('date_enrolled.value');
             var var_art_start_date = getValue('art_start_date.value');
+            var prior_art = getValue('prior_arv.value');
+
+
+            if(prior_art == 165238 || prior_art == 165239){
+                if(!var_art_start_date){
+                    getField('art_start_date.error').html('ART start date cannot be empty').show();
+                    return false;
+                }
+            }
+
+            if(new Date(art_start_date) &gt; new Date()){
+                getField('art_start_date.error').html('ART start date cannot have a future date').show();
+                return false;
+            }
+
+            if(new Date(var_art_start_date).getTime() &lt; new Date(dob).getTime()){
+                getField('art_start_date.error').html('ART start date cannot be earlier than the Date of Birth').show();
+                return false;
+            }
+
+            if(new Date(art_start_date) &lt; new Date(val_comfirmed)){
+                getField('art_start_date.error').html('ART start date cannot be earlier than HIV confirmed date').show();
+                return false;
+            }
+
             if (val_comfirmed > val_enrolled) {
                 getField('date_confirmed_hiv.error').html('Date enrolled has to be later than HIV confirmed date').show();
                 return false;
@@ -266,7 +292,7 @@
                     <enrollInProgram programId="1" showDate="false" />
                 </td>
                 <td class="alnleft_s">Date Confirmed HIV+</td>
-                <td class="alnleft_s"><obs id="date_confirmed_hiv" conceptId="160554" /></td>
+                <td class="alnleft_s"><obs id="date_confirmed_hiv" conceptId="160554" required="true"/></td>
             </tr>
             <tr>
                 <td class="alnleft_s">Mode of HIV Test</td>
