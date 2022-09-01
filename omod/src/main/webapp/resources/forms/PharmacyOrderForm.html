@@ -125,6 +125,18 @@
         // checking that line, age, regimen and duration are filled while allowing for OI flexibility.
 
         beforeSubmit.push(function() {
+            var artstartdate = '<lookup expression="fn.latestObs(&#39;159599&#39;).valueDatetime" />';
+            console.log("artstartdate "+artstartdate);
+            var enconterdate =  new Date(getValue('encounterDate.value'));
+            console.log("enconterdate "+enconterdate);
+            var timeDiff =  enconterdate.getTime() - new Date(artstartdate).getTime();
+            var daysDiff =  timeDiff / (1000  * 3600 * 24);
+
+            if(daysDiff &lt; 0) {
+                getField('encounterDate.error').html("Encounter date "+enconterdate.getDay()+"/"+enconterdate.getMonth()+"/"+enconterdate.getFullYear()+" cannot be before patient\'s ART start date "+artstartdate+".").show();
+                //alert("Encounter date "+enconterdate.getDay()+"/"+enconterdate.getMonth()+"/"+enconterdate.getFullYear()+" cannot be before patient's ART start date "+artstartdate+".")
+                return false;
+            }
 
             if (((getValue('oi_drug.value') != "") || (getValue('tb_drug.value') != "")) &amp;&amp; ((getValue('TreatmentAgeCategory.value') == ""))) {
 
@@ -213,6 +225,7 @@
         var $ = jQuery;
         $(document).ready(function() {
             $('.hasDatepicker').attr('readonly', true)
+
         });
     </script>
 
@@ -379,7 +392,7 @@
             <td></td>
             <td style="alnright">
                 <label>Visit Date (Dispensed Date):</label>
-                <encounterDate id="encounterDate" />
+                <encounterDate id="encounterDate" allowFutureDates="false" />
             </td>
         </tr>
     </table>
