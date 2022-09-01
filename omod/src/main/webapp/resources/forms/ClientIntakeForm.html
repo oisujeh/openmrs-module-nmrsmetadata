@@ -750,6 +750,7 @@
                     var today = new Date();
                     var testVal = new Date(getValue('hiv_test_date.value'));
                     var rctd = new Date(getValue('recency_test_date.value'));
+                    var recencyProgramDate = new Date('2019, 01, 01');
 
                     if (rctd > today) {
                         const field = getField('recency_test_date.error');
@@ -763,10 +764,15 @@
                         if (field != null) {
                             getField('recency_test_date.error').html('Recency Test Date cannot be earlier than Screening Test Date').show();
                         }
-
                     }
 
+                    if (recencyProgramDate > rctd) {
+                        const field = getField('recency_test_date.error');
+                        if (field != null) {
+                            getField('recency_test_date.error').html('Recency Test Date cannot be earlier than 01/01/2019').show();
+                        }
 
+                    }
                 });
             }
         });
@@ -2518,6 +2524,10 @@
         // document.getElementById("date_of_visit").addEventListener("click",function (){
         //
         // });
+        /*var artProgramStartDate = '<lookup expression="fn.globalProperty(&#39;art.program.start.date&#39;, &#39;01/01/2019&#39;)"/>';
+        var recency_test_date = getValue('recency_test_date.value');
+        console.log(artProgramStartDate);
+        console.log(recency_test_date);*/
 
         beforeSubmit.push(function() {
             var dob = '<lookup expression="patient.birthdate" />';
@@ -2573,6 +2583,8 @@
                     getField('index_client_id_obs.error').html('Index Client ID cannot be empty').show();
                     return false;
                 }
+            }else{
+                return true;
             }
 
             var tb_optout = getValue('tb_optout.value');
@@ -2587,6 +2599,7 @@
             var final_recency_value = getValue('final_recency_value.value');
             var recency_test_date = getValue('recency_test_date.value');
             var test_name_dropdown = getValue('test_name_dropdown.value');
+            //var artProgramStartDate = '<lookup expression="fn.globalProperty(&#39;art.program.start.date&#39;, &#39;01/01/2019&#39;)"/>';
             //var vl_result_obs = getValue('vl_result_obs.value');
             //var longterm_line = getValue('longterm_line.value');
 
@@ -2596,6 +2609,7 @@
                 //var recencyNum= getValue('recency_number_value.value');
 
                 //var recencyNum= $('input:text', '#recency_number_value').eq(0).val();
+                //var artProgramStartDate = '<lookup expression="fn.globalProperty(&#39;art.program.start.date&#39;, &#39;01/01/2019&#39;)"/>';
                 var recencyVer = getValue('recency_number_verif_value.value');
 
                 var patientIdentifier_recency = $('input:text', '#recency_number_value').eq(0).val();
@@ -2626,6 +2640,11 @@
                     getField('test_name_dropdown.error').html('Recency Test Name cannot be empty').show();
                     return false;
                 }
+
+                /*if (recency_test_date &lt; artProgramStartDate) {
+                    getField('recency_test_date.error').html('Recency date cannot be later than 01/01/2019').show();
+                    return false;
+                }*/
 
                 if (recency_test_date === "") {
                     getField('recency_test_date.error').html('Recency Test Date cannot be empty').show();
