@@ -126,6 +126,20 @@
 
         beforeSubmit.push(function() {
 
+            var pregnancy_status = getValue("pregnancy_status.value");
+            var gender = '<lookup expression="patient.gender" />';
+            var dob = '<lookup expression="patient.birthdate" />';
+            var now = new Date();
+            var timeDiff =  now.getTime() - new Date(dob).getTime();
+            var daysDiff =  timeDiff / (1000 * 3600 * 24);
+            if((daysDiff / 365) &gt;= 10){
+                if(gender === "F")
+                    if(pregnancy_status == ""){
+                        getField('pregnancy_status.error').html("Pregnancy status is required.").show();
+                        return false;
+                        }
+            }
+
             if (((getValue('oi_drug.value') != "") || (getValue('tb_drug.value') != "")) &amp;&amp; ((getValue('TreatmentAgeCategory.value') == ""))) {
 
                 if (confirm('ARV entries are empty!!!  Sure you want to submit OI entries only?')) {
@@ -398,7 +412,7 @@
                 <includeIf velocityTest="$patient.gender == 'F' ">
                     <td>
                         <label>Pregnancy Status</label>
-                        <obs conceptId="165050" answerLabel="" />
+                        <obs conceptId="165050" answerLabel="" id="pregnancy_status"/>
                     </td>
                 </includeIf>
                 <td>
@@ -482,7 +496,6 @@
                     <obs conceptId="165836" answerLabel="" />
                 </td>
                 <td>
-
                     <label>Adherence counselling offered</label>
                     <obs conceptId="165832" answerLabel="" />
                 </td>
@@ -636,6 +649,7 @@
                     </td>
                     <td>
                         <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage" />
+
                     </td>
                     <td>
                         <obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />

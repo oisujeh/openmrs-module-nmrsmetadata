@@ -1,6 +1,7 @@
 <htmlform formEncounterType="254574ff-2daf-4552-ba47-ca1636ddffa6" formName="Client intake form" formUuid="35cc381b-3b8f-45fa-b9b1-f638d51ad774" formVersion="1.0">
     <macros>
         paperFormId = (Fill this in)t headerColor =#2f1c55 fontOnHeaderColor = white
+        @ARTSTARTDATE@ = art.start.date
     </macros>
     <style>
         .section {
@@ -134,6 +135,8 @@
 
 
     <script type="text/javascript">
+
+
         var $ = jQuery;
         var $j = jQuery;
 
@@ -2220,7 +2223,7 @@
             <tr>
                 <td>Post test counseling done</td>
                 <td>
-                    <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="159382" />
+                    <obs id="post_test_counseling" answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="159382" />
                 </td>
                 <td>Provided with information on FP and dual contraception</td>
                 <td>
@@ -2488,7 +2491,7 @@
 
 
     <fieldset>
-        <legend class="legend_style">Signature and date</legend>
+        <legend class="legend_style">Signature and date: </legend>
         <table class="table" width="100%">
             <tr>
                 <td class="alnleft">Date:</td>
@@ -2508,9 +2511,6 @@
     </fieldset>
     <submit/>
     <script type="text/javascript">
-        // document.getElementById("date_of_visit").addEventListener("click",function (){
-        //
-        // });
 
         beforeSubmit.push(function() {
             var dob = '<lookup expression="patient.birthdate" />';
