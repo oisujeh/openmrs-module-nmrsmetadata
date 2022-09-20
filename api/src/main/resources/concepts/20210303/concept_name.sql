@@ -969,8 +969,12 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES  (167115, 'CBM6 - OSS Community Platforms', 'en', 1, '2022-09-01 12:35:55', 143966, 0, NULL, NULL, NULL, 'ca249d8d-ee9e-426d-ab78-c9f71b7c124c', 'FULLY_SPECIFIED', 1);
 
 
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167116, 'LPA Drugs', 'en', 1, '2022-09-19 16:24:21', 143967, 0, NULL, NULL, NULL, 'a3cd1852-4411-4114-984e-cc800b4ba3c2', 'FULLY_SPECIFIED', 1);
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167117, 'DST Drugs', 'en', 1, '2022-09-19 16:24:48', 143968, 0, NULL, NULL, NULL, 'abbbba64-58b7-4e95-bb59-df16d4eafc59', 'FULLY_SPECIFIED', 1);
 
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167118, 'Aminoglycosides', 'en', 1, '2022-09-19 16:39:08', 143969, 0, NULL, NULL, NULL, '0e7d2ade-06d1-41eb-a411-187f6171c0fc', 'FULLY_SPECIFIED', 1);
 
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167119, 'DST Result Set', 'en', 1, '2022-09-20 13:19:30', 143970, 0, NULL, NULL, NULL, '299eb705-1c52-435f-b22d-d8f1ef3f12ba', 'FULLY_SPECIFIED', 1);
 
 
 
