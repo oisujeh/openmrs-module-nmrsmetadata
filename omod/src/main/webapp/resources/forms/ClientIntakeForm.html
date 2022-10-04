@@ -485,7 +485,8 @@
             setValue('get_total_tb_val.value', total_tb_val);
             if (total_tb_val >= 1) {
                 $j('#tb_action_message').text('test for sputum AFB or refer to TB service');
-            } else {
+            }
+            else {
                 $j('#tb_action_message').text('');
             }
         }
@@ -1746,7 +1747,7 @@
             <tr>
                 <td>Current Cough</td>
                 <td>
-                    <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="143264" id="tb_current_cough" />
+                    <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="143264" id="tb_current_cough" required="true"/>
                 </td>
                 <includeIf velocityTest="$patient.gender == 'F' ">
                     <td>Complaints of vaginal discharge or burning when urinating?</td>
@@ -1759,7 +1760,7 @@
             <tr>
                 <td>Weight Loss</td>
                 <td>
-                    <obs conceptId="832" id="tb_weight_loss" style="no_yes_dropdown" />
+                    <obs conceptId="832" id="tb_weight_loss" style="no_yes_dropdown" required="true"/>
                 </td>
                 <includeIf velocityTest="$patient.gender == 'F' ">
                     <td>Complaints of lower abdominal pains with or without vaginal discharge?
@@ -1772,7 +1773,7 @@
             <tr>
                 <td>Fever</td>
                 <td>
-                    <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="140238" id="tb_fever" />
+                    <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="140238" id="tb_fever" required="true"/>
                 </td>
                 <includeIf velocityTest="$patient.gender == 'M' ">
                     <td>Complaints of urethral discharge or burning when urinating?</td>
@@ -1783,7 +1784,7 @@
             <tr>
                 <td>Night sweats</td>
                 <td>
-                    <obs conceptId="133027" id="tb_night_sweats" style="no_yes_dropdown" />
+                    <obs conceptId="133027" id="tb_night_sweats" style="no_yes_dropdown" required="true"/>
                 </td>
                 <includeIf velocityTest="$patient.gender == 'M' ">
                     <td>Complaints of scrotal swelling and pain</td>
