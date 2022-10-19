@@ -361,7 +361,7 @@ function calBMI(){
 
         <td class="alnright_s">Weight (kg)</td>
         <td>
-            <obs conceptId="5089" id="weight" />
+            <obs conceptId="5089" id="weight"  required="true"/>
         </td>
 
 
@@ -453,7 +453,7 @@ function calBMI(){
             <td class="alnleft_s">TB Status</td>
             <td class="alnleft_s">
                 <obs id="tbstatus" conceptId="1659" answerConceptIds="1660,142177,166042,1661,1662"
-                answerLabels="1. No Signs,2. Presumptive TB,3. IPT, 4. Confirmed TB,5. TB Treatment">
+                answerLabels="1. No Signs,2. Presumptive TB,3. IPT, 4. Confirmed TB,5. TB Treatment"  required="true">
                 <controls>
                     <controls>
                         <when value="1662" thenDisplay="#ipt" />

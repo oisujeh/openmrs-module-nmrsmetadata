@@ -355,6 +355,44 @@
                   </table>
                 </obsgroup>
                 <!--##########-->
+                
+    <fieldset>
+
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Referring Facility LGA: </td>
+                <td class="alnleft_s"><span ><obs conceptId="166536" /></span></td>
+
+                <td class="alnleft_s">Previously On TB 2nd line Drug ? :</td>
+                <td class="alnleft_s" >
+                    <obs   conceptId="166538" answerConceptIds="1065, 1066" answerLabels="Yes, No" id="secondlinedrug">
+                        <controls>
+                            <when value="1065" thenDisplay=".showSecondlineDrugField" />
+                        </controls>
+
+                    </obs>
+                </td>
+
+                <td class="alnleft_s showSecondlineDrugField"> 2nd line drug start date </td>
+                <td class="alnleft_s showSecondlineDrugField"><span ><obs conceptId="166539" /></span></td>
+
+                <td class="alnleft_s">Weight(kg) :</td>
+                <td class="alnleft_s"><span ><obs conceptId="5089" required="true"/></span></td>
+            </tr>
+
+        </table>
+    </fieldset>
+
+    <fieldset>
+
+        <table width="100%">
+            <tr>
+                <td class="alnleft_s">Height(cm): </td>
+                <td class="alnleft_s"><span ><obs conceptId="5090" /></span></td>
+
+                <td class="alnleft_s">Type of Treatment Regimen :</td>
+                <td class="alnleft_s" >
+                    <obs   conceptId="166540" answerConceptIds="166575, 166576,166577,166578" answerLabels="Shorter Regimen(Injectable), Shorter Regimen(BDQ), Individualized(PRE XDR), Individualized(XDR)"><!-- This line will be updated -->
 
 
                 <!-- ##############-->
