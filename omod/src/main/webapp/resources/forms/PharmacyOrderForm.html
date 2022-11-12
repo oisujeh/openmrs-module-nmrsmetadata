@@ -419,7 +419,7 @@
                     <tr>
                         <td>
                             <label>Dispensing Modality</label>
-                            <obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166363" answerLabels="Facility Dispensing, Decentralized Drug Delivery (DDD)">
+                            <obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166363" answerLabels="Facility Based DSD Model, Community Based DSD Models">
                                 <controls>
                                     <when value="166276" thenDisplay="#Facility_Dispensing" />
                                     <when value="166363" thenDisplay="#ddd_Dispensing" />
@@ -435,7 +435,7 @@
                     <tr>
                         <td>
                             <label>Facility Dispensing </label>
-                            <obs conceptId='166276' answerConceptIds="166153,166151,166279" answerLabels="Not Differenciated, Fast Track, Adolecent Clinic" />
+                            <obs conceptId='166276' answerConceptIds="166153,166151,167107,167108,167109,167110,167111,167112,166279" answerLabels="Not Differenciated, Fast Track, Facility ART group HCW led,Facility ART group Support group,Decentralization (Hub and Spoke),After hours,Weekend and Public holidays,Child/Teen/Adolescents club Peer Managed, Adolecent Clinic" />
                         </td>
                     </tr>
                 </table>
@@ -446,7 +446,7 @@
                     <tr>
                         <td>
                             <label>DDD Dispensing </label>
-                            <obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group, Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">
+                            <obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,167113,167114,167115,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group (HCW-led), Community ART Refill Group (PLHIV-led), Adolescent Community ART/ peer-led groups, One Stop Shop (OSS), Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">
                                 <controls>
                                     <when value="5622" thenDisplay="#others_dispensary" />
                                 </controls>
