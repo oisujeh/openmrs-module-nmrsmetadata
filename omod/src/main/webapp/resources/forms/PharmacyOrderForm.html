@@ -304,6 +304,7 @@
     </script>
 
     <script>
+        const isAdult = parseFloat('<lookup expression="patient.getAge()" />') &gt; 14 || (parseFloat('<lookup expression="fn.latestObs(5089).valueNumeric"/>') &gt; 29);
         jQuery(function() {
 
             // MMD Compare with Duration and Quantiy dispensensed
@@ -332,6 +333,165 @@
                 }
             });
         });
+    </script>
+
+    <script type="text/javascript">
+        let mapping = null;
+        var $ = jQuery;
+        $(document).ready(function (){
+            let val = document.querySelectorAll(".drugsSelector")[0].children[0].value;
+            let regId = null; 
+            document.querySelectorAll('.lines').forEach(input => {
+                if(input.children[0].value){
+                    regId =  input.children[0].value;
+                }
+            });
+            if(val) {
+                getDrugs(regId);
+            }else{
+                clearElements();
+            }
+
+            function hideRegimens(){
+                document.querySelector("#ped_first_line").style.display = "none";
+                document.querySelector("#ped_second_line").style.display = "none";
+                document.querySelector("#ped_salvage").style.display = "none";
+                document.querySelector("#adult_first_line").style.display = "none";
+                document.querySelector("#adult_second_line").style.display = "none";
+                document.querySelector("#adult_salvage").style.display = "none";
+            }
+
+            function filterRegimenLine(treatmentCategory){
+                let regimenLine = document.querySelector('#RegimenLine').children[0];
+                let regimenLineValue = regimenLine.value;
+                regimenLine.innerHTML = '<option></option>';
+                
+                if(treatmentCategory == 1528) {
+                    regimenLine.innerHTML += '<option value="164507">Child First Line</option>';
+                    regimenLine.innerHTML += '<option value="164514">Child Second Line</option>';
+                    regimenLine.innerHTML += '<option value="165703">Child Salvage</option>';
+                }
+
+                if(treatmentCategory == 165709) {
+                    regimenLine.innerHTML += '<option value="164506">Adult First Line</option>';
+                    regimenLine.innerHTML += '<option value="164513">Adult Second Line</option>';
+                    regimenLine.innerHTML += '<option value="165702">Adult Salvage</option>';
+                }
+                regimenLine.value = regimenLineValue;
+            }
+
+            document.querySelector('#TreatmentAgeCategory').children[0].addEventListener('change', function(e){
+                hideRegimens();
+                filterRegimenLine(e.target.value);
+
+            });
+
+            let treatmentAgeCategory = document.querySelector('#TreatmentAgeCategory').children[0];
+            const treatmentAgeCategoryValue =  treatmentAgeCategory.value;
+
+            filterRegimenLine(treatmentAgeCategoryValue)
+
+            if(!treatmentAgeCategoryValue) {
+                if (isAdult) {
+                    treatmentAgeCategory.innerHTML = '<option></option>' +
+                        '<option value="165709">Adult</option>';
+                }
+                else {
+                    treatmentAgeCategory.innerHTML = '<option></option>' +
+                        '<option value="1528">Pediatric</option>';
+                }
+            }
+        });
+
+        jQuery(function() {
+            document.querySelectorAll('.lines').forEach(input => {
+                input.children[0].addEventListener('change',function (e){
+                    getDrugs(e.target.value);
+                })
+            });
+        });
+
+        jQuery(function() {
+            document.querySelectorAll('.drugsSelector').forEach(input => {
+                input.children[0].addEventListener('change',function (e){
+                    getStrength(e.target);
+                })
+            });
+        });
+
+        function getDrugs(regId){
+
+            fetch(`/openmrs/ws/rest/v1/nmrsmetadata/drugs/${regId}`)
+                .then(response => response.json())
+                .then(result => {
+                    // console.log("Result", result);
+                     mapping = result;
+                     // console.log(mapping);
+                     // console.log(mapping.drugMappingList)
+                    // let response = result.drugs;
+
+                    document.querySelectorAll(".drugsSelector").forEach(sel => {
+                        let val = sel.children[0].value;
+                        sel.children[0].innerHTML = "<option></option>";
+                        mapping.drugMappingList.forEach(mapping => {
+                            if(isAdult &amp;&amp; mapping.adultStrengthId) {
+                                sel.children[0].innerHTML += '<option value="' + mapping.drugsConceptId + '" >' + mapping.drugName + '</option>';
+                            }else if(!isAdult &amp;&amp; mapping.pediatricStrengthId) {
+                                sel.children[0].innerHTML += '<option value="' + mapping.drugsConceptId + '" >' + mapping.drugName + '</option>';
+                            }
+                        });
+                            sel.children[0].value = val;
+                            getStrength(sel.children[0])
+                    });
+
+
+                    // document.querySelectorAll(".drugsStrength").forEach(sel => {
+                    //     let val = sel.children[0].value;
+                    //     sel.children[0].innerHTML = "<option></option>";
+                    //     Object.keys(strengths).forEach(k => {
+                    //         sel.children[0].innerHTML += '<option value="' + k + '" >' + strengths[k] + '</option>';
+                    //     });
+                    //     sel.children[0].value = val;
+                    // });
+                })
+                .catch(error => {
+                   clearElements();
+                    console.log('error', error)
+                });
+        }
+
+        function getStrength(e){
+           //console.log("Mapping", mapping);
+           let strength = e.parentNode.parentNode.parentNode.querySelector(".drugsStrength").children[0];
+           let val = strength.value;
+            let option = '<option></option>';
+            let targetMap = null;
+
+            mapping.drugMappingList.forEach(map => {
+                //console.log("DrugConcept", map.drugsConceptId, "e.value", e.value)
+                if(map.drugsConceptId == e.value)
+                    targetMap = map
+            });
+            if(targetMap) {
+                if (isAdult) {
+                    option += '<option value="' + targetMap.adultStrengthId + '">' + targetMap.adultStrength + '</option>';
+                } else {
+                    option += '<option value="' + targetMap.pediatricStrengthId + '">' + targetMap.pediatricStrength + '</option>';
+                }
+            }
+            strength.innerHTML = option;
+           strength.value = val;
+        }
+
+        function clearElements(){
+            document.querySelectorAll(".drugsSelector").forEach(sel => {
+                sel.children[0].innerHTML = "<option></option>";
+            });
+            document.querySelectorAll(".drugsStrength").forEach(sel => {
+                sel.children[0].innerHTML = "<option></option>";
+            });
+        }
+
     </script>
 
 
@@ -503,7 +663,8 @@
             <tr>
                 <td class="alnleft">
                     <b>Treatment Age category</b>
-                    <obs id="TreatmentAgeCategory" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult"> </obs>
+                    <obs id="TreatmentAgeCategory" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult">
+                    </obs>
                 </td>
 
                 <td>
@@ -513,7 +674,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <obs id="RegimenLine" conceptId="165708" answerConceptIds="164507, 164514, 165703, 164506, 164513, 165702" answerLabels="Child First Line, Child Second Line, Child Salvage, Adult First Line, Adult Second Line, Adult Salvage">
+                                <obs id="RegimenLine" conceptId="165708" answerConceptIds="164507,164514,165703,164506,164513,165702"
+                                     answerLabels="Child First Line, Child Second Line, Child Salvage, Adult First Line, Adult Second Line, Adult Salvage">
                                     <controls>
                                         <when value="164507" thenDisplay="#ped_first_line" />
                                         <when value="164514" thenDisplay="#ped_second_line" />
@@ -524,39 +686,38 @@
                                     </controls>
                                 </obs>
                             </td>
-
                         </tr>
                     </table>
                 </td>
 
                 <td>
-                    <table id="adult_first_line" class="table" width="100%">
+                    <table style="display: none" id="adult_first_line" class="table" width="100%">
                         <tr>
                             <td>
                                 <label>Adult 1st Line Regimens</label>
-                                <obs conceptId="164506" id="Adult1stLine" />
+                                <obs class="lines" conceptId="164506" id="Adult1stLine" />
                             </td>
                         </tr>
                     </table>
                 </td>
 
                 <td>
-                    <table id="adult_second_line" class="table" width="100%">
+                    <table style="display: none" id="adult_second_line" class="table" width="100%">
                         <tr>
                             <td>
                                 <label>Adult 2nd Line Regimens</label>
-                                <obs conceptId="164513" id="Adult2ndLine" />
+                                <obs class="lines" conceptId="164513" id="Adult2ndLine" />
                             </td>
                         </tr>
                     </table>
                 </td>
 
                 <td>
-                    <table id="adult_salvage" class="table" width="100%">
+                    <table style="display: none" id="adult_salvage" class="table" width="100%">
                         <tr>
                             <td>
                                 <label>Adult 3rd Line Regimens</label>
-                                <obs conceptId="165702" id="Adult3rdLine" />
+                                <obs class="lines" conceptId="165702" id="Adult3rdLine" />
                             </td>
                         </tr>
                     </table>
@@ -567,29 +728,29 @@
                         <tr>
                             <td>
                                 <label>Pediatric 1st Line Regimens</label>
-                                <obs conceptId="164507" id="Ped1stLine" />
+                                <obs class="lines" conceptId="164507" id="Ped1stLine" />
                             </td>
                         </tr>
                     </table>
                 </td>
 
                 <td>
-                    <table id="ped_second_line" class="table" width="100%">
+                    <table style="display: none" id="ped_second_line" class="table" width="100%">
                         <tr>
                             <td>
                                 <label>Pediatric 2nd Line Regimens</label>
-                                <obs conceptId="164514" id="Ped2ndLine" />
+                                <obs class="lines" conceptId="164514" id="Ped2ndLine" />
                             </td>
                         </tr>
                     </table>
                 </td>
 
                 <td>
-                    <table id="ped_salvage" class="table" width="100%">
+                    <table style="display: none" id="ped_salvage" class="table" width="100%">
                         <tr>
                             <td>
                                 <label>Pediatric 3rd Line Regimens</label>
-                                <obs conceptId="165703" id="Ped3rdLine" />
+                                <obs class="lines" conceptId="165703" id="Ped3rdLine" />
                             </td>
                         </tr>
                     </table>
@@ -627,12 +788,12 @@
                 <obsgroup groupingConceptId="162240">
                     <td>
                         <!--<obs conceptId="165724" answerConceptIds="164505,1652,161364,630,103166,75523,86663,159809,794,74258,83412,162796,165631,103166,80586,70056,154378" answerLabels="Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine,Efavirenz,Zidovudine,Atazanavir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Ritonavir,Darunavir/Ritonavir,Dolutegravir,Abacavir/Lamivudine,Nevirapine,Abacavir,Raltegravir"/>-->
-                        <obs class='gridmenu' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine"
+                        <obs class='gridmenu drugsSelector' conceptId="165724" answerConceptIds="166043,164505,1652,161364,630,103166" answerLabels="Tenofovir/Lamivudine/Dolutegravir,Tenofovir/Lamivudine/Efavirenz,Lamivudine/Zidovudine/Nevirapine,Tenofovir/Lamivudine,Lamivudine/Zidovudine,Abacavir/Lamivudine"
                         />
 
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165618,166044,165633,165619,165620,165621,165622,165623,166080,165634,165707,5622" />
+                        <obs class='gridmenu drugsStrength' conceptId="165725" id="drugStrength" answerConceptIds="165618,166044,165633,165619,165620,165621,165622,165623,166080,165634,165707,5622" />
                     </td>
                     <td>
                         <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage" />
@@ -655,38 +816,11 @@
             <tr>
                 <obsgroup groupingConceptId="162240">
                     <td>
-                        <obs class='gridmenu' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
+                        <obs class='gridmenu drugsSelector' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
                         />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
-                        />
-                    </td>
-                    <td>
-                        <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage" />
-                    </td>
-                    <td>
-                        <obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
-                    </td>
-                    <td>
-                        <obs conceptId="159368" id="duration" />
-                    </td>
-                    <td>
-                        <obs conceptId="160856" id="qtyPrescribed" />
-                    </td>
-                    <td>
-                        <obs conceptId="1443" id="qtyDispensed" />
-                    </td>
-                </obsgroup>
-            </tr>
-            <tr>
-                <obsgroup groupingConceptId="162240">
-                    <td>
-                        <obs class='gridmenu' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
-                        />
-                    </td>
-                    <td>
-                        <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
+                        <obs class='gridmenu drugsStrength' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
                         />
                     </td>
                     <td>
@@ -709,11 +843,38 @@
             <tr>
                 <obsgroup groupingConceptId="162240">
                     <td>
-                        <obs class='gridmenu' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
+                        <obs class='gridmenu drugsSelector' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
                         />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
+                        <obs class='gridmenu drugsStrength' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
+                        />
+                    </td>
+                    <td>
+                        <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage" />
+                    </td>
+                    <td>
+                        <obs class='frequency gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+                    </td>
+                    <td>
+                        <obs conceptId="159368" id="duration" />
+                    </td>
+                    <td>
+                        <obs conceptId="160856" id="qtyPrescribed" />
+                    </td>
+                    <td>
+                        <obs conceptId="1443" id="qtyDispensed" />
+                    </td>
+                </obsgroup>
+            </tr>
+            <tr>
+                <obsgroup groupingConceptId="162240">
+                    <td>
+                        <obs class='gridmenu drugsSelector' conceptId="165724" answerConceptIds="75523,86663,80586,70056,159809,794,74258,162796,165631,154378,84309,74807,83690,80487,77995,75628,795" answerLabels="Efavirenz,Zidovudine,Nevirapine,Abacavir,Atazanivir/Ritonavir,Lopinavir/Ritonavir,Darunavir,Darunavir/Ritonavir,Dolutegravir,Raltegravir,Stavudine,Didanosine,Saquinavir,Nelfinavir,Indinavir,Emtricitabine,Ritonavir"
+                        />
+                    </td>
+                    <td>
+                        <obs class='gridmenu drugsStrength' conceptId="165725" id="drugStrength" answerConceptIds="165635,165616,166045,165074,165707,165637,165076,166046,165624,165625,165638,165639,165640,165616,165705,165617,165706,166047,166048,166049,166050,166051,166052,166053,166054,166055,5622"
                         /> </td>
                     <td>
                         <obs class='gridmenu' conceptId="166120" size="5" id="arvdosage" />

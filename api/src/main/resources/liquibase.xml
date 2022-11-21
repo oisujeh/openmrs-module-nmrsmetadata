@@ -248,15 +248,16 @@
          <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
     </changeSet>
     
-    <changeSet id="20042021134230" author="Toyeeb" runOnChange="true">
-         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
-         <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"
-                 stripComments="true"
-                 splitStatements="true"
-                 encoding="UTF-8"
-                 endDelimiter=";"/>  
-         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             
-    </changeSet>
+<!--    <changeSet id="20042021134230" author="Toyeeb" runOnChange="true">-->
+
+<!--         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      -->
+<!--         <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"-->
+<!--                 stripComments="true"-->
+<!--                 splitStatements="true"-->
+<!--                 encoding="UTF-8"-->
+<!--                 endDelimiter=";"/>  -->
+<!--         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>             -->
+<!--    </changeSet>-->
     
      <changeSet id="2021042894218" author="Toyeeb" runOnChange="true">
          <sql>SET FOREIGN_KEY_CHECKS=0;</sql>      
@@ -436,7 +437,60 @@
 
         <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
     </changeSet>
-    
+    <changeSet id="regimenDrugMapping-2022-10-10-23-00" author="Melody" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="regimen_drug_mappings"/></not>
+        </preConditions>
+        <comment>
+            Creating the regimen_drug_mappings table
+        </comment>
+        <createTable tableName="regimen_drug_mappings">
+            <column name="regimen_drug_mapping_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="regimen_concept_id" type="int">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="drugs_concept_id" type="int">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="pediatric_strength" type="int" />
+            <column name="adult_strength" type="int" />
+        </createTable>
+        <sqlFile path="regimendrugmappingsql/regimendrugmapping.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+
+    </changeSet>
+    <changeSet id="Tb_initialisation_20221115135600" author="Adeyemi" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM htmlformentry_html_form WHERE form_id=92;
+            </sqlCheck>
+        </preConditions>
+        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
+        <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"
+                 stripComments="true"
+                 splitStatements="true"
+                 encoding="UTF-8"
+                 endDelimiter=";"/>
+        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>
+    </changeSet>
+<!--
+
+<!--    <changeSet id="concept_set_20221031103616" author="Ebuka_John" >-->
+<!--        <sql>SET FOREIGN_KEY_CHECKS=0;</sql>-->
+
+<!--        <sqlFile path="regimendrugmappingsql/drugmapping.sql"-->
+<!--                 stripComments="true"-->
+<!--                 splitStatements="true"-->
+<!--                 encoding="UTF-8"-->
+<!--                 endDelimiter=";"/>-->
+
+<!--        <sql>SET FOREIGN_KEY_CHECKS=1;</sql>-->
+<!--    </changeSet>-->
  
     
    
