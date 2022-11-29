@@ -482,7 +482,7 @@ $('.hasDatepicker').attr('readOnly', true)
         <table>
             <tr>
                 <td class="alnright">
-                    <obs conceptId="165765" style="checkbox"  labelText="Viral Load Test"  toggle="viralLoad"  />
+                    <obs conceptId="165765" style="checkbox" value="false" labelText="Viral Load Test"  toggle="viralLoad"  />
                 </td>
             </tr>
         </table>
@@ -578,7 +578,7 @@ $('.hasDatepicker').attr('readOnly', true)
                 <!-- Id "viralLoadResultTest" Added by Ebuka" -->
 
                 <td class="alnleft_s">Alphanumeric Viral Load Result
-                    <p><obs id="AlphanumericViralLoadResult" conceptId="166422" answerConceptIds="166407, 166408, 166409, 166410,166411,166412,166413,166414,166415,166416,166417,166418,166419,163611, 166420, 166421, 166426" answerLabels="&lt;20 , &lt;29 , &lt;40 , &lt;400 , &lt;80 , &gt;10 000 000 ,  Aborted, Double entry, Duplicate , Failed , Failed twice , Incomplete number , Incorrect entry , Invalid , Target Not Detected , Wrong entry, Numeric Value  " /></p>
+                    <p><obs id="AlphanumericViralLoadResult" conceptId="166422" answerConceptIds="166407, 166408, 167121, 166409, 166410,166411,166412,166413,166414,166415,166416,166417,166418,166419,163611, 166420, 166421, 166426" answerLabels="&lt;20 , &lt;29 , &lt;30 , &lt;40 , &lt;400 , &lt;80 , &gt;10 000 000 ,  Aborted, Double entry, Duplicate , Failed , Failed twice , Incomplete number , Incorrect entry , Invalid , Target Not Detected , Wrong entry, Numeric Value  " /></p>
 
                 </td>
                 <!-- Added by Ebuka -->
@@ -861,6 +861,10 @@ setValue('viralLoadResultTest.value', 28);
 var conceptID = viralLoadInput
 viralLoadInput = getValue('viralLoadResultTest.value');
 
+}else if(viralLoadInput == 167121){
+setValue('viralLoadResultTest.value', 29);
+var conceptID = viralLoadInput
+viralLoadInput = getValue('viralLoadResultTest.value');
 
 }else if(viralLoadInput == 166409){
 var conceptID = viralLoadInput
