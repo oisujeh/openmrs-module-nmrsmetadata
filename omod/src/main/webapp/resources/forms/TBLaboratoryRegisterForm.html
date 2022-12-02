@@ -134,11 +134,11 @@
         <table width="100%">
             <tr>
                 <td class="alnleft_s">NTBLCP/TB 04 : </td>
-                <td class="alnleft_s"><span ><obs conceptId="166613" /></span></td>
+                <td class="alnleft_s"><span ><obs conceptId="166613" required="true"/></span></td>
 
                 <td class="alnleft_s">Name of laboratory :</td>
                 <td class="alnleft_s" >
-                    <obs   conceptId="164422" />
+                    <obs   conceptId="164422" required="true"/>
                 </td>
 
                 <td class="alnleft_s">LGA : </td>
@@ -330,10 +330,10 @@
                     <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f" />
                 </td>
 
-                <td class="alnleft_s">
-                    <label>Encounter:</label>
-                    <encounterDate id="encounterDate" />
-                </td>
+                <td class="alnright_s">
+                    Encounter:</td><td>
+                <encounterDate id="encounterDate" />
+            </td>
                 <td class="alnright_s">Facility:</td>
                 <td>
                     <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" />

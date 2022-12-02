@@ -143,7 +143,7 @@
     <table width="100%">
       <tr>
         <td class="alnleft_s">Patient Serial Number: </td>
-        <td class="alnleft_s"><span ><obs conceptId="166583" /></span></td>
+        <td class="alnleft_s"><span ><obs conceptId="166583" required="true" /></span></td>
 
         <!--  <td class="alnleft_s">State :</td>
           <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>
@@ -218,7 +218,7 @@
 
         <td class="alnleft_s">Type of Treatment Regimen :</td>
         <td class="alnleft_s" >
-          <obs   conceptId="166540" answerConceptIds="166575, 166576,166577,166578" answerLabels="Shorter Regimen(Injectable), Shorter Regimen(BDQ), Individualized(PRE XDR), Individualized(XDR)"><!-- This line will be updated -->
+          <obs required="true"  conceptId="166540" answerConceptIds="166575, 166576,166577,166578" answerLabels="Shorter Regimen(Injectable), Shorter Regimen(BDQ), Individualized(PRE XDR), Individualized(XDR)"><!-- This line will be updated -->
 
 
           </obs>
@@ -228,7 +228,7 @@
         <td class="alnleft_s"><span ><obs conceptId="166541" /></span></td>
 
         <td class="alnleft_s">Date treatment started:</td>
-        <td class="alnleft_s"><span ><obs conceptId="166692" allowFutureDates="false" /></span></td>
+        <td class="alnleft_s"><span ><obs conceptId="166692" allowFutureDates="false" required="true"/></span></td>
       </tr>
 
     </table>
@@ -600,3 +600,4 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
 
 
 </htmlform>
+

@@ -312,73 +312,7 @@
         }
 
 
-
-
-        /*
-        $j(function(){
-        if(getField('rapid.value') != null){
-        getField('rapid.value').change(function(){
-        if(getValue('rapid.value')=="165851"){
-        setValue('final_recency_test.value',"165851")
-        }
-        });
-        }
-        });
-        */
-
-        /*
-        $j(function(){
-            $j('#setting_name_pitc').hide();
-            $j('#setting_pitc').hide();
-            $j('#setting_vtc').hide();
-            if($j('#kind_of_hts') != null){
-                $j('#kind_of_hts').change(function(){
-                    if($j('#kind_of_hts').val() == "Voluntary"){
-                        console.log("This is voluntary");
-                        $j('#setting_vtc').show();
-                        $j('#setting_name_vtc').show();
-                        $j('#setting_name_pitc').hide();
-                        $j('#setting_pitc').hide();
-                    }else if($j('#kind_of_hts').val() == "PITC") {
-                        console.log("This is pitc");
-                        $j('#setting_name_pitc').show();
-                        $j('#setting_pitc').show();
-                        $j('#setting_vtc').hide();
-                        $j('#setting_name_vtc').hide();
-                    }
-                });
-            }
-        });
-
-
-        $j(function() {
-            $j('#no_wives_label').hide();
-            $j('#no_wives').hide();
-            $j('#recency').hide();
-        }); */
     </script>
-    <!--  <script>
-          jQuery(function() {
-              if (getField('date_of_visit.value') != null) {
-                  getField('date_of_visit.value').change(function() {
-
-                      var today = new Date();
-                      var visitDate = new Date(getValue('date_of_visit.value'));
-
-                      if (visitDate > today) {
-                          const field = getField('date_of_visit.error');
-                          if (field != null) {
-                              getField('date_of_visit.error').html('Visit date cannot be a future date').show();
-                          }
-                      }
-
-
-                  });
-              }
-          });
-      </script> -->
-
-
 
     <table style="margin-bottom: 20px">
         <thead>
@@ -397,7 +331,7 @@
             <td class="alnleft_j" >TB Registration Id</td>
 
             <td class="alnleft_j" id="identifer-td">
-                <patient field="identifier" identifierTypeId="14" required="true" />
+                <patient field="identifier" identifierTypeId="15" required="true" />
             </td>
             <td style="vertical-align: top;">
                 <label> <input id="preferred" name="preferred" type="checkbox" />preferred</label>
