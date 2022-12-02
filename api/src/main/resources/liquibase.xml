@@ -465,6 +465,11 @@
 
     </changeSet>
     <changeSet id="Tb_initialisation_20221115135600" author="Adeyemi" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM htmlformentry_html_form WHERE form_id=92;
+            </sqlCheck>
+        </preConditions>
         <sql>SET FOREIGN_KEY_CHECKS=0;</sql>
         <sqlFile path="forms/htmlformentry/htmlformentry_html_form.sql"
                  stripComments="true"
