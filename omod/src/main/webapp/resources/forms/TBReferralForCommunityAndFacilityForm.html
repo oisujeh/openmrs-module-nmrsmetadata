@@ -113,7 +113,19 @@
             <!--}-->
     </style>
     <script type="text/javascript">
+
         beforeSubmit.push(function() {
+
+            // validate the phone number pattern
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
+
+            // get phone numbers from the input fields
+            let phonecheck1 = getValue('phoneval1.value');
+            let phonecheck2 = getValue('phoneval2.value');
+
             var val_encounterDate = getValue('encounter_Date.value');
             var val_ArtStartDate = getValue('ArtStartDate.value');
             if ( val_ArtStartDate > val_encounterDate) {
@@ -121,13 +133,74 @@
                 return false;
             }
 
-            return true;
+            // validate all phone number fields
+            switch (true){
+                case (phonecheck1 === "" || phonecheck1 === null):
+                    if (phonecheck2 === "" || phonecheck2 === null){
+                        return true;
+                    }else{
+                        if (validatePhoneNumber(phonecheck2) === false) {
+                            getField('phoneval1.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                            return false;
+                        } else {
+                            return true; }
+                    }
+                    break;
+
+                case (phonecheck1 !== "" || phonecheck1 !== null):
+                    if (phonecheck2 === "" || phonecheck2 === null){
+                        if (validatePhoneNumber(phonecheck1) === false) {
+                            getField('phoneval1.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                            return false;
+                        }else {
+                            return true;
+                        }
+                    }else{
+                        if (validatePhoneNumber(phonecheck2) === false) {
+                            getField('phoneval2.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                            return false;
+                        } else {
+                            return true; }
+                    }
+                    break;
+
+                default:
+                    return true;
+                    break;
+            }
         });
 
         var $ = jQuery;
         $(document).ready(function ()
         {
-            $('.hasDatepicker').attr('readonly', true);
+            // check  and validate each phone number character as they are entered and either show or hide the prompt
+
+            document.querySelector('#phoneval1').children[0].addEventListener('keyup', function(e) {
+                e.preventDefault();
+                let phone = document.querySelector('#phoneval1').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phoneval1.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
+
+                else
+                    getField('phoneval1.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+            });
+
+            document.querySelector('#phoneval2').children[0].addEventListener('keyup', function(e){
+                e.preventDefault();
+                let phone = document.querySelector('#phoneval2').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phoneval2.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
+
+                else
+                    getField('phoneval2.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+
+            });
+
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
+
         });
 
     </script>
@@ -149,7 +222,7 @@
             </tr>
             <tr>
                 <td class="alnleft_s"> Date of Referral  </td>
-                <td class="alnleft_s"><obs conceptId="163181" allowTime="false"/></td>
+                <td class="alnleft_s"><obs conceptId="163181" allowTime="false" allowFutureDates="false"/></td>
                 <td class="alnleft_s">Address of Referring Facility </td>
                 <td class="alnleft_s"><obs conceptId="165482" /></td>
             </tr>
@@ -159,7 +232,8 @@
                 <td class="alnleft_s"><obs conceptId="161103" /></td>
                 </td>
                 <td class="alnleft_s">Contact Phone of Referring Facility<br/>
-                <td class="alnleft_s"><obs conceptId="165487" /></td>
+                <td class="alnleft_s"><obs id="phoneval1" conceptId="165487" /></td>
+
                 </td>
             </tr>
             <tr>
@@ -206,7 +280,7 @@
                 <!--Concept change -->
 
                 <td class="alnleft_s">Date of Arrival at Referred Facility </td>
-                <td class="alnleft_s"><obs conceptId="163181" allowTime="false"/></td>
+                <td class="alnleft_s"><obs conceptId="163181" allowTime="false" allowFutureDates="false"/></td>
 
                 <!--Concept change -->
                 <td class="alnleft_s">Name of Health Worker at Receiving facility</td>
@@ -218,15 +292,16 @@
                 <td class="alnleft_s" ><obs  conceptId="166685" answerConceptIds="166683,166684" answerLabel="TB Confirmed,TB Not Confirmed" /></td>
 
                 <td class="alnleft_s">Contact Phone of Receiving Facility<br/> </td>
-                <td class="alnleft_s"><obs conceptId="165486" /></td>
+                <td class="alnleft_s"><obs id="phoneval2" conceptId="165486"/></td>
+
             </tr>
             <tr>
                 <!-- Concept change -->
                 <td class="alnleft_s">Outcome Date</td>
-                <td class="alnleft_s"><obs conceptId="166675" /></td>
+                <td class="alnleft_s"><obs conceptId="166675" allowFutureDates="false"/></td>
 
                 <td class="alnleft_s">Date TB Treatment Started</td>
-                <td class="alnleft_s"><obs conceptId="1113" /></td>
+                <td class="alnleft_s"><obs conceptId="1113" allowFutureDates="false"/></td>
 
             </tr>
         </table>

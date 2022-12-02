@@ -130,6 +130,58 @@
         -->
     </style>
 
+    <script type="text/javascript">
+
+        beforeSubmit.push(function (){
+
+            function validatePhoneNumber(input_str) {
+                let phonePattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return phonePattern.test(input_str);
+            }
+
+            let phonecheck = getValue('phoneval.value');
+            let phonelock = document.querySelector('#phoneval').children[0];
+            if (phonecheck === null || phonecheck === ""){
+                return true;
+            }else{
+                if (validatePhoneNumber(phonecheck) === false) {
+                    phonelock.focus();
+                    getField('phoneval.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                    return false;
+                }
+                else{
+                    return true;
+                }
+
+            }
+
+
+
+        });
+
+        var $ = jQuery;
+        $(document).ready(function ()
+        {
+            // validating phone number
+
+            document.querySelector('#phoneval').children[0].addEventListener('keyup', function(e){
+                e.preventDefault();
+                let phone = document.querySelector('#phoneval').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phoneval.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
+
+                else
+                    getField('phoneval.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+
+            });
+
+            function validatePhoneNumber(input_str) {
+                let phonePattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return phonePattern.test(input_str);
+            }
+        });
+    </script>
+
 
     <table style="margin-bottom: 20px;">
         <thead>
@@ -146,11 +198,11 @@
             <tr>
                 <td className="alnleft_s">Date of Specimen Collection</td>
                 <td className="alnleft_s">
-                    <obs conceptId="159951" allowFutureDates="false"/>
+                    <obs conceptId="159951" allowFutureDates="false" required="true"/>
                 </td>
                 <td className="alnleft_s">Specimen Identification N0:</td>
                 <td className="alnleft_s">
-                    <obs conceptId="166735"/>
+                    <obs conceptId="166735" required="true"/>
                 </td>
                 <td className="alnleft_s">LGA/TB N0:</td>
                 <td className="alnleft_s">
@@ -208,7 +260,7 @@
             <tr>
 
                 <td className="alnleft_s">Tick reason for examination:<br />
-                    <obs conceptId="164082" answerConceptIds="166777,166777" answerLabels="Diagnose, Follow up" id="monthOfFollowup" >
+                    <obs conceptId="164082" answerConceptIds="166777,166787" answerLabels=" Diagnosis, Follow up" id="monthOfFollowup" >
                         <controls>
                             <when value="166777" thenDisplay="#showMonthofFollowup"></when>
                         </controls>
@@ -266,7 +318,7 @@
                 </td>
 
                 <td className="alnleft_s">Phone No.:<br/>
-                    <obs conceptId="159635"/>
+                    <obs conceptId="159635" id="phoneval"/>
                 </td>
 
                 <td className="alnleft_s">Name of Health facility:<br/>
