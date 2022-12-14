@@ -595,7 +595,7 @@
                     <tr>
                         <td>
                             <label>Facility Dispensing </label>
-                            <obs conceptId='166276' answerConceptIds="166153,166151,167107,167108,167109,167110,167111,167112,166279" answerLabels="Not Differenciated, Fast Track, Facility ART group HCW led,Facility ART group Support group,Decentralization (Hub and Spoke),After hours,Weekend and Public holidays,Child/Teen/Adolescents club Peer Managed, Adolecent Clinic" />
+                            <obs conceptId='166276' answerConceptIds="166153,166151,167107,167108,167109,167110,167111,167112,167124" answerLabels="Not Differenciated, Fast Track, Facility ART group HCW led,Facility ART group Support group,Decentralization (Hub and Spoke),After hours,Weekend and Public holidays,Child/Teen/Adolescents club (Peer Managed),Mother infant pair/Mentor mother led" />
                         </td>
                     </tr>
                 </table>
@@ -605,13 +605,8 @@
                 <table id="ddd_Dispensing" class="table" width="100%">
                     <tr>
                         <td>
-                            <label>DDD Dispensing </label>
-                            <obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,167113,167114,167115,166280,166364,166365,166366,5622" answerLabels="Community Pharmacy, Community ART Group (HCW-led), Community ART Refill Group (PLHIV-led), Adolescent Community ART/ peer-led groups, One Stop Shop (OSS), Home/Courier Delivery, Private Clinics, Patent Medicine Stores, ATM, Others Dispensary (Specify)">
-                                <controls>
-                                    <when value="5622" thenDisplay="#others_dispensary" />
-                                </controls>
-                            </obs>
-                            <obs conceptId="166367" id="others_dispensary" />
+                            <label>Community Dispensing (DDD)</label>
+                            <obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,167113,167114,167115,166280" answerLabels="Community Pharmacy, Community ART Group (HCW-led), Community ART Refill Group (PLHIV-led), Adolescent Community ART/ peer-led groups, One Stop Shop (OSS), Home/Courier Delivery" />
                         </td>
                     </tr>
                 </table>
