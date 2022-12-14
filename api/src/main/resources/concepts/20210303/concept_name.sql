@@ -973,8 +973,7 @@ REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_cr
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167121, '< 30', 'en', 1, '2022-11-25 10:36:53', 143972, 0, NULL, NULL, NULL, 'af0e7fbc-31fb-41fd-b942-493e98d67320', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167122, 'Type of Care Referral Date', 'en', 1, '2022-12-05 10:43:31', 143973, 0, NULL, NULL, NULL, 'f97d3274-c922-4328-8e27-7a9d31da4bd6', 'FULLY_SPECIFIED', 1);
 REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167123, 'TB Treatment Card Phone Number', 'en', 1, '2022-12-09 12:57:13', 143974, 0, NULL, NULL, NULL, 'f736d248-ad82-48d4-93cb-f3c8d5217314', 'FULLY_SPECIFIED', 1);
-
-
+REPLACE INTO `concept_name` (`concept_id`, `name`, `locale`, `creator`, `date_created`, `concept_name_id`, `voided`, `voided_by`, `date_voided`, `void_reason`, `uuid`, `concept_name_type`, `locale_preferred`) VALUES (167124, 'Mother-infant Pair', 'en', 1, '2022-12-09 12:57:13', 143975, 0, NULL, NULL, NULL, '4f0ee9d9-1af9-4dee-86bf-d8333a3ebbc1', 'FULLY_SPECIFIED', 1);
 
 
 
