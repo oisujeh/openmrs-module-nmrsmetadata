@@ -132,80 +132,50 @@
     <script type="text/javascript">
         beforeSubmit.push(function()
         {
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
 
-            var val = $('#tt select').val();
+            let phonecheck = getValue('phoneval.value');
 
 
-            if(val == '166004' || val=='160034' || val=='166003' || val=='166006' || val=='166005' || val=='159492')
-            {
-
-                $('#next_appointment .hasDatepicker').attr('disabled', true).val('');
-                console.log('Got here');
+            if (validatePhoneNumber(phonecheck == null)){
                 return true;
             }
-            else
-            {
-                $('#next_appointment .hasDatepicker').attr('disabled', false);
-
-                var val_encounterDate = getValue('encounterDate.value');
-                var val_next_appointment = getValue('next_appointment.value');
-                if (val_encounterDate > val_next_appointment)
-                {
-                    getField('next_appointment.error').html('Next appointment date has to be later than visit date').show();
-                    return false;
-                }
-
+            if (validatePhoneNumber(phonecheck) === false){
+                getField('phoneval.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                return false;
+            } else {
                 return true;
 
             }
+
         });
+
     </script>
     <script type="text/javascript">
 
         var $ = jQuery;
         $(document).ready(function ()
         {
-            $('.hasDatepicker').attr('readonly', true)
+            // validating phone number
 
-            $('input:text', '#inh').eq(0).on('keypress', function(ev)
-            {
+            document.querySelector('#phoneval').children[0].addEventListener('keyup', function(e){
+                e.preventDefault();
+                let phone = document.querySelector('#phoneval').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phoneval.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
 
-                var keyCode = window.event ? ev.keyCode : ev.which;
-                //codes for 0-9
-                if ( 48 > keyCode || keyCode > 57) {
-                    //codes for backspace, delete, enter
-                    if (keyCode != 0)
-                    {
-                        if (keyCode != 8) {
-                            if (keyCode != 13) {
-                                if (!ev.ctrlKey) {
-                                    ev.preventDefault();
-                                }
-                            }
-                        }
-                    }
-                }
+                else
+                    getField('phoneval.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+
             });
 
-            $('#tt select').on('change',function(){
-                var val = $(this).children("option:selected").val();
-
-                if(val != null)
-                {
-                    if(!isNaN(parseInt(val )))
-                    {
-                        $('#next_appointment .hasDatepicker').attr('disabled', true).val('');
-                        console.log(val);
-                    }
-                    else{
-                        $('#next_appointment .hasDatepicker').attr('disabled', false);
-                    }
-                }
-                else{
-                    $('#next_appointment .hasDatepicker').attr('disabled', false);
-                }
-            });
-
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
         });
     </script>
 
@@ -255,7 +225,7 @@
                     Type of Patient
                 </td>
                 <td class="alnleft_s">
-                    <obs id="drops" conceptId="166687" answerConceptIds="832,832,832,832,832,832,832" answerLabels="New,Relapse,Treatment after failure,Treatment after IIT,Other previously treated,Patients with unknown previous TB treatment history,Tranfer In"/>
+                    <obs id="drops" conceptId="166687" answerConceptIds="165773,160033,166641,166708,166643,166644,160563" answerLabels="New,Relapse,Treatment after failure,Treatment after IIT,Other previously treated,Patients with unknown previous TB treatment history,Tranfer In"/>
                 </td>
                 <td></td>
                 <td></td>
@@ -278,7 +248,9 @@
         <table>
             <tr>
                 <td class="alnleft_j">Name of Contact Person</td> <td class="alnleft"><obs conceptId="166724"  /></td>
-                <td class="alnleft_s">Phone Number</td> <td class="alnleft"><obs conceptId="166727" /></td>
+                <td class="alnleft_s">Phone Number</td> <td class="alnleft"><obs id="phoneval" conceptId="167123" />
+
+            </td>
                 <td class="alnleft_s">Address</td> <!-- concept is a placeholder --><td class="alnleft_s" rowspan="2" ><obs rows="4" conceptId="166797" /></td>
             </tr>
 
@@ -356,7 +328,7 @@
                 <td>Smear Result: <obs conceptId="166827" answerConceptIds="1065,1066" /></td>
                 <td>Smear Result: <obs conceptId="166828" answerConceptIds="1065,1066" /></td>
                 <td>Smear Result: <obs conceptId="166829" answerConceptIds="1065,1066" /></td>
-                <td>Smear Result: <obs conceptId="166829" answerConceptIds="1065,1066" /></td>
+                <td>Smear Result: <obs conceptId="166830" answerConceptIds="1065,1066" /></td>
             </tr>
             <tr>
                 <td>weight: <obs conceptId="166831" /></td>
@@ -531,7 +503,7 @@
 
                 <td class="alnleft_s" id="datecpts"> Date
                     <!-- create diff concept from CPT-->
-                    <obs conceptId="166582" labelCode="Date" labelCssClass="my-class-name"/>
+                    <obs conceptId="167122" labelCode="Date" labelCssClass="my-class-name"/>
                 </td>
                 <td></td>
             </tr>

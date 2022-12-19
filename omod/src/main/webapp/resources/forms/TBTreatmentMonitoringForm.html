@@ -106,11 +106,367 @@
 
     <script type="text/javascript">
         var $ = jQuery;
-        $(document).ready(function() {
-            $('.hasDatepicker').attr('readonly', true)
+
+        $(document).ready(function(){
+
+            let ipDrug1 = document.querySelector('#ip_drug_1').children[0];
+            let ipStrength1 = document.querySelector('#ip_strength_1').children[0];
+            let ipFrequency1 = document.querySelector('#ip_frequency_1').children[0];
+            let ipDuration1 = document.querySelector('#ip_duration_1').children[0];
+            let ipQtyPrescribed1 = document.querySelector('#ip_qtyPrescribed_1').children[0];
+
+            let ipDrug2 = document.querySelector('#ip_drug_2').children[0];
+            let ipStrength2 = document.querySelector('#ip_strength_2').children[0];
+            let ipFrequency2 = document.querySelector('#ip_frequency_2').children[0];
+            let ipDuration2 = document.querySelector('#ip_duration_2').children[0];
+            let ipQtyPrescribed2 = document.querySelector('#ip_qtyPrescribed_2').children[0];
+
+            let cpDrug1 = document.querySelector('#cp_drug_1').children[0];
+            let cpStrength1 = document.querySelector('#cp_strength_1').children[0];
+            let cpFrequency1 = document.querySelector('#cp_frequency_1').children[0];
+            let cpDuration1 = document.querySelector('#cp_duration_1').children[0];
+            let cpQtyPrescribed1 = document.querySelector('#cp_qtyPrescribed_1').children[0];
+
+            let cpDrug2 = document.querySelector('#cp_drug_2').children[0];
+            let cpStrength2 = document.querySelector('#cp_strength_2').children[0];
+            let cpFrequency2 = document.querySelector('#cp_frequency_2').children[0];
+            let cpDuration2 = document.querySelector('#cp_duration_2').children[0];
+            let cpQtyPrescribed2 = document.querySelector('#cp_qtyPrescribed_2').children[0];
+
+            ipDrug1.addEventListener('change', function(e){
+                if(ipDrug1.value !== ""){
+                    ipStrength1.focus();
+                    getField('ip_strength_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }else{
+                    ipStrength1.value = "";
+                    ipFrequency1.value = "";
+                    ipDuration1.value = "";
+                    ipQtyPrescribed1.value = "";
+                    return false;
+                }
+
+            });
+            ipStrength1.addEventListener('change', function(e){
+                if(ipDrug1.value === ""){
+                    ipStrength1.value = "";
+                    ipDrug1.focus();
+                    getField('ip_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            ipFrequency1.addEventListener('change', function(e){
+                if(ipDrug1.value === "") {
+                    ipFrequency1.value = "";
+                    ipDrug1.focus();
+                    getField('ip_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            ipDuration1.addEventListener('change', function(e){
+                if(ipDrug1.value === "") {
+                    ipDuration1.value = "";
+                    ipDrug1.focus();
+                    getField('ip_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            ipQtyPrescribed1.addEventListener('keyup', function(e){
+                if(ipDrug1.value === "") {
+                    ipQtyPrescribed1.value = "";
+                    ipDrug1.focus();
+                    getField('ip_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+
+            ipDrug2.addEventListener('change', function(e){
+                if(ipDrug2.value !== ""){
+                    ipStrength2.focus();
+                    getField('ip_strength_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }else{
+                    ipStrength2.value = "";
+                    ipFrequency2.value = "";
+                    ipDuration2.value = "";
+                    ipQtyPrescribed2.value = "";
+                    return false;
+                }
+
+            });
+            ipStrength2.addEventListener('change', function(e){
+                if(ipDrug2.value === ""){
+                    ipStrength2.value = "";
+                    ipDrug2.focus();
+                    getField('ip_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            ipFrequency2.addEventListener('change', function(e){
+                if(ipDrug2.value === "") {
+                    ipFrequency2.value = "";
+                    ipDrug2.focus();
+                    getField('ip_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            ipDuration2.addEventListener('change', function(e){
+                if(ipDrug2.value === "") {
+                    ipDuration2.value = "";
+                    ipDrug2.focus();
+                    getField('ip_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            ipQtyPrescribed2.addEventListener('keyup', function(e){
+                if(ipDrug2.value === "") {
+                    ipQtyPrescribed2.value = "";
+                    ipDrug2.focus();
+                    getField('ip_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+
+            cpDrug1.addEventListener('change', function(e){
+                if(cpDrug1.value !== ""){
+                    cpStrength1.focus();
+                    getField('cp_strength_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }else{
+                    cpStrength1.value = "";
+                    cpFrequency1.value = "";
+                    cpDuration1.value = "";
+                    cpQtyPrescribed1.value = "";
+                    return false;
+                }
+
+            });
+            cpStrength1.addEventListener('change', function(e){
+                if(cpDrug1.value === ""){
+                    cpStrength1.value = "";
+                    cpDrug1.focus();
+                    getField('cp_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            cpFrequency1.addEventListener('change', function(e){
+                if(cpDrug1.value === "") {
+                    cpFrequency1.value = "";
+                    cpDrug1.focus();
+                    getField('cp_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            cpDuration1.addEventListener('change', function(e){
+                if(cpDrug1.value === "") {
+                    cpDuration1.value = "";
+                    cpDrug1.focus();
+                    getField('cp_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            cpQtyPrescribed1.addEventListener('keyup', function(e){
+                if(cpDrug1.value === "") {
+                    cpQtyPrescribed1.value = "";
+                    cpDrug1.focus();
+                    getField('cp_drug_1.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+
+            cpDrug2.addEventListener('change', function(e){
+                if(cpDrug2.value !== ""){
+                    cpStrength2.focus();
+                    getField('cp_strength_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }else{
+                    cpStrength2.value = "";
+                    cpFrequency2.value = "";
+                    cpDuration2.value = "";
+                    cpQtyPrescribed2.value = "";
+                    return false;
+                }
+
+            });
+            cpStrength2.addEventListener('change', function(e){
+                if(cpDrug2.value === ""){
+                    cpStrength2.value = "";
+                    cpDrug2.focus();
+                    getField('cp_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            cpFrequency2.addEventListener('change', function(e){
+                if(cpDrug2.value === "") {
+                    cpFrequency2.value = "";
+                    cpDrug2.focus();
+                    getField('cp_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            cpDuration2.addEventListener('change', function(e){
+                if(cpDrug2.value === "") {
+                    cpDuration2.value = "";
+                    cpDrug2.focus();
+                    getField('cp_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+            });
+            cpQtyPrescribed2.addEventListener('keyup', function(e){
+                if(cpDrug2.value === "") {
+                    cpQtyPrescribed2.value = "";
+                    cpDrug2.focus();
+                    getField('cp_drug_2.error').html('Fill this for drug to be dispensed').show();
+                    return false;
+                }
+
+
+            });
+
+            beforeSubmit.push(function(e){
+
+
+
+                let ipDrug1 = document.querySelector('#ip_drug_1').children[0];
+                let ipStrength1 = document.querySelector('#ip_strength_1').children[0];
+                let ipFrequency1 = document.querySelector('#ip_frequency_1').children[0];
+                let ipDuration1 = document.querySelector('#ip_duration_1').children[0];
+                let ipQtyPrescribed1 = document.querySelector('#ip_qtyPrescribed_1').children[0];
+
+                let ipDrug2 = document.querySelector('#ip_drug_2').children[0];
+                let ipStrength2 = document.querySelector('#ip_strength_2').children[0];
+                let ipFrequency2 = document.querySelector('#ip_frequency_2').children[0];
+                let ipDuration2 = document.querySelector('#ip_duration_2').children[0];
+                let ipQtyPrescribed2 = document.querySelector('#ip_qtyPrescribed_2').children[0];
+
+
+                let cpDrug1 = document.querySelector('#cp_drug_1').children[0];
+                let cpStrength1 = document.querySelector('#cp_strength_1').children[0];
+                let cpFrequency1 = document.querySelector('#cp_frequency_1').children[0];
+                let cpDuration1 = document.querySelector('#cp_duration_1').children[0];
+                let cpQtyPrescribed1 = document.querySelector('#cp_qtyPrescribed_1').children[0];
+
+                let cpDrug2 = document.querySelector('#cp_drug_2').children[0];
+                let cpStrength2 = document.querySelector('#cp_strength_2').children[0];
+                let cpFrequency2 = document.querySelector('#cp_frequency_2').children[0];
+                let cpDuration2 = document.querySelector('#cp_duration_2').children[0];
+                let cpQtyPrescribed2 = document.querySelector('#cp_qtyPrescribed_2').children[0];
+
+                if(ipDrug1.value !== ""){
+
+                    if(ipStrength1.value === ""){
+                        ipStrength1.focus();
+                        getField('ip_strength_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }else if(ipFrequency1.value === ""){
+                        ipFrequency1.focus();
+                        getField('ip_frequency_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(ipDuration1.value === ""){
+                        ipDuration1.focus();
+                        getField('ip_duration_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(ipDuration1.value === ""){
+                        ipDuration1.focus();
+                        getField('ip_duration_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+
+                    if(ipQtyPrescribed1.value === ""){
+                        ipQtyPrescribed1.focus();
+                        getField('ip_qtyPrescribed_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                }
+                if(ipDrug2.value !== ""){
+                    if(ipStrength2.value === ""){
+                        ipStrength2.focus();
+                        getField('ip_strength_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(ipFrequency2.value === ""){
+                        ipFrequency2.focus();
+                        getField('ip_frequency_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(ipDuration2.value === ""){
+                        ipDuration2.focus();
+                        getField('ip_duration_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(ipDuration2.value === ""){
+                        ipDuration2.focus();
+                        getField('ip_duration_2.error').html('Fill this for drug to be dispensed').show();
+                        return false
+                    }
+                    if(ipQtyPrescribed2.value === ""){
+                        ipQtyPrescribed2.focus();
+                        getField('ip_qtyPrescribed_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                }
+
+                if(cpDrug1.value !== ""){
+
+                    if(cpStrength1.value === ""){
+                        cpStrength1.focus();
+                        getField('cp_strength_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }else if(cpFrequency1.value === ""){
+                        cpFrequency1.focus();
+                        getField('cp_frequency_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(cpDuration1.value === ""){
+                        cpDuration1.focus();
+                        getField('cp_duration_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(cpDuration1.value === ""){
+                        cpDuration1.focus();
+                        getField('cp_duration_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+
+                    if(cpQtyPrescribed1.value === ""){
+                        cpQtyPrescribed1.focus();
+                        getField('cp_qtyPrescribed_1.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                }
+                if(cpDrug2.value !== ""){
+                    if(cpStrength2.value === ""){
+                        cpStrength2.focus();
+                        getField('cp_strength_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(cpFrequency2.value === ""){
+                        cpFrequency2.focus();
+                        getField('cp_frequency_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(cpDuration2.value === ""){
+                        cpDuration2.focus();
+                        getField('cp_duration_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(cpDuration2.value === ""){
+                        cpDuration2.focus();
+                        getField('cp_duration_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                    if(cpQtyPrescribed2.value === ""){
+                        cpQtyPrescribed2.focus();
+                        getField('cp_qtyPrescribed_2.error').html('Fill this for drug to be dispensed').show();
+                        return false;
+                    }
+                }
+                return true;
+            });
         });
     </script>
-
 
     <!-- UPDATED -->
     <table style="margin-bottom: 20px;">
@@ -172,12 +528,12 @@
 
                 <td>
                     <label>Type of Regimen</label>
-                    <obs conceptId="166666" answerConceptIds="165614,166671" answerLabels="Regimen 1 (6 months), Regimen 2 (12 months)"/> </td>
+                    <obs id="regimenType" conceptId="166666" answerConceptIds="165614,166671" answerLabels="Regimen 1 (6 months), Regimen 2 (12 months)" required="true"/> </td>
 
 
                 <td>
                     <label>Treatment Age category</label>
-                    <obs id="TreatmentAgeCategory" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult"> </obs>
+                    <obs id="TreatmentAgeCategory" required="true" conceptId="165720" answerConceptIds="1528, 165709" answerLabels="Pediatric, Adult"> </obs>
 
                 </td>
                 <includeIf velocityTest="$patient.gender == 'F' ">
@@ -219,19 +575,19 @@
             <tr>
                 <obsgroup groupingConceptId="165728">
                     <td>
-                        <obs class='gridmenu' id="ip_drug" conceptId="165304" answerConceptIds="1675,768,656,1108" answerLabels="RHZE,RHZ,RHE,EH" />
+                        <obs class='gridmenu' id="ip_drug_1" conceptId="165304" answerConceptIds="1675,768,656,1108" answerLabels="RHZE,RHZ,RHE,EH" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" answerConceptIds="166061,165622,166062,162401,5622" answerLabels="150mg/75mg,300mg/150mg,150mg/75mg/40mg,Kit,Others" />
+                        <obs class='gridmenu' id="ip_strength_1" conceptId="165725" answerConceptIds="166061,165622,166062,162401,5622" answerLabels="150mg/75mg,300mg/150mg,150mg/75mg/40mg,Kit,Others" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+                        <obs class='gridmenu' id="ip_frequency_1" conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                     </td>
                     <td>
-                        <obs conceptId="166838" id="duration_s" answerConceptIds="166667" answerLabels="2 months" />
+                        <obs conceptId="166838" id="ip_duration_1" answerConceptIds="166667" answerLabels="2 months" />
                     </td>
                     <td>
-                        <obs conceptId="160856" id="qtyPrescribed_s" />
+                        <obs conceptId="160856" id="ip_qtyPrescribed_1" />
                     </td>
 
                 </obsgroup>
@@ -239,19 +595,19 @@
             <tr>
                 <obsgroup groupingConceptId="165728">
                     <td>
-                        <obs class='gridmenu' id="ip_drug" conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
+                        <obs class='gridmenu' id="ip_drug_2" conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" answerConceptIds="166063,165075,165074,165076,166054,5622" answerLabels="1g,150mg,300mg,100mg,400mg,Others" />
+                        <obs class='gridmenu' id="ip_strength_2" conceptId="165725" answerConceptIds="166063,165075,165074,165076,166054,5622" answerLabels="1g,150mg,300mg,100mg,400mg,Others" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+                        <obs class='gridmenu' id="ip_frequency_2" conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                     </td>
                     <td>
-                        <obs conceptId="166838" answerConceptIds="166667" answerLabels="2 months" />
+                        <obs conceptId="166838" id="ip_duration_2" answerConceptIds="166667" answerLabels="2 months" />
                     </td>
                     <td>
-                        <obs conceptId="160856"  />
+                        <obs conceptId="160856" id="ip_qtyPrescribed_2" />
                     </td>
 
                 </obsgroup>
@@ -285,19 +641,19 @@
             <tr>
                 <obsgroup groupingConceptId="165728">
                     <td>
-                        <obs class='gridmenu' id="cp_drug" conceptId="165304" answerConceptIds="1675,768,656,1108" answerLabels="RHZE,RHZ,RHE,EH" />
+                        <obs class='gridmenu' id="cp_drug_1" conceptId="165304" answerConceptIds="1675,768,656,1108" answerLabels="RHZE,RHZ,RHE,EH" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" answerConceptIds="166061,165622,166062,162401,5622" answerLabels="150mg/75mg,300mg/150mg,150mg/75mg/40mg,Kit,Others" />
+                        <obs class='gridmenu' id="cp_strength_1" conceptId="165725" answerConceptIds="166061,165622,166062,162401,5622" answerLabels="150mg/75mg,300mg/150mg,150mg/75mg/40mg,Kit,Others" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+                        <obs class='gridmenu' id="cp_frequency_1" conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                     </td>
                     <td>
-                        <obs conceptId="166838" answerConceptIds="166668,166670,166671" answerLabels="4 months,10 months,12 months" />
+                        <obs conceptId="166838" id="cp_duration_1" answerConceptIds="166668,166670,166671" answerLabels="4 months,10 months,12 months" />
                     </td>
                     <td>
-                        <obs conceptId="160856" id="qtyPrescribed" />
+                        <obs conceptId="160856" id="cp_qtyPrescribed_1" />
                     </td>
 
                 </obsgroup>
@@ -305,19 +661,19 @@
             <tr>
                 <obsgroup groupingConceptId="165728">
                     <td>
-                        <obs class='gridmenu' id="cp_drug" conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
+                        <obs class='gridmenu' id="cp_drug_2" conceptId="165304" answerConceptIds="83352,656,767,82900,75948" answerLabels="Rifabutin,Isoniazid,Rifampicin,Pyrazinamide,Ethambutol" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165725" answerConceptIds="166063,165075,165074,165076,166054,5622" answerLabels="1g,150mg,300mg,100mg,400mg,Others" />
+                        <obs class='gridmenu' id="cp_strength_2" conceptId="165725" answerConceptIds="166063,165075,165074,165076,166054,5622" answerLabels="1g,150mg,300mg,100mg,400mg,Others" />
                     </td>
                     <td>
-                        <obs class='gridmenu' conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
+                        <obs class='gridmenu' id="cp_frequency_2" conceptId="165723" answerConceptIds="160862,160858,165721,166056,166057,160870,165722,166058,5622" answerLabels="OD,BD,2 BD,3 BD,4 BD,QDS,3ce/week,Nocte,Others" />
                     </td>
                     <td>
-                        <obs conceptId="166838" answerConceptIds="166668,166670,166671" answerLabels="4 months,10 months,12 months" />
+                        <obs conceptId="166838" id="cp_duration_2" answerConceptIds="166668,166670,166671" answerLabels="4 months,10 months,12 months" />
                     </td>
                     <td>
-                        <obs conceptId="160856" id="qtyPrescribed" />
+                        <obs conceptId="160856" id="cp_qtyPrescribed_2" />
                     </td>
 
                 </obsgroup>
@@ -326,10 +682,10 @@
     </fieldset>
 
 
+
     <br/>
 
     <!-- UPDATED -->
-
 
     <br/>
 

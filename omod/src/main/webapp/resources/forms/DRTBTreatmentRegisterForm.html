@@ -143,13 +143,13 @@
     <table width="100%">
       <tr>
         <td class="alnleft_s">Patient Serial Number: </td>
-        <td class="alnleft_s"><span ><obs conceptId="166583" /></span></td>
+        <td class="alnleft_s"><span ><obs conceptId="166583" required="true" /></span></td>
 
         <!--  <td class="alnleft_s">State :</td>
-          <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>
+        <td class="alnleft_s"><span ><obs conceptId="166461" /></span></td>
 
-          <td class="alnleft_s">LGA : </td>
-          <td class="alnleft_s"><span ><obs conceptId="166015" /></span></td>-->
+        <td class="alnleft_s">LGA : </td>
+        <td class="alnleft_s"><span ><obs conceptId="166015" /></span></td>-->
 
         <td class="alnleft_s">Date Registered:</td>
         <td class="alnleft_s"><encounterDate allowFutureDates="false" id="Form_completion_date" name="Form_completion_date" required="true" showTime="false" />
@@ -218,7 +218,7 @@
 
         <td class="alnleft_s">Type of Treatment Regimen :</td>
         <td class="alnleft_s" >
-          <obs   conceptId="166540" answerConceptIds="166575, 166576,166577,166578" answerLabels="Shorter Regimen(Injectable), Shorter Regimen(BDQ), Individualized(PRE XDR), Individualized(XDR)"><!-- This line will be updated -->
+          <obs required="true"  conceptId="166540" answerConceptIds="166575, 166576,166577,166578" answerLabels="Shorter Regimen(Injectable), Shorter Regimen(BDQ), Individualized(PRE XDR), Individualized(XDR)"><!-- This line will be updated -->
 
 
           </obs>
@@ -228,7 +228,7 @@
         <td class="alnleft_s"><span ><obs conceptId="166541" /></span></td>
 
         <td class="alnleft_s">Date treatment started:</td>
-        <td class="alnleft_s"><span ><obs conceptId="166692" allowFutureDates="false" /></span></td>
+        <td class="alnleft_s"><span ><obs conceptId="166692" allowFutureDates="false" required="true"/></span></td>
       </tr>
 
     </table>
@@ -244,7 +244,7 @@
         <td class="alnleft_s">Registration Group :</td>
         <td class="alnleft_s" >
           <obs  conceptId="159990" answerConceptIds="159977,160033, 166641,166642,166643,166707,166644,166711" answerLabels="New, Relapse, Treatment after failure, Treatment after lost to follow up,
-other previously treated, TB patient, Unknown previous TB TX history, Transferred in"/> <!-- This a coded value -->
+        other previously treated, TB patient, Unknown previous TB TX history, Transferred in"/> <!-- This a coded value -->
 
         </td>
 
@@ -280,38 +280,602 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
         <obsgroup groupingConceptId="166542">
           <td class="alnleft_s">LPA(Secondline) Result : </td>
           <!-- <td class="alnleft_s"><span ><obs conceptId="165058" /></span></td>-->
-          <td class="alnleft_s"><span >
-                    <br />
-                    <br />
-                    <obs conceptId="166758" placeholder="Name of Aminoglycoside" />
-                    <obs conceptId="166760" placeholder="Resistant pattern" />
-                    <br />
-                     <obs conceptId="166760" placeholder="Name of Quinolone" />
-                    <obs conceptId="166760" placeholder="Resistant pattern" />
-                </span></td>
+          <td class="alnleft_s" colspan="6"><span >
+          <br />
+            <table width="100%">
+                  <tr>
+                    <td>
+                      <p><b>Aminoglycosides</b></p>
+                    </td>
+                    <td>
+                      <p><b>Resistance Patterns</b></p>
+                    </td>
+                    <td>
+                      <p><b>Quinolones</b></p>
+                    </td>
+                    <td>
+                      <p><b>Resistance Patterns</b></p>
+                    </td>
+                  </tr>
+                </table>
+
+          <table width="100%">
+            <tr>
+              <td>
+
+                <!--##########-->
+                <!--  <obsgroup groupingConceptId="167118">
+                    <table>
+                      <tr>
+                        <td>
+                          <obs conceptId="166758" style="checkbox" answerConceptId="767" answerLabel="Rifampicin(R)" toggle="Rifampicin" />
+
+                        </td>
+
+                        <td>
+                          <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="Rifampicin" />
+
+                        </td>
+                      </tr>
+                    </table>
+                  </obsgroup>
+                  ##########-->
+
+                <!--##########
+                <obsgroup groupingConceptId="167118">
+                  <table>
+                    <tr>
+                      <td>
+                        <obs conceptId="166758" style="checkbox" answerConceptId="656" answerLabel="Isoniazid(H)" toggle="Isoniazid" />
+
+                      </td>
+
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="Isoniazid" />
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>-->
+                <!--##########-->
+
+                <!--##########-->
+                <obsgroup groupingConceptId="167118">
+                  <table>
+                    <tr>
+                      <td>
+                        <obs conceptId="166758" style="checkbox" answerConceptId="166795" answerLabel="Kanamycin(Km)" toggle="Kanamycin" />
+                      </td>
+
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="Kanamycin" />
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+                <!--##########-->
+
+
+                <!-- ##############-->
+                <obsgroup groupingConceptId="167118">
+                  <table>
+                    <tr>
+                      <td>
+                        <!--<p><b>Aminoglycosides</b></p>-->
+                        <obs conceptId="166758" style="checkbox" answerConceptId="71060" answerLabel="Amikacin(Am)" toggle="Amikacin" />
+                      </td>
+                      <td>
+                        <!--<p>Resistance Patterns</p>-->
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="Amikacin" />
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+
+                <!--#########-->
+
+
+
+                <!--##########-->
+                <obsgroup groupingConceptId="167118">
+                  <table>
+                    <tr>
+                      <td>
+                        <obs conceptId="166758" style="checkbox" answerConceptId="72794" answerLabel="Capreomycin(Cm)" toggle="Capreomycin" />
+
+                      </td>
+
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="Capreomycin" />
+
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+                <!--##########-->
+
+
+                <!--##########-->
+                <obsgroup groupingConceptId="167118">
+                  <table>
+                    <tr>
+                      <td>
+                        <obs conceptId="166758" style="checkbox" answerConceptId="438" answerLabel="STREPTOMYCIN" toggle="STREPTOMYCIN" />
+
+                      </td>
+
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="STREPTOMYCIN" />
+
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+                <!--##########-->
+
+
+
+
+              </td>
+              <td>
+                <!--################-->
+
+                <obsgroup groupingConceptId="159987">
+                  <table>
+                    <tr>
+                      <td>
+                        <!--<p><b>Quinolones</b></p>-->
+
+                        <!--<obs conceptId="166759" answerConceptIds="81022, 80133,78788,73449" answerLabels="OFLOXACIN,MOXIFLOXACIN ,LEVOFLOXACIN, CIPROFLOXACIN" >-->
+                          <obs conceptId="166759" style="checkbox" answerConceptId="81022" answerLabels="OFLOXACIN" toggle="quin_OFLOXACIN">
+
+                        </obs>
+                      </td>
+                      <td>
+                       <!-- <p>Resistance Pattern</p>-->
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="quin_OFLOXACIN"/>
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+
+                <!--################-->
+
+                <!--################ duplicate Quinolones starts-->
+                <obsgroup groupingConceptId="159987">
+                  <table>
+                    <tr>
+                      <td>
+                          <obs conceptId="166759" style="checkbox" answerConceptId="80133" answerLabels="MOXIFLOXACIN" toggle="quin_MOXIFLOXACIN">
+
+                        </obs>
+                      </td>
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate"  class="quin_MOXIFLOXACIN" />
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+
+                <!--################-->
+
+                <!--################ duplicate Quinolones starts-->
+                <obsgroup groupingConceptId="159987">
+                  <table>
+                    <tr>
+                      <td>
+                          <obs conceptId="166759" style="checkbox" answerConceptId="78788" answerLabels="LEVOFLOXACIN" toggle="quin_LEVOFLOXACIN" >
+
+                        </obs>
+                      </td>
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" classs="quin_LEVOFLOXACIN" />
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+
+                <!--################-->
+
+                <!--##########-->
+                <obsgroup groupingConceptId="159987">
+                  <table>
+                    <tr>
+                      <td>
+                        <obs conceptId="166758" style="checkbox" answerConceptId="73449" answerLabel="CIPROFLOXACIN" toggle="quin_CIPROFLOXACIN" />
+
+                      </td>
+
+                      <td>
+                        <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="quin_CIPROFLOXACIN" />
+
+                      </td>
+                    </tr>
+                  </table>
+                </obsgroup>
+                <!--##########-->
+
+
+              </td>
+
+            </tr>
+          </table>
+            <!--<p><b>Quinolones</b></p>
+             <obsgroup groupingConceptId="159987">
+               <obs conceptId="166759" answerConceptIds="81022, 80133,78788,73449" answerLabels="OFLOXACIN,MOXIFLOXACIN ,LEVOFLOXACIN, CIPROFLOXACIN" id="Quinolonespattern" >
+                 <controls>
+                   <when value="1066" thenDisplay=".showquinolonefield"/>
+                 </controls>
+               </obs>
+               <p class="showquinolonefield">Resistance Pattern</p>
+               <obs conceptId="166760" answerConceptIds="166792,166793, 1138" answerLabels="Resistant, Susceptible, Indeterminate" class="showquinolonefield" />
+             </obsgroup>-->
+        </span>
+          </td>
 
         </obsgroup>
 
-        <td class="alnleft_s">DST Result :</td>
-        <td class="alnleft_s" >
-          <!-- <obs  conceptId="159984"  />  concept exist but with more coded value than the one specified here -->
-          <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" />
-        </td>
+
+
+
+      </tr>
+      <tr>
+        <obsgroup groupingConceptId="167119"><!-- Obs group to host dst results to be replaced-->
+
+          <td class="alnleft_s">DST Result :</td>
+          <td class="alnleft_s" >
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <p><b>tuberculosis drugs</b></p>
+                  </td>
+                  <td>
+                    <p><b>DST Results</b></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="78280" answerLabel="ISONIAZID" toggle="DST_ISONIAZID" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_ISONIAZID" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="767" answerLabel="RIFAMPICIN" toggle="DST_RIFAMPICIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_RIFAMPICIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="82900" answerLabel="PYRAZINAMIDE" toggle="DST_PYRAZINAMIDE" />
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_PYRAZINAMIDE" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="84360" answerLabel="STREPTOMYCIN" toggle="DST_STREPTOMYCIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_STREPTOMYCIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="72794" answerLabel="CAPREOMYCIN" toggle="DST_CAPREOMYCIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_CAPREOMYCIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="78788" answerLabel="LEVOFLOXACIN" toggle="DST_LEVOFLOXACIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_LEVOFLOXACIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="80133" answerLabel="MOXIFLOXACIN" toggle="DST_MOXIFLOXACIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_MOXIFLOXACIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="78385" answerLabel="KANAMYCIN" toggle="DST_KANAMYCIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_KANAMYCIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="71060" answerLabel="AMIKACIN" toggle="DST_AMIKACIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_AMIKACIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="73449" answerLabel="CIPROFLOXACIN" toggle="DST_CIPROFLOXACIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_CIPROFLOXACIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="81022" answerLabel="OFLOXACIN" toggle="DST_OFLOXACIN" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_OFLOXACIN" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="75976" answerLabel="ETHIONAMIDE" toggle="DST_ETHIONAMIDE" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_ETHIONAMIDE" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="74123" answerLabel="CYCLOSERINE" toggle="DST_CYCLOSERINE" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_CYCLOSERINE" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+
+
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="82772" answerLabel="PROTHIONAMIDE" toggle="DST_PROTHIONAMIDE" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_PROTHIONAMIDE" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+
+            <!--##########-->
+            <!--<obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="73581" answerLabel="CLOFAZIMINE" toggle="DST_CLOFAZIMINE" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_CLOFAZIMINE" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>-->
+            <!--##########-->
+
+            <!--##########-->
+            <obsgroup groupingConceptId="167120">
+              <table>
+                <tr>
+                  <td>
+                    <obs conceptId="160021" style="checkbox" answerConceptId="84836" answerLabel="TERIZIDONE" toggle="DST_TERIZIDONE" />
+
+                  </td>
+
+                  <td>
+
+                    <obs conceptId="159984" answerConceptIds="159956,159958,159972, 1118" answerLabels="Resistant, Susceptible, Contaminated, Not done" class="DST_TERIZIDONE" />
+
+                  </td>
+                </tr>
+              </table>
+            </obsgroup>
+            <!--##########-->
+
+
+
+
+
+
+          </td>
+        </obsgroup>
+
 
         <td class="alnleft_s">X-Ray done ? </td>
         <td class="alnleft_s"><span ><obs conceptId="166543" answerConceptIds="1065, 1066" answerLabels="Yes, No" id="XrayResultfield">
-                    <controls>
-                        <when value="1065" thenDisplay=".showXrayResultfield" />
-                    </controls>
-                </obs>
+        <controls>
+          <when value="1065" thenDisplay=".showXrayResultfield" />
+        </controls>
+      </obs>
 
-                </span></td>
-
-
+    </span></td>
       </tr>
 
 
     </table>
+
     <table>
       <tr>
         <td class="alnleft_s showXrayResultfield">if(X-Ray was done) </td>
@@ -332,40 +896,41 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
     <!-- Baseline results of bacteriological test  will be created as obsgroup -->
     <table width="100%">
       <tr><td>Months(1-27)</td><td>Smear Result</td><td>Culture Result</td><td>Result Date</td><td>Actions</td></tr>
-      <obsgroup groupingConceptId="166544">
+
         <repeat>
           <template>
+            <obsgroup groupingConceptId="166544">
             <tr id="{n}-toggleContainer" style="display:none;">
 
 
               <td class="alnleft_s"><span ><obs answerClasses="{concept}" conceptId="167003"
                                                 answerConceptIds="166547,
-                                                              166548
-                                                              ,166549
-                                                              ,166550
-                                                              ,166551
-                                                              ,166552
-                                                              ,166553
-                                                              ,166554
-                                                              ,166555
-                                                              ,166556
-                                                              ,166557
-                                                              ,166558
-                                                              ,166559
-                                                              ,166560
-                                                              ,166561
-                                                              ,166562
-                                                              ,166563
-                                                              ,166564
-                                                              ,166565
-                                                              ,166566
-                                                              ,166567
-                                                              ,166568
-                                                              ,166569
-                                                              ,166570
-                                                              ,166571
-                                                              ,166572
-                                                              ,166573" id="{n}-getValueMonth" /></span></td>
+              166548
+              ,166549
+              ,166550
+              ,166551
+              ,166552
+              ,166553
+              ,166554
+              ,166555
+              ,166556
+              ,166557
+              ,166558
+              ,166559
+              ,166560
+              ,166561
+              ,166562
+              ,166563
+              ,166564
+              ,166565
+              ,166566
+              ,166567
+              ,166568
+              ,166569
+              ,166570
+              ,166571
+              ,166572
+              ,166573" id="{n}-getValueMonth" /></span></td>
 
 
               <td class="alnleft_s" >
@@ -383,6 +948,7 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
               <td><button id="{n}-addEntry" class="addEntry">Add</button><button id="{n}-removeEntry" class="removeEntry">Remove</button></td>
 
             </tr>
+      </obsgroup>
           </template>
           <render n="1" concept="Diagnosis"/>
           <render n="2" concept="Diagnosis"/>
@@ -414,7 +980,7 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
 
 
         </repeat>
-      </obsgroup>
+
 
     </table>
     <!-- Baseline results of bacteriological test  will be created as obsgroup -->
@@ -426,11 +992,11 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
       <tr>
         <td >HIV Status</td>
         <td ><span ><obs conceptId="159576" answerConceptIds="138571, 664,1067" answerLabels="Positive, Negative, Unknown" id="hivpositive">
-                    <controls>
-                        <when value="138571" thenDisplay=".showARTfield" />
-                    </controls>
-                </obs>
-                </span></td>
+          <controls>
+            <when value="138571" thenDisplay=".showARTfield" />
+          </controls>
+        </obs>
+      </span></td>
 
 
         <td class="">ART :</td>
@@ -556,7 +1122,7 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
           jq(contentAddId).toggle(true);
           jq('#' + this.id).toggle(false); jq('#' + parseFloat(this.id) + '-removeEntry').toggle(false);
           getField(correctedAddButtonId +'-getValueSmearResult.value')[0].required = true;
-          //getField(correctedAddButtonId +'-getValueSmearResult.value')[0].readOnly = true;
+//getField(correctedAddButtonId +'-getValueSmearResult.value')[0].readOnly = true;
           console.log(getField(correctedAddButtonId +'-getValueSmearResult.value')[0]);
           return false;});
       });
@@ -579,24 +1145,25 @@ other previously treated, TB patient, Unknown previous TB TX history, Transferre
     function showFilledObsgroupInputs(idPrefix){
       if(
 
-              // getValue(idPrefix+'-getValueSmearResult.value') != null ||
-              //getValue(idPrefix+'-getValueCultureResult.value') != null ||
-              // getValue(idPrefix+'-getValueResultDate.value') != null
-              // getValue(idPrefix+'-getValueMonth.value') != "" ||
+// getValue(idPrefix+'-getValueSmearResult.value') != null ||
+//getValue(idPrefix+'-getValueCultureResult.value') != null ||
+// getValue(idPrefix+'-getValueResultDate.value') != null
+// getValue(idPrefix+'-getValueMonth.value') != "" ||
               getValue(idPrefix+'-getValueSmearResult.value') != "" ||
               getValue(idPrefix+'-getValueCultureResult.value') != "" ||
               getValue(idPrefix+'-getValueResultDate.value') != ""
       ){
 
-        //alert(idPrefix + "hahhahaha");
+//alert(idPrefix + "hahhahaha");
 
         $('#'+idPrefix+'-toggleContainer').show();
-        //$('#hide-overlay').toggleClass("formVisible");
+//$('#hide-overlay').toggleClass("formVisible");
       }
-      //console.log(getValue(idPrefix+'-getValueSmearResult.value'));
-      //alert(getValue(idPrefix +'-getValueResultDate.value'));
+//console.log(getValue(idPrefix+'-getValueSmearResult.value'));
+//alert(getValue(idPrefix +'-getValueResultDate.value'));
     }
   </script>
 
 
 </htmlform>
+

@@ -107,7 +107,109 @@
             <!--vertical-align: baseline;-->
             <!--}-->
     </style>
+    <script type="text/javascript">
 
+        beforeSubmit.push(function() {
+
+            // validate the phone number pattern
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
+
+            // get phone numbers from the input fields
+            let age = getValue('agecapture.value');
+            let phonval1 = getValue('phone1.value');
+            let phonval2 = getValue('phone2.value');
+
+
+            // validate the phone number pattern
+            function agevalidator(agecalc) {
+                let ageband = /^([1-9]{2})$/;
+                return ageband.test(agecalc);
+            }
+            if (agevalidator(age) === false) {
+                getField('agecapture.error').html('<b>enter a valid age between 1 to 99</b>').show();
+                return false;
+            } else   {
+                return true;
+            }
+
+            // validate all phone number fields
+            switch (true){
+                case (phonval1 === "" || phonval1 === null):
+                    if (phonechecks2 === "" || phonechecks2 === null){
+                        return true;
+                    }else{
+                        if (validatePhoneNumber(phonval2) === false) {
+                            getField('phone1.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                            return false;
+                        } else {
+                            return true; }
+                    }
+                    break;
+
+                case (phonval1 !== "" || phonval1 !== null):
+                    if (phonval2 === "" || phonval2 === null){
+                        if (validatePhoneNumber(phonval1) === false) {
+                            getField('phone1.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                            return false;
+                        }else {
+                            return true;
+                        }
+                    }else{
+                        if (validatePhoneNumber(phonval2) === false) {
+                            getField('phone2.error').html('<b>Kindly fill a valid 11 digits phone number</b>').show();
+                            return false;
+                        } else {
+                            return true; }
+                    }
+                    break;
+
+                default:
+                    return true;
+                    break;
+            }
+
+        });
+
+        var $ = jQuery;
+        $(document).ready(function ()
+        {
+            // check each phone number character as they are entered and either show or hide the prompt
+
+            document.querySelector('#phone1').children[0].addEventListener('keyup', function(e) {
+                e.preventDefault();
+                let phone = document.querySelector('#phone1').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phone1.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
+
+                else
+                    getField('phone1.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+            });
+
+            document.querySelector('#phone2').children[0].addEventListener('keyup', function(e){
+                e.preventDefault();
+                let phone = document.querySelector('#phone2').children[0].value;
+                if (!validatePhoneNumber(phone))
+                    getField('phone2.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').show();
+
+                else
+                    getField('phone2.error').html('REMINDER: Please, ensure you enter a valid 11 digits phone number').hide();
+
+            });
+
+            // validate the phone number pattern within ready function
+            function validatePhoneNumber(input_str) {
+                let regPattern = /^(0)(7|8|9){1}(0|1){1}([0-9]{8})$/;
+                return regPattern.test(input_str);
+            }
+
+
+        });
+
+
+    </script>
     <table style="margin-bottom: 20px;">
         <thead>
         <tr><th  style="text-align: center; color:darkgreen;">TB INDEX PATIENT CONTACT INVESTIGATION FORM</th></tr>
@@ -118,15 +220,16 @@
         <table class="table" width="100%">
             <tr>
                 <td class="alnleft_s">Name of TB Contact Investigator: </td>
-                <td class="alnleft_s"><obs conceptId="166715" /></td>
+                <td class="alnleft_s"><obs conceptId="166715" required="true"/></td>
                 <td class="alnleft_s">Designation of TB Contact Investigator: </td>
-                <td class="alnleft_s"><obs conceptId="166733" answerConceptIds="166803,166802" /></td>
+                <td class="alnleft_s"><obs conceptId="166733" answerConceptIds="166803,166802" required="true" /></td>
             </tr>
             <tr>
                 <td class="alnleft_s">Phone Number: </td>
-                <td class="alnleft_s"><obs conceptId="166717" /></td>
+                <td class="alnleft_s"><obs id="phone1" conceptId="166717"/>
+                </td>
                 <td class="alnleft_s">Date of Contact Tracing: </td>
-                <td class="alnleft_s"><obs conceptId="166718" /></td>
+                <td class="alnleft_s"><obs conceptId="166718" required="true" allowFutureDates="false"/></td>
             </tr>
         </table>
     </fieldset>
@@ -136,15 +239,15 @@
         <table class="table" width="100%">
             <tr>
                 <td class="alnleft_s">LGA TB Reg. No. of Index case: </td>
-                <td class="alnleft_s"><obs conceptId="166688" /></td>
+                <td class="alnleft_s"><obs conceptId="166688" required="true"/></td>
                 <td class="alnleft_s">Number of Household Contacts: </td>
                 <td class="alnleft_s"><obs conceptId="166720" /></td>
             </tr>
             <tr>
                 <td class="alnleft_s">Type of TB: </td>
-                <td class="alnleft_s"><obs conceptId="166723" /></td>
+                <td class="alnleft_s"><obs conceptId="166723" required="true" /></td>
                 <td class="alnleft_s">Consent for contact tracing: </td>
-                <td class="alnleft_s"><obs conceptId="166721" answerLabels="Agreed,Declined"/></td>
+                <td class="alnleft_s"><obs conceptId="166721" answerLabels="Agreed,Declined" required="true"/></td>
             </tr>
         </table>
     </fieldset>
@@ -154,15 +257,15 @@
         <table class="table" width="100%">
             <tr>
                 <td class="alnleft_s">Name (Surname First): </td>
-                <td class="alnleft_s"><obs conceptId="166724" /></td>
+                <td class="alnleft_s"><obs conceptId="166724" required="true"/></td>
                 <td class="alnleft_s">Age: </td>
-                <td class="alnleft_s"><obs conceptId="166725" /></td>
+                <td class="alnleft_s"><obs id="agecapture" conceptId="166725" required="true"/></td>
                 <td class="alnleft_s">Sex: </td>
-                <td class="alnleft_s"><obs conceptId="166726" /></td>
+                <td class="alnleft_s"><obs conceptId="166726" required="true"/></td>
             </tr>
             <tr>
                 <td class="alnleft_s">Phone: </td>
-                <td class="alnleft_s"><obs conceptId="166727" /></td>
+                <td class="alnleft_s"><obs id="phone2" conceptId="166727"/> </td>
                 <td class="alnleft_s">Relationship with Index Case: </td>
                 <td class="alnleft_s"><obs conceptId="166728" /></td>
             </tr>
@@ -210,8 +313,9 @@
                 <td class="alnleft_s"><encounterDate  allowFutureDates="false" required="true" /></td>
 
                 <td class="alnleft_s">Facility Name:</td>
-                <td class="alnleft_s"><encounterLocation default="GlobalProperty:default_location"/></td>
-
+                <td class="alnleft_s">
+                    <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
+                </td>
                 <td class="alnleft_s">Provider's Name:</td>
                 <td class="alnleft_s"><encounterProvider default="currentUser"/></td>
             </tr>

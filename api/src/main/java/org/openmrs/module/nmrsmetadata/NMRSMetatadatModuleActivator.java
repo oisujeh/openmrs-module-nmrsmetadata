@@ -13,9 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.module.BaseModuleActivator;
 import org.openmrs.GlobalProperty;
-import org.openmrs.api.AdministrationService;
 import org.openmrs.api.context.Context;
-import org.openmrs.scheduler.SchedulerService;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown

@@ -5,17 +5,12 @@ import org.apache.commons.logging.LogFactory;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openmrs.Form;
 import org.openmrs.FormResource;
-import org.openmrs.api.DatatypeService;
 import org.openmrs.api.FormService;
 import org.openmrs.api.context.Context;
-import org.openmrs.api.impl.DatatypeServiceImpl;
-import org.openmrs.module.htmlformentry.HtmlFormEntryService;
-import org.openmrs.module.htmlformentryui.HtmlFormUtil;
 import org.openmrs.ui.framework.resource.ResourceFactory;
 import org.openmrs.ui.framework.resource.ResourceProvider;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
