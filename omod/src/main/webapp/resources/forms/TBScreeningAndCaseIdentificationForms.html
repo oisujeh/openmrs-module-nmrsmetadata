@@ -59,7 +59,6 @@
 
             href_tb_index =baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+ $.urlParam('visitId')+"&amp;formUuid=7d42e759-4e3e-4ccd-b70d-45aa12671955&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
-            href_preTB_reg =baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+ $.urlParam('visitId')+"&amp;formUuid=bf6cff55-f393-499e-b24f-8c870f70d849&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
             href_TPT_Card =baseUrl+"/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page?patientId="+$.urlParam('patientId')+"&amp;visitId="+ $.urlParam('visitId')+"&amp;formUuid=227f6d4c-3fd6-4543-8dff-b74b7dee9a87&amp;returnUrl=%2F"+domain+"%2Fcoreapps%2Fclinicianfacing%2Fpatient.page%3FpatientId%3D"+$.urlParam('patientId')+"%26"
 
@@ -74,9 +73,6 @@
 
             var tb_index_contact = $('#tb_index_contact')
             tb_index_contact.attr("href",href_tb_index)
-
-            var preTB_reg = $('#preTB_reg')
-            preTB_reg.attr("href",href_preTB_reg)
 
             var TPT_Card= $('#TPT_Card')
             TPT_Card.attr("href",href_TPT_Card)
@@ -117,14 +113,6 @@
                             TB Index Patient Contact Investigation
                         </a>
 
-                        <a id="preTB_reg"
-                           href=""
-                           class="button app big art">
-
-                            <i class="icon-zoom-out"></i>
-
-                            Presumptive TB Register
-                        </a>
 
                         <!-- <a id="TPT_Card"
                             href=""
