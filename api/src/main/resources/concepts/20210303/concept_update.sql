@@ -98,4 +98,5 @@ UPDATE concept SET datatype_id = 2 WHERE concept_id = 160021;
 UPDATE `concept_name` SET `name` = 'Enhanced Adherence Counseling Session' WHERE `concept_name`.`uuid` = '81014de0-0cbe-424c-aa60-1a699a9ceccc';
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166773;
 UPDATE concept SET datatype_id = 3 WHERE concept_id = 166647;
+UPDATE concept SET datatype_id = 2 WHERE concept_id = 167125;
 SET FOREIGN_KEY_CHECKS=1;
