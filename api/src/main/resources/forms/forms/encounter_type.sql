@@ -33,7 +33,7 @@ REPLACE INTO `encounter_type` (`encounter_type_id`, `name`, `description`, `crea
 REPLACE INTO `encounter_type` (`encounter_type_id`, `name`, `description`, `creator`, `date_created`, `retired`, `retired_by`, `date_retired`, `retire_reason`, `uuid`, `view_privilege`, `edit_privilege`, `changed_by`, `date_changed`) VALUES (67, 'TB Treatment', 'TB Treatment', 1, '2022-01-10 17:12:33', 0, NULL, NULL, NULL, 'a9e47851-2632-4193-843a-bed6ee5677b1', NULL, NULL, NULL, NULL);
 REPLACE INTO `encounter_type` (`encounter_type_id`, `name`, `description`, `creator`, `date_created`, `retired`, `retired_by`, `date_retired`, `retire_reason`, `uuid`, `view_privilege`, `edit_privilege`, `changed_by`, `date_changed`) VALUES (68, 'TB Treatment Monitoring', 'TB Treatment Monitoring', 1, '2022-01-10 17:12:43', 0, NULL, NULL, NULL, '665f3e9e-3a8d-48e4-b74a-d7ed9bae2c1d', NULL, NULL, NULL, NULL);
 REPLACE INTO `encounter_type` (`encounter_type_id`, `name`, `description`, `creator`, `date_created`, `retired`, `retired_by`, `date_retired`, `retire_reason`, `uuid`, `view_privilege`, `edit_privilege`, `changed_by`, `date_changed`) VALUES (69, 'HIV Program', 'HIV Program', 1, '2022-01-18 12:06:48', 0, NULL, NULL, NULL, '80de892a-e504-4ac1-9366-f5f0f8a5c4a5', NULL, 'Manage Forms', NULL, NULL);
-
+REPLACE INTO `encounter_type` (`encounter_type_id`, `name`, `description`, `creator`, `date_created`, `retired`, `retired_by`, `date_retired`, `retire_reason`, `uuid`, `view_privilege`, `edit_privilege`, `changed_by`, `date_changed`) VALUES (70, 'OVC Linkage Form', 'OVC Linkage Form', 1, '2023-06-05 21:46:34', 0, NULL, NULL, NULL, 'd3ac6e1d-8374-4bf8-9b40-9c1eac392a7d', NULL, NULL, NULL, NULL);
 
 
 
