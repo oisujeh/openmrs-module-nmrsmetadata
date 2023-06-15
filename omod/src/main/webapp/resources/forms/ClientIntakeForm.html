@@ -9,7 +9,7 @@
             text-align: left;
             margin-bottom: 1em;
         }
-        
+
         .sectionHeader {
             background-color: #2f1c55;
             color: white;
@@ -17,84 +17,84 @@
             padding: 2px;
             font-weight: bold;
         }
-        
+
         table tr:nth-child(even) {
             background: #ffffff;
         }
-        
+
         .alnright {
             text-align: right;
             color: #000000;
             width: 25%;
         }
-        
+
         .alnright_s {
             text-align: right;
             color: #000000;
             width: 13%;
         }
-        
+
         .alnleft_s {
             text-align: left;
             color: #000000;
             width: 13%;
         }
-        
+
         .alnleft_f {
             text-align: left;
             color: #000000;
             width: 20%;
         }
-        
+
         .alnleft {
             text-align: left;
             color: #000000;
             width: 25%;
         }
-        
+
         .error {
             color: red;
         }
-        
+
         td {
             border: none;
         }
-        
+
         table th,
         table td {
             padding: 5px 10px;
             border: None;
         }
-        
+
         .legend_style {
             max-width: 35%;
             background: #FAFAFA;
-            <!--padding: 5px;
-            -->margin: 0px left;
+        <!--padding: 5px;
+        -->margin: 0px left;
             box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.10);
             border-radius: 2px;
             border: 1px solid #305a72;
             border-bottom-left-radius: 2px;
             text-transform: initial;
         }
-        
+
         form fieldset,
         .form fieldset {
             min-width: 98%;
             border: none;
             border-top: 1px solid #305a72;
         }
-        
+
         table th,
         table td {
             padding: 5px 10px;
             /* border: 1px solid #DDD; */
         }
-        
+
         table tr {
             border: None;
         }
-        
+
         ul.select,
         .form input,
         .form select,
@@ -102,7 +102,7 @@
         .form ul.select {
             padding: 2px 10px;
         }
-        
+
         form input,
         form select,
         form textarea,
@@ -113,18 +113,18 @@
         .form ul.select {
             padding: 2px 10px;
         }
-        
+
         form select,
         .form select {
             max-width: 200px;
             min-width: 150px;
         }
-        
+
         .standard {
             max-width: 200px;
             min-width: 150px;
         }
-        
+
         body {
             font-family: "OpenSans", Arial, sans-serif;
             color: #363463;
@@ -134,6 +134,7 @@
 
 
     <script type="text/javascript">
+        console.log('before next');
         var $ = jQuery;
         var $j = jQuery;
 
@@ -1333,7 +1334,8 @@
                     }
                     if (control_line == "1065") {
                         if (verification_line == "1066") {
-                            if (longterm_line == "1065") {
+                            if (                let setting = document.querySelector('#setting').children[0];
+                            longterm_line == "1065") {
                                 setValue('final_recency_test_recent.value', 163611);
                                 $('#final_recency_test_recent').attr("style", "pointer-events: none;");
                                 setValue('tb_vl_request.value', "");
@@ -1500,6 +1502,133 @@
     </script>
 
 
+    <script type="text/javascript">
+
+        var $ = jQuery;
+
+        $(document).ready(function(){
+
+            beforeSubmit.push(function (e){
+
+                let setting = document.querySelector('#setting').children[0];
+                let ct_value = document.querySelector('#ct_value').children[0];
+                let tb_value = document.querySelector('#tb_value').children[0];
+                let sti_value = document.querySelector('#sti_value').children[0];
+                let fp_value = document.querySelector('#fp_value').children[0];
+                let opd_value = document.querySelector('#opd_value').children[0];
+                let ward_value = document.querySelector('#ward_value').children[0];
+                let outreach_value = document.querySelector('#outreach_value').children[0];
+                let standalonehts_value = document.querySelector('#standalonehts_value').children[0];
+                let others_value = document.querySelector('#others_value').children[0];
+
+                 let index = document.querySelector('#index').children[0];
+                 let index_type_name_obs = document.querySelector('#index_type_name_obs').children[0];
+                 let index_id_text_obs = document.querySelector('#index_id_text_obs').children[0];
+
+
+                if (index.value == "1065"){
+
+                    getField('index_type_name_obs.error').hide();
+                    getField('index_id_text_obs.error').hide();
+                    if (index_type_name_obs.value == ""){
+                        index_type_name_obs.focus();
+                        getField('index_type_name_obs.error').html('ensure this field is not empty').show();
+                        return false;
+                    }
+                    if (index_id_text_obs.value == ""){
+                        index_id_text_obs.focus();
+                        getField('index_id_text_obs.error').html('ensure this field is not empty').show();
+                        return false;
+                    }
+
+                }
+
+                if (setting.value == ""){
+                    setting.focus();
+                    getField('setting.error').html('ensure this field is not empty').show();
+                    return false;
+                } else{
+                    getField('setting.error').hide();
+                    switch (true){
+
+
+                        case ((setting.value == "160539") &amp;&amp; (ct_value.value == "")):
+                            ct_value.focus();
+                            getField('ct_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "160529") &amp;&amp; (tb_value.value == "")):
+                            tb_value.focus();
+                            getField('tb_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "160546") &amp;&amp; (sti_value.value == "")):
+                            sti_value.focus();
+                            getField('sti_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "5271") &amp;&amp; (fp_value.value == "")):
+                            fp_value.focus();
+                            getField('fp_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "160542") &amp;&amp; (opd_value.value == "")):
+                            opd_value.focus();
+                            getField('opd_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "161629") &amp;&amp; (ward_value.value == "")):
+                            ward_value.focus();
+                            getField('ward_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "160545") &amp;&amp; (outreach_value.value == "")):
+                            opd_value.focus();
+                            getField('outreach_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "165838") &amp;&amp; (standalonehts_value.value == "")):
+                            standalonehts_value.focus();
+                            getField('standalonehts_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        case ((setting.value == "5622") &amp;&amp; (others_value.value == "")):
+                            others_value.focus();
+                            getField('others_value.error').html('ensure this field is not empty').show();
+                            return false;
+                            break;
+
+                        default:
+                            getField('ct_value.error').hide();
+                            getField('tb_value.error').hide();
+                            getField('sti_value.error').hide();
+                            getField('fp_value.error').hide();
+                            getField('opd_value.error').hide();
+                            getField('ward_value.error').hide();
+                            getField('outreach_value.error').hide();
+                            getField('standalonehts_value.error').hide();
+                            getField('others_value.error').hide();
+
+                            return true;
+                    }
+                }
+
+            })
+
+        })
+
+    </script>
+
+
+
     <!--    <div class="hidden" headerLabel="Encounter Details" headerStyle="title" id="encounter-details" sectionTag="section">-->
     <!--        <fieldset>-->
     <!--            <legend class="legend_style">When?</legend>-->
@@ -1522,9 +1651,9 @@
 
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr>
-                <th style="text-align: center">Client Intake Form</th>
-            </tr>
+        <tr>
+            <th style="text-align: center">Client Intake Form</th>
+        </tr>
         </thead>
     </table>
     <table class="table" width="100%">
@@ -1555,13 +1684,112 @@
 
             <td class="alnleft_s" id="setting_name_pitc">Setting</td>
             <td class="alnleft_s" id="setting_pitc">
-                <obs answerConceptIds="160539,160529,160546,5271,160542,161629,160545,165838,166135,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Community ART, Others" conceptId="165839" id="setting" required="true">
+                <!-- <obs answerConceptIds="160539,160529,160546,5271,160542,161629,160545,165838,5622" answerLabels="VCT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Others" conceptId="165839" id="setting" required="true"> -->
+                <obs answerConceptIds="160539,160529,160546,5271,160542,161629,160545,165838,5622" answerLabels="CT,TB,STI,FP,OPD,Ward,Outreach program,Standalone HTS, Others" conceptId="165839" id="setting" required="true">
+
                     <controls>
+                        <when thenDisplay="#setting_CT" value="160539" />
+                        <when thenDisplay="#setting_TB" value="160529" />
+                        <when thenDisplay="#setting_STI" value="160546" />
+                        <when thenDisplay="#setting_FP" value="5271" />
+                        <when thenDisplay="#setting_OPD" value="160542" />
+                        <when thenDisplay="#setting_ward" value="161629" />
+                        <when thenDisplay="#setting_Outreach" value="160545" />
+                        <when thenDisplay="#setting_StandaloneHTS" value="165838" />
                         <when thenDisplay="#setting_other" value="5622" />
                     </controls>
                 </obs>
             </td>
 
+        </tr>
+
+
+        <tr id="setting_CT">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="ct_value" conceptId="167154"  answerConceptIds="160546,1882,166020,1896,5964,160539,167159 " answerLabels="STI, Emergency, Index, Inpatient, TB, VCT" />
+                <!-- The last concept ID (, PMTCT,) was delibrately left to pick the defualt concept name from the DB -->
+            </td>
+        </tr>
+
+        <tr id="setting_TB">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="tb_value" conceptId="167154"  answerConceptIds="5964" answerLabels="TB" />
+            </td>
+        </tr>
+
+        <tr id="setting_STI">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="sti_value" conceptId="167154"  answerConceptIds="160546" answerLabels="STI" />
+            </td>
+        </tr>
+
+        <tr id="setting_FP">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="fp_value" conceptId="167154"  answerConceptIds="167155" answerLabels="Other PITC" />
+            </td>
+        </tr>
+
+        <tr id="setting_OPD">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="opd_value" conceptId="167154"  answerConceptIds="1882, 68,167155,160546, 160539" answerLabels="Emergency, Malnutrition, Other PITC, STI, VCT" />
+            </td>
+        </tr>
+
+        <tr id="setting_ward">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="ward_value" conceptId="167154"  answerConceptIds="1882, 1896,68" answerLabels="Emergency, Inpatient, Malnutrition" />
+            </td>
+        </tr>
+        <tr id="setting_Outreach">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="outreach_value" conceptId="167154"  answerConceptIds="167158, 167161,163488, 167160,160539" answerLabels="Index, Mobile, Other community, SNS, VCT" />
+            </td>
+        </tr>
+
+        <tr id="setting_StandaloneHTS">
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"> </td>
+            <td class="alnleft_s"></td>
+            <td class="alnleft_s">MER Modality</td>
+            <td class="alnleft_s">
+                <obs id="standalonehts_value" conceptId="167154"  answerConceptIds="1882, 167158,1896,165685, 167160,160546, 5964,160539, 167159" answerLabels="Emergency, Index, Inpatient, PMTCT (ANC1 Only), SNS, STI, TB, VCT" />
+            </td>
         </tr>
 
 
@@ -1573,7 +1801,10 @@
             <td class="alnleft_s"></td>
             <td class="alnleft_s">Others, Specify</td>
             <td class="alnleft_s">
-                <obs conceptId="165966" />
+
+                <obs id="others_value" conceptId="167154"  answerConceptIds="167158,167157, 165685,167159" answerLabels="Index, Pediatric &lt; 5 Clinic, PMTCT (ANC1 Only)" />
+
+
             </td>
         </tr>
 
@@ -1619,7 +1850,7 @@
         <tr>
             <td class="alnleft_s">Is client identified from an index client?</td>
             <td class="alnleft_s">
-                <obs conceptId="165794" id="index">
+                <obs conceptId="165794" id="index" required="true">
                     <controls>
                         <when thenDisplay="#index_type_label,#index_type_name,#index_id_label,#index_id_text" value="1065" />
                     </controls>
@@ -1627,10 +1858,10 @@
             </td>
             <td class="alnleft_s" id="index_type_label">Index Type</td>
             <td class="alnleft_s" id="index_type_name">
-                <obs answerConceptIds="165796,165797,165795" answerLabels="Biological,Sexual,Social (needle sharing)" conceptId="165798" /> </td>
+                <obs id="index_type_name_obs" answerConceptIds="165796,165797,165795" answerLabels="Biological,Sexual,Social (needle sharing)" conceptId="165798" /> </td>
             <td class="alnleft_s" id="index_id_label">Index Client ID</td>
             <td class="alnleft_s" id="index_id_text">
-                <obs conceptId="165859" /> </td>
+                <obs id="index_id_text_obs" conceptId="165859" /> </td>
         </tr>
         <tr>
             <td class="alnleft_s">Is client retesting for result verification?</td>
@@ -1906,7 +2137,7 @@
 
                             <controls>
                                 <when thenDisplay="#control_line_label,#control_line,#verification_line_label,#verification_line,#longterm_line_label,#longterm_line,#recency_number_label,#recency_number_value, #viral_load_table, #recency_table, #recency_number_verif_label,#recency_number_verif_value,#recency_warning_label,#test_name_dropdown,#recency_test_date,#recency_test_date_label,#test_name_label,#preferred_recency,#preferred_recency_label,#identifier_label"
-                                    value="1066" />
+                                      value="1066" />
                             </controls>
 
                         </obs>
@@ -1956,9 +2187,9 @@
                         <patient field="identifier" required="false" />
                     </td>
                     <td style="vertical-align: top;">
-                        <label id="preferred_recency_label" name="preferred_recency_label"> 
-                          <input id="preferred_recency" name="preferred_recency" type="checkbox" />preferred
-                      </label>          
+                        <label id="preferred_recency_label" name="preferred_recency_label">
+                            <input id="preferred_recency" name="preferred_recency" type="checkbox" />preferred
+                        </label>
                     </td>
 
                     <td colspan="2"> <span id="outrange" style="width:100%; color:red; font-weight:bold;"></span> </td>
@@ -2026,105 +2257,105 @@
                         <obs answerConceptIds="1066,1065" answerLabels="No,Yes" conceptId="166244" id="tb_vl_request">
                             <controls>
                                 <when thenDisplay="#new_tag"
-                                    value="1065" />
+                                      value="1065" />
                             </controls>
 
                         </obs>
                     </td>
                 </tr>
             </table>
-            
-             	
-             <table id="new_tag">
-                	 <tr>
-                        <td class="alnleft_f" id="vl_value"><b>Viral load confirmation</b></td>
-                        <td colspan="3"></td>                       
-                    </tr>
-                	
-                    <tr>
-                        <td class="alnleft_f" id="vl_value">Sample collection date</td>
-                        <td class="alnleft_f">
-                            <obs allowFutureDates="false" conceptId="159951" id="vlsample_value_obs" name="vlsample_value_obs" />
-                        </td>
-                        <td id="sample_id_label">Sample Reference Number:</td>
-                        <td>
-                            <obs conceptId="165715" id="sample_id" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="vl_samplet">Sample Type</td>
-                        <td>
-                            <obs answerConceptIds="1002,165568" answerLabels="Plasma,DBS" conceptId="162476" id="sample_type" />
-                        </td>
-                        <td class="alnleft_f" id="vl_dss">Date Sample Sent to PCR Lab</td>
-                        <td class="alnleft_f">
-                            <obs allowFutureDates="false" conceptId="165988" id="vlpcr_value_obs" name="vlpcr_value_obs" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="vl_samplet">Date sample received at PCR Lab</td>
-                        <td class="alnleft_f">
-                            <obs allowFutureDates="false" conceptId="165716" />
-                        </td>
-                        <td class="alnleft_f" id="vl_dss">Date result was sent from PCR Lab</td>
-                        <td class="alnleft_f">
-                            <obs allowFutureDates="false" conceptId="165989" />
-                        </td>
-                    </tr>
-     				<tr>
-		                <td class="alnleft_s">Date Sample Ordered</td>
-		                <td>
-		                    <obs conceptId="164989" allowFutureDates="false" />
-		                </td>
-		                <td class="alnleft_s">Date result was received at the facility</td>
-		                <td>
-		                    <obs conceptId="165987" allowFutureDates="false" />
-		                </td>
-					</tr>
-                    <tr>
-                        <td class="alnleft_f" id="vl_rpcr">Receiving PCR Lab</td>
-                        <td class="alnleft_f">
-                            <obs answerConceptIds="166234,166217,166218,166219,166220,166221,166232,166222,166223,166224,166225,166226,166227,166228,166229,166230,166231" answerLabels="68 NARH Yaba Lagos,Ahmadu Bello University Teaching Hospital (ABUTH),Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH),Rivers State University Hospital (RSUTH),Defence Reference laboratory (DRL) Abuja,Federal Medical Center Makurdi,Federal Medical Center Jalingo,Federal Teaching Hospital (FTH) Gombe,Jos University Teaching Hospital (JUTH) Jos,Lagos State University Teaching Hospital (LASUTH) Lagos,National Reference Laboratory Gaduwa (NRL) Abuja,Nigerian Institute of Medical Research (NIMR) Lagos,Nnamdi Azikiwe University Teaching Hospital (NAUTH),Obafemi Awolowo University Teaching Hospital (OAUTH) Ile-Ife,University of Maiduguri Teaching Hospital (UMTH) Maiduguri,University of Uyo teaching Hospital (UUTH) Uyo,Usman Danfodio University Teaching Hospital (UDUTH)"
-                                conceptId="166233" id="receiving_lab" />
-                        </td>
-                        <td class="alnleft_f" id="vl_result_label">Viral Load Result Classification:</td>
-                        <td class="alnleft_f">
-                            <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000,Failed VL" conceptId="166241" id="vl_result_clasification" />
-                        </td>
-                    </tr>
-    
-                    <tr>        
-                        <td class="alnleft_f" id="vl_result">Result (copies/ml)</td>
-                        <td class="alnleft_f">
-                            <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
-                        </td>
-                        <td class="alnleft_f" id="final_recency_label">Final Recency Result:</td>
-                        <td class="alnleft_f">
-                            <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
-                            
-                        </td>
-                    </tr>
-                     <tr>
-			                <td class="alnleft_f">Assay Date</td>
-                            <td class="alnleft_f">
-                                <obs conceptId="166424" allowFutureDates="false" />
-                            </td>   
-                            <td class="alnleft_f">Approval Date</td>
-                            <td class="alnleft_f">
-                                <obs conceptId="166425" allowFutureDates="false" />
-                            </td> 
-                     </tr>
-                     <tr>
-                        <td class="alnleft_f">Result Date</td>
-                        <td class="alnleft_f">
-                            <obs conceptId="166423" allowFutureDates="false" />
-                        </td>  
-                        <td class="alnleft_f" id="vl_value">Sample test date</td>
-                    	<td class="alnleft_f">
-                        	<obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
-                    	</td>
-                     </tr>
-                 
+
+
+            <table id="new_tag">
+                <tr>
+                    <td class="alnleft_f" id="vl_value"><b>Viral load confirmation</b></td>
+                    <td colspan="3"></td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_value">Sample collection date</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="159951" id="vlsample_value_obs" name="vlsample_value_obs" />
+                    </td>
+                    <td id="sample_id_label">Sample Reference Number:</td>
+                    <td>
+                        <obs conceptId="165715" id="sample_id" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="vl_samplet">Sample Type</td>
+                    <td>
+                        <obs answerConceptIds="1002,165568" answerLabels="Plasma,DBS" conceptId="162476" id="sample_type" />
+                    </td>
+                    <td class="alnleft_f" id="vl_dss">Date Sample Sent to PCR Lab</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165988" id="vlpcr_value_obs" name="vlpcr_value_obs" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="vl_samplet">Date sample received at PCR Lab</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165716" />
+                    </td>
+                    <td class="alnleft_f" id="vl_dss">Date result was sent from PCR Lab</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165989" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_s">Date Sample Ordered</td>
+                    <td>
+                        <obs conceptId="164989" allowFutureDates="false" />
+                    </td>
+                    <td class="alnleft_s">Date result was received at the facility</td>
+                    <td>
+                        <obs conceptId="165987" allowFutureDates="false" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_f" id="vl_rpcr">Receiving PCR Lab</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166234,166217,166218,166219,166220,166221,166232,166222,166223,166224,166225,166226,166227,166228,166229,166230,166231" answerLabels="68 NARH Yaba Lagos,Ahmadu Bello University Teaching Hospital (ABUTH),Chukwuemeka Odumegwu Ojukwu University Teaching Hospital (COOUTH),Rivers State University Hospital (RSUTH),Defence Reference laboratory (DRL) Abuja,Federal Medical Center Makurdi,Federal Medical Center Jalingo,Federal Teaching Hospital (FTH) Gombe,Jos University Teaching Hospital (JUTH) Jos,Lagos State University Teaching Hospital (LASUTH) Lagos,National Reference Laboratory Gaduwa (NRL) Abuja,Nigerian Institute of Medical Research (NIMR) Lagos,Nnamdi Azikiwe University Teaching Hospital (NAUTH),Obafemi Awolowo University Teaching Hospital (OAUTH) Ile-Ife,University of Maiduguri Teaching Hospital (UMTH) Maiduguri,University of Uyo teaching Hospital (UUTH) Uyo,Usman Danfodio University Teaching Hospital (UDUTH)"
+                             conceptId="166233" id="receiving_lab" />
+                    </td>
+                    <td class="alnleft_f" id="vl_result_label">Viral Load Result Classification:</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166238,166239,166240" answerLabels="&lt;1000,&gt;=1000,Failed VL" conceptId="166241" id="vl_result_clasification" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="alnleft_f" id="vl_result">Result (copies/ml)</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="856" id="vl_result_obs" name="vl_result_obs" />
+                    </td>
+                    <td class="alnleft_f" id="final_recency_label">Final Recency Result:</td>
+                    <td class="alnleft_f">
+                        <obs answerConceptIds="166236,166235,166237" answerLabels="RITA Recent,Long-Term Infection,Rita Inconclusive" conceptId="166214" id="final_recency_value" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_f">Assay Date</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="166424" allowFutureDates="false" />
+                    </td>
+                    <td class="alnleft_f">Approval Date</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="166425" allowFutureDates="false" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alnleft_f">Result Date</td>
+                    <td class="alnleft_f">
+                        <obs conceptId="166423" allowFutureDates="false" />
+                    </td>
+                    <td class="alnleft_f" id="vl_value">Sample test date</td>
+                    <td class="alnleft_f">
+                        <obs allowFutureDates="false" conceptId="165854" id="vl_value_obs" name="vl_value_obs" />
+                    </td>
+                </tr>
+
                 <tr>
                     <td colspan="4" id="another_recency_warning_label" style="width: 100%; color:red">Please verify the correctness of all fields from the paper form before submission.</td>
                 </tr>
@@ -2300,7 +2531,7 @@
                 var testVal = new Date(getValue('hiv_test_date.value'));
                 var rctd = new Date(getValue('recency_test_date.value'));
 
-                if (getField('recency_test_date.error') != null &amp; &amp; testVal > rctd) {
+                if (getField('recency_test_date.error') != null &amp;&amp; testVal > rctd) {
                     getField('recency_test_date.error').html('RecencyTest Date cannot be earlier than Screening Test Date').show();
                     return false;
                 }
@@ -2373,87 +2604,87 @@
         </table>
         <table class="table" width="100%">
             <tr>
-                <tr>
-                    <td>Have you been tested for HIV before within this year</td>
-                    <td>
-                        <obs conceptId="165881" />
-                    </td>
-                    <td>Risk reduction plan developed</td>
-                    <td>
-                        <obs conceptId="165820" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>HIV Request and Result form signed by tester(s)</td>
-                    <td>
-                        <obs conceptId="165818" />
-                    </td>
-                    <td>Post test disclosure plan developed</td>
-                    <td>
-                        <obs conceptId="165821" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>HIV Request and Result form filled with CT Intake Form</td>
-                    <td>
-                        <obs conceptId="165819" />
-                    </td>
-                    <td>Will bring partner(s) for HIV testing</td>
-                    <td>
-                        <obs conceptId="165822" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Client received HIV test result</td>
-                    <td>
-                        <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="164848" />
-                    </td>
-                    <td>Will bring own children less than 5 years for HIV testing</td>
-                    <td>
-                        <obs conceptId="165823" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post test counseling done</td>
-                    <td>
-                        <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="159382" />
-                    </td>
-                    <td>Provided with information on FP and dual contraception</td>
-                    <td>
-                        <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="1382" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Client/partner use FP methods (other than condom):</td>
-                    <td>
-                        <obs conceptId="165883" />
-                    </td>
-                    <td>Correct condom use demonstrated</td>
-                    <td>
-                        <obs conceptId="165824" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Client/partner use condoms as (one) FP method</td>
-                    <td>
-                        <obs conceptId="5571" style="no_yes_dropdown" />
-                    </td>
-                    <td>Condoms provided to client</td>
-                    <td>
-                        <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="159777" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Client referred to other services</td>
-                    <td>
-                        <obs conceptId="1648" style="no_yes_dropdown" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Comments</td>
-                    <td colspan="3">
-                        <obs conceptId="165045" rows="2" /> </td>
-                </tr>
+            <tr>
+                <td>Have you been tested for HIV before within this year</td>
+                <td>
+                    <obs conceptId="165881" />
+                </td>
+                <td>Risk reduction plan developed</td>
+                <td>
+                    <obs conceptId="165820" />
+                </td>
+            </tr>
+            <tr>
+                <td>HIV Request and Result form signed by tester(s)</td>
+                <td>
+                    <obs conceptId="165818" />
+                </td>
+                <td>Post test disclosure plan developed</td>
+                <td>
+                    <obs conceptId="165821" />
+                </td>
+            </tr>
+            <tr>
+                <td>HIV Request and Result form filled with CT Intake Form</td>
+                <td>
+                    <obs conceptId="165819" />
+                </td>
+                <td>Will bring partner(s) for HIV testing</td>
+                <td>
+                    <obs conceptId="165822" />
+                </td>
+            </tr>
+            <tr>
+                <td>Client received HIV test result</td>
+                <td>
+                    <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="164848" />
+                </td>
+                <td>Will bring own children less than 5 years for HIV testing</td>
+                <td>
+                    <obs conceptId="165823" />
+                </td>
+            </tr>
+            <tr>
+                <td>Post test counseling done</td>
+                <td>
+                    <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="159382" />
+                </td>
+                <td>Provided with information on FP and dual contraception</td>
+                <td>
+                    <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="1382" />
+                </td>
+            </tr>
+            <tr>
+                <td>Client/partner use FP methods (other than condom):</td>
+                <td>
+                    <obs conceptId="165883" />
+                </td>
+                <td>Correct condom use demonstrated</td>
+                <td>
+                    <obs conceptId="165824" />
+                </td>
+            </tr>
+            <tr>
+                <td>Client/partner use condoms as (one) FP method</td>
+                <td>
+                    <obs conceptId="5571" style="no_yes_dropdown" />
+                </td>
+                <td>Condoms provided to client</td>
+                <td>
+                    <obs answerConceptIds="1066,1065" answerLabels="No, Yes" conceptId="159777" />
+                </td>
+            </tr>
+            <tr>
+                <td>Client referred to other services</td>
+                <td>
+                    <obs conceptId="1648" style="no_yes_dropdown" />
+                </td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td colspan="3">
+                    <obs conceptId="165045" rows="2" /> </td>
+            </tr>
 
             </tr>
 

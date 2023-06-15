@@ -7,191 +7,197 @@
     </macros>
     <style>
         .section {
-        border: 1px solid $headerColor;
-        padding: 2px;
-        text-align: left;
-        margin-bottom: 1em;
+            border: 1px solid $headerColor;
+            padding: 2px;
+            text-align: left;
+            margin-bottom: 1em;
         }
         .sectionHeader {
-        background-color: #2f1c55;
-        color: white;
-        /* display: block; */
-        padding: 2px;
-        font-weight: bold;
+            background-color: #2f1c55;
+            color: white;
+            /* display: block; */
+            padding: 2px;
+            font-weight: bold;
         }
         table tr:nth-child(even) {
-        background: #ffffff;
+            background: #ffffff;
         }
+
+        .error {
+            color: red;
+        }
+
         .alnright{
-        text-align: right;
-        color:#000000;
-        width: 25%;
+            text-align: right;
+            color:#000000;
+            width: 25%;
         }
         .alnright_s{
-        text-align: right;
-        color:#000000;
-        width: 13%;
+            text-align: right;
+            color:#000000;
+            width: 13%;
         }
         .alnleft_s{
-        text-align: left;
-        color:#000000;
-        width: 13%;
+            text-align: left;
+            color:#000000;
+            width: 13%;
         }
         .alnleft{
-        text-align: left;
-        color:#000000;
-        width: 25%;
+            text-align: left;
+            color:#000000;
+            width: 25%;
         }
+
         td {
-        border: none;
+            border: none;
         }
         table th, table td {
-        padding: 5px 10px;
-        border: None;
+            padding: 5px 10px;
+            border: None;
         }
         .legend_style {
-        max-width: 35%;
-        background: #FAFAFA;
+            max-width: 35%;
+            background: #FAFAFA;
         <!--padding: 5px;-->
-        margin: 0px left;
-        box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
-        border-radius: 2px;
-        border: 1px solid #305a72;
-        border-bottom-left-radius: 2px;
-        text-transform:initial;
+            margin: 0px left;
+            box-shadow: 1px 1px 25px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            border: 1px solid #305a72;
+            border-bottom-left-radius: 2px;
+            text-transform:initial;
 
         }
         form fieldset, .form fieldset {
-        min-width: 98%;
-        border: none;
-        border-top: 1px solid #305a72;
+            min-width: 98%;
+            border: none;
+            border-top: 1px solid #305a72;
 
         }
         table th, table td {
-        padding: 5px 10px;
-        /* border: 1px solid #DDD; */
+            padding: 5px 10px;
+            /* border: 1px solid #DDD; */
         }
         table tr {
-        border: None;
+            border: None;
         }
         ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;
+            padding: 2px 10px;
         }
         form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
-        padding: 2px 10px;
-        min-width: 150px;
-        max-width: 150px;
+            padding: 2px 10px;
+            min-width: 150px;
+            max-width: 150px;
         }
         form select, .form select {
-        max-width: 150px;
-        min-width: 150px;
+            max-width: 150px;
+            min-width: 150px;
         }
         body {
-        font-family: "OpenSans", Arial, sans-serif;
-        color: #363463;
-        font-size: 14px;
+            font-family: "OpenSans", Arial, sans-serif;
+            color: #363463;
+            font-size: 14px;
         }
         <!--table.baseline-aligned td {-->
-        <!--vertical-align: baseline;-->
-        <!--}-->
+            <!--vertical-align: baseline;-->
+            <!--}-->
     </style>
 
 
-<script type="text/javascript">
-          jQuery(function() {
+    <script type="text/javascript">
+        jQuery(function() {
             jQuery('.datefield').find("input").attr("readonly",true);
             jQuery('.hasDatepicker').attr('readonly', true)
-          });
-
-    </script>
-
-    <script type="text/javascript">
-    beforeSubmit.push(function() {
-        var val_encounterDate = getValue('Visit_ID.value');
-        var val_enrollInProgram = getValue('Enrollment_ID.value');
-        if (val_enrollInProgram > val_encounterDate) {
-            getField('Visit_ID.error').html('Visit Date has to be later than Enrollment Date').show();
-            return false;
-        }
-
-        return true;
-    });
-    </script>
-    <script type="text/javascript">
-    var $ = jQuery;
-
-    $(document).ready(function() {
-        $.ajax({
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            url: "/openmrs/nigeriaemr/PatientIdTypeSetter/getIdentifier.action",
-            data: { patientId: $('input[name=personId]').val(), identifierType: $('#pref_type').val() },
-            cache: false,
-            timeout: 600000,
-            success: function(r) {
-                if (r.code > 0) {
-                    if (r.identifier.length > 0) {
-                        if (r.preferred === true) {
-                            $('#preferred').prop("checked", 'checked');
-                        }
-                    }
-                }
-            },
-            error: function(e) {
-                console.log("ERROR : ", e);
-            }
         });
 
-        $('#preferred').click(function(e) {
-            var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
-            if (patientIdentifier) {
-                if (patientIdentifier.trim().length > 0) {
-                    var obj = e.target;
-                    var isPreferred = false;
-                    if ($(obj).prop("checked") == true) {
-                        isPreferred = true;
-                    }
+    </script>
 
-                    var patientId = $('input[name=personId]').val();
-                    var identifierType = $('#pref_type').val();
+    <script type="text/javascript">
+        beforeSubmit.push(function() {
+            var val_encounterDate = getValue('Visit_ID.value');
+            var val_enrollInProgram = getValue('Enrollment_ID.value');
+            if (val_enrollInProgram > val_encounterDate) {
+                getField('Visit_ID.error').html('Visit Date has to be later than Enrollment Date').show();
+                return false;
+            }
 
-                    var pid = { patientId: patientId, patientIdentifier: patientIdentifier, identifierType: identifierType, isPreferred: isPreferred };
-                    var link = "/openmrs/nigeriaemr/PatientIdTypeSetter/setPidType.action";
+            return true;
+        });
+    </script>
+    <script type="text/javascript">
+        var $ = jQuery;
 
-                    $.ajax({
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        url: link,
-                        data: pid,
-                        cache: false,
-                        timeout: 600000,
-                        success: function(r) {
-                            if (r.code !== 5) {
-                                alert(r.message);
+        $(document).ready(function() {
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url: "/openmrs/nigeriaemr/PatientIdTypeSetter/getIdentifier.action",
+                data: { patientId: $('input[name=personId]').val(), identifierType: $('#pref_type').val() },
+                cache: false,
+                timeout: 600000,
+                success: function(r) {
+                    if (r.code > 0) {
+                        if (r.identifier.length > 0) {
+                            if (r.preferred === true) {
+                                $('#preferred').prop("checked", 'checked');
                             }
-                        },
-                        error: function(e) {
-                            console.log("ERROR : ", e);
                         }
-                    });
+                    }
+                },
+                error: function(e) {
+                    console.log("ERROR : ", e);
+                }
+            });
+
+            $('#preferred').click(function(e) {
+                var patientIdentifier = $('input:text', '#identifer-td').eq(0).val();
+                if (patientIdentifier) {
+                    if (patientIdentifier.trim().length > 0) {
+                        var obj = e.target;
+                        var isPreferred = false;
+                        if ($(obj).prop("checked") == true) {
+                            isPreferred = true;
+                        }
+
+                        var patientId = $('input[name=personId]').val();
+                        var identifierType = $('#pref_type').val();
+
+                        var pid = { patientId: patientId, patientIdentifier: patientIdentifier, identifierType: identifierType, isPreferred: isPreferred };
+                        var link = "/openmrs/nigeriaemr/PatientIdTypeSetter/setPidType.action";
+
+                        $.ajax({
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            url: link,
+                            data: pid,
+                            cache: false,
+                            timeout: 600000,
+                            success: function(r) {
+                                if (r.code !== 5) {
+                                    alert(r.message);
+                                }
+                            },
+                            error: function(e) {
+                                console.log("ERROR : ", e);
+                            }
+                        });
+                    } else {
+                        $('#preferred').prop("checked", '');
+                        alert('Please fill in the HEI No. before setting as preferred');
+                    }
                 } else {
                     $('#preferred').prop("checked", '');
                     alert('Please fill in the HEI No. before setting as preferred');
                 }
-            } else {
-                $('#preferred').prop("checked", '');
-                alert('Please fill in the HEI No. before setting as preferred');
-            }
+            });
         });
-    });
     </script>
-  
+
     <span style="float:right">Paper Form ID: $paperFormId</span>
     <table style="margin-bottom: 20px;">
         <thead>
-            <tr>
-                <th style="text-align: center">Child Birth Information</th>
-            </tr>
+        <tr>
+            <th style="text-align: center">Child Birth Information</th>
+        </tr>
         </thead>
     </table>
     <fieldset>
@@ -216,7 +222,7 @@
 
                 </td>
 
-           </tr>
+            </tr>
             <tr>
                 <td class="alnright_s">Weight(kg):</td>
                 <td class="alnleft_s">
@@ -240,9 +246,9 @@
                 <td class="alnleft_s">
                     <obs conceptId="1504" />
                 </td>
-                <td class="alnright_s">Child given Hepatitis B Immunoglobulin (Hep B Ig)?:</td>
+                <td class="alnright_s">Child given Hepatitis B Immunoglobulin (Hep B Ig within 24 hrs of delivery)?:</td>
                 <td class="alnleft_s">
-                    <obs conceptId="165667" />
+                    <obs conceptId="165667" required="true"/>
                 </td>
             </tr>
             <tr>
