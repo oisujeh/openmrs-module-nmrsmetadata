@@ -126,6 +126,59 @@
 
         beforeSubmit.push(function() {
 
+            let service_delivery_model = document.querySelector('#service_delivery_model').children[0];
+            console.log('verify_66666');
+            let community_based = document.querySelector('#community_based').children[0];
+            console.log('verify_777777');
+            let facility_based = document.querySelector('#facility_based').children[0];
+
+            if (service_delivery_model.value == "") {
+                console.log('verify6');
+                service_delivery_model.focus();
+                console.log('verify60000000');
+
+                getField('service_delivery_model.error').html('Ensure this field is not empty').show();
+                console.log('verify6111111');
+                return false;
+            } else if (service_delivery_model.value == "166276") {
+                console.log('verify6333333');
+
+                getField('service_delivery_model.error').hide();
+
+                // var facility_based = getValue('facility_based.value');
+                // var f_dsd_date = getValue('f_dsd_date.value');
+                //
+                if (facility_based.value == "") {
+                    console.log('verify7');
+                    facility_based.focus();
+                    getField('facility_based.error').html('Ensure this field is not empty').show();
+                    return false;
+                }else{
+                    console.log('verify9');
+                    getField('facility_based.error').hide();
+                    return true;
+
+                }
+            } else  {
+
+                getField('service_delivery_model.error').hide();
+
+                // var community_based = getValue('community_based.value');
+                // var c_dsd_date = getValue('c_dsd_date.value');
+
+                if  (community_based.value == "") {
+
+                    community_based.focus();
+                    getField('community_based.error').html('Ensure this field is not empty').show();
+                    return false;
+                }else{
+                    getField('community_based.error').hide();
+                    return true;
+
+                }
+            }
+
+
             if (((getValue('oi_drug.value') != "") || (getValue('tb_drug.value') != "")) &amp;&amp; ((getValue('TreatmentAgeCategory.value') == ""))) {
 
                 if (confirm('ARV entries are empty!!!  Sure you want to submit OI entries only?')) {
@@ -340,7 +393,7 @@
         var $ = jQuery;
         $(document).ready(function (){
             let val = document.querySelectorAll(".drugsSelector")[0].children[0].value;
-            let regId = null; 
+            let regId = null;
             document.querySelectorAll('.lines').forEach(input => {
                 if(input.children[0].value){
                     regId =  input.children[0].value;
@@ -365,7 +418,7 @@
                 let regimenLine = document.querySelector('#RegimenLine').children[0];
                 let regimenLineValue = regimenLine.value;
                 regimenLine.innerHTML = '<option></option>';
-                
+
                 if(treatmentCategory == 1528) {
                     regimenLine.innerHTML += '<option value="164507">Child First Line</option>';
                     regimenLine.innerHTML += '<option value="164514">Child Second Line</option>';
@@ -425,9 +478,9 @@
                 .then(response => response.json())
                 .then(result => {
                     // console.log("Result", result);
-                     mapping = result;
-                     // console.log(mapping);
-                     // console.log(mapping.drugMappingList)
+                    mapping = result;
+                    // console.log(mapping);
+                    // console.log(mapping.drugMappingList)
                     // let response = result.drugs;
 
                     document.querySelectorAll(".drugsSelector").forEach(sel => {
@@ -440,8 +493,8 @@
                                 sel.children[0].innerHTML += '<option value="' + mapping.drugsConceptId + '" >' + mapping.drugName + '</option>';
                             }
                         });
-                            sel.children[0].value = val;
-                            getStrength(sel.children[0])
+                        sel.children[0].value = val;
+                        getStrength(sel.children[0])
                     });
 
 
@@ -455,15 +508,15 @@
                     // });
                 })
                 .catch(error => {
-                   clearElements();
+                    clearElements();
                     console.log('error', error)
                 });
         }
 
         function getStrength(e){
-           //console.log("Mapping", mapping);
-           let strength = e.parentNode.parentNode.parentNode.querySelector(".drugsStrength").children[0];
-           let val = strength.value;
+            //console.log("Mapping", mapping);
+            let strength = e.parentNode.parentNode.parentNode.querySelector(".drugsStrength").children[0];
+            let val = strength.value;
             let option = '<option></option>';
             let targetMap = null;
 
@@ -480,7 +533,7 @@
                 }
             }
             strength.innerHTML = option;
-           strength.value = val;
+            strength.value = val;
         }
 
         function clearElements(){
@@ -579,7 +632,7 @@
                     <tr>
                         <td>
                             <label>Dispensing Modality</label>
-                            <obs id="ServiceDeliveryModel" conceptId="166148" answerConceptIds="166276,166363" answerLabels="Facility Based DSD Model, Community Based DSD Models">
+                            <obs id="service_delivery_model" conceptId="166148" answerConceptIds="166276,166363" answerLabels="Facility Based DSD Model, Community Based DSD Models">
                                 <controls>
                                     <when value="166276" thenDisplay="#Facility_Dispensing" />
                                     <when value="166363" thenDisplay="#ddd_Dispensing" />
@@ -595,7 +648,7 @@
                     <tr>
                         <td>
                             <label>Facility Dispensing </label>
-                            <obs conceptId='166276' answerConceptIds="166153,166151,167107,167108,167109,167110,167111,167112,167124" answerLabels="Not Differenciated, Fast Track, Facility ART group HCW led,Facility ART group Support group,Decentralization (Hub and Spoke),After hours,Weekend and Public holidays,Child/Teen/Adolescents club (Peer Managed),Mother infant pair/Mentor mother led" />
+                            <obs id="facility_based" conceptId='166276' answerConceptIds="166151,167107,167108,167109,167110,167111,167112,167124" answerLabels="Fast Track, Facility ART group HCW led,Facility ART group Support group,Decentralization (Hub and Spoke),After hours,Weekend and Public holidays,Child/Teen/Adolescents club (Peer Managed),Mother infant pair/Mentor mother led" />
                         </td>
                     </tr>
                 </table>
@@ -606,7 +659,7 @@
                     <tr>
                         <td>
                             <label>Community Dispensing (DDD)</label>
-                            <obs id="ddd_Dispensings" conceptId='166363' answerConceptIds="166134,166135,167113,167114,167115,166280" answerLabels="Community Pharmacy, Community ART Group (HCW-led), Community ART Refill Group (PLHIV-led), Adolescent Community ART/ peer-led groups, One Stop Shop (OSS), Home/Courier Delivery" />
+                            <obs id="community_based" conceptId='166363' answerConceptIds="166134,166135,167113,167114,167115,166280" answerLabels="Community Pharmacy, Community ART Group (HCW-led), Community ART Refill Group (PLHIV-led), Adolescent Community ART/ peer-led groups, One Stop Shop (OSS), Home/Courier Delivery" />
                         </td>
                     </tr>
                 </table>
